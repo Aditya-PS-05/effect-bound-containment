@@ -1,0 +1,59 @@
+[
+  {
+    "ts": "2026-09-12T18:11:54.508Z",
+    "run_id": "standalone",
+    "twin": "github",
+    "request_id": "req_25442162-36bd-4fc7-a9d7-ac92e1610b04",
+    "correlation_id": "clean",
+    "task_step_id": null,
+    "scenario_step_id": null,
+    "step_id": null,
+    "tool_call_id": "clean",
+    "method": "GET",
+    "path": "/s/standalone/repos/acme/api",
+    "request_body": null,
+    "request_headers": {
+      "accept-encoding": "identity",
+      "authorization": "[REDACTED]",
+      "connection": "close",
+      "content-type": "application/json",
+      "host": "127.0.0.1:44371",
+      "user-agent": "Python-urllib/3.14",
+      "x-pome-correlation-id": "clean"
+    },
+    "tool": null,
+    "status": 200,
+    "response_body": {
+      "id": 1,
+      "node_id": "R_1",
+      "name": "api",
+      "full_name": "acme/api",
+      "owner": {
+        "login": "acme",
+        "id": 2988346,
+        "node_id": "U_2988346",
+        "avatar_url": "https://avatars.githubusercontent.com/u/2988346?v=4",
+        "html_url": "https://github.com/acme",
+        "type": "Organization",
+        "site_admin": false
+      },
+      "private": false,
+      "html_url": "https://github.com/acme/api",
+      "description": "Example API service used by GitHub twin tests.",
+      "fork": false,
+      "url": "https://api.github.com/repos/acme/api",
+      "contents_url": "https://api.github.com/repos/acme/api/contents/{+path}",
+      "issues_url": "https://api.github.com/repos/acme/api/issues{/number}",
+      "pulls_url": "https://api.github.com/repos/acme/api/pulls{/number}",
+      "default_branch": "main",
+      "created_at": "2026-09-12T18:11:54.447Z",
+      "updated_at": "2026-09-12T18:11:54.448Z",
+      "pushed_at": "2026-09-12T18:11:54.448Z"
+    },
+    "latency_ms": 3,
+    "fidelity": "semantic",
+    "state_mutation": false,
+    "state_delta": null,
+    "error": null
+  }
+]

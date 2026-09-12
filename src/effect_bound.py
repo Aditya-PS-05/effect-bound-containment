@@ -217,17 +217,9 @@ class ToolServer:
 
     def execute(self, request: Request, capability: Capability | None = None) -> EffectEvent:
         before = sorted(self.repositories)
-        if self.enforce:
-            if self.verifier is None or capability is None:
-                return self._record(request, False, "missing capability", before)
-            valid, reason = self.verifier.verify(request, capability)
-            if not valid:
-                return self._record(request, False, reason, before)
-            if self.policy is not None:
-                decision, _ = self.policy.classify(request)
-                if decision != "allow":
-                    reason = "effect violates contract" if decision == "deny" else f"policy {decision}"
-                    return self._record(request, False, reason, before)
+        reason = self.authorize(request, capability)
+        if reason is not None:
+            return self._record(request, False, reason, before)
 
         data_reads: list[str] = []
         downstream: list[str] = []
@@ -250,6 +242,21 @@ class ToolServer:
         else:
             return self._record(request, False, "unknown tool", before)
         return self._record(request, True, "executed", before, data_reads, downstream, returned_labels)
+
+    def authorize(self, request: Request, capability: Capability | None) -> str | None:
+        """Shared admission check for the test double and actual Pome execution adapter."""
+        if self.enforce:
+            if self.verifier is None or capability is None:
+                return "missing capability"
+            valid, reason = self.verifier.verify(request, capability)
+            if not valid:
+                return reason
+            if self.policy is not None:
+                decision, _ = self.policy.classify(request)
+                if decision != "allow":
+                    reason = "effect violates contract" if decision == "deny" else f"policy {decision}"
+                    return reason
+        return None
 
     def _record(
         self,

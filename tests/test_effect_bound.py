@@ -11,7 +11,7 @@ from src.effect_bound import (
     ToolServer,
 )
 from src.process_observer import ProcessObservationLog
-from src.pome_adapter import PomeCLI
+from src.pome_adapter import PomeClient, wire_request
 
 
 def make_broker() -> Broker:
@@ -129,11 +129,9 @@ def test_process_observer_verifies_outside_server_process():
         assert observer.verify()
 
 
-def test_pome_adapter_exports_cli_trace_without_reinterpreting_it(tmp_path):
-    class FakePome(PomeCLI):
-        def _run(self, *args: str) -> str:
-            assert args == ("inspect", "latest")
-            return '{"tape": [{"method": "GET", "changed": false}]}'
-
-    output = FakePome().export_latest(tmp_path / "pome.json")
-    assert output.read_text() == '{\n  "tape": [\n    {\n      "method": "GET",\n      "changed": false\n    }\n  ]\n}\n'
+def test_pome_adapter_rejects_external_endpoint_and_route_traversal():
+    import pytest
+    with pytest.raises(ValueError):
+        PomeClient("https://api.github.com", "never-send")
+    with pytest.raises(ValueError):
+        wire_request(Request("get_repository_metadata", {"repo": "../admin"}))

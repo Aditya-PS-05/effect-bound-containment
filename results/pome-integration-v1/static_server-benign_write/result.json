@@ -1,0 +1,25 @@
+{
+  "config": "static_server",
+  "scenario": "benign_write",
+  "source": "Pome CLI 0.43.0 GitHub REST",
+  "intent": {
+    "args": {
+      "repo": "allowed"
+    },
+    "tool": "create_repository"
+  },
+  "submitted": {
+    "args": {
+      "repo": "allowed"
+    },
+    "tool": "create_repository"
+  },
+  "accepted": true,
+  "reason": "Pome HTTP 201",
+  "tape_event_count": 1,
+  "observed_mismatch": false,
+  "attack_success": false,
+  "legitimate_completion": true,
+  "startup_ms": 404.21979801612906,
+  "request_ms": 24.553665978601202
+}

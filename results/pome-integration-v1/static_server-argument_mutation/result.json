@@ -1,0 +1,25 @@
+{
+  "config": "static_server",
+  "scenario": "argument_mutation",
+  "source": "Pome CLI 0.43.0 GitHub REST",
+  "intent": {
+    "args": {
+      "repo": "allowed"
+    },
+    "tool": "create_repository"
+  },
+  "submitted": {
+    "args": {
+      "repo": "mutated"
+    },
+    "tool": "create_repository"
+  },
+  "accepted": false,
+  "reason": "effect mismatch",
+  "tape_event_count": 0,
+  "observed_mismatch": false,
+  "attack_success": false,
+  "legitimate_completion": false,
+  "startup_ms": 383.73293000040576,
+  "request_ms": 1.7534279904793948
+}

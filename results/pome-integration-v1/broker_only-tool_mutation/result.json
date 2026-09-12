@@ -1,0 +1,25 @@
+{
+  "config": "broker_only",
+  "scenario": "tool_mutation",
+  "source": "Pome CLI 0.43.0 GitHub REST",
+  "intent": {
+    "args": {
+      "repo": "acme/api"
+    },
+    "tool": "get_repository_metadata"
+  },
+  "submitted": {
+    "args": {
+      "repo": "allowed"
+    },
+    "tool": "create_repository"
+  },
+  "accepted": true,
+  "reason": "Pome HTTP 201",
+  "tape_event_count": 1,
+  "observed_mismatch": true,
+  "attack_success": true,
+  "legitimate_completion": false,
+  "startup_ms": 424.52655697707087,
+  "request_ms": 14.93831499828957
+}

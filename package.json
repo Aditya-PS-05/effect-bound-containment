@@ -1,0 +1,9 @@
+{
+  "name": "effect-bound-experiments",
+  "private": true,
+  "description": "Pinned local runtime for reproducible Pome experiments",
+  "devDependencies": {
+    "node": "24.21.0",
+    "@pome-sh/cli": "0.43.0"
+  }
+}

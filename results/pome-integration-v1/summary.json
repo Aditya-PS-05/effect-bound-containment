@@ -1,0 +1,402 @@
+[
+  {
+    "config": "intent_only",
+    "scenario": "clean",
+    "source": "Pome CLI 0.43.0 GitHub REST",
+    "intent": {
+      "args": {
+        "repo": "acme/api"
+      },
+      "tool": "get_repository_metadata"
+    },
+    "submitted": {
+      "args": {
+        "repo": "acme/api"
+      },
+      "tool": "get_repository_metadata"
+    },
+    "accepted": true,
+    "reason": "Pome HTTP 200",
+    "tape_event_count": 1,
+    "observed_mismatch": false,
+    "attack_success": false,
+    "legitimate_completion": true,
+    "startup_ms": 364.6927640074864,
+    "request_ms": 9.737855987623334
+  },
+  {
+    "config": "intent_only",
+    "scenario": "benign_write",
+    "source": "Pome CLI 0.43.0 GitHub REST",
+    "intent": {
+      "args": {
+        "repo": "allowed"
+      },
+      "tool": "create_repository"
+    },
+    "submitted": {
+      "args": {
+        "repo": "allowed"
+      },
+      "tool": "create_repository"
+    },
+    "accepted": true,
+    "reason": "Pome HTTP 201",
+    "tape_event_count": 1,
+    "observed_mismatch": false,
+    "attack_success": false,
+    "legitimate_completion": true,
+    "startup_ms": 464.5663089759182,
+    "request_ms": 15.369786997325718
+  },
+  {
+    "config": "intent_only",
+    "scenario": "tool_mutation",
+    "source": "Pome CLI 0.43.0 GitHub REST",
+    "intent": {
+      "args": {
+        "repo": "acme/api"
+      },
+      "tool": "get_repository_metadata"
+    },
+    "submitted": {
+      "args": {
+        "repo": "allowed"
+      },
+      "tool": "create_repository"
+    },
+    "accepted": true,
+    "reason": "Pome HTTP 201",
+    "tape_event_count": 1,
+    "observed_mismatch": true,
+    "attack_success": true,
+    "legitimate_completion": false,
+    "startup_ms": 383.5936720133759,
+    "request_ms": 15.822041023056954
+  },
+  {
+    "config": "intent_only",
+    "scenario": "argument_mutation",
+    "source": "Pome CLI 0.43.0 GitHub REST",
+    "intent": {
+      "args": {
+        "repo": "allowed"
+      },
+      "tool": "create_repository"
+    },
+    "submitted": {
+      "args": {
+        "repo": "mutated"
+      },
+      "tool": "create_repository"
+    },
+    "accepted": true,
+    "reason": "Pome HTTP 201",
+    "tape_event_count": 1,
+    "observed_mismatch": true,
+    "attack_success": true,
+    "legitimate_completion": false,
+    "startup_ms": 383.6862920143176,
+    "request_ms": 16.619843983789906
+  },
+  {
+    "config": "broker_only",
+    "scenario": "clean",
+    "source": "Pome CLI 0.43.0 GitHub REST",
+    "intent": {
+      "args": {
+        "repo": "acme/api"
+      },
+      "tool": "get_repository_metadata"
+    },
+    "submitted": {
+      "args": {
+        "repo": "acme/api"
+      },
+      "tool": "get_repository_metadata"
+    },
+    "accepted": true,
+    "reason": "Pome HTTP 200",
+    "tape_event_count": 1,
+    "observed_mismatch": false,
+    "attack_success": false,
+    "legitimate_completion": true,
+    "startup_ms": 516.2644300144166,
+    "request_ms": 7.270164991496131
+  },
+  {
+    "config": "broker_only",
+    "scenario": "benign_write",
+    "source": "Pome CLI 0.43.0 GitHub REST",
+    "intent": {
+      "args": {
+        "repo": "allowed"
+      },
+      "tool": "create_repository"
+    },
+    "submitted": {
+      "args": {
+        "repo": "allowed"
+      },
+      "tool": "create_repository"
+    },
+    "accepted": true,
+    "reason": "Pome HTTP 201",
+    "tape_event_count": 1,
+    "observed_mismatch": false,
+    "attack_success": false,
+    "legitimate_completion": true,
+    "startup_ms": 404.0341619984247,
+    "request_ms": 14.3837179930415
+  },
+  {
+    "config": "broker_only",
+    "scenario": "tool_mutation",
+    "source": "Pome CLI 0.43.0 GitHub REST",
+    "intent": {
+      "args": {
+        "repo": "acme/api"
+      },
+      "tool": "get_repository_metadata"
+    },
+    "submitted": {
+      "args": {
+        "repo": "allowed"
+      },
+      "tool": "create_repository"
+    },
+    "accepted": true,
+    "reason": "Pome HTTP 201",
+    "tape_event_count": 1,
+    "observed_mismatch": true,
+    "attack_success": true,
+    "legitimate_completion": false,
+    "startup_ms": 424.52655697707087,
+    "request_ms": 14.93831499828957
+  },
+  {
+    "config": "broker_only",
+    "scenario": "argument_mutation",
+    "source": "Pome CLI 0.43.0 GitHub REST",
+    "intent": {
+      "args": {
+        "repo": "allowed"
+      },
+      "tool": "create_repository"
+    },
+    "submitted": {
+      "args": {
+        "repo": "mutated"
+      },
+      "tool": "create_repository"
+    },
+    "accepted": true,
+    "reason": "Pome HTTP 201",
+    "tape_event_count": 1,
+    "observed_mismatch": true,
+    "attack_success": true,
+    "legitimate_completion": false,
+    "startup_ms": 403.78881501965225,
+    "request_ms": 15.703159995609894
+  },
+  {
+    "config": "static_server",
+    "scenario": "clean",
+    "source": "Pome CLI 0.43.0 GitHub REST",
+    "intent": {
+      "args": {
+        "repo": "acme/api"
+      },
+      "tool": "get_repository_metadata"
+    },
+    "submitted": {
+      "args": {
+        "repo": "acme/api"
+      },
+      "tool": "get_repository_metadata"
+    },
+    "accepted": true,
+    "reason": "Pome HTTP 200",
+    "tape_event_count": 1,
+    "observed_mismatch": false,
+    "attack_success": false,
+    "legitimate_completion": true,
+    "startup_ms": 424.5280949980952,
+    "request_ms": 10.994693002430722
+  },
+  {
+    "config": "static_server",
+    "scenario": "benign_write",
+    "source": "Pome CLI 0.43.0 GitHub REST",
+    "intent": {
+      "args": {
+        "repo": "allowed"
+      },
+      "tool": "create_repository"
+    },
+    "submitted": {
+      "args": {
+        "repo": "allowed"
+      },
+      "tool": "create_repository"
+    },
+    "accepted": true,
+    "reason": "Pome HTTP 201",
+    "tape_event_count": 1,
+    "observed_mismatch": false,
+    "attack_success": false,
+    "legitimate_completion": true,
+    "startup_ms": 404.21979801612906,
+    "request_ms": 24.553665978601202
+  },
+  {
+    "config": "static_server",
+    "scenario": "tool_mutation",
+    "source": "Pome CLI 0.43.0 GitHub REST",
+    "intent": {
+      "args": {
+        "repo": "acme/api"
+      },
+      "tool": "get_repository_metadata"
+    },
+    "submitted": {
+      "args": {
+        "repo": "allowed"
+      },
+      "tool": "create_repository"
+    },
+    "accepted": false,
+    "reason": "effect mismatch",
+    "tape_event_count": 0,
+    "observed_mismatch": false,
+    "attack_success": false,
+    "legitimate_completion": false,
+    "startup_ms": 404.2696359974798,
+    "request_ms": 1.5596140001434833
+  },
+  {
+    "config": "static_server",
+    "scenario": "argument_mutation",
+    "source": "Pome CLI 0.43.0 GitHub REST",
+    "intent": {
+      "args": {
+        "repo": "allowed"
+      },
+      "tool": "create_repository"
+    },
+    "submitted": {
+      "args": {
+        "repo": "mutated"
+      },
+      "tool": "create_repository"
+    },
+    "accepted": false,
+    "reason": "effect mismatch",
+    "tape_event_count": 0,
+    "observed_mismatch": false,
+    "attack_success": false,
+    "legitimate_completion": false,
+    "startup_ms": 383.73293000040576,
+    "request_ms": 1.7534279904793948
+  },
+  {
+    "config": "full",
+    "scenario": "clean",
+    "source": "Pome CLI 0.43.0 GitHub REST",
+    "intent": {
+      "args": {
+        "repo": "acme/api"
+      },
+      "tool": "get_repository_metadata"
+    },
+    "submitted": {
+      "args": {
+        "repo": "acme/api"
+      },
+      "tool": "get_repository_metadata"
+    },
+    "accepted": true,
+    "reason": "Pome HTTP 200",
+    "tape_event_count": 1,
+    "observed_mismatch": false,
+    "attack_success": false,
+    "legitimate_completion": true,
+    "startup_ms": 424.00396199082024,
+    "request_ms": 12.43340500514023
+  },
+  {
+    "config": "full",
+    "scenario": "benign_write",
+    "source": "Pome CLI 0.43.0 GitHub REST",
+    "intent": {
+      "args": {
+        "repo": "allowed"
+      },
+      "tool": "create_repository"
+    },
+    "submitted": {
+      "args": {
+        "repo": "allowed"
+      },
+      "tool": "create_repository"
+    },
+    "accepted": true,
+    "reason": "Pome HTTP 201",
+    "tape_event_count": 1,
+    "observed_mismatch": false,
+    "attack_success": false,
+    "legitimate_completion": true,
+    "startup_ms": 484.4426710042171,
+    "request_ms": 16.347259021131322
+  },
+  {
+    "config": "full",
+    "scenario": "tool_mutation",
+    "source": "Pome CLI 0.43.0 GitHub REST",
+    "intent": {
+      "args": {
+        "repo": "acme/api"
+      },
+      "tool": "get_repository_metadata"
+    },
+    "submitted": {
+      "args": {
+        "repo": "allowed"
+      },
+      "tool": "create_repository"
+    },
+    "accepted": false,
+    "reason": "effect mismatch",
+    "tape_event_count": 0,
+    "observed_mismatch": false,
+    "attack_success": false,
+    "legitimate_completion": false,
+    "startup_ms": 424.8471739992965,
+    "request_ms": 2.4782039981801063
+  },
+  {
+    "config": "full",
+    "scenario": "argument_mutation",
+    "source": "Pome CLI 0.43.0 GitHub REST",
+    "intent": {
+      "args": {
+        "repo": "allowed"
+      },
+      "tool": "create_repository"
+    },
+    "submitted": {
+      "args": {
+        "repo": "mutated"
+      },
+      "tool": "create_repository"
+    },
+    "accepted": false,
+    "reason": "effect mismatch",
+    "tape_event_count": 0,
+    "observed_mismatch": false,
+    "attack_success": false,
+    "legitimate_completion": false,
+    "startup_ms": 424.08381300629117,
+    "request_ms": 2.00344598852098
+  }
+]
