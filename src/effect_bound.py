@@ -155,6 +155,30 @@ class EffectEvent:
     downstream_effects: list[str] = field(default_factory=list)
 
 
+class ObservationLog:
+    """Tamper-evident local observer log; external storage is still required in production."""
+
+    def __init__(self) -> None:
+        self.entries: list[dict[str, Any]] = []
+
+    def append(self, event: EffectEvent) -> None:
+        payload = json.dumps(event.__dict__, sort_keys=True, separators=(",", ":"), default=str)
+        previous = self.entries[-1]["hash"] if self.entries else "0" * 64
+        digest = hashlib.sha256(f"{previous}|{payload}".encode()).hexdigest()
+        self.entries.append({"previous": previous, "payload": payload, "hash": digest})
+
+    def verify(self) -> bool:
+        previous = "0" * 64
+        for entry in self.entries:
+            if entry["previous"] != previous:
+                return False
+            digest = hashlib.sha256(f"{previous}|{entry['payload']}".encode()).hexdigest()
+            if not hmac.compare_digest(digest, entry["hash"]):
+                return False
+            previous = entry["hash"]
+        return True
+
+
 def contains_sensitive(value: Any) -> bool:
     if isinstance(value, DataItem):
         return bool(value.labels & {"secret", "private"})
@@ -168,11 +192,17 @@ def contains_sensitive(value: Any) -> bool:
 class ToolServer:
     """Authoritative effect boundary for the local experiment."""
 
-    def __init__(self, verifier: CapabilityVerifier | None = None, enforce: bool = True) -> None:
+    def __init__(
+        self,
+        verifier: CapabilityVerifier | None = None,
+        enforce: bool = True,
+        observer: ObservationLog | None = None,
+    ) -> None:
         self.verifier = verifier
         self.enforce = enforce
         self.repositories = {"demo"}
         self.effects: list[EffectEvent] = []
+        self.observer = observer or ObservationLog()
 
     def clone(self) -> "ToolServer":
         clone = ToolServer(enforce=False)
@@ -199,6 +229,8 @@ class ToolServer:
         elif request.tool == "read_secret":
             data_reads.append("secret:demo-token")
         elif request.tool == "send_message":
+            if contains_sensitive(request.args):
+                return self._record(request, False, "sensitive data exfiltration", before)
             downstream.append("notification:sent")
         else:
             return self._record(request, False, "unknown tool", before)
@@ -225,6 +257,7 @@ class ToolServer:
             downstream or [],
         )
         self.effects.append(event)
+        self.observer.append(event)
         return event
 
 
@@ -280,15 +313,29 @@ class Broker:
             result = self.sandbox.run(request)
             if result.suspicious:
                 self.policy.propose_block(request, "; ".join(result.reasons))
-            return {"decision": decision, "reason": explanation, "sandbox": result}
+            return {
+                "decision": decision,
+                "reason": explanation,
+                "sandbox": result,
+                "observer_chain_valid": self.server.observer.verify(),
+            }
         if decision != "allow":
-            return {"decision": decision, "reason": explanation}
+            return {
+                "decision": decision,
+                "reason": explanation,
+                "observer_chain_valid": self.server.observer.verify(),
+            }
 
         self._counter += 1
         capability = self.issuer.issue(request, f"nonce-{self._counter}")
         executed_request = actual or request
         event = self.server.execute(executed_request, capability)
-        return {"decision": decision, "reason": explanation, "event": event}
+        return {
+            "decision": decision,
+            "reason": explanation,
+            "event": event,
+            "observer_chain_valid": self.server.observer.verify(),
+        }
 
 
 def incident_record(intent: Request, result: dict[str, Any]) -> dict[str, Any]:
@@ -305,6 +352,7 @@ def incident_record(intent: Request, result: dict[str, Any]) -> dict[str, Any]:
             "state_after": event.state_after,
             "data_reads": event.data_reads,
             "downstream_effects": event.downstream_effects,
+            "observer_chain_valid": result.get("observer_chain_valid"),
             "mismatch": event.tool != intent.tool or event.request_id != intent.request_id,
         }
     return {
@@ -315,5 +363,6 @@ def incident_record(intent: Request, result: dict[str, Any]) -> dict[str, Any]:
         "reason": result.get("reason"),
         "sandbox_suspicious": bool(sandbox and sandbox.suspicious),
         "sandbox_reasons": list(sandbox.reasons) if sandbox else [],
+        "observer_chain_valid": result.get("observer_chain_valid"),
         "mismatch": False,
     }

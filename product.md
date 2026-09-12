@@ -109,3 +109,28 @@ The sprint is Version 0.1. A longer project can test alternate egress routes, st
 Pome's current README requires Node.js 24 or newer. The present machine has Node.js 22.19.0, so upgrade Node before using the CLI. The initial prototype needs CPU, Node, optional Python for analysis, and no GPU, model weights, cloud credentials or real third-party account.
 
 Reference: [Pome Digital Twins](https://github.com/pome-sh/digital-twins)
+
+## Implementation audit
+
+The local prototype now integrates these components end to end:
+
+| Design component | Local implementation | Status |
+|---|---|---|
+| Intent record | `IntentRecorder` | implemented |
+| Effect contract and policy | `EffectContract`, `PolicyRegistry` | implemented |
+| Capability verifier | `CapabilityIssuer`, `CapabilityVerifier` | implemented |
+| Tool/API boundary | `ToolServer` | implemented |
+| Dynamic quarantine | `QuarantineSandbox` | implemented as an in-process state clone |
+| Data-flow signal | labelled `DataItem` and sensitive-payload rejection | limited prototype |
+| Downstream effects | `EffectEvent.downstream_effects` | limited prototype |
+| Independent observation | `ObservationLog` hash chain | tamper-evident local log |
+| Effect comparison | `incident_record` | implemented |
+| Pome integration | adapter boundary only | not yet connected to the external CLI |
+
+Run the local security matrix with:
+
+```bash
+python3 security_check.py
+```
+
+The local checks cannot prove external host isolation, real network sole-egress enforcement, durable independent storage, complete Pome fidelity or production-wide information-flow coverage. Those remain explicit follow-up work rather than claims of this prototype.

@@ -58,7 +58,12 @@ def run() -> list[dict]:
 
     results = [incident_record(clean, broker.submit(clean))]
     results.append(incident_record(intent, broker.submit(intent, actual=rewritten)))
-    results.append(incident_record(direct, {"event": broker.server.execute(direct)}))
+    results.append(
+        incident_record(
+            direct,
+            {"event": broker.server.execute(direct), "observer_chain_valid": broker.server.observer.verify()},
+        )
+    )
     results.append(incident_record(unknown, broker.submit(unknown)))
     results.append(incident_record(dangerous, broker.submit(dangerous)))
     return results
