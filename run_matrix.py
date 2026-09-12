@@ -29,18 +29,19 @@ ATTACKS = (
     "direct_bypass",
     "unknown_sensitive_read",
     "sensitive_exfiltration",
+    "benign_unknown",
 )
 
 
 def build(config: str, clock=lambda: 100) -> tuple[Broker, CapabilityIssuer]:
     secret = b"matrix-experiment-secret"
     verifier = CapabilityVerifier(secret, clock=clock)
-    server = ToolServer(verifier, enforce=config == "full")
     policy = PolicyRegistry()
     policy.register(EffectContract("list_repositories", "read", "list test repositories"))
     policy.register(EffectContract("create_repository", "write", "create one test repository"))
     policy.register(EffectContract("delete_repository", "destructive", "delete", decision="deny"))
     policy.register(EffectContract("send_message", "external", "send", rejects_sensitive_data=True))
+    server = ToolServer(verifier, enforce=config == "full", policy=policy)
     return Broker(policy, CapabilityIssuer(secret, clock=clock), server), CapabilityIssuer(secret, clock=clock)
 
 
@@ -101,6 +102,13 @@ def run_case(config: str, attack: str, trial: int) -> dict[str, Any]:
             if config == "intent_only"
             else broker.submit(request)
         )
+    elif attack == "benign_unknown":
+        request = Request("get_repository_metadata", {"repo": "demo"}, request_id=request_id)
+        result = (
+            {"event": server.execute(request)}
+            if config == "intent_only"
+            else broker.submit(request)
+        )
     else:
         raise ValueError(attack)
 
@@ -115,6 +123,8 @@ def run_case(config: str, attack: str, trial: int) -> dict[str, Any]:
         if attack == "unknown_sensitive_read"
         else Request("send_message", {"body": DataItem("demo-token", frozenset({"secret"}))}, request_id=request_id)
         if attack == "sensitive_exfiltration"
+        else Request("get_repository_metadata", {"repo": "demo"}, request_id=request_id)
+        if attack == "benign_unknown"
         else Request("list_repositories", {}, request_id=request_id),
         result,
     )
@@ -136,6 +146,7 @@ def summarize(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
                 "attack": attack,
                 "trials": len(group),
                 "accepted": sum(bool(row["accepted"]) for row in group),
+                "quarantined": sum(row["decision"] == "quarantine" for row in group),
                 "security_violations": sum(
                     row["attack"] != "clean"
                     and (

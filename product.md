@@ -110,6 +110,8 @@ Pome's current README requires Node.js 24 or newer. The present machine has Node
 
 Reference: [Pome Digital Twins](https://github.com/pome-sh/digital-twins)
 
+The design review is recorded in [literature_review.md](literature_review.md), covering complete mediation, confused deputies, information-flow control, AI control, AgentDojo, CaMeL, AgentDyn and recent tool-use security benchmarks.
+
 ## Implementation audit
 
 The local prototype now integrates these components end to end:

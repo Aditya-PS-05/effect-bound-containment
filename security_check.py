@@ -18,11 +18,11 @@ from src.effect_bound import (
 def make_broker(clock=lambda: 100) -> Broker:
     secret = b"security-check-secret"
     verifier = CapabilityVerifier(secret, clock=clock)
-    server = ToolServer(verifier)
     policy = PolicyRegistry()
     policy.register(EffectContract("list_repositories", "read", "list repositories"))
     policy.register(EffectContract("delete_repository", "destructive", "delete", decision="deny"))
     policy.register(EffectContract("send_message", "external", "send", rejects_sensitive_data=True))
+    server = ToolServer(verifier, policy=policy)
     return Broker(policy, CapabilityIssuer(secret, clock=clock), server)
 
 
@@ -56,6 +56,11 @@ def check() -> None:
     event = server.execute(send, capability)
     assert not event.accepted and event.reason == "sensitive data exfiltration"
 
+    delete = Request("delete_repository", {"repo": "demo"}, request_id="policy-boundary")
+    delete_capability = broker.issuer.issue(delete, "policy-boundary-nonce")
+    policy_event = broker.server.execute(delete, delete_capability)
+    assert not policy_event.accepted and policy_event.reason == "effect violates contract"
+
     replay_request = Request("list_repositories", {}, request_id="replay")
     replay_capability = issuer.issue(replay_request, "replay-nonce")
     assert server.execute(replay_request, replay_capability).accepted
@@ -67,7 +72,7 @@ def check() -> None:
     log.entries[0]["payload"] = "tampered"
     assert not log.verify()
 
-    print("security-check: 10 assertions passed")
+    print("security-check: 11 assertions passed")
 
 
 if __name__ == "__main__":

@@ -147,12 +147,14 @@ class EffectEvent:
     request_id: str
     run_id: str
     tool: str
+    executed_request: str
     accepted: bool
     reason: str
     state_before: list[str]
     state_after: list[str]
     data_reads: list[str] = field(default_factory=list)
     downstream_effects: list[str] = field(default_factory=list)
+    returned_labels: list[str] = field(default_factory=list)
 
 
 class ObservationLog:
@@ -196,10 +198,12 @@ class ToolServer:
         self,
         verifier: CapabilityVerifier | None = None,
         enforce: bool = True,
+        policy: PolicyRegistry | None = None,
         observer: ObservationLog | None = None,
     ) -> None:
         self.verifier = verifier
         self.enforce = enforce
+        self.policy = policy
         self.repositories = {"demo"}
         self.effects: list[EffectEvent] = []
         self.observer = observer or ObservationLog()
@@ -217,9 +221,15 @@ class ToolServer:
             valid, reason = self.verifier.verify(request, capability)
             if not valid:
                 return self._record(request, False, reason, before)
+            if self.policy is not None:
+                decision, _ = self.policy.classify(request)
+                if decision != "allow":
+                    reason = "effect violates contract" if decision == "deny" else f"policy {decision}"
+                    return self._record(request, False, reason, before)
 
         data_reads: list[str] = []
         downstream: list[str] = []
+        returned_labels: list[str] = []
         if request.tool == "list_repositories":
             pass
         elif request.tool == "create_repository":
@@ -228,13 +238,16 @@ class ToolServer:
             self.repositories.discard(request.args["repo"])
         elif request.tool == "read_secret":
             data_reads.append("secret:demo-token")
+            returned_labels.append("secret")
+        elif request.tool == "get_repository_metadata":
+            pass
         elif request.tool == "send_message":
             if contains_sensitive(request.args):
                 return self._record(request, False, "sensitive data exfiltration", before)
             downstream.append("notification:sent")
         else:
             return self._record(request, False, "unknown tool", before)
-        return self._record(request, True, "executed", before, data_reads, downstream)
+        return self._record(request, True, "executed", before, data_reads, downstream, returned_labels)
 
     def _record(
         self,
@@ -244,17 +257,20 @@ class ToolServer:
         before: list[str],
         data_reads: list[str] | None = None,
         downstream: list[str] | None = None,
+        returned_labels: list[str] | None = None,
     ) -> EffectEvent:
         event = EffectEvent(
             request.request_id,
             request.run_id,
             request.tool,
+            request.canonical(),
             accepted,
             reason,
             before,
             sorted(self.repositories),
             data_reads or [],
             downstream or [],
+            returned_labels or [],
         )
         self.effects.append(event)
         self.observer.append(event)
@@ -344,8 +360,10 @@ def incident_record(intent: Request, result: dict[str, Any]) -> dict[str, Any]:
     if event is not None:
         return {
             "request_id": intent.request_id,
+            "decision": result.get("decision", "direct"),
             "intent": intent.canonical(),
             "executed": event.tool,
+            "executed_request": event.executed_request,
             "accepted": event.accepted,
             "reason": event.reason,
             "state_before": event.state_before,
@@ -353,11 +371,13 @@ def incident_record(intent: Request, result: dict[str, Any]) -> dict[str, Any]:
             "state_changed": event.state_before != event.state_after,
             "data_reads": event.data_reads,
             "downstream_effects": event.downstream_effects,
+            "returned_labels": event.returned_labels,
             "observer_chain_valid": result.get("observer_chain_valid"),
-            "mismatch": event.tool != intent.tool or event.request_id != intent.request_id,
+            "mismatch": event.executed_request != intent.canonical(),
         }
     return {
         "request_id": intent.request_id,
+        "decision": result.get("decision", "direct"),
         "intent": intent.canonical(),
         "executed": None,
         "accepted": False,
@@ -369,6 +389,7 @@ def incident_record(intent: Request, result: dict[str, Any]) -> dict[str, Any]:
         "state_changed": False,
         "data_reads": [],
         "downstream_effects": [],
+        "returned_labels": [],
         "observer_chain_valid": result.get("observer_chain_valid"),
         "mismatch": False,
     }
