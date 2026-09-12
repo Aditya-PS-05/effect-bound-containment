@@ -1,6 +1,7 @@
 """Passive, local-only native Git study. Prospective protocol in hypotheses.md."""
 
 import argparse
+from contextlib import contextmanager
 import hashlib
 import inspect
 import json
@@ -145,10 +146,9 @@ def assess(row, before, after, steps):
             "views": views}
 
 
-def run_case(scenario, enabled, destination):
-    if scenario not in SCENARIOS or type(enabled) is not bool:
-        raise ValueError("Unknown experiment cell")
-    destination.mkdir(parents=True, exist_ok=False)
+@contextmanager
+def git_fixture(enabled=True):
+    """Fresh owned repositories only; shared by passive and enforcement studies."""
     git = shutil.which("git", path=ENV["PATH"])
     if git is None:
         raise RuntimeError("Native Git is required")
@@ -156,15 +156,16 @@ def run_case(scenario, enabled, destination):
         root = Path(temporary)
         client, remote = root / "client", root / "remote.git"
 
-        def call(cwd, *args):
-            return subprocess.run([git, "-c", "core.hooksPath=/dev/null", "-c", "gc.auto=0",
+        def call(cwd, *args, check=True):
+            return subprocess.run([git, "-c", "gc.auto=0",
                                    "-c", "maintenance.auto=false", *args], cwd=cwd,
-                                  env=ENV, capture_output=True, text=True, timeout=15, check=True)
+                                  env=ENV, capture_output=True, text=True, timeout=15, check=check)
 
         call(root, "init", "--bare", "--object-format=sha1", str(remote))
         call(remote, "config", "core.logAllRefUpdates", str(enabled).lower())
         call(remote, "config", "core.hooksPath", "/dev/null")
         call(root, "init", "--object-format=sha1", "--initial-branch=main", str(client))
+        call(client, "config", "core.hooksPath", "/dev/null")
         call(client, "config", "user.name", "Containment Fixture")
         call(client, "config", "user.email", "fixture@example.invalid")
         call(client, "commit", "--allow-empty", "-m", "base")
@@ -181,6 +182,14 @@ def run_case(scenario, enabled, destination):
                     for p in (remote / "logs" / "refs").rglob("*") if p.is_file()}
             return {"events": logs, "state": refs}
 
+        yield root, client, remote, call, base, desired, snapshot
+
+
+def run_case(scenario, enabled, destination):
+    if scenario not in SCENARIOS or type(enabled) is not bool:
+        raise ValueError("Unknown experiment cell")
+    destination.mkdir(parents=True, exist_ok=False)
+    with git_fixture(enabled) as (root, client, remote, call, base, desired, snapshot):
         before = snapshot()
         before_receipt = persist_snapshot(destination / "before", before)
         target = PRODUCTION if scenario == "config_redirect" else REVIEW
