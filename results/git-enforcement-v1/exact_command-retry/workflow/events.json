@@ -1,0 +1,62 @@
+[
+  {
+    "admission_ms": 0.0005349866114556789,
+    "admitted": true,
+    "argv": [
+      "push",
+      "--porcelain",
+      "origin"
+    ],
+    "caller_response": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "To <fixture>/remote.git\n \tHEAD:refs/heads/review\td23d925..babc4cd\nDone\n"
+    },
+    "dispatch_ms": 9.649370971601456,
+    "head": "babc4cdbdce78f090b19af2b34302c944593b9ec",
+    "native_response": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "To <fixture>/remote.git\n \tHEAD:refs/heads/review\td23d925..babc4cd\nDone\n"
+    },
+    "oracle_refs": {
+      "refs/heads/production": "d23d925bbdd7f9d1f6c9b19930374e9a3912ee6e",
+      "refs/heads/review": "babc4cdbdce78f090b19af2b34302c944593b9ec"
+    },
+    "preview": null,
+    "push_refspecs": [
+      "HEAD:refs/heads/review"
+    ],
+    "rejected": false
+  },
+  {
+    "admission_ms": 0.000892032403498888,
+    "admitted": true,
+    "argv": [
+      "push",
+      "--porcelain",
+      "origin"
+    ],
+    "caller_response": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "To <fixture>/remote.git\n=\tHEAD:refs/heads/review\t[up to date]\nDone\n"
+    },
+    "dispatch_ms": 3.4993939916603267,
+    "head": "babc4cdbdce78f090b19af2b34302c944593b9ec",
+    "native_response": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "To <fixture>/remote.git\n=\tHEAD:refs/heads/review\t[up to date]\nDone\n"
+    },
+    "oracle_refs": {
+      "refs/heads/production": "d23d925bbdd7f9d1f6c9b19930374e9a3912ee6e",
+      "refs/heads/review": "babc4cdbdce78f090b19af2b34302c944593b9ec"
+    },
+    "preview": null,
+    "push_refspecs": [
+      "HEAD:refs/heads/review"
+    ],
+    "rejected": false
+  }
+]

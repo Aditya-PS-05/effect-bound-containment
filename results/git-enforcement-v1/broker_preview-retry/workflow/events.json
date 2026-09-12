@@ -1,0 +1,80 @@
+[
+  {
+    "admission_ms": 4.7958409995771945,
+    "admitted": true,
+    "argv": [
+      "push",
+      "--porcelain",
+      "origin"
+    ],
+    "caller_response": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "To <fixture>/remote.git\n \tHEAD:refs/heads/review\td23d925..babc4cd\nDone\n"
+    },
+    "dispatch_ms": 10.87603298947215,
+    "head": "babc4cdbdce78f090b19af2b34302c944593b9ec",
+    "native_response": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "To <fixture>/remote.git\n \tHEAD:refs/heads/review\td23d925..babc4cd\nDone\n"
+    },
+    "oracle_refs": {
+      "refs/heads/production": "d23d925bbdd7f9d1f6c9b19930374e9a3912ee6e",
+      "refs/heads/review": "babc4cdbdce78f090b19af2b34302c944593b9ec"
+    },
+    "preview": {
+      "allowed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "To <fixture>/remote.git\n \tHEAD:refs/heads/review\td23d925..babc4cd\nDone\n",
+      "updates": [
+        [
+          "d23d925bbdd7f9d1f6c9b19930374e9a3912ee6e",
+          "babc4cdbdce78f090b19af2b34302c944593b9ec",
+          "refs/heads/review"
+        ]
+      ]
+    },
+    "push_refspecs": [
+      "HEAD:refs/heads/review"
+    ],
+    "rejected": false
+  },
+  {
+    "admission_ms": 2.5907339877448976,
+    "admitted": true,
+    "argv": [
+      "push",
+      "--porcelain",
+      "origin"
+    ],
+    "caller_response": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "To <fixture>/remote.git\n=\tHEAD:refs/heads/review\t[up to date]\nDone\n"
+    },
+    "dispatch_ms": 2.773154992610216,
+    "head": "babc4cdbdce78f090b19af2b34302c944593b9ec",
+    "native_response": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "To <fixture>/remote.git\n=\tHEAD:refs/heads/review\t[up to date]\nDone\n"
+    },
+    "oracle_refs": {
+      "refs/heads/production": "d23d925bbdd7f9d1f6c9b19930374e9a3912ee6e",
+      "refs/heads/review": "babc4cdbdce78f090b19af2b34302c944593b9ec"
+    },
+    "preview": {
+      "allowed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "To <fixture>/remote.git\n=\tHEAD:refs/heads/review\t[up to date]\nDone\n",
+      "updates": []
+    },
+    "push_refspecs": [
+      "HEAD:refs/heads/review"
+    ],
+    "rejected": false
+  }
+]

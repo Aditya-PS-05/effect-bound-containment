@@ -27,6 +27,10 @@ It is separate from the earlier authoring pack/PDF; those frozen tables do not y
 include this follow-up. Request equality fails as a semantic detector on real Git
 configuration changes and harmless command variations.
 
+The [Git enforcement follow-up](git_enforcement.md) then tests prevention using a
+native receive-time effect gate, against equally informed broker preview. It adds
+H15–H17 and 44 cells; this is ref-level execution enforcement, not dynamic quarantine.
+
 ## Reproduce
 
 Linux, Python 3.12+, npm and native Git (tested with 2.43.0) are required. The Python environment and pinned Node
@@ -46,6 +50,7 @@ npm ci --no-audit --no-fund
 .venv/bin/python run_selective.py --output .runtime/selective-reproduction
 .venv/bin/python run_observers.py --output .runtime/observer-reproduction
 .venv/bin/python run_git_evidence.py --output .runtime/git-reproduction
+.venv/bin/python run_git_enforcement.py --output .runtime/git-enforcement-reproduction
 ```
 
 Use a new output directory for each Pome run; existing evidence is never overwritten.
@@ -67,6 +72,8 @@ loopback. Child processes are joined or terminated, with bounded startup and RPC
 - `run_observers.py`: passive intent/gate/backend comparison, with outcome scoring independent of detector alerts.
 - `run_git_evidence.py`: native Git command/response/ref/reflog comparison, no mock push backend.
 - `git_evidence.md`: prospective follow-up results and concrete evidence requirements.
+- `run_git_enforcement.py`, `src/git_receive_gate.py`: native execution-time ref enforcement and comparison.
+- `git_enforcement.md`: matched-utility prevention results and trust-boundary limitations.
 - `hypotheses.md`: fixed question, intermediate hypotheses, prospective protocol and evidence-linked outcomes.
 - `observer_comparison.md`: detector results, timing bounds and limitations.
 - `tests/`: scoring, security, evidence integrity, deadline and workflow regression tests.

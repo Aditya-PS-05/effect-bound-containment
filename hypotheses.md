@@ -256,3 +256,37 @@ resource consumption, reads or downstream effects. No GPU or new external servic
 The original main hypothesis remains fixed and qualified. H15 tests its execution
 enforcement mechanism on a real backend; it does not establish an incremental
 quarantine benefit. Any successful result must retain that distinction.
+
+### H15–H17 outcomes, 2026-09-13
+
+Protocol `460e039` preceded implementation `417b64c`. All 116 tests passed before
+the canonical 44-cell run at `results/git-enforcement-v1`. No canonical cells failed
+or were dropped. Native Git 2.43.0 runs the receive hook; it is not called as a mock
+inside the broker. Cases and timing schedule were unchanged from the protocol.
+
+| Condition | Unauthorized ref effects / 6 | Benign completion / 5 | False rejection / 5 |
+|---|---|---|---|
+| Intent only | 6 | 5 | 0 |
+| Exact command | 6 | 3 | 2 |
+| Broker native preview | 3 | 5 | 0 |
+| Receive-time effect gate | 0 | 5 | 0 |
+
+H15 is supported in this constructed native-backend set: the same effect predicate
+at receive time rejects the three post-preview substitutions that pass the broker,
+without reducing the five tested benign completions. H16 is supported: both mixed
+target cases leave all refs and native journals unchanged under the receive gate.
+H17 is supported by the eighteen new regression checks, including real-server missing,
+malformed, revoked and mismatched policies, duplicate updates, deletion, and the
+client `--no-verify` bypass attempt. Successful benign no-op retries remain allowed.
+
+Median benign case dispatch was 12.36 ms for intent only and 40.80 ms for the gate;
+broker preview had median admission 4.94 ms and dispatch 10.84 ms. These are single-run
+descriptive observations over five heterogeneous cases (including a two-call retry),
+not isolated incremental overhead estimates or population intervals.
+
+The positive result is narrower than the main hypothesis: execution-time enforcement
+transfers to a native tool backend. No learning, quarantine or LLM was added. It does
+not establish superiority over an equally placed static effect policy, and does not
+erase H2 or H7. Pre-receive protects refs after objects have been uploaded, not all
+backend side effects. The trusted server/hook/policy boundary is modeled on one host,
+not enforced against an agent with that host's filesystem privileges.

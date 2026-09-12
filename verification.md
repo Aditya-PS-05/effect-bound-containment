@@ -176,3 +176,16 @@ conditions. Final ref snapshots miss both restored transient writes. Enabled nat
 reflogs plus state detect 3/3 violations in that condition; disabled history gives two
 detections and one unknown, not a third guarantee. Full counts and narrower response
 parser scope are in git_evidence.md. These are passive detections, not prevention.
+
+## Native receive-time enforcement
+
+The H15–H17 extension adds 44 native Git runs. A shared effect predicate applied by
+broker preview permits 3/6 tested attacks; the same predicate at receive time permits
+0/6. Both complete 5/5 benign tasks. All attack cases under the gate leave refs and
+native journals unchanged. This is positive ref-level enforcement evidence; object
+upload, arbitrary code safety and adaptive quarantine are outside the measurement.
+See git_enforcement.md for the full comparison and assumptions.
+
+The complete suite now has 117 passing tests: the preceding 98, eighteen enforcement
+regression checks and one enforcement-table consistency check. All earlier evidence
+is still verified; the new archive is included in `verify_results.py`.

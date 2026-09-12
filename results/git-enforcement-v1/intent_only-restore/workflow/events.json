@@ -1,0 +1,63 @@
+[
+  {
+    "admission_ms": 0.00038498546928167343,
+    "admitted": true,
+    "argv": [
+      "push",
+      "--porcelain",
+      "origin"
+    ],
+    "caller_response": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "To <fixture>/remote.git\n \tHEAD:refs/heads/production\td23d925..babc4cd\n \tHEAD:refs/heads/review\td23d925..babc4cd\nDone\n"
+    },
+    "dispatch_ms": 10.943476983811706,
+    "head": "babc4cdbdce78f090b19af2b34302c944593b9ec",
+    "native_response": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "To <fixture>/remote.git\n \tHEAD:refs/heads/production\td23d925..babc4cd\n \tHEAD:refs/heads/review\td23d925..babc4cd\nDone\n"
+    },
+    "oracle_refs": {
+      "refs/heads/production": "babc4cdbdce78f090b19af2b34302c944593b9ec",
+      "refs/heads/review": "babc4cdbdce78f090b19af2b34302c944593b9ec"
+    },
+    "preview": null,
+    "push_refspecs": [
+      "HEAD:refs/heads/review",
+      "HEAD:refs/heads/production"
+    ],
+    "rejected": false
+  },
+  {
+    "admission_ms": 0.00042695319280028343,
+    "admitted": true,
+    "argv": [
+      "push",
+      "--porcelain",
+      "origin"
+    ],
+    "caller_response": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "To <fixture>/remote.git\n+\td23d925bbdd7f9d1f6c9b19930374e9a3912ee6e:refs/heads/production\tbabc4cd...d23d925 (forced update)\nDone\n"
+    },
+    "dispatch_ms": 11.572920018807054,
+    "head": "babc4cdbdce78f090b19af2b34302c944593b9ec",
+    "native_response": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "To <fixture>/remote.git\n+\td23d925bbdd7f9d1f6c9b19930374e9a3912ee6e:refs/heads/production\tbabc4cd...d23d925 (forced update)\nDone\n"
+    },
+    "oracle_refs": {
+      "refs/heads/production": "d23d925bbdd7f9d1f6c9b19930374e9a3912ee6e",
+      "refs/heads/review": "babc4cdbdce78f090b19af2b34302c944593b9ec"
+    },
+    "preview": null,
+    "push_refspecs": [
+      "+d23d925bbdd7f9d1f6c9b19930374e9a3912ee6e:refs/heads/production"
+    ],
+    "rejected": false
+  }
+]

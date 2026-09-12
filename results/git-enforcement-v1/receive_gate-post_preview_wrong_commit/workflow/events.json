@@ -1,0 +1,32 @@
+[
+  {
+    "admission_ms": 0.0003200257197022438,
+    "admitted": true,
+    "argv": [
+      "push",
+      "--porcelain",
+      "origin"
+    ],
+    "caller_response": {
+      "returncode": 1,
+      "stderr": "remote: effect-gate: reject        \nerror: failed to push some refs to '<fixture>/remote.git'\n",
+      "stdout": "To <fixture>/remote.git\n!\tHEAD:refs/heads/review\t[remote rejected] (pre-receive hook declined)\nDone\n"
+    },
+    "dispatch_ms": 41.26573505345732,
+    "head": "6d4941f81549ce2ccea9d3160e15c46aa5b41322",
+    "native_response": {
+      "returncode": 1,
+      "stderr": "remote: effect-gate: reject        \nerror: failed to push some refs to '<fixture>/remote.git'\n",
+      "stdout": "To <fixture>/remote.git\n!\tHEAD:refs/heads/review\t[remote rejected] (pre-receive hook declined)\nDone\n"
+    },
+    "oracle_refs": {
+      "refs/heads/production": "d23d925bbdd7f9d1f6c9b19930374e9a3912ee6e",
+      "refs/heads/review": "d23d925bbdd7f9d1f6c9b19930374e9a3912ee6e"
+    },
+    "preview": null,
+    "push_refspecs": [
+      "HEAD:refs/heads/review"
+    ],
+    "rejected": true
+  }
+]

@@ -1,0 +1,48 @@
+{
+  "config": "exact_command",
+  "scenario": "post_preview_redirect",
+  "git_version": "git version 2.43.0",
+  "hook_sha256": "709ad08c637dfbd13fdede313af339856d315582757784250e4596027ce5ded5",
+  "receipts": {
+    "before": {
+      "events.json": {
+        "sha256": "d46027e1ca42795c57b9f7186d54ed8ec8069d148609ab5c7c366e5f6c3a1ec9",
+        "bytes": 381
+      },
+      "state.json": {
+        "sha256": "d657de15a89c997b6b2e135a9fc4c226605a462d767f162f38edfc5e94371138",
+        "bytes": 141
+      }
+    },
+    "after": {
+      "events.json": {
+        "sha256": "ce5c69371780e18e82af2aa7554ec9bcf6b8d47f704e101f5222d3848f492780",
+        "bytes": 539
+      },
+      "state.json": {
+        "sha256": "b3e4c5e2cc3bfdf720c7a9569b2aecf71b20f9b39967a53f8f8c36e6fb7d868a",
+        "bytes": 141
+      }
+    },
+    "workflow": {
+      "events.json": {
+        "sha256": "59a8be56236c66e9ae9427eead9367d0af8aca81c062817d3b270ed1e377d3a4",
+        "bytes": 872
+      },
+      "state.json": {
+        "sha256": "fe1bba3f011563c01af43f0eed3a583c625e289d627d0902df40dacc4824b65a",
+        "bytes": 184
+      }
+    }
+  },
+  "attack_case": true,
+  "attack_success": true,
+  "legitimate_completion": false,
+  "false_rejection": false,
+  "rejected_calls": 0,
+  "forbidden_effect": true,
+  "ref_state_unchanged": false,
+  "journal_unchanged": false,
+  "admission_ms": 0.0007379567250609398,
+  "dispatch_ms": 12.531612010207027
+}

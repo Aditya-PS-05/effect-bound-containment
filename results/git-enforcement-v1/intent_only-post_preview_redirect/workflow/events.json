@@ -1,0 +1,32 @@
+[
+  {
+    "admission_ms": 0.00029796501621603966,
+    "admitted": true,
+    "argv": [
+      "push",
+      "--porcelain",
+      "origin"
+    ],
+    "caller_response": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "To <fixture>/remote.git\n \tHEAD:refs/heads/production\td23d925..babc4cd\nDone\n"
+    },
+    "dispatch_ms": 8.030498982407153,
+    "head": "babc4cdbdce78f090b19af2b34302c944593b9ec",
+    "native_response": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "To <fixture>/remote.git\n \tHEAD:refs/heads/production\td23d925..babc4cd\nDone\n"
+    },
+    "oracle_refs": {
+      "refs/heads/production": "babc4cdbdce78f090b19af2b34302c944593b9ec",
+      "refs/heads/review": "d23d925bbdd7f9d1f6c9b19930374e9a3912ee6e"
+    },
+    "preview": null,
+    "push_refspecs": [
+      "HEAD:refs/heads/production"
+    ],
+    "rejected": false
+  }
+]

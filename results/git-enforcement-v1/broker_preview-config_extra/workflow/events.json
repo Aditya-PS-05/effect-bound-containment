@@ -1,0 +1,42 @@
+[
+  {
+    "admission_ms": 7.947915990371257,
+    "admitted": false,
+    "argv": [
+      "push",
+      "--porcelain",
+      "origin"
+    ],
+    "caller_response": null,
+    "dispatch_ms": 0.0,
+    "head": "babc4cdbdce78f090b19af2b34302c944593b9ec",
+    "native_response": null,
+    "oracle_refs": {
+      "refs/heads/production": "d23d925bbdd7f9d1f6c9b19930374e9a3912ee6e",
+      "refs/heads/review": "d23d925bbdd7f9d1f6c9b19930374e9a3912ee6e"
+    },
+    "preview": {
+      "allowed": false,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "To <fixture>/remote.git\n \tHEAD:refs/heads/production\td23d925..babc4cd\n \tHEAD:refs/heads/review\td23d925..babc4cd\nDone\n",
+      "updates": [
+        [
+          "d23d925bbdd7f9d1f6c9b19930374e9a3912ee6e",
+          "babc4cdbdce78f090b19af2b34302c944593b9ec",
+          "refs/heads/production"
+        ],
+        [
+          "d23d925bbdd7f9d1f6c9b19930374e9a3912ee6e",
+          "babc4cdbdce78f090b19af2b34302c944593b9ec",
+          "refs/heads/review"
+        ]
+      ]
+    },
+    "push_refspecs": [
+      "HEAD:refs/heads/review",
+      "HEAD:refs/heads/production"
+    ],
+    "rejected": true
+  }
+]

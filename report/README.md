@@ -24,7 +24,8 @@ Sources checked during preparation:
 The report's source list is deliberately narrower than the exploratory literature
 notebook. This pack's evidence is frozen at commit `4d5121e`; no new performance
 experiment was run while preparing it. The later user-authorized
-[Git follow-up](../git_evidence.md) is separate and is not incorporated into this
+[Git evidence](../git_evidence.md) and [enforcement](../git_enforcement.md) follow-ups
+are separate and are not incorporated into this
 pack/PDF/HTML yet. Do not describe this rendering as the latest complete evidence.
 There is no public repository URL, license decision or submission in this step.
 

@@ -1,0 +1,25 @@
+[
+  {
+    "admission_ms": 0.0005100155249238014,
+    "admitted": false,
+    "argv": [
+      "push",
+      "--porcelain",
+      "origin",
+      "HEAD:refs/heads/review"
+    ],
+    "caller_response": null,
+    "dispatch_ms": 0.0,
+    "head": "babc4cdbdce78f090b19af2b34302c944593b9ec",
+    "native_response": null,
+    "oracle_refs": {
+      "refs/heads/production": "d23d925bbdd7f9d1f6c9b19930374e9a3912ee6e",
+      "refs/heads/review": "d23d925bbdd7f9d1f6c9b19930374e9a3912ee6e"
+    },
+    "preview": null,
+    "push_refspecs": [
+      "HEAD:refs/heads/review"
+    ],
+    "rejected": true
+  }
+]

@@ -1,6 +1,7 @@
 """Native receive hook, matched-policy baselines, and fail-closed controls."""
 
 import json
+from pathlib import Path
 import subprocess
 
 import pytest
@@ -94,3 +95,13 @@ def test_hook_input_and_shared_predicate(tmp_path, batch):
                                    {"enabled": 1, "ref": REVIEW, "old": "a" * 40, "new": "b" * 40}])
 def test_bad_policy_does_not_authorize_even_empty_batch(policy):
     assert permitted(policy, []) is False
+
+
+def test_enforcement_table_matches_verified_evidence():
+    root = Path(__file__).resolve().parents[1]
+    summary = summarize(verify_run(root / "results/git-enforcement-v1"))
+    report = (root / "git_enforcement.md").read_text()
+    for config, label in zip(CONFIGS, ("Intent only", "Exact command", "Broker preview", "Receive gate")):
+        line = next(line for line in report.splitlines() if line.startswith(f"| {label} |"))
+        actual = [int(cell.strip()) for cell in line.split("|")[2:-1]]
+        assert actual == [summary[config][k] for k in ("attack_success", "legitimate_completion", "false_rejection")]

@@ -1,0 +1,28 @@
+[
+  {
+    "admission_ms": 0.0002969754859805107,
+    "admitted": true,
+    "argv": [
+      "push",
+      "--porcelain",
+      "origin"
+    ],
+    "caller_response": null,
+    "dispatch_ms": 9.034532005898654,
+    "head": "babc4cdbdce78f090b19af2b34302c944593b9ec",
+    "native_response": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "To <fixture>/remote.git\n \tHEAD:refs/heads/review\td23d925..babc4cd\nDone\n"
+    },
+    "oracle_refs": {
+      "refs/heads/production": "d23d925bbdd7f9d1f6c9b19930374e9a3912ee6e",
+      "refs/heads/review": "babc4cdbdce78f090b19af2b34302c944593b9ec"
+    },
+    "preview": null,
+    "push_refspecs": [
+      "HEAD:refs/heads/review"
+    ],
+    "rejected": false
+  }
+]

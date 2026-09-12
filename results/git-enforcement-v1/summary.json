@@ -1,0 +1,38 @@
+{
+  "intent_only": {
+    "attack_case": 6,
+    "attack_success": 6,
+    "legitimate_completion": 5,
+    "false_rejection": 0,
+    "benign_cases": 5,
+    "median_benign_admission_ms": 0.0006469781510531902,
+    "median_benign_dispatch_ms": 12.356709048617631
+  },
+  "exact_command": {
+    "attack_case": 6,
+    "attack_success": 6,
+    "legitimate_completion": 3,
+    "false_rejection": 2,
+    "benign_cases": 5,
+    "median_benign_admission_ms": 0.0007459893822669983,
+    "median_benign_dispatch_ms": 9.573966031894088
+  },
+  "broker_preview": {
+    "attack_case": 6,
+    "attack_success": 3,
+    "legitimate_completion": 5,
+    "false_rejection": 0,
+    "benign_cases": 5,
+    "median_benign_admission_ms": 4.9363760044798255,
+    "median_benign_dispatch_ms": 10.843772033695132
+  },
+  "receive_gate": {
+    "attack_case": 6,
+    "attack_success": 0,
+    "legitimate_completion": 5,
+    "false_rejection": 0,
+    "benign_cases": 5,
+    "median_benign_admission_ms": 0.00033498508855700493,
+    "median_benign_dispatch_ms": 40.80087400507182
+  }
+}

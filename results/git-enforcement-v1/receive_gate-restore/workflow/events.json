@@ -1,0 +1,63 @@
+[
+  {
+    "admission_ms": 0.0003440072759985924,
+    "admitted": true,
+    "argv": [
+      "push",
+      "--porcelain",
+      "origin"
+    ],
+    "caller_response": {
+      "returncode": 1,
+      "stderr": "remote: effect-gate: reject        \nerror: failed to push some refs to '<fixture>/remote.git'\n",
+      "stdout": "To <fixture>/remote.git\n!\tHEAD:refs/heads/production\t[remote rejected] (pre-receive hook declined)\n!\tHEAD:refs/heads/review\t[remote rejected] (pre-receive hook declined)\nDone\n"
+    },
+    "dispatch_ms": 39.550029032398015,
+    "head": "babc4cdbdce78f090b19af2b34302c944593b9ec",
+    "native_response": {
+      "returncode": 1,
+      "stderr": "remote: effect-gate: reject        \nerror: failed to push some refs to '<fixture>/remote.git'\n",
+      "stdout": "To <fixture>/remote.git\n!\tHEAD:refs/heads/production\t[remote rejected] (pre-receive hook declined)\n!\tHEAD:refs/heads/review\t[remote rejected] (pre-receive hook declined)\nDone\n"
+    },
+    "oracle_refs": {
+      "refs/heads/production": "d23d925bbdd7f9d1f6c9b19930374e9a3912ee6e",
+      "refs/heads/review": "d23d925bbdd7f9d1f6c9b19930374e9a3912ee6e"
+    },
+    "preview": null,
+    "push_refspecs": [
+      "HEAD:refs/heads/review",
+      "HEAD:refs/heads/production"
+    ],
+    "rejected": true
+  },
+  {
+    "admission_ms": 0.00041298335418105125,
+    "admitted": true,
+    "argv": [
+      "push",
+      "--porcelain",
+      "origin"
+    ],
+    "caller_response": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "To <fixture>/remote.git\n=\td23d925bbdd7f9d1f6c9b19930374e9a3912ee6e:refs/heads/production\t[up to date]\nDone\n"
+    },
+    "dispatch_ms": 2.2985240211710334,
+    "head": "babc4cdbdce78f090b19af2b34302c944593b9ec",
+    "native_response": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "To <fixture>/remote.git\n=\td23d925bbdd7f9d1f6c9b19930374e9a3912ee6e:refs/heads/production\t[up to date]\nDone\n"
+    },
+    "oracle_refs": {
+      "refs/heads/production": "d23d925bbdd7f9d1f6c9b19930374e9a3912ee6e",
+      "refs/heads/review": "d23d925bbdd7f9d1f6c9b19930374e9a3912ee6e"
+    },
+    "preview": null,
+    "push_refspecs": [
+      "+d23d925bbdd7f9d1f6c9b19930374e9a3912ee6e:refs/heads/production"
+    ],
+    "rejected": false
+  }
+]
