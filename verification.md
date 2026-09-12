@@ -137,7 +137,7 @@ not production overhead predictions or cost estimates for isolated quarantine.
 
 ## Verification and reproduction
 
-60 pytest tests pass, including the selective-release extension, real Pome integration and the negative controls described
+78 pytest tests pass, including the selective-release extension, the observer comparison, real Pome integration and the negative controls described
 above. The additional security smoke script, lint and diff checks pass. A passing test
 that demonstrates a limitation is not counted as a blocked attack.
 
@@ -151,3 +151,13 @@ The earlier matrix above is retained as the hold-all baseline. The new opt-in lo
 extension and its 720-case comparison are documented in selective_release.md. It
 restores the narrowly supported harmless reads, but fails the deliberately incomplete
 simulator control. These are additional local tests, not new Pome containment results.
+
+## Observer comparison extension
+
+The prospective H8–H11 protocol and its outcomes are recorded in hypotheses.md.
+Sixteen fresh Pome runs compare three evidence views of the same requests. Intent
+detects 0/6 executed attacks, gate evidence 2/6, and backend evidence 6/6. All have
+0/8 benign false alarms. Two additional attempts are prevented by the full gate;
+its alerts on those attempts are counted separately, not as executed detections.
+See observer_comparison.md for the read-without-state-change control, response-loss
+control, coverage failures, detection-delay bounds and the remaining trust boundary.

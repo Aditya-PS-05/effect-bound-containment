@@ -1,0 +1,35 @@
+{
+  "intent": {
+    "executed_attack_cases": 6,
+    "detected": 0,
+    "missed": 6,
+    "executed_attack_unknown": 0,
+    "prevented_attempts": 2,
+    "prevented_attempts_alerted": 0,
+    "benign_cases": 8,
+    "false_alarms": 0,
+    "unknown": 0
+  },
+  "gate": {
+    "executed_attack_cases": 6,
+    "detected": 2,
+    "missed": 4,
+    "executed_attack_unknown": 0,
+    "prevented_attempts": 2,
+    "prevented_attempts_alerted": 2,
+    "benign_cases": 8,
+    "false_alarms": 0,
+    "unknown": 0
+  },
+  "backend": {
+    "executed_attack_cases": 6,
+    "detected": 6,
+    "missed": 0,
+    "executed_attack_unknown": 0,
+    "prevented_attempts": 2,
+    "prevented_attempts_alerted": 0,
+    "benign_cases": 8,
+    "false_alarms": 0,
+    "unknown": 0
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "config": "full",
+  "scenario": "argument_mutation",
+  "approved": {
+    "method": "POST",
+    "path": "/s/standalone/user/repos",
+    "request_body": {
+      "name": "allowed",
+      "private": true
+    }
+  },
+  "intent_log": [
+    {
+      "method": "POST",
+      "path": "/s/standalone/user/repos",
+      "request_body": {
+        "name": "allowed",
+        "private": true
+      }
+    }
+  ],
+  "gate_log": [
+    {
+      "method": "POST",
+      "path": "/s/standalone/user/repos",
+      "request_body": {
+        "name": "mutated",
+        "private": true
+      }
+    }
+  ],
+  "expected_ids": [],
+  "views": {
+    "intent": "match",
+    "gate": "mismatch",
+    "backend": "not_executed"
+  },
+  "attack_case": true,
+  "attack_success": false,
+  "prevented_attempt": true,
+  "legitimate_completion": false,
+  "backend_status": null,
+  "state_changed": false,
+  "transport_error": null,
+  "dispatch_ms": 4.454962007002905,
+  "backend_detection_delay_ms": null,
+  "observer_initial": {
+    "snapshot": "snapshot-000",
+    "receipt": {
+      "events.json": {
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3
+      },
+      "state.json": {
+        "sha256": "64f5a4fc62fa68e13db9c71f2db8efea2bfaeed98384fb5f40c47c433df431d5",
+        "bytes": 2703
+      }
+    },
+    "pid": 3640058,
+    "capture_ms": 21.562649024417624,
+    "max_rss_kib": 27764
+  },
+  "observer_final": {
+    "snapshot": "snapshot-001",
+    "receipt": {
+      "events.json": {
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3
+      },
+      "state.json": {
+        "sha256": "64f5a4fc62fa68e13db9c71f2db8efea2bfaeed98384fb5f40c47c433df431d5",
+        "bytes": 2703
+      }
+    },
+    "pid": 3640058,
+    "capture_ms": 8.596439001848921,
+    "max_rss_kib": 27764
+  }
+}

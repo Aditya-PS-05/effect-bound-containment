@@ -78,3 +78,36 @@ bug in the measurement itself.
 ## Prospective results
 
 H8–H11 are pending at protocol creation. The protocol commit precedes their new runs.
+
+### Recorded outcomes, 2026-09-13
+
+Protocol commit `1378ec7`; implementation and passing checks committed as `959b2c0`
+before the canonical 16-cell run. Source: `results/observer-comparison-v1/raw.json`,
+`summary.json`, and each cell's receipt-checked Pome snapshots. No scenario changes
+were needed. Four real-twin regression controls also ran in pytest; those are not
+included as extra independent observations in the canonical matrix.
+
+| ID | Result | Current status |
+|---|---|---|
+| H8 | Gate flags all four pre-gate mutation attempts; intent flags none. Two execute under broker-only, two are blocked under full enforcement. | Supported in the four specified cells. |
+| H9 | Backend flags all four post-gate mutations; neither upstream view flags them. Both file reads return seeded content without changing state. | Supported in the four specified cells; full enforcement still fails to prevent them. |
+| H10 | All three views produce 0/8 benign mismatch alarms, including both 404 and both lost-response controls. All eight expected backend tasks complete. | Supported in this small constructed set, not a population false-positive estimate. |
+| H11 | Tests classify missing, truncated, fabricated-after-receipt, omitted-event and changed-prefix evidence as unknown. Unknown executed cases do not inflate detected or missed counts. | Supported for tested acquisition/archive failures. A compromised source fabricating its first internally consistent record remains unaddressed. |
+
+Overall detector counts on the six executed attacks: intent 0 detected / 6 missed;
+gate 2 / 4; backend 6 / 0. Two prevented attempts are a separate denominator. All
+16 canonical snapshots were available; failure coverage comes from fault tests,
+not naturally occurring collection failures in these runs.
+
+The backend comparison's six per-case delay intervals have lower endpoints from
+4.47–9.87 ms and upper endpoints from 12.71–22.17 ms. Median final capture cost is
+4.99 ms. These are same-host timing observations with receipt persistence included,
+not exact incident timestamps or continuous-monitoring latency.
+
+The main hypothesis remains **partially supported and qualified**. Local server
+enforcement improves prevention relative to weak baselines; separately acquired Pome
+evidence improves detection across the tested mutation boundary. Quarantine has not
+beaten static denial on prevention. Selective release offers a bounded utility tradeoff
+but fails when simulation is unfaithful. No single fully isolated, Pome-backed adaptive
+containment deployment has been demonstrated. Next work is report consolidation, not
+silent expansion or replacement of the hypothesis.

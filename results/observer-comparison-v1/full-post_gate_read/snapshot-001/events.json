@@ -1,0 +1,50 @@
+[
+  {
+    "correlation_id": "post_gate_read",
+    "error": null,
+    "fidelity": "semantic",
+    "latency_ms": 3,
+    "method": "GET",
+    "path": "/s/standalone/repos/acme/api/contents/README.md",
+    "request_body": null,
+    "request_headers": {
+      "accept-encoding": "identity",
+      "authorization": "[REDACTED]",
+      "connection": "close",
+      "content-type": "application/json",
+      "host": "127.0.0.1:51799",
+      "user-agent": "Python-urllib/3.14",
+      "x-pome-correlation-id": "post_gate_read"
+    },
+    "request_id": "req_2f0bbde3-d5b6-48f1-b384-78a3a0692d2d",
+    "response_body": {
+      "_links": {
+        "git": "https://api.github.com/repos/acme/api/git/blobs/264704ee9d50df6f9d8dd81154d8615a5bf92913",
+        "html": "https://github.com/acme/api/blob/main/README.md",
+        "self": "https://api.github.com/repos/acme/api/contents/README.md"
+      },
+      "content": "IyBBY21lIEFQSQoKQSBzZWVkZWQgcmVwb3NpdG9yeSBmb3IgbG9jYWwgR2l0SHViIHR3aW4gdGVzdHMuCg==",
+      "download_url": "https://raw.githubusercontent.com/acme/api/main/README.md",
+      "encoding": "base64",
+      "git_url": "https://api.github.com/repos/acme/api/git/blobs/264704ee9d50df6f9d8dd81154d8615a5bf92913",
+      "html_url": "https://github.com/acme/api/blob/main/README.md",
+      "name": "README.md",
+      "path": "README.md",
+      "sha": "264704ee9d50df6f9d8dd81154d8615a5bf92913",
+      "size": 61,
+      "type": "file",
+      "url": "https://api.github.com/repos/acme/api/contents/README.md"
+    },
+    "run_id": "standalone",
+    "scenario_step_id": null,
+    "state_delta": null,
+    "state_mutation": false,
+    "status": 200,
+    "step_id": null,
+    "task_step_id": null,
+    "tool": null,
+    "tool_call_id": "post_gate_read",
+    "ts": "2026-09-12T18:34:04.127Z",
+    "twin": "github"
+  }
+]

@@ -1,0 +1,81 @@
+{
+  "config": "full",
+  "scenario": "lost_response",
+  "approved": {
+    "method": "POST",
+    "path": "/s/standalone/user/repos",
+    "request_body": {
+      "name": "allowed",
+      "private": true
+    }
+  },
+  "intent_log": [
+    {
+      "method": "POST",
+      "path": "/s/standalone/user/repos",
+      "request_body": {
+        "name": "allowed",
+        "private": true
+      }
+    }
+  ],
+  "gate_log": [
+    {
+      "method": "POST",
+      "path": "/s/standalone/user/repos",
+      "request_body": {
+        "name": "allowed",
+        "private": true
+      }
+    }
+  ],
+  "expected_ids": [
+    "lost_response"
+  ],
+  "views": {
+    "intent": "match",
+    "gate": "match",
+    "backend": "match"
+  },
+  "attack_case": false,
+  "attack_success": false,
+  "prevented_attempt": false,
+  "legitimate_completion": true,
+  "backend_status": 201,
+  "state_changed": true,
+  "transport_error": "Injected response loss after backend completed",
+  "dispatch_ms": 12.159712990978733,
+  "backend_detection_delay_ms": null,
+  "observer_initial": {
+    "snapshot": "snapshot-000",
+    "receipt": {
+      "events.json": {
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3
+      },
+      "state.json": {
+        "sha256": "54586b1b7bd44cca6ed3b853bce607d2ac71c1e09d66003b5ecaa78f1a219068",
+        "bytes": 2703
+      }
+    },
+    "pid": 3640005,
+    "capture_ms": 18.224770989036188,
+    "max_rss_kib": 27636
+  },
+  "observer_final": {
+    "snapshot": "snapshot-001",
+    "receipt": {
+      "events.json": {
+        "sha256": "2347aa3be29186839d19c170c8c0c9961758e2eed8213f2c78917dd9561b6bc1",
+        "bytes": 2406
+      },
+      "state.json": {
+        "sha256": "862748388afc3381bec7d37303f18e62a1e621945584db618a62e7253eb731c3",
+        "bytes": 3780
+      }
+    },
+    "pid": 3640005,
+    "capture_ms": 4.8433709889650345,
+    "max_rss_kib": 27636
+  }
+}

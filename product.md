@@ -14,6 +14,11 @@
 
 > In a deterministic test environment, server-side capability enforcement combined with dynamic quarantine will prevent more tested unauthorized effects than intent logging or broker-only authorization, at the cost of some additional latency and quarantines.
 
+Track every intermediate proposition and its evidence in [hypotheses.md](hypotheses.md).
+That ledger preserves negative results and distinguishes historical reconstruction
+from prospectively recorded tests. The observer comparison is now complete; its
+findings are in [observer_comparison.md](observer_comparison.md).
+
 This is not a claim that any sandbox is perfectly safe. It is a conditional claim about a defined architecture:
 
 > If the authorization broker is trusted and the broker is the sole route to state-changing tools, an action that does not match the authorization should not change the simulated state.

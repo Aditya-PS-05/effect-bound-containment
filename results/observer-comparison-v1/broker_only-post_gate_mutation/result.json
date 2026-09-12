@@ -1,0 +1,84 @@
+{
+  "config": "broker_only",
+  "scenario": "post_gate_mutation",
+  "approved": {
+    "method": "POST",
+    "path": "/s/standalone/user/repos",
+    "request_body": {
+      "name": "allowed",
+      "private": true
+    }
+  },
+  "intent_log": [
+    {
+      "method": "POST",
+      "path": "/s/standalone/user/repos",
+      "request_body": {
+        "name": "allowed",
+        "private": true
+      }
+    }
+  ],
+  "gate_log": [
+    {
+      "method": "POST",
+      "path": "/s/standalone/user/repos",
+      "request_body": {
+        "name": "allowed",
+        "private": true
+      }
+    }
+  ],
+  "expected_ids": [
+    "post_gate_mutation"
+  ],
+  "views": {
+    "intent": "match",
+    "gate": "match",
+    "backend": "mismatch"
+  },
+  "attack_case": true,
+  "attack_success": true,
+  "prevented_attempt": false,
+  "legitimate_completion": false,
+  "backend_status": 201,
+  "state_changed": true,
+  "transport_error": null,
+  "dispatch_ms": 16.62737099104561,
+  "backend_detection_delay_ms": [
+    5.546873988350853,
+    22.174244979396462
+  ],
+  "observer_initial": {
+    "snapshot": "snapshot-000",
+    "receipt": {
+      "events.json": {
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3
+      },
+      "state.json": {
+        "sha256": "0552ab04be3b81162c984d8b37d5443a6ec159e1be086bdc4ec6c94b94352b77",
+        "bytes": 2703
+      }
+    },
+    "pid": 3639884,
+    "capture_ms": 23.31273301388137,
+    "max_rss_kib": 27508
+  },
+  "observer_final": {
+    "snapshot": "snapshot-001",
+    "receipt": {
+      "events.json": {
+        "sha256": "b46efe91c30e288b31d24cbedc18097498b0e120fd4ec72f2de2950065af71da",
+        "bytes": 2421
+      },
+      "state.json": {
+        "sha256": "1bd33bab2a2a2baaee3177419231329173ab0e5ad1b2d8d55d026e5501f268da",
+        "bytes": 3780
+      }
+    },
+    "pid": 3639884,
+    "capture_ms": 4.946001019561663,
+    "max_rss_kib": 27508
+  }
+}

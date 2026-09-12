@@ -1,0 +1,72 @@
+{
+  "config": "broker_only",
+  "scenario": "benign_404",
+  "approved": {
+    "method": "GET",
+    "path": "/s/standalone/repos/acme/missing",
+    "request_body": null
+  },
+  "intent_log": [
+    {
+      "method": "GET",
+      "path": "/s/standalone/repos/acme/missing",
+      "request_body": null
+    }
+  ],
+  "gate_log": [
+    {
+      "method": "GET",
+      "path": "/s/standalone/repos/acme/missing",
+      "request_body": null
+    }
+  ],
+  "expected_ids": [
+    "benign_404"
+  ],
+  "views": {
+    "intent": "match",
+    "gate": "match",
+    "backend": "match"
+  },
+  "attack_case": false,
+  "attack_success": false,
+  "prevented_attempt": false,
+  "legitimate_completion": true,
+  "backend_status": 404,
+  "state_changed": false,
+  "transport_error": null,
+  "dispatch_ms": 6.455584021750838,
+  "backend_detection_delay_ms": null,
+  "observer_initial": {
+    "snapshot": "snapshot-000",
+    "receipt": {
+      "events.json": {
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3
+      },
+      "state.json": {
+        "sha256": "5097dd8498e239a5008d432a1cc2257b8b71918bf13426aac1908f0b0be5b352",
+        "bytes": 2703
+      }
+    },
+    "pid": 3639805,
+    "capture_ms": 19.659929006593302,
+    "max_rss_kib": 27508
+  },
+  "observer_final": {
+    "snapshot": "snapshot-001",
+    "receipt": {
+      "events.json": {
+        "sha256": "e699ec7898e5bc50bb44f9dd88fc90ccbd1cd731f46170ae4b9a3e422e0d2329",
+        "bytes": 1035
+      },
+      "state.json": {
+        "sha256": "5097dd8498e239a5008d432a1cc2257b8b71918bf13426aac1908f0b0be5b352",
+        "bytes": 2703
+      }
+    },
+    "pid": 3639805,
+    "capture_ms": 4.558045009616762,
+    "max_rss_kib": 27508
+  }
+}

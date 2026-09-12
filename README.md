@@ -26,6 +26,7 @@ npm ci --no-audit --no-fund
 .venv/bin/python run_pome.py --output .runtime/pome-reproduction
 .venv/bin/python run_workflows.py --output .runtime/workflow-reproduction
 .venv/bin/python run_selective.py --output .runtime/selective-reproduction
+.venv/bin/python run_observers.py --output .runtime/observer-reproduction
 ```
 
 Use a new output directory for each Pome run; existing evidence is never overwritten.
@@ -44,6 +45,9 @@ loopback. Child processes are joined or terminated, with bounded startup and RPC
 - `run_pome.py`: real Pome comparison with independent tape acquisition.
 - `run_workflows.py`: multi-step, deferred, concurrent and partial-failure experiments.
 - `run_selective.py`: bounded selective release, equally informed static baseline and simulation-fidelity controls.
+- `run_observers.py`: passive intent/gate/backend comparison, with outcome scoring independent of detector alerts.
+- `hypotheses.md`: fixed question, intermediate hypotheses, prospective protocol and evidence-linked outcomes.
+- `observer_comparison.md`: detector results, timing bounds and limitations.
 - `tests/`: scoring, security, evidence integrity, deadline and workflow regression tests.
 - `verification.md`: measured findings and explicit boundaries of the claims.
 - `product.md`, `literature_review.md`, `secret_loyalties.md`: design and research background.
