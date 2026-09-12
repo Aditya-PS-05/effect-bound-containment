@@ -241,7 +241,7 @@ class ToolServer:
         elif request.tool == "read_secret":
             data_reads.append("secret:demo-token")
             returned_labels.append("secret")
-        elif request.tool == "get_repository_metadata":
+        elif request.tool in {"get_repository_metadata", "get_status"}:
             pass
         elif request.tool == "send_message":
             if self.sensitive_guard and contains_sensitive(request.args):
@@ -316,17 +316,21 @@ class IntentRecorder:
 class Broker:
     """Admission layer: policy first, capability second, server last."""
 
-    def __init__(self, policy: PolicyRegistry, issuer: CapabilityIssuer, server: ToolServer) -> None:
+    def __init__(self, policy: PolicyRegistry, issuer: CapabilityIssuer, server: ToolServer,
+                 *, quarantine: bool = True) -> None:
         self.policy = policy
         self.issuer = issuer
         self.server = server
         self.intent = IntentRecorder()
         self.sandbox = QuarantineSandbox(server)
         self._counter = 0
+        self.quarantine = quarantine
 
     def submit(self, request: Request, actual: Request | None = None) -> dict[str, Any]:
         self.intent.record(request)
         decision, explanation = self.policy.classify(request)
+        if decision == "quarantine" and not self.quarantine:
+            decision = "deny"
         if decision == "quarantine":
             result = self.sandbox.run(request)
             if result.suspicious:

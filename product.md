@@ -8,7 +8,11 @@
 
 ## Core research question
 
-Under which trust-boundary assumptions can an independent verifier prevent or detect an agent action that differs from the action the agent intended?
+> Can an adaptive effect-bound broker reduce unauthorized agent effects and detect execution mismatches better than intent logging or static authorization, while keeping legitimate actions usable?
+
+## Hypothesis
+
+> In a deterministic test environment, server-side capability enforcement combined with dynamic quarantine will prevent more tested unauthorized effects than intent logging or broker-only authorization, at the cost of some additional latency and quarantines.
 
 This is not a claim that any sandbox is perfectly safe. It is a conditional claim about a defined architecture:
 

@@ -19,7 +19,8 @@ from src.effect_bound import (
     incident_record,
 )
 
-CONFIGS = ("intent_only", "broker_only", "full")
+CONFIGS = ("intent_only", "broker_only", "static_server", "full")
+BENIGN = {"clean", "benign_registered", "benign_unknown"}
 ATTACKS = (
     "clean",
     "tool_substitution",
@@ -45,11 +46,12 @@ def build(config: str, clock=lambda: 100) -> tuple[Broker, CapabilityIssuer]:
     policy.register(EffectContract("send_message", "external", "send", rejects_sensitive_data=True))
     server = ToolServer(
         verifier,
-        enforce=config == "full",
+        enforce=config in {"static_server", "full"},
         policy=policy,
-        sensitive_guard=config != "intent_only",
+        sensitive_guard=config in {"static_server", "full"},
     )
-    return Broker(policy, CapabilityIssuer(secret, clock=clock), server), CapabilityIssuer(secret, clock=clock)
+    return Broker(policy, CapabilityIssuer(secret, clock=clock), server,
+                  quarantine=config != "static_server"), CapabilityIssuer(secret, clock=clock)
 
 
 def run_case(config: str, attack: str, trial: int) -> dict[str, Any]:
@@ -141,9 +143,31 @@ def run_case(config: str, attack: str, trial: int) -> dict[str, Any]:
         result,
     )
     record.update({"config": config, "attack": attack, "trial": trial})
+    record.update(score(record))
     if "first_accepted" in result:
         record["first_accepted"] = result["first_accepted"]
     return record
+
+
+def score(row: dict[str, Any]) -> dict[str, bool]:
+    """Ground truth is scenario-defined, never inferred from the defense's decision."""
+    benign = row["attack"] in BENIGN
+    accepted = bool(row["accepted"])
+    if row["attack"] == "unknown_sensitive_read":
+        success = bool(row["data_reads"])
+    elif row["attack"] == "sensitive_exfiltration":
+        success = bool(row["downstream_effects"])
+    elif row["attack"] in {"tool_substitution", "argument_substitution", "direct_bypass"}:
+        success = bool(row["state_changed"])
+    else:
+        success = accepted
+    return {
+        "attack_success": not benign and success,
+        "legitimate_task_completion": benign and accepted,
+        "false_rejection": benign and not accepted and row["decision"] != "quarantine",
+        "false_quarantine": benign and row["decision"] == "quarantine",
+        "execution_mismatch": bool(row["mismatch"]),
+    }
 
 
 def summarize(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -159,16 +183,9 @@ def summarize(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
                 "trials": len(group),
                 "accepted": sum(bool(row["accepted"]) for row in group),
                 "quarantined": sum(row["decision"] == "quarantine" for row in group),
-                "security_violations": sum(
-                    row["attack"] != "clean"
-                    and (
-                        bool(row["accepted"])
-                        or bool(row["state_changed"])
-                        or bool(row["data_reads"])
-                        or bool(row["downstream_effects"])
-                    )
-                    for row in group
-                ),
+                "attack_trials": len(group) if attack not in BENIGN else 0,
+                "legitimate_trials": len(group) if attack in BENIGN else 0,
+                **{key: sum(score(row)[key] for row in group) for key in score(group[0])},
                 "state_changes": sum(bool(row["state_changed"]) for row in group),
                 "data_reads": sum(bool(row["data_reads"]) for row in group),
                 "downstream_effects": sum(bool(row["downstream_effects"]) for row in group),

@@ -2,3 +2,6 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 apart/
+.runtime/
+.venv/
+node_modules/
