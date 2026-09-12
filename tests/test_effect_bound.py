@@ -10,7 +10,6 @@ from src.effect_bound import (
     Request,
     ToolServer,
 )
-from src.process_observer import ProcessObservationLog
 from src.pome_adapter import PomeClient, wire_request
 
 
@@ -118,15 +117,6 @@ def test_capability_replay_race_accepts_exactly_once():
     with ThreadPoolExecutor(max_workers=8) as pool:
         events = list(pool.map(lambda _: broker.server.execute(request, capability), range(8)))
     assert sum(event.accepted for event in events) == 1
-
-
-def test_process_observer_verifies_outside_server_process():
-    server = ToolServer(enforce=False)
-    with ProcessObservationLog() as observer:
-        server.observer = observer
-        event = server.execute(Request("list_repositories", {}, request_id="external-log"))
-        assert event.accepted
-        assert observer.verify()
 
 
 def test_pome_adapter_rejects_external_endpoint_and_route_traversal():

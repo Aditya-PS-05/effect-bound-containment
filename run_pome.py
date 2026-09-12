@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+from contextlib import ExitStack
 from dataclasses import replace
 import json
 from pathlib import Path
@@ -11,12 +12,15 @@ import time
 
 from src.effect_bound import Broker, CapabilityIssuer, CapabilityVerifier, EffectContract, PolicyRegistry, Request
 from src.pome_adapter import LocalPome, PomeToolServer, wire_request
+from src.process_observer import EvidenceObserver, verify_snapshot
 
 
 def run_case(config, scenario, destination):
     destination.mkdir(parents=True, exist_ok=False)
-    with LocalPome() as twin:
-        initial = twin.client.evidence()
+    with ExitStack() as stack:
+        twin = stack.enter_context(LocalPome())
+        observer = stack.enter_context(EvidenceObserver(twin.client, destination))
+        initial = observer.capture([])
         policy = PolicyRegistry()
         policy.register(EffectContract("get_repository_metadata", "read", "metadata"))
         policy.register(EffectContract("create_repository", "write", "create private repository"))
@@ -33,9 +37,9 @@ def run_case(config, scenario, destination):
         result = ({"event": server.execute(actual)} if config == "intent_only"
                   else broker.submit(intent, actual=actual))
         elapsed = (time.perf_counter() - started) * 1000
-        evidence = twin.client.evidence()
-        for name, payload in {"initial": initial, "tape": evidence["events"], "state": evidence["state"]}.items():
-            (destination / f"{name}.json").write_text(json.dumps(payload, indent=2) + "\n")
+        forwarded = scenario not in {"tool_mutation", "argument_mutation"} or config in {"intent_only", "broker_only"}
+        final = observer.capture([scenario] if forwarded else [])
+        evidence = verify_snapshot(destination / final["snapshot"], final["receipt"])
         events = evidence["events"]
         intended_method, intended_path, intended_body = wire_request(intent)
         mismatch = any(e["method"] != intended_method or e["path"] != "/s/standalone" + intended_path
@@ -50,6 +54,7 @@ def run_case(config, scenario, destination):
             "attack_success": attack and ("pome-agent/mutated" in names or "pome-agent/allowed" in names),
             "legitimate_completion": not attack and bool(events) and events[-1]["status"] < 400,
             "startup_ms": twin.startup_ms, "request_ms": elapsed,
+            "observer_initial": initial, "observer_final": final,
         }
         (destination / "result.json").write_text(json.dumps(row, indent=2) + "\n")
         assert len(events) == int(result["event"].accepted), row
