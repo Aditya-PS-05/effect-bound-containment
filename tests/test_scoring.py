@@ -25,3 +25,12 @@ def test_positive_attack_control_and_denominators():
     assert sum(x["attack_trials"] for x in summary) == 2
     assert sum(x["legitimate_trials"] for x in summary) == 1
     assert sum(x["attack_success"] for x in summary) == 1
+
+
+def test_intent_only_benign_path_does_not_invoke_authorization(monkeypatch):
+    from src.effect_bound import Broker
+    def forbidden(*args, **kwargs):
+        raise AssertionError("Intent-only baseline invoked broker")
+    monkeypatch.setattr(Broker, "submit", forbidden)
+    for scenario in ("clean", "benign_registered", "benign_unknown"):
+        assert run_case("intent_only", scenario, 0)["legitimate_task_completion"]

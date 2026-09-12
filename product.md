@@ -110,7 +110,7 @@ The sprint is Version 0.1. A longer project can test alternate egress routes, st
 
 ## Practical setup
 
-Pome's current README requires Node.js 24 or newer. The present machine has Node.js 22.19.0, so upgrade Node before using the CLI. The initial prototype needs CPU, Node, optional Python for analysis, and no GPU, model weights, cloud credentials or real third-party account.
+The project pins Node 24.21.0 and Pome CLI 0.43.0 in package.json and package-lock.json. `npm ci` installs them locally; the runner explicitly invokes that Node executable without replacing the system runtime. Python tests use `.venv`. See README.md for reproducible commands. No GPU, model API or live account is required.
 
 Reference: [Pome Digital Twins](https://github.com/pome-sh/digital-twins)
 
@@ -129,9 +129,9 @@ The local prototype now integrates these components end to end:
 | Dynamic quarantine | `QuarantineSandbox` | implemented as an in-process state clone |
 | Data-flow signal | labelled `DataItem` and sensitive-payload rejection | limited prototype |
 | Downstream effects | `EffectEvent.downstream_effects` | limited prototype |
-| Independent observation | `ObservationLog` hash chain | tamper-evident local log |
+| Independent observation | `EvidenceObserver` | separate spawned process fetches Pome tape/state directly and fsyncs snapshots; trusts Pome and host |
 | Effect comparison | `incident_record` | implemented |
-| Pome integration | `src/pome_adapter.py` | CLI adapter/export implemented; requires local Pome CLI run |
+| Pome integration | `PomeToolServer`, `LocalPome` | real GitHub REST runs, tape and state exports; capability gate is outside Pome |
 
 Run the local security matrix with:
 
@@ -139,18 +139,19 @@ Run the local security matrix with:
 python3 security_check.py
 ```
 
-The local checks cannot prove external host isolation, real network sole-egress enforcement, durable independent storage, complete Pome fidelity or production-wide information-flow coverage. Those remain explicit follow-up work rather than claims of this prototype.
+The local checks cannot prove external host isolation, real network sole-egress enforcement, complete Pome fidelity or production-wide information-flow coverage. Durable local snapshots are now implemented, but their retained receipts and the host must be trusted. Dynamic quarantine still uses the local state clone; real Pome quarantine fails explicitly instead of substituting a mock.
 
 ## Comparative run
 
-`run_matrix.py` runs 600 deterministic trials: 3 configurations, 10 conditions and 20 repetitions. The configurations isolate the value of the layers:
+`run_matrix.py` runs 800 repeated deterministic cases: 4 configurations, 10 conditions and 20 repetitions. Repetitions are not independent statistical samples. The static-server ablation separates execution enforcement from quarantine:
 
 | Configuration | Main result |
 |---|---|
 | `intent_only` | tool substitution, argument substitution, direct bypass, replay, expiry, sensitive reads and exfiltration were accepted in the local test double; the server guard is disabled for this baseline |
 | `broker_only` | policy quarantine and denial worked, but post-verification mutation, direct bypass, replay and expiry remained possible because the server did not enforce capabilities |
+| `static_server` | same prevention as full on tested attacks; rejects unknown requests without quarantine |
 | `full` | all tested mutation, bypass, replay, expiry and sensitive-read conditions were blocked or quarantined; clean and registered harmless requests remained accepted |
 
-The full results are in [`results/matrix_raw.json`](results/matrix_raw.json) and [`results/matrix_summary.json`](results/matrix_summary.json). This supports only a local, conditional claim. It does not establish real Pome isolation, complete information-flow coverage or production safety.
+The local results are in [`results/matrix_raw.json`](results/matrix_raw.json) and [`results/matrix_summary.json`](results/matrix_summary.json). Actual Pome results and observer receipts are in `results/pome-observed-v4/`. Workflow and partial-failure results are in `results/pome-workflows-v1/`. See `verification.md` for the findings, evidence trust boundary and unresolved limitations.
 
-`measure_resources.py` records local request latency and process RSS in [`results/resource_summary.json`](results/resource_summary.json). These are machine-specific overhead measurements, not independent security evidence. To export an actual Pome trace after running a local twin, use `python3 -m src.pome_adapter --output results/pome_trace.json`; the command fails if the Pome CLI is unavailable rather than creating synthetic Pome evidence.
+`measure_resources.py` records comparative request latency, CPU and Python allocation peaks in [`results/resource_summary.json`](results/resource_summary.json). Pome result files also record twin startup time, observer capture time and observer process peak RSS. These are machine-specific overhead measurements. Use `run_pome.py --output <new-directory>` to reproduce actual Pome evidence acquisition.

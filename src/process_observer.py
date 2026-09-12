@@ -50,11 +50,12 @@ def persist_snapshot(directory: Path, payload: dict) -> dict:
             stream.flush()
             os.fsync(stream.fileno())
         receipt[path.name] = {"sha256": hashlib.sha256(data).hexdigest(), "bytes": len(data)}
-    fd = os.open(directory, os.O_RDONLY | os.O_DIRECTORY)
-    try:
-        os.fsync(fd)
-    finally:
-        os.close(fd)
+    for path in (directory, directory.parent):
+        fd = os.open(path, os.O_RDONLY | os.O_DIRECTORY)
+        try:
+            os.fsync(fd)
+        finally:
+            os.close(fd)
     return receipt
 
 

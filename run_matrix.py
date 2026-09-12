@@ -64,7 +64,7 @@ def run_case(config: str, attack: str, trial: int) -> dict[str, Any]:
 
     if attack == "clean":
         intent = Request("list_repositories", {}, request_id=request_id)
-        result = broker.submit(intent)
+        result = {"event": server.execute(intent)} if config == "intent_only" else broker.submit(intent)
     elif attack == "tool_substitution":
         intent = Request("list_repositories", {}, request_id=request_id)
         actual = Request("delete_repository", {"repo": "demo"}, request_id=request_id)
@@ -122,7 +122,7 @@ def run_case(config: str, attack: str, trial: int) -> dict[str, Any]:
         )
     elif attack == "benign_registered":
         request = Request("get_repository_metadata", {"repo": "demo"}, request_id=request_id)
-        result = broker.submit(request)
+        result = {"event": server.execute(request)} if config == "intent_only" else broker.submit(request)
     else:
         raise ValueError(attack)
 

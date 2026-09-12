@@ -1,8 +1,88 @@
 {
-  "samples": 100,
-  "latency_ms_min": 0.050367991207167506,
-  "latency_ms_mean": 0.1099161509773694,
-  "latency_ms_max": 1.0597590007819235,
-  "max_rss_delta_kb": 128,
-  "platform_note": "local Python test double; repeat on target deployment"
+  "python": "3.14.2",
+  "platform": "Linux-7.0.0-31-generic-x86_64-with-glibc2.39",
+  "process_max_rss_kib": 21576,
+  "scope": "Fresh local test double per sample; five warmups; no confidence intervals. Quarantine includes cloning. RSS is cumulative process high-water mark, not per-request usage.",
+  "profiles": [
+    {
+      "config": "intent_only",
+      "scenario": "clean",
+      "samples": 100,
+      "median_request_ms": 0.020436011254787445,
+      "p95_request_ms": 0.022770982468500733,
+      "max_request_ms": 0.028300011763349175,
+      "cpu_ms_including_construction_and_scoring": 4.160937000000003,
+      "single_case_peak_python_bytes_including_construction": 4806
+    },
+    {
+      "config": "intent_only",
+      "scenario": "benign_unknown",
+      "samples": 100,
+      "median_request_ms": 0.02101300924550742,
+      "p95_request_ms": 0.025453977286815643,
+      "max_request_ms": 0.05287400563247502,
+      "cpu_ms_including_construction_and_scoring": 4.530992000000012,
+      "single_case_peak_python_bytes_including_construction": 4748
+    },
+    {
+      "config": "broker_only",
+      "scenario": "clean",
+      "samples": 100,
+      "median_request_ms": 0.04810649261344224,
+      "p95_request_ms": 0.052928022341802716,
+      "max_request_ms": 0.05566398613154888,
+      "cpu_ms_including_construction_and_scoring": 7.109706000000007,
+      "single_case_peak_python_bytes_including_construction": 4894
+    },
+    {
+      "config": "broker_only",
+      "scenario": "benign_unknown",
+      "samples": 100,
+      "median_request_ms": 0.03447099879849702,
+      "p95_request_ms": 0.05304202204570174,
+      "max_request_ms": 0.05667700315825641,
+      "cpu_ms_including_construction_and_scoring": 5.551234999999988,
+      "single_case_peak_python_bytes_including_construction": 4907
+    },
+    {
+      "config": "static_server",
+      "scenario": "clean",
+      "samples": 100,
+      "median_request_ms": 0.05735551530960947,
+      "p95_request_ms": 0.06386800669133663,
+      "max_request_ms": 0.08333599544130266,
+      "cpu_ms_including_construction_and_scoring": 8.179283999999996,
+      "single_case_peak_python_bytes_including_construction": 4971
+    },
+    {
+      "config": "static_server",
+      "scenario": "benign_unknown",
+      "samples": 100,
+      "median_request_ms": 0.011702999472618103,
+      "p95_request_ms": 0.012497010175138712,
+      "max_request_ms": 0.018681021174415946,
+      "cpu_ms_including_construction_and_scoring": 2.8468209999999994,
+      "single_case_peak_python_bytes_including_construction": 4087
+    },
+    {
+      "config": "full",
+      "scenario": "clean",
+      "samples": 100,
+      "median_request_ms": 0.05718351167161018,
+      "p95_request_ms": 0.06363398279063404,
+      "max_request_ms": 0.12008598423562944,
+      "cpu_ms_including_construction_and_scoring": 8.18308799999999,
+      "single_case_peak_python_bytes_including_construction": 4953
+    },
+    {
+      "config": "full",
+      "scenario": "benign_unknown",
+      "samples": 100,
+      "median_request_ms": 0.034823999158106744,
+      "p95_request_ms": 0.03634599852375686,
+      "max_request_ms": 0.06936700083315372,
+      "cpu_ms_including_construction_and_scoring": 5.388142999999984,
+      "single_case_peak_python_bytes_including_construction": 4892
+    }
+  ]
 }

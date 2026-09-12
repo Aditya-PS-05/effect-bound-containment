@@ -1,19 +1,25 @@
-# Experiment results
+# Evidence index
 
-Run from the project root:
+- `matrix_raw.json` and `matrix_summary.json`: current local test-double matrix,
+  4 configurations × 10 conditions × 20 deterministic repetitions (800 cases).
+  Scores distinguish attack success, legitimate completion, false rejection,
+  false quarantine, executed mismatch and rejected request mismatch.
+- `resource_summary.json`: fresh-instance local request timing and resource profiles.
+- `pome-observed-v4/`: current real Pome comparison, 20 fresh GitHub twins,
+  including a transport mutation *after* the capability gate. Each scenario has
+  initial/final observer snapshots and a result containing the retained hash receipts.
+- `pome-workflows-v1/`: 11 checks of real Pome workflows with cumulative tape snapshots,
+  including queued revocation, deferred writes, concurrency, partial failures and lost responses.
+- `pome-integration-v1/`: historical 16-case Pome run before separate observer acquisition.
+- `pome-observed-v2/`: interrupted startup-race reproduction; not a complete comparison.
+- `pome-observed-v3/`: completed 16-case rerun before adding the post-gate negative control.
 
-```bash
-python3 run_matrix.py
-```
+Pome tapes include generated timestamps, random IDs and ephemeral loopback ports.
+Local case outcomes are deterministic; repeated runs are not independent trials.
+Pome evidence is from simulated provider APIs, never live GitHub accounts.
 
-This produces 20 trials for each of 8 conditions under each of 3 configurations:
+The `receipt` in each result anchors `events.json` and `state.json`. Verification
+detects archive edits if that original receipt remains trusted. A compromised
+host able to change both receipts and evidence is outside this guarantee.
 
-- `intent_only`: the server accepts ordinary requests and only the intent record exists
-- `broker_only`: the broker runs, but the server does not enforce capabilities
-- `full`: the broker and server-side capability enforcement are both active
-
-`matrix_raw.json` contains every trial. `matrix_summary.json` aggregates accepted requests, security violations, state changes, data reads, downstream effects, quarantine signals and observer-chain failures.
-
-These are deterministic local test-double results, not evidence about production Pome or real network isolation. The matrix includes both `benign_registered` and `benign_unknown`; the former measures useful allowed work and the latter measures false quarantine.
-
-Run `python3 measure_resources.py` for local latency and RSS measurements. Run `python3 -m src.pome_adapter --output results/pome_trace.json` only after installing and running Pome; the exported file must come from `pome inspect latest`.
+Reproduction commands and interpretation are in ../README.md and ../verification.md.

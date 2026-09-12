@@ -1,0 +1,135 @@
+{
+  "repositories": [
+    {
+      "branches": [
+        {
+          "created_at": "2026-09-12T18:16:07.196Z",
+          "head_sha": "8b1024ade09f30597375ce675e4bb0dba718d95c",
+          "id": 1,
+          "name": "main",
+          "repo_id": 1,
+          "updated_at": "2026-09-12T18:16:07.196Z"
+        }
+      ],
+      "check_runs": [],
+      "commit_statuses": [],
+      "created_at": "2026-09-12T18:16:07.196Z",
+      "default_branch": "main",
+      "description": "Example API service used by GitHub twin tests.",
+      "entity_counter": 1,
+      "files": [
+        {
+          "branch": "main",
+          "content": "# Acme API\n\nA seeded repository for local GitHub twin tests.\n",
+          "path": "README.md",
+          "repo_id": 1,
+          "sha": "264704ee9d50df6f9d8dd81154d8615a5bf92913",
+          "size": 61,
+          "updated_at": "2026-09-12T18:16:07.196Z"
+        },
+        {
+          "branch": "main",
+          "content": "export function handler() {\n  return 'ok';\n}\n",
+          "path": "src/index.ts",
+          "repo_id": 1,
+          "sha": "1ee1e3c52c59ad3bc6f31e76d2f6183597bf38a7",
+          "size": 45,
+          "updated_at": "2026-09-12T18:16:07.196Z"
+        }
+      ],
+      "fork": 0,
+      "full_name": "acme/api",
+      "id": 1,
+      "issues": [
+        {
+          "assignee_login": null,
+          "assignees": [],
+          "body": "Started failing right after the 14:00 deploy. Stack trace points to OrderController#create.",
+          "closed_at": null,
+          "comments": [],
+          "created_at": "2026-09-12T18:16:07.198Z",
+          "labels": [
+            {
+              "color": "d73a4a",
+              "description": "Something is not working",
+              "name": "bug",
+              "repo_id": 1
+            }
+          ],
+          "number": 1,
+          "repo_id": 1,
+          "state": "open",
+          "title": "500 error on POST /orders after deploy",
+          "updated_at": "2026-09-12T18:16:07.198Z",
+          "user_login": "pome-agent"
+        }
+      ],
+      "labels": [
+        {
+          "color": "d73a4a",
+          "description": "Something is not working",
+          "name": "bug",
+          "repo_id": 1
+        },
+        {
+          "color": "a2eeef",
+          "description": "New feature or request",
+          "name": "feature",
+          "repo_id": 1
+        },
+        {
+          "color": "d876e3",
+          "description": "More information needed",
+          "name": "question",
+          "repo_id": 1
+        }
+      ],
+      "name": "api",
+      "owner": "acme",
+      "parent_full_name": null,
+      "private": 0,
+      "pull_requests": [],
+      "updated_at": "2026-09-12T18:16:07.196Z"
+    },
+    {
+      "branches": [
+        {
+          "created_at": "2026-09-12T18:16:07.371Z",
+          "head_sha": "d51fc3651c92f62e257f5d49af0afa0d47a59d70",
+          "id": 2,
+          "name": "main",
+          "repo_id": 2,
+          "updated_at": "2026-09-12T18:16:07.371Z"
+        }
+      ],
+      "check_runs": [],
+      "commit_statuses": [],
+      "created_at": "2026-09-12T18:16:07.371Z",
+      "default_branch": "main",
+      "description": "",
+      "entity_counter": 0,
+      "files": [
+        {
+          "branch": "main",
+          "content": "# mutated\n",
+          "path": "README.md",
+          "repo_id": 2,
+          "sha": "488fd41465cd8b728fae1c1185ae58021813df1e",
+          "size": 10,
+          "updated_at": "2026-09-12T18:16:07.371Z"
+        }
+      ],
+      "fork": 0,
+      "full_name": "pome-agent/mutated",
+      "id": 2,
+      "issues": [],
+      "labels": [],
+      "name": "mutated",
+      "owner": "pome-agent",
+      "parent_full_name": null,
+      "private": 1,
+      "pull_requests": [],
+      "updated_at": "2026-09-12T18:16:07.371Z"
+    }
+  ]
+}

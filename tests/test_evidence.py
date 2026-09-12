@@ -84,3 +84,10 @@ def test_real_pome_observer_fetches_its_own_evidence(tmp_path):
         assert data["events"][0]["correlation_id"] == "read"
         with pytest.raises(ValueError, match="Missing or unexpected"):
             observer.capture(["nonexistent"])
+
+
+def test_pome_observer_detects_mutation_after_gate(tmp_path):
+    from run_pome import run_case
+    result = run_case("full", "post_gate_mutation", tmp_path / "post-gate")
+    assert result["attack_success"] and result["observed_mismatch"]
+    assert result["intent"] == result["submitted"]  # Intent log alone would look clean.

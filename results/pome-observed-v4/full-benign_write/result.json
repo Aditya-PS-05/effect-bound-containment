@@ -1,0 +1,57 @@
+{
+  "config": "full",
+  "scenario": "benign_write",
+  "source": "Pome CLI 0.43.0 GitHub REST",
+  "intent": {
+    "args": {
+      "repo": "allowed"
+    },
+    "tool": "create_repository"
+  },
+  "submitted": {
+    "args": {
+      "repo": "allowed"
+    },
+    "tool": "create_repository"
+  },
+  "accepted": true,
+  "reason": "Pome HTTP 201",
+  "tape_event_count": 1,
+  "observed_mismatch": false,
+  "attack_success": false,
+  "legitimate_completion": true,
+  "startup_ms": 404.451671987772,
+  "request_ms": 33.31904602237046,
+  "observer_initial": {
+    "snapshot": "snapshot-000",
+    "receipt": {
+      "events.json": {
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3
+      },
+      "state.json": {
+        "sha256": "354bb231740deef081ce87a88210378fb520700d0c3360d396a37e7bbd032180",
+        "bytes": 2703
+      }
+    },
+    "pid": 3621062,
+    "capture_ms": 28.199458989547566,
+    "max_rss_kib": 27060
+  },
+  "observer_final": {
+    "snapshot": "snapshot-001",
+    "receipt": {
+      "events.json": {
+        "sha256": "8c807cbb1927bfc744c075f37f15dc6e66221d4e39bffff2b3a8db6652cd313b",
+        "bytes": 2404
+      },
+      "state.json": {
+        "sha256": "3d288cdaeb5aad9141237f37d5605649460d181ba172d7d2588699e1aa64ff65",
+        "bytes": 3780
+      }
+    },
+    "pid": 3621062,
+    "capture_ms": 13.403028016909957,
+    "max_rss_kib": 27060
+  }
+}
