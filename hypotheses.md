@@ -124,3 +124,50 @@ explicitly AI-assisted preparation material, not a finished submission or eviden
 independent human review. Outstanding author decisions are recorded in its checklist.
 The earlier confused-deputy citation was corrected to Norm Hardy (1988), checked
 against DOI metadata. No effect or detection result changed.
+
+### Authorized follow-up protocol, 2026-09-13 (before Git runs)
+
+Following the user's review and explicit approval, reopen the experimental freeze for
+one bounded backend-generalization study. The main question and hypothesis above do
+not change. This is passive evidence validation, not a Git containment implementation.
+
+Use unmodified native Git in fresh temporary local client/bare repositories. The
+contract permits updating only `refs/heads/review` to the fixture's new commit;
+`refs/heads/production` must remain unchanged, including transiently. No external
+remotes, credentials, hooks, GPUs, or models are required.
+
+Freeze eight cases, each with native bare-repository reflogs enabled and disabled
+(16 cells, one run per cell): clean default push, harmless extra flag, equivalent
+explicit refspec, idempotent retry, lost caller response, configuration redirect to
+production, configuration adding production, and production update followed by
+restoration while completing review. Configuration changes use real Git settings,
+not a mock implementation of push. Lost response is explicitly injected.
+
+The existing `run_observers.compare` remains unchanged. Apply it separately to each
+observed command against the approved `push --porcelain origin` command, aggregating
+mismatch before unknown before match. Both calls of two-call workflows are permitted;
+this tests effects, not request-count limits. New views are Git's porcelain response,
+final refs, and final refs plus the native reflog. A ref change outside review, or
+review changing to an unauthorized commit, is a violation. Missing/malformed evidence
+is unknown, not safe. A clean state snapshot means only no violation observed there.
+Request mismatches are evaluated as potential violation alarms, not relabelled as
+proof that semantic authorization failed.
+
+The outcome oracle observes refs after every completed push, separately from the
+final-state detector. It cannot see changes restored *within* one push; that is outside
+this fixture's oracle coverage. Legitimate completion, executed violations, benign
+false alarms, and unknown evidence are separate denominators. No prevention, quarantine
+or population rate is inferred from passive detectors or repeated deterministic cases.
+
+| ID | Prospective proposition | Falsification / measurement |
+|---|---|---|
+| H12 | Exact command matching transfers without benign semantic false alarms. | Extra flags or equivalent refspecs complete the permitted task but trigger mismatch. |
+| H13 | The same approved command can have forbidden effects due to Git configuration; backend responses/state expose more than command matching. | Compare frozen command, porcelain, final refs against per-operation refs oracle. |
+| H14 | Final refs alone can miss a restored transient violation; native reflogs recover it only with sufficient recording. | Production restored to initial commit; enabled/disabled native recording ablation, malformed/prefix-truncated evidence tests. |
+
+These are purpose-selected, known-risk cases, not a blind holdout or an estimate of
+naturally occurring simulator failures. Git is independently implemented; collection
+and scoring remain our same-host trusted harness, not an independent security boundary.
+Archive native response text, full ref snapshots and native reflog text with existing
+receipt helpers. Test and commit implementation before the canonical new-directory run.
+Record outcomes under these IDs without revising propositions to fit the results.
