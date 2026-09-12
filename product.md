@@ -134,3 +134,15 @@ python3 security_check.py
 ```
 
 The local checks cannot prove external host isolation, real network sole-egress enforcement, durable independent storage, complete Pome fidelity or production-wide information-flow coverage. Those remain explicit follow-up work rather than claims of this prototype.
+
+## Comparative run
+
+`run_matrix.py` runs 480 deterministic trials: 3 configurations, 8 conditions and 20 repetitions. The configurations isolate the value of the layers:
+
+| Configuration | Main result |
+|---|---|
+| `intent_only` | tool substitution, argument substitution, direct bypass, replay, expiry and sensitive reads were accepted in the local test double |
+| `broker_only` | policy quarantine and denial worked, but post-verification mutation, direct bypass, replay and expiry remained possible because the server did not enforce capabilities |
+| `full` | all tested mutation, bypass, replay, expiry and sensitive-read conditions were blocked or quarantined; clean requests remained accepted |
+
+The full results are in [`results/matrix_raw.json`](results/matrix_raw.json) and [`results/matrix_summary.json`](results/matrix_summary.json). This supports only a local, conditional claim. It does not establish real Pome isolation, complete information-flow coverage or production safety.
