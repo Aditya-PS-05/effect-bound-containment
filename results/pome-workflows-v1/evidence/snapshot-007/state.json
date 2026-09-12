@@ -1,0 +1,535 @@
+{
+  "repositories": [
+    {
+      "branches": [
+        {
+          "created_at": "2026-09-12T18:15:28.836Z",
+          "head_sha": "ed7a52d40827184ab4c5ca9c250aaf694aed6d01",
+          "id": 1,
+          "name": "main",
+          "repo_id": 1,
+          "updated_at": "2026-09-12T18:15:28.837Z"
+        }
+      ],
+      "check_runs": [],
+      "commit_statuses": [],
+      "created_at": "2026-09-12T18:15:28.836Z",
+      "default_branch": "main",
+      "description": "Example API service used by GitHub twin tests.",
+      "entity_counter": 1,
+      "files": [
+        {
+          "branch": "main",
+          "content": "# Acme API\n\nA seeded repository for local GitHub twin tests.\n",
+          "path": "README.md",
+          "repo_id": 1,
+          "sha": "264704ee9d50df6f9d8dd81154d8615a5bf92913",
+          "size": 61,
+          "updated_at": "2026-09-12T18:15:28.837Z"
+        },
+        {
+          "branch": "main",
+          "content": "export function handler() {\n  return 'ok';\n}\n",
+          "path": "src/index.ts",
+          "repo_id": 1,
+          "sha": "1ee1e3c52c59ad3bc6f31e76d2f6183597bf38a7",
+          "size": 45,
+          "updated_at": "2026-09-12T18:15:28.837Z"
+        }
+      ],
+      "fork": 0,
+      "full_name": "acme/api",
+      "id": 1,
+      "issues": [
+        {
+          "assignee_login": null,
+          "assignees": [],
+          "body": "Started failing right after the 14:00 deploy. Stack trace points to OrderController#create.",
+          "closed_at": null,
+          "comments": [],
+          "created_at": "2026-09-12T18:15:28.838Z",
+          "labels": [
+            {
+              "color": "d73a4a",
+              "description": "Something is not working",
+              "name": "bug",
+              "repo_id": 1
+            }
+          ],
+          "number": 1,
+          "repo_id": 1,
+          "state": "open",
+          "title": "500 error on POST /orders after deploy",
+          "updated_at": "2026-09-12T18:15:28.838Z",
+          "user_login": "pome-agent"
+        }
+      ],
+      "labels": [
+        {
+          "color": "d73a4a",
+          "description": "Something is not working",
+          "name": "bug",
+          "repo_id": 1
+        },
+        {
+          "color": "a2eeef",
+          "description": "New feature or request",
+          "name": "feature",
+          "repo_id": 1
+        },
+        {
+          "color": "d876e3",
+          "description": "More information needed",
+          "name": "question",
+          "repo_id": 1
+        }
+      ],
+      "name": "api",
+      "owner": "acme",
+      "parent_full_name": null,
+      "private": 0,
+      "pull_requests": [],
+      "updated_at": "2026-09-12T18:15:28.837Z"
+    },
+    {
+      "branches": [
+        {
+          "created_at": "2026-09-12T18:15:29.025Z",
+          "head_sha": "9dc8c7a1b15cd2c9dc931de055899c29c3f9490a",
+          "id": 3,
+          "name": "main",
+          "repo_id": 3,
+          "updated_at": "2026-09-12T18:15:29.025Z"
+        }
+      ],
+      "check_runs": [],
+      "commit_statuses": [],
+      "created_at": "2026-09-12T18:15:29.025Z",
+      "default_branch": "main",
+      "description": "",
+      "entity_counter": 0,
+      "files": [
+        {
+          "branch": "main",
+          "content": "# delayed\n",
+          "path": "README.md",
+          "repo_id": 3,
+          "sha": "e9ea74e8c9e38ebf2b3a42d5c3a8e428bd701e78",
+          "size": 10,
+          "updated_at": "2026-09-12T18:15:29.025Z"
+        }
+      ],
+      "fork": 0,
+      "full_name": "pome-agent/delayed",
+      "id": 3,
+      "issues": [],
+      "labels": [],
+      "name": "delayed",
+      "owner": "pome-agent",
+      "parent_full_name": null,
+      "private": 1,
+      "pull_requests": [],
+      "updated_at": "2026-09-12T18:15:29.025Z"
+    },
+    {
+      "branches": [
+        {
+          "created_at": "2026-09-12T18:15:29.069Z",
+          "head_sha": "a4593b41ae8698ff83b01f201e55e1aadd75157d",
+          "id": 5,
+          "name": "main",
+          "repo_id": 5,
+          "updated_at": "2026-09-12T18:15:29.069Z"
+        }
+      ],
+      "check_runs": [],
+      "commit_statuses": [],
+      "created_at": "2026-09-12T18:15:29.069Z",
+      "default_branch": "main",
+      "description": "",
+      "entity_counter": 0,
+      "files": [
+        {
+          "branch": "main",
+          "content": "# parallel-0\n",
+          "path": "README.md",
+          "repo_id": 5,
+          "sha": "2bda004a6669fa66d7da4f2657a45b42987e0a5b",
+          "size": 13,
+          "updated_at": "2026-09-12T18:15:29.069Z"
+        }
+      ],
+      "fork": 0,
+      "full_name": "pome-agent/parallel-0",
+      "id": 5,
+      "issues": [],
+      "labels": [],
+      "name": "parallel-0",
+      "owner": "pome-agent",
+      "parent_full_name": null,
+      "private": 1,
+      "pull_requests": [],
+      "updated_at": "2026-09-12T18:15:29.069Z"
+    },
+    {
+      "branches": [
+        {
+          "created_at": "2026-09-12T18:15:29.076Z",
+          "head_sha": "2e6f3345d88450864c38971c2be45396eb548919",
+          "id": 6,
+          "name": "main",
+          "repo_id": 6,
+          "updated_at": "2026-09-12T18:15:29.076Z"
+        }
+      ],
+      "check_runs": [],
+      "commit_statuses": [],
+      "created_at": "2026-09-12T18:15:29.076Z",
+      "default_branch": "main",
+      "description": "",
+      "entity_counter": 0,
+      "files": [
+        {
+          "branch": "main",
+          "content": "# parallel-1\n",
+          "path": "README.md",
+          "repo_id": 6,
+          "sha": "ac576b19fb6dea884f0f81d90397e579e140689c",
+          "size": 13,
+          "updated_at": "2026-09-12T18:15:29.076Z"
+        }
+      ],
+      "fork": 0,
+      "full_name": "pome-agent/parallel-1",
+      "id": 6,
+      "issues": [],
+      "labels": [],
+      "name": "parallel-1",
+      "owner": "pome-agent",
+      "parent_full_name": null,
+      "private": 1,
+      "pull_requests": [],
+      "updated_at": "2026-09-12T18:15:29.076Z"
+    },
+    {
+      "branches": [
+        {
+          "created_at": "2026-09-12T18:15:29.083Z",
+          "head_sha": "5b6ca20723a42483543b4be9fa6b744a5ea6fa7a",
+          "id": 7,
+          "name": "main",
+          "repo_id": 7,
+          "updated_at": "2026-09-12T18:15:29.083Z"
+        }
+      ],
+      "check_runs": [],
+      "commit_statuses": [],
+      "created_at": "2026-09-12T18:15:29.083Z",
+      "default_branch": "main",
+      "description": "",
+      "entity_counter": 0,
+      "files": [
+        {
+          "branch": "main",
+          "content": "# parallel-2\n",
+          "path": "README.md",
+          "repo_id": 7,
+          "sha": "f4d8bdb0b6c5ecb268379cfd37a11a5d5fdf3be0",
+          "size": 13,
+          "updated_at": "2026-09-12T18:15:29.083Z"
+        }
+      ],
+      "fork": 0,
+      "full_name": "pome-agent/parallel-2",
+      "id": 7,
+      "issues": [],
+      "labels": [],
+      "name": "parallel-2",
+      "owner": "pome-agent",
+      "parent_full_name": null,
+      "private": 1,
+      "pull_requests": [],
+      "updated_at": "2026-09-12T18:15:29.083Z"
+    },
+    {
+      "branches": [
+        {
+          "created_at": "2026-09-12T18:15:29.091Z",
+          "head_sha": "298605b9e50eabb1a55375ed7d86a1ad9c348d11",
+          "id": 8,
+          "name": "main",
+          "repo_id": 8,
+          "updated_at": "2026-09-12T18:15:29.091Z"
+        }
+      ],
+      "check_runs": [],
+      "commit_statuses": [],
+      "created_at": "2026-09-12T18:15:29.091Z",
+      "default_branch": "main",
+      "description": "",
+      "entity_counter": 0,
+      "files": [
+        {
+          "branch": "main",
+          "content": "# parallel-3\n",
+          "path": "README.md",
+          "repo_id": 8,
+          "sha": "39f0fcb51de66a2d9b8f10d9671ecfcbe1114c70",
+          "size": 13,
+          "updated_at": "2026-09-12T18:15:29.091Z"
+        }
+      ],
+      "fork": 0,
+      "full_name": "pome-agent/parallel-3",
+      "id": 8,
+      "issues": [],
+      "labels": [],
+      "name": "parallel-3",
+      "owner": "pome-agent",
+      "parent_full_name": null,
+      "private": 1,
+      "pull_requests": [],
+      "updated_at": "2026-09-12T18:15:29.091Z"
+    },
+    {
+      "branches": [
+        {
+          "created_at": "2026-09-12T18:15:29.100Z",
+          "head_sha": "d8e19dabcf9e1f2b7629f9d30f74ab89f12c6794",
+          "id": 9,
+          "name": "main",
+          "repo_id": 9,
+          "updated_at": "2026-09-12T18:15:29.100Z"
+        }
+      ],
+      "check_runs": [],
+      "commit_statuses": [],
+      "created_at": "2026-09-12T18:15:29.100Z",
+      "default_branch": "main",
+      "description": "",
+      "entity_counter": 0,
+      "files": [
+        {
+          "branch": "main",
+          "content": "# parallel-4\n",
+          "path": "README.md",
+          "repo_id": 9,
+          "sha": "d855467e8f51c25b753ad900b9d4025cb4a2acd0",
+          "size": 13,
+          "updated_at": "2026-09-12T18:15:29.100Z"
+        }
+      ],
+      "fork": 0,
+      "full_name": "pome-agent/parallel-4",
+      "id": 9,
+      "issues": [],
+      "labels": [],
+      "name": "parallel-4",
+      "owner": "pome-agent",
+      "parent_full_name": null,
+      "private": 1,
+      "pull_requests": [],
+      "updated_at": "2026-09-12T18:15:29.100Z"
+    },
+    {
+      "branches": [
+        {
+          "created_at": "2026-09-12T18:15:29.110Z",
+          "head_sha": "a00b33b2cfd8b29b7cf61ebb767ac44fd1e84a65",
+          "id": 10,
+          "name": "main",
+          "repo_id": 10,
+          "updated_at": "2026-09-12T18:15:29.110Z"
+        }
+      ],
+      "check_runs": [],
+      "commit_statuses": [],
+      "created_at": "2026-09-12T18:15:29.110Z",
+      "default_branch": "main",
+      "description": "",
+      "entity_counter": 0,
+      "files": [
+        {
+          "branch": "main",
+          "content": "# parallel-5\n",
+          "path": "README.md",
+          "repo_id": 10,
+          "sha": "efc25493815add4517919bc77821dfec7e866b8e",
+          "size": 13,
+          "updated_at": "2026-09-12T18:15:29.110Z"
+        }
+      ],
+      "fork": 0,
+      "full_name": "pome-agent/parallel-5",
+      "id": 10,
+      "issues": [],
+      "labels": [],
+      "name": "parallel-5",
+      "owner": "pome-agent",
+      "parent_full_name": null,
+      "private": 1,
+      "pull_requests": [],
+      "updated_at": "2026-09-12T18:15:29.110Z"
+    },
+    {
+      "branches": [
+        {
+          "created_at": "2026-09-12T18:15:29.123Z",
+          "head_sha": "f35684e707c562587b14f2b6546712aaddc1f401",
+          "id": 11,
+          "name": "main",
+          "repo_id": 11,
+          "updated_at": "2026-09-12T18:15:29.123Z"
+        }
+      ],
+      "check_runs": [],
+      "commit_statuses": [],
+      "created_at": "2026-09-12T18:15:29.123Z",
+      "default_branch": "main",
+      "description": "",
+      "entity_counter": 0,
+      "files": [
+        {
+          "branch": "main",
+          "content": "# parallel-6\n",
+          "path": "README.md",
+          "repo_id": 11,
+          "sha": "a8e25c67fc9dc5960b0a2213cf632e6e14c9c565",
+          "size": 13,
+          "updated_at": "2026-09-12T18:15:29.123Z"
+        }
+      ],
+      "fork": 0,
+      "full_name": "pome-agent/parallel-6",
+      "id": 11,
+      "issues": [],
+      "labels": [],
+      "name": "parallel-6",
+      "owner": "pome-agent",
+      "parent_full_name": null,
+      "private": 1,
+      "pull_requests": [],
+      "updated_at": "2026-09-12T18:15:29.123Z"
+    },
+    {
+      "branches": [
+        {
+          "created_at": "2026-09-12T18:15:29.133Z",
+          "head_sha": "8a7ec2adf3da153fe6732483bcd40513d8904999",
+          "id": 12,
+          "name": "main",
+          "repo_id": 12,
+          "updated_at": "2026-09-12T18:15:29.133Z"
+        }
+      ],
+      "check_runs": [],
+      "commit_statuses": [],
+      "created_at": "2026-09-12T18:15:29.132Z",
+      "default_branch": "main",
+      "description": "",
+      "entity_counter": 0,
+      "files": [
+        {
+          "branch": "main",
+          "content": "# parallel-7\n",
+          "path": "README.md",
+          "repo_id": 12,
+          "sha": "6c3e234adda9c42429982c84887f727470a6a710",
+          "size": 13,
+          "updated_at": "2026-09-12T18:15:29.133Z"
+        }
+      ],
+      "fork": 0,
+      "full_name": "pome-agent/parallel-7",
+      "id": 12,
+      "issues": [],
+      "labels": [],
+      "name": "parallel-7",
+      "owner": "pome-agent",
+      "parent_full_name": null,
+      "private": 1,
+      "pull_requests": [],
+      "updated_at": "2026-09-12T18:15:29.133Z"
+    },
+    {
+      "branches": [
+        {
+          "created_at": "2026-09-12T18:15:29.040Z",
+          "head_sha": "5184e68fec58f23f18d7f5e40fb20e6e6ffcdc2a",
+          "id": 4,
+          "name": "main",
+          "repo_id": 4,
+          "updated_at": "2026-09-12T18:15:29.040Z"
+        }
+      ],
+      "check_runs": [],
+      "commit_statuses": [],
+      "created_at": "2026-09-12T18:15:29.040Z",
+      "default_branch": "main",
+      "description": "",
+      "entity_counter": 0,
+      "files": [
+        {
+          "branch": "main",
+          "content": "# replay\n",
+          "path": "README.md",
+          "repo_id": 4,
+          "sha": "a03a42ccb3f7a68a2e0b77331f07833a8c05c37f",
+          "size": 9,
+          "updated_at": "2026-09-12T18:15:29.040Z"
+        }
+      ],
+      "fork": 0,
+      "full_name": "pome-agent/replay",
+      "id": 4,
+      "issues": [],
+      "labels": [],
+      "name": "replay",
+      "owner": "pome-agent",
+      "parent_full_name": null,
+      "private": 1,
+      "pull_requests": [],
+      "updated_at": "2026-09-12T18:15:29.040Z"
+    },
+    {
+      "branches": [
+        {
+          "created_at": "2026-09-12T18:15:28.994Z",
+          "head_sha": "2af51300f9a5ada615d98a593da8e6226c3fd83d",
+          "id": 2,
+          "name": "main",
+          "repo_id": 2,
+          "updated_at": "2026-09-12T18:15:28.994Z"
+        }
+      ],
+      "check_runs": [],
+      "commit_statuses": [],
+      "created_at": "2026-09-12T18:15:28.994Z",
+      "default_branch": "main",
+      "description": "",
+      "entity_counter": 0,
+      "files": [
+        {
+          "branch": "main",
+          "content": "# workflow\n",
+          "path": "README.md",
+          "repo_id": 2,
+          "sha": "9df12997fb4ffb24752bc32f17d2bd9dc53f801a",
+          "size": 11,
+          "updated_at": "2026-09-12T18:15:28.994Z"
+        }
+      ],
+      "fork": 0,
+      "full_name": "pome-agent/workflow",
+      "id": 2,
+      "issues": [],
+      "labels": [],
+      "name": "workflow",
+      "owner": "pome-agent",
+      "parent_full_name": null,
+      "private": 1,
+      "pull_requests": [],
+      "updated_at": "2026-09-12T18:15:28.994Z"
+    }
+  ]
+}

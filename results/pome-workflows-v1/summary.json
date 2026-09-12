@@ -1,0 +1,226 @@
+{
+  "backend": "Pome GitHub 0.43.0",
+  "checks": [
+    {
+      "check": "initial_empty_tape",
+      "passed": true,
+      "evidence": {
+        "snapshot": "snapshot-000",
+        "receipt": {
+          "events.json": {
+            "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+            "bytes": 3
+          },
+          "state.json": {
+            "sha256": "625aff4ed7f0d9a66bcaa8ba80a094a02cf1c7238919b7378032432ad335de72",
+            "bytes": 2703
+          }
+        },
+        "pid": 3619981,
+        "capture_ms": 7.677365996642038,
+        "max_rss_kib": 27752
+      }
+    },
+    {
+      "check": "multistep_create_then_read",
+      "passed": true,
+      "evidence": {
+        "snapshot": "snapshot-001",
+        "receipt": {
+          "events.json": {
+            "sha256": "6a989b35444c97df4aae3507efc878f5db5bdf58ecc9a4f652e731b617a034c0",
+            "bytes": 4320
+          },
+          "state.json": {
+            "sha256": "869b56ff41a50829adc2951c74a7cedfae5d0a1aa53ac1db60f22cb675925176",
+            "bytes": 3783
+          }
+        },
+        "pid": 3619981,
+        "capture_ms": 4.771987005369738,
+        "max_rss_kib": 27752
+      }
+    },
+    {
+      "check": "queued_action_rechecks_revoked_policy",
+      "passed": true,
+      "evidence": {
+        "snapshot": "snapshot-002",
+        "receipt": {
+          "events.json": {
+            "sha256": "6a989b35444c97df4aae3507efc878f5db5bdf58ecc9a4f652e731b617a034c0",
+            "bytes": 4320
+          },
+          "state.json": {
+            "sha256": "869b56ff41a50829adc2951c74a7cedfae5d0a1aa53ac1db60f22cb675925176",
+            "bytes": 3783
+          }
+        },
+        "pid": 3619981,
+        "capture_ms": 4.020649997983128,
+        "max_rss_kib": 27752
+      }
+    },
+    {
+      "check": "delayed_effect_before_release",
+      "passed": true,
+      "evidence": {
+        "snapshot": "snapshot-003",
+        "receipt": {
+          "events.json": {
+            "sha256": "6a989b35444c97df4aae3507efc878f5db5bdf58ecc9a4f652e731b617a034c0",
+            "bytes": 4320
+          },
+          "state.json": {
+            "sha256": "869b56ff41a50829adc2951c74a7cedfae5d0a1aa53ac1db60f22cb675925176",
+            "bytes": 3783
+          }
+        },
+        "pid": 3619981,
+        "capture_ms": 4.234400985296816,
+        "max_rss_kib": 27752
+      }
+    },
+    {
+      "check": "delayed_effect_after_release",
+      "passed": true,
+      "evidence": {
+        "snapshot": "snapshot-004",
+        "receipt": {
+          "events.json": {
+            "sha256": "0963f036f8bc624010fce13dc1e34a2c909e04311133fc7b990d0bb505ed95c0",
+            "bytes": 6705
+          },
+          "state.json": {
+            "sha256": "d6a2a053a96be912382942c3b492c23127534d841f0dc4a189189a0d9e0fc84c",
+            "bytes": 4860
+          }
+        },
+        "pid": 3619981,
+        "capture_ms": 4.478334012674168,
+        "max_rss_kib": 27752
+      }
+    },
+    {
+      "check": "eight_concurrent_replays_execute_once",
+      "passed": true,
+      "evidence": {
+        "snapshot": "snapshot-005",
+        "receipt": {
+          "events.json": {
+            "sha256": "e3d1e1f29d130d01fe47d4d4455c2c639dc88c23402017fe635936f45ec405ab",
+            "bytes": 9077
+          },
+          "state.json": {
+            "sha256": "3bc7b6fd66d659803ca9751732518999f65b0c056304ce7eae355a8da04c6848",
+            "bytes": 5933
+          }
+        },
+        "pid": 3619981,
+        "capture_ms": 4.697144002420828,
+        "max_rss_kib": 27752
+      }
+    },
+    {
+      "check": "eight_distinct_concurrent_requests_complete",
+      "passed": true,
+      "evidence": {
+        "snapshot": "snapshot-006",
+        "receipt": {
+          "events.json": {
+            "sha256": "bbfb704fc11174164375dc2af5c986682934af350977f1a59ca3c4c5a93b5263",
+            "bytes": 28475
+          },
+          "state.json": {
+            "sha256": "ffd77b9b0cdfb31ffbd3859b5828174d2fa6e252fc447a32958c6ef9e6141a80",
+            "bytes": 14633
+          }
+        },
+        "pid": 3619981,
+        "capture_ms": 7.6015720260329545,
+        "max_rss_kib": 27752
+      }
+    },
+    {
+      "check": "partial_workflow_failure_preserves_prior_commit",
+      "passed": true,
+      "evidence": {
+        "snapshot": "snapshot-007",
+        "receipt": {
+          "events.json": {
+            "sha256": "785f5b4da469405ffe0b98ff3e140c9a33419eaa13f4e43ff82e57fbbe15f256",
+            "bytes": 29797
+          },
+          "state.json": {
+            "sha256": "ffd77b9b0cdfb31ffbd3859b5828174d2fa6e252fc447a32958c6ef9e6141a80",
+            "bytes": 14633
+          }
+        },
+        "pid": 3619981,
+        "capture_ms": 6.541052018292248,
+        "max_rss_kib": 27880
+      }
+    },
+    {
+      "check": "observer_recovers_commit_after_lost_response",
+      "passed": true,
+      "evidence": {
+        "snapshot": "snapshot-008",
+        "receipt": {
+          "events.json": {
+            "sha256": "ddcfc408d491fbeb022de97ebe6dfef31c233c111ebc3fcc89e24752695e0ee2",
+            "bytes": 32262
+          },
+          "state.json": {
+            "sha256": "d116160b9cd9ce6910c21a958cda2946655f19e53c23f1d1d1591cdb69aaf7f2",
+            "bytes": 15732
+          }
+        },
+        "pid": 3619981,
+        "capture_ms": 8.295967010781169,
+        "max_rss_kib": 27880
+      }
+    },
+    {
+      "check": "lost_response_retry_cannot_reuse_capability",
+      "passed": true,
+      "evidence": {
+        "snapshot": "snapshot-009",
+        "receipt": {
+          "events.json": {
+            "sha256": "ddcfc408d491fbeb022de97ebe6dfef31c233c111ebc3fcc89e24752695e0ee2",
+            "bytes": 32262
+          },
+          "state.json": {
+            "sha256": "d116160b9cd9ce6910c21a958cda2946655f19e53c23f1d1d1591cdb69aaf7f2",
+            "bytes": 15732
+          }
+        },
+        "pid": 3619981,
+        "capture_ms": 16.460715007269755,
+        "max_rss_kib": 27880
+      }
+    },
+    {
+      "check": "cross_run_capability_rejected",
+      "passed": true,
+      "evidence": {
+        "snapshot": "snapshot-010",
+        "receipt": {
+          "events.json": {
+            "sha256": "ddcfc408d491fbeb022de97ebe6dfef31c233c111ebc3fcc89e24752695e0ee2",
+            "bytes": 32262
+          },
+          "state.json": {
+            "sha256": "d116160b9cd9ce6910c21a958cda2946655f19e53c23f1d1d1591cdb69aaf7f2",
+            "bytes": 15732
+          }
+        },
+        "pid": 3619981,
+        "capture_ms": 6.2045179947745055,
+        "max_rss_kib": 27880
+      }
+    }
+  ],
+  "limits": "Deferred calls are scheduled by the harness, not real CI/webhooks. No multi-call atomicity is claimed."
+}

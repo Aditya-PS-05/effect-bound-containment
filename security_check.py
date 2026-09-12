@@ -50,7 +50,10 @@ def check() -> None:
     secret = b"secret"
     verifier = CapabilityVerifier(secret, clock=lambda: 100)
     issuer = CapabilityIssuer(secret, clock=lambda: 100)
-    server = ToolServer(verifier)
+    direct_policy = PolicyRegistry()
+    direct_policy.register(EffectContract("send_message", "external", "send"))
+    direct_policy.register(EffectContract("list_repositories", "read", "list"))
+    server = ToolServer(verifier, policy=direct_policy)
     send = Request("send_message", {"body": DataItem("secret", frozenset({"secret"}))}, request_id="send")
     capability = issuer.issue(send, "send-nonce")
     event = server.execute(send, capability)

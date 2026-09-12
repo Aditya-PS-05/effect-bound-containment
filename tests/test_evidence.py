@@ -1,6 +1,7 @@
 from copy import deepcopy
 import json
 import os
+import signal
 from pathlib import Path
 import time
 
@@ -60,6 +61,17 @@ def test_dead_observer_fails_without_hanging(tmp_path):
         with pytest.raises(RuntimeError):
             observer.capture([])
         assert time.monotonic() - started < 1
+
+
+def test_unresponsive_observer_has_a_bounded_deadline(tmp_path):
+    with EvidenceObserver(PomeClient("http://127.0.0.1:1/s/standalone", "dummy"),
+                          tmp_path, timeout=0.1) as observer:
+        os.kill(observer._process.pid, signal.SIGSTOP)
+        started = time.monotonic()
+        with pytest.raises(TimeoutError):
+            observer.capture([])
+        assert time.monotonic() - started < 3
+        assert not observer._process.is_alive()
 
 
 def test_real_pome_observer_fetches_its_own_evidence(tmp_path):

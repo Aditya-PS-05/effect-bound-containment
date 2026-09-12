@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import time
 from collections import defaultdict
 from pathlib import Path
 from typing import Any
@@ -59,6 +60,7 @@ def run_case(config: str, attack: str, trial: int) -> dict[str, Any]:
     broker, issuer = build(config, clock=lambda: now[0])
     server = broker.server
     request_id = f"{config}-{attack}-{trial}"
+    started = time.perf_counter()
 
     if attack == "clean":
         intent = Request("list_repositories", {}, request_id=request_id)
@@ -124,6 +126,7 @@ def run_case(config: str, attack: str, trial: int) -> dict[str, Any]:
     else:
         raise ValueError(attack)
 
+    request_ms = (time.perf_counter() - started) * 1000
     record = incident_record(
         Request("list_repositories", {}, request_id=request_id)
         if attack == "tool_substitution"
@@ -142,7 +145,7 @@ def run_case(config: str, attack: str, trial: int) -> dict[str, Any]:
         else Request("list_repositories", {}, request_id=request_id),
         result,
     )
-    record.update({"config": config, "attack": attack, "trial": trial})
+    record.update({"config": config, "attack": attack, "trial": trial, "request_ms": request_ms})
     record.update(score(record))
     if "first_accepted" in result:
         record["first_accepted"] = result["first_accepted"]
@@ -166,7 +169,8 @@ def score(row: dict[str, Any]) -> dict[str, bool]:
         "legitimate_task_completion": benign and accepted,
         "false_rejection": benign and not accepted and row["decision"] != "quarantine",
         "false_quarantine": benign and row["decision"] == "quarantine",
-        "execution_mismatch": bool(row["mismatch"]),
+        "execution_mismatch": accepted and bool(row["mismatch"]),
+        "rejected_request_mismatch": not accepted and bool(row["mismatch"]),
     }
 
 
@@ -185,6 +189,7 @@ def summarize(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
                 "quarantined": sum(row["decision"] == "quarantine" for row in group),
                 "attack_trials": len(group) if attack not in BENIGN else 0,
                 "legitimate_trials": len(group) if attack in BENIGN else 0,
+                "mean_request_ms": sum(row["request_ms"] for row in group) / len(group),
                 **{key: sum(score(row)[key] for row in group) for key in score(group[0])},
                 "state_changes": sum(bool(row["state_changed"]) for row in group),
                 "data_reads": sum(bool(row["data_reads"]) for row in group),

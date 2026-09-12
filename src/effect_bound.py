@@ -12,6 +12,8 @@ import json
 import threading
 import time
 import uuid
+from copy import deepcopy
+from contextlib import nullcontext
 from dataclasses import dataclass, field
 from typing import Any, Callable
 
@@ -70,9 +72,11 @@ class PolicyRegistry:
     def __init__(self) -> None:
         self._contracts: dict[str, EffectContract] = {}
         self._candidates: list[dict[str, Any]] = []
+        self._lock = threading.RLock()
 
     def register(self, contract: EffectContract) -> None:
-        self._contracts[contract.tool] = contract
+        with self._lock:
+            self._contracts[contract.tool] = contract
 
     def classify(self, request: Request) -> tuple[str, str]:
         contract = self._contracts.get(request.tool)
@@ -209,6 +213,8 @@ class ToolServer:
         self.effects: list[EffectEvent] = []
         self.observer = observer or ObservationLog()
         self.sensitive_guard = sensitive_guard
+        # ponytail: serialize policy check through execution; per-resource locks if throughput requires it.
+        self._execution_lock = threading.RLock()
 
     def clone(self) -> "ToolServer":
         clone = ToolServer(enforce=False)
@@ -216,6 +222,12 @@ class ToolServer:
         return clone
 
     def execute(self, request: Request, capability: Capability | None = None) -> EffectEvent:
+        # Frozen dataclasses do not freeze nested dicts. Bind checking and execution to one private copy.
+        snapshot = deepcopy(request)
+        with self._execution_lock, self.policy._lock if self.policy is not None else nullcontext():
+            return self._execute(snapshot, capability)
+
+    def _execute(self, request: Request, capability: Capability | None = None) -> EffectEvent:
         before = sorted(self.repositories)
         reason = self.authorize(request, capability)
         if reason is not None:
@@ -246,6 +258,8 @@ class ToolServer:
     def authorize(self, request: Request, capability: Capability | None) -> str | None:
         """Shared admission check for the test double and actual Pome execution adapter."""
         if self.enforce:
+            if self.policy is None:
+                return "missing server policy"
             if self.verifier is None or capability is None:
                 return "missing capability"
             valid, reason = self.verifier.verify(request, capability)
@@ -317,7 +331,7 @@ class IntentRecorder:
         self.records: list[Request] = []
 
     def record(self, request: Request) -> None:
-        self.records.append(request)
+        self.records.append(deepcopy(request))
 
 
 class Broker:
@@ -330,10 +344,10 @@ class Broker:
         self.server = server
         self.intent = IntentRecorder()
         self.sandbox = QuarantineSandbox(server)
-        self._counter = 0
         self.quarantine = quarantine
 
     def submit(self, request: Request, actual: Request | None = None) -> dict[str, Any]:
+        request = deepcopy(request)
         self.intent.record(request)
         decision, explanation = self.policy.classify(request)
         if decision == "quarantine" and not self.quarantine:
@@ -355,8 +369,7 @@ class Broker:
                 "observer_chain_valid": self.server.observer.verify(),
             }
 
-        self._counter += 1
-        capability = self.issuer.issue(request, f"nonce-{self._counter}")
+        capability = self.issuer.issue(request, uuid.uuid4().hex)
         executed_request = actual or request
         event = self.server.execute(executed_request, capability)
         return {

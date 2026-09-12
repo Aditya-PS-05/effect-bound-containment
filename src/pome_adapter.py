@@ -80,13 +80,18 @@ class LocalPome:
                 cwd=self.directory.name, env=env, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
             status_path = Path(self.directory.name) / ".pome/twin-status.json"
             deadline = time.monotonic() + 20
-            while not status_path.exists():
+            while True:
                 if self.process.poll() is not None:
                     raise RuntimeError("Pinned Pome process exited during startup")
                 if time.monotonic() >= deadline:
                     raise TimeoutError("Pome startup exceeded 20 seconds")
+                try:
+                    status = json.loads(status_path.read_text())
+                    if {"rest_url", "auth_token"} <= status.keys():
+                        break
+                except (FileNotFoundError, json.JSONDecodeError):
+                    pass
                 time.sleep(0.02)
-            status = json.loads(status_path.read_text())
             self.client = PomeClient(status["rest_url"], status["auth_token"])
             self.startup_ms = (time.perf_counter() - started) * 1000
             return self
@@ -132,8 +137,9 @@ class PomeToolServer(ToolServer):
             raise ValueError("Cannot establish Pome state")
         return {repo["full_name"] for repo in state["repositories"]}
 
-    def execute(self, request, capability=None):
-        before = sorted(self._repository_names())
+    def _execute(self, request, capability=None):
+        self.repositories = self._repository_names()
+        before = sorted(self.repositories)
         reason = self.authorize(request, capability)
         if reason is not None:
             return self._record(request, False, reason, before)
