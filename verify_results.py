@@ -5,6 +5,7 @@ from pathlib import Path
 
 from run_matrix import summarize
 from src.process_observer import validate_tape, verify_snapshot
+from run_selective import summarize as summarize_selective
 
 
 def main():
@@ -12,6 +13,9 @@ def main():
     raw = json.loads((root / "matrix_raw.json").read_text())
     expected = json.loads((root / "matrix_summary.json").read_text())
     assert summarize(raw) == expected, "Local summary does not match raw cases"
+    selective = root / "selective-release-v1"
+    selective_raw = json.loads((selective / "raw.json").read_text())
+    assert summarize_selective(selective_raw) == json.loads((selective / "summary.json").read_text())
     pome = root / "pome-observed-v4"
     rows = json.loads((pome / "summary.json").read_text())
     assert len(rows) == 20
@@ -33,7 +37,7 @@ def main():
         data = verify_snapshot(workflows / "evidence" / receipt["snapshot"], receipt["receipt"])
         validate_tape(data["events"], [e["correlation_id"] for e in data["events"]], previous)
         previous = data["events"]
-    print(f"Verified {len(raw)} local cases, {len(rows)} real Pome runs and {len(checks)} workflow snapshots")
+    print(f"Verified {len(raw)} baseline + {len(selective_raw)} selective cases, {len(rows)} real Pome runs and {len(checks)} workflow snapshots")
 
 
 if __name__ == "__main__":

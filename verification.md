@@ -137,10 +137,17 @@ not production overhead predictions or cost estimates for isolated quarantine.
 
 ## Verification and reproduction
 
-32 pytest tests pass, including real Pome integration and the negative controls described
+60 pytest tests pass, including the selective-release extension, real Pome integration and the negative controls described
 above. The additional security smoke script, lint and diff checks pass. A passing test
 that demonstrates a limitation is not counted as a blocked attack.
 
 See README.md for exact commands. `results/pome-integration-v1` and `pome-observed-v3`
 are retained historical stages. `pome-observed-v2` is an explicitly marked interrupted
 startup-race reproduction and must not be presented as a complete experiment.
+
+## Selective-release extension
+
+The earlier matrix above is retained as the hold-all baseline. The new opt-in local
+extension and its 720-case comparison are documented in selective_release.md. It
+restores the narrowly supported harmless reads, but fails the deliberately incomplete
+simulator control. These are additional local tests, not new Pome containment results.

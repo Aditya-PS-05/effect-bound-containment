@@ -25,6 +25,7 @@ npm ci --no-audit --no-fund
 .venv/bin/python verify_results.py
 .venv/bin/python run_pome.py --output .runtime/pome-reproduction
 .venv/bin/python run_workflows.py --output .runtime/workflow-reproduction
+.venv/bin/python run_selective.py --output .runtime/selective-reproduction
 ```
 
 Use a new output directory for each Pome run; existing evidence is never overwritten.
@@ -42,6 +43,7 @@ loopback. Child processes are joined or terminated, with bounded startup and RPC
 - `run_matrix.py`: local comparative matrix including the static-server ablation.
 - `run_pome.py`: real Pome comparison with independent tape acquisition.
 - `run_workflows.py`: multi-step, deferred, concurrent and partial-failure experiments.
+- `run_selective.py`: bounded selective release, equally informed static baseline and simulation-fidelity controls.
 - `tests/`: scoring, security, evidence integrity, deadline and workflow regression tests.
 - `verification.md`: measured findings and explicit boundaries of the claims.
 - `product.md`, `literature_review.md`, `secret_loyalties.md`: design and research background.
@@ -57,5 +59,7 @@ assumption that Pome and the local host are trusted. It does not enforce a netwo
 sole-egress boundary or protect against a compromised Pome process.
 
 Quarantine is currently exercised in the local deterministic test double only.
-It holds unknown requests for review and does not automatically promote them to
-allowed policy. The real Pome adapter rejects attempts to use the local clone.
+The original `full` configuration holds all unknown requests. The separate `selective`
+configuration can release one exactly reviewed request without adding a general policy
+rule. See selective_release.md for its measured tradeoffs and successful attack control.
+The real Pome adapter rejects attempts to use the local clone.

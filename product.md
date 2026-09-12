@@ -127,6 +127,7 @@ The local prototype now integrates these components end to end:
 | Capability verifier | `CapabilityIssuer`, `CapabilityVerifier` | implemented |
 | Tool/API boundary | `ToolServer` | implemented |
 | Dynamic quarantine | `QuarantineSandbox` | implemented as an in-process state clone |
+| Selective release | `ReleaseApproval`, `ToolServer.review_release` | opt-in local-only review; server-signed exact request, state/policy preconditions, five-second expiry and single use |
 | Data-flow signal | labelled `DataItem` and sensitive-payload rejection | limited prototype |
 | Downstream effects | `EffectEvent.downstream_effects` | limited prototype |
 | Independent observation | `EvidenceObserver` | separate spawned process fetches Pome tape/state directly and fsyncs snapshots; trusts Pome and host |
@@ -155,3 +156,17 @@ The local checks cannot prove external host isolation, real network sole-egress 
 The local results are in [`results/matrix_raw.json`](results/matrix_raw.json) and [`results/matrix_summary.json`](results/matrix_summary.json). Actual Pome results and observer receipts are in `results/pome-observed-v4/`. Workflow and partial-failure results are in `results/pome-workflows-v1/`. See `verification.md` for the findings, evidence trust boundary and unresolved limitations.
 
 `measure_resources.py` records comparative request latency, CPU and Python allocation peaks in [`results/resource_summary.json`](results/resource_summary.json). Pome result files also record twin startup time, observer capture time and observer process peak RSS. These are machine-specific overhead measurements. Use `run_pome.py --output <new-directory>` to reproduce actual Pome evidence acquisition.
+
+## Selective release extension
+
+The default `full` configuration remains the original hold-all baseline. `Broker(...,
+selective_release=True)` enables a separate local experiment described in
+selective_release.md. Only operator-reviewed read shapes can receive one-use server
+approval after a clean clone evaluation. Approval binds request, run, current modeled
+state and policy revision and expires after five seconds. It never registers a general
+allow rule. Execution rechecks the approval under the policy/execution lock.
+
+The 720-case extension restores 80/80 legitimate scenario completions, while four modeled
+hidden-effect families remain held. All 20 repetitions of an intentionally incomplete
+simulator still allow an unauthorized write; the local effect comparison then flags it.
+This extension is not Pome-backed, a general semantic verifier, or a containment proof.

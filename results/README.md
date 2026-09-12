@@ -5,6 +5,9 @@
   Scores distinguish attack success, legitimate completion, false rejection,
   false quarantine, executed mismatch and rejected request mismatch.
 - `resource_summary.json`: fresh-instance local request timing and resource profiles.
+- `selective-release-v1/`: 720 new local-only cases, four configurations and nine
+  scenarios repeated twenty times. Includes equally informed static authorization
+  and an incomplete-simulator attack control; see ../selective_release.md.
 - `pome-observed-v4/`: current real Pome comparison, 20 fresh GitHub twins,
   including a transport mutation *after* the capability gate. Each scenario has
   initial/final observer snapshots and a result containing the retained hash receipts.
