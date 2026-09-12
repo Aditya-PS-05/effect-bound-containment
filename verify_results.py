@@ -7,6 +7,7 @@ from run_matrix import summarize
 from src.process_observer import validate_tape, verify_snapshot
 from run_selective import summarize as summarize_selective
 from run_observers import verify_run
+from run_git_evidence import verify_run as verify_git_run
 
 
 def main():
@@ -39,8 +40,10 @@ def main():
         validate_tape(data["events"], [e["correlation_id"] for e in data["events"]], previous)
         previous = data["events"]
     observers = verify_run(root / "observer-comparison-v1")
+    git_rows = verify_git_run(root / "git-evidence-v1")
     print(f"Verified {len(raw)} baseline + {len(selective_raw)} selective cases, {len(rows)} prior Pome runs, "
-          f"{len(observers)} observer-comparison runs and {len(checks)} workflow snapshots")
+          f"{len(observers)} observer-comparison runs, {len(checks)} workflow snapshots "
+          f"and {len(git_rows)} native Git evidence runs")
 
 
 if __name__ == "__main__":

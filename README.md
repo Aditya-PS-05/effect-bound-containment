@@ -22,9 +22,14 @@ The sprint Guidelines require the final report to be the team's own writing.
 Author review, affiliation, a reviewer-accessible artifact location and final-template
 completion remain outstanding. Nothing has been published or submitted.
 
+The subsequent [native Git study](git_evidence.md) adds H12–H14 and 16 recorded cells.
+It is separate from the earlier authoring pack/PDF; those frozen tables do not yet
+include this follow-up. Request equality fails as a semantic detector on real Git
+configuration changes and harmless command variations.
+
 ## Reproduce
 
-Linux, Python 3.12+ and npm are required. The Python environment and pinned Node
+Linux, Python 3.12+, npm and native Git (tested with 2.43.0) are required. The Python environment and pinned Node
 runtime are local to this project. Node 24.21.0 and Pome CLI 0.43.0 are locked.
 
 ```sh
@@ -40,6 +45,7 @@ npm ci --no-audit --no-fund
 .venv/bin/python run_workflows.py --output .runtime/workflow-reproduction
 .venv/bin/python run_selective.py --output .runtime/selective-reproduction
 .venv/bin/python run_observers.py --output .runtime/observer-reproduction
+.venv/bin/python run_git_evidence.py --output .runtime/git-reproduction
 ```
 
 Use a new output directory for each Pome run; existing evidence is never overwritten.
@@ -59,6 +65,8 @@ loopback. Child processes are joined or terminated, with bounded startup and RPC
 - `run_workflows.py`: multi-step, deferred, concurrent and partial-failure experiments.
 - `run_selective.py`: bounded selective release, equally informed static baseline and simulation-fidelity controls.
 - `run_observers.py`: passive intent/gate/backend comparison, with outcome scoring independent of detector alerts.
+- `run_git_evidence.py`: native Git command/response/ref/reflog comparison, no mock push backend.
+- `git_evidence.md`: prospective follow-up results and concrete evidence requirements.
 - `hypotheses.md`: fixed question, intermediate hypotheses, prospective protocol and evidence-linked outcomes.
 - `observer_comparison.md`: detector results, timing bounds and limitations.
 - `tests/`: scoring, security, evidence integrity, deadline and workflow regression tests.

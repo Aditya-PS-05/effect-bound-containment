@@ -2,6 +2,7 @@
 
 from copy import deepcopy
 import json
+from pathlib import Path
 
 import pytest
 
@@ -104,3 +105,17 @@ def test_consistent_first_source_forgery_remains_outside_guarantee(study):
     after["events"]["refs/heads/production"] = before["events"]["refs/heads/production"]
     assert journal_view(before, after, row["desired"], True) == "clear"
     # This is NOT a verified archive: existing retained receipt rejects the forgery.
+
+
+def test_published_table_matches_verified_archive():
+    root = Path(__file__).resolve().parents[1]
+    summary = summarize(verify_run(root / "results/git-evidence-v1"))
+    report = (root / "git_evidence.md").read_text()
+    for enabled, condition in (("false", "Disabled"), ("true", "Enabled")):
+        for view, label in (("request", "Request"), ("response", "Response"),
+                            ("final_state", "Final state"), ("journal_state", "Journal + state")):
+            line = next(line for line in report.splitlines() if line.startswith(f"| {condition} | {label} |"))
+            actual = [int(cell.strip()) for cell in line.split("|")[3:-1]]
+            expected = [summary[enabled]["views"][view][key] for key in
+                        ("detected", "missed", "attack_unknown", "benign_false_alarm", "benign_unknown")]
+            assert actual == expected

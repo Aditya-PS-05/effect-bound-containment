@@ -1,0 +1,72 @@
+{
+  "false": {
+    "executed_attacks": 3,
+    "benign_cases": 5,
+    "legitimate_completion": 5,
+    "views": {
+      "request": {
+        "detected": 0,
+        "missed": 3,
+        "attack_unknown": 0,
+        "benign_false_alarm": 2,
+        "benign_unknown": 0
+      },
+      "response": {
+        "detected": 3,
+        "missed": 0,
+        "attack_unknown": 0,
+        "benign_false_alarm": 0,
+        "benign_unknown": 1
+      },
+      "final_state": {
+        "detected": 2,
+        "missed": 1,
+        "attack_unknown": 0,
+        "benign_false_alarm": 0,
+        "benign_unknown": 0
+      },
+      "journal_state": {
+        "detected": 2,
+        "missed": 0,
+        "attack_unknown": 1,
+        "benign_false_alarm": 0,
+        "benign_unknown": 5
+      }
+    }
+  },
+  "true": {
+    "executed_attacks": 3,
+    "benign_cases": 5,
+    "legitimate_completion": 5,
+    "views": {
+      "request": {
+        "detected": 0,
+        "missed": 3,
+        "attack_unknown": 0,
+        "benign_false_alarm": 2,
+        "benign_unknown": 0
+      },
+      "response": {
+        "detected": 3,
+        "missed": 0,
+        "attack_unknown": 0,
+        "benign_false_alarm": 0,
+        "benign_unknown": 1
+      },
+      "final_state": {
+        "detected": 2,
+        "missed": 1,
+        "attack_unknown": 0,
+        "benign_false_alarm": 0,
+        "benign_unknown": 0
+      },
+      "journal_state": {
+        "detected": 3,
+        "missed": 0,
+        "attack_unknown": 0,
+        "benign_false_alarm": 0,
+        "benign_unknown": 0
+      }
+    }
+  }
+}

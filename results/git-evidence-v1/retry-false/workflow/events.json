@@ -1,0 +1,50 @@
+[
+  {
+    "argv": [
+      "push",
+      "--porcelain",
+      "origin"
+    ],
+    "native_response": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "To <fixture>/remote.git\n \tHEAD:refs/heads/review\td23d925..babc4cd\nDone\n"
+    },
+    "oracle_refs": {
+      "refs/heads/production": "d23d925bbdd7f9d1f6c9b19930374e9a3912ee6e",
+      "refs/heads/review": "babc4cdbdce78f090b19af2b34302c944593b9ec"
+    },
+    "push_refspecs": [
+      "HEAD:refs/heads/review"
+    ],
+    "response": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "To <fixture>/remote.git\n \tHEAD:refs/heads/review\td23d925..babc4cd\nDone\n"
+    }
+  },
+  {
+    "argv": [
+      "push",
+      "--porcelain",
+      "origin"
+    ],
+    "native_response": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "To <fixture>/remote.git\n=\tHEAD:refs/heads/review\t[up to date]\nDone\n"
+    },
+    "oracle_refs": {
+      "refs/heads/production": "d23d925bbdd7f9d1f6c9b19930374e9a3912ee6e",
+      "refs/heads/review": "babc4cdbdce78f090b19af2b34302c944593b9ec"
+    },
+    "push_refspecs": [
+      "HEAD:refs/heads/review"
+    ],
+    "response": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "To <fixture>/remote.git\n=\tHEAD:refs/heads/review\t[up to date]\nDone\n"
+    }
+  }
+]

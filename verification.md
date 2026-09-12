@@ -161,3 +161,18 @@ detects 0/6 executed attacks, gate evidence 2/6, and backend evidence 6/6. All h
 its alerts on those attempts are counted separately, not as executed detections.
 See observer_comparison.md for the read-without-state-change control, response-loss
 control, coverage failures, detection-delay bounds and the remaining trust boundary.
+
+## Native Git follow-up
+
+The earlier 78-test count is the implementation checkpoint before report preparation.
+After four original report-consistency checks, fifteen native Git checks and one
+Git-table consistency check, the full suite is 98 passing tests.
+`verify_results.py` also recomputes all 16 Git cells from retained
+receipt-checked evidence in `results/git-evidence-v1`.
+
+Git 2.43.0 independently implements the tested push semantics. Request matching misses
+6/6 executed violations and raises 4/10 benign semantic alarms across two recording
+conditions. Final ref snapshots miss both restored transient writes. Enabled native
+reflogs plus state detect 3/3 violations in that condition; disabled history gives two
+detections and one unknown, not a third guarantee. Full counts and narrower response
+parser scope are in git_evidence.md. These are passive detections, not prevention.

@@ -22,9 +22,11 @@ Sources checked during preparation:
   corrects the literature notebook's prior author/date error.
 
 The report's source list is deliberately narrower than the exploratory literature
-notebook. Local evidence is frozen at commit `4d5121e`; no new performance experiment
-was run while preparing this pack. Later commits add only reporting and consistency
-checks. There is no public repository URL, license decision or submission in this step.
+notebook. This pack's evidence is frozen at commit `4d5121e`; no new performance
+experiment was run while preparing it. The later user-authorized
+[Git follow-up](../git_evidence.md) is separate and is not incorporated into this
+pack/PDF/HTML yet. Do not describe this rendering as the latest complete evidence.
+There is no public repository URL, license decision or submission in this step.
 
 Finish in this order: write your narrative in the official template, confirm affiliation
 and AI-use disclosure, provide an accessible artifact, then check the final PDF and

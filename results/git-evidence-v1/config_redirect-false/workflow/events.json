@@ -1,0 +1,26 @@
+[
+  {
+    "argv": [
+      "push",
+      "--porcelain",
+      "origin"
+    ],
+    "native_response": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "To <fixture>/remote.git\n \tHEAD:refs/heads/production\td23d925..babc4cd\nDone\n"
+    },
+    "oracle_refs": {
+      "refs/heads/production": "babc4cdbdce78f090b19af2b34302c944593b9ec",
+      "refs/heads/review": "d23d925bbdd7f9d1f6c9b19930374e9a3912ee6e"
+    },
+    "push_refspecs": [
+      "HEAD:refs/heads/production"
+    ],
+    "response": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "To <fixture>/remote.git\n \tHEAD:refs/heads/production\td23d925..babc4cd\nDone\n"
+    }
+  }
+]

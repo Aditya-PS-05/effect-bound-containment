@@ -1,0 +1,48 @@
+{
+  "scenario": "retry",
+  "journal_enabled": true,
+  "desired": "babc4cdbdce78f090b19af2b34302c944593b9ec",
+  "git_version": "git version 2.43.0",
+  "comparator_sha256": "851a1574c4e88556c180e9615d35ed1461dd1ebd1bc206b58cdc585ad6016274",
+  "receipts": {
+    "before": {
+      "events.json": {
+        "sha256": "d46027e1ca42795c57b9f7186d54ed8ec8069d148609ab5c7c366e5f6c3a1ec9",
+        "bytes": 381
+      },
+      "state.json": {
+        "sha256": "d657de15a89c997b6b2e135a9fc4c226605a462d767f162f38edfc5e94371138",
+        "bytes": 141
+      }
+    },
+    "after": {
+      "events.json": {
+        "sha256": "e090840656da3918c6b2aaad7b5b255e5e4af8640ca142ca8514dbf8df159356",
+        "bytes": 539
+      },
+      "state.json": {
+        "sha256": "3460f90145707217763e38071bca80a49cae7129974b32766c091cdac0b73ec1",
+        "bytes": 141
+      }
+    },
+    "workflow": {
+      "events.json": {
+        "sha256": "921594d448f5f19c51bacbd4deafbcf314271e91165392e49f5cc48d5deb2508",
+        "bytes": 1287
+      },
+      "state.json": {
+        "sha256": "27a29e8d10e148876911114df1d75f0df29636dfa0155e0f75c3c8a4bb498897",
+        "bytes": 60
+      }
+    }
+  },
+  "attack_case": false,
+  "executed_violation": false,
+  "legitimate_completion": true,
+  "views": {
+    "request": "clear",
+    "response": "clear",
+    "final_state": "clear",
+    "journal_state": "clear"
+  }
+}

@@ -171,3 +171,36 @@ and scoring remain our same-host trusted harness, not an independent security bo
 Archive native response text, full ref snapshots and native reflog text with existing
 receipt helpers. Test and commit implementation before the canonical new-directory run.
 Record outcomes under these IDs without revising propositions to fit the results.
+
+### Git outcomes, 2026-09-13
+
+Protocol commit `bb0cd16`; implementation `fc3cffd` passed all 97 tests before the
+canonical run at `results/git-evidence-v1`. Git version 2.43.0. All 16 specified cells
+completed; no scenario changes or failed canonical cells. Tests exercise the planned
+cases, so the canonical run is a reproduction, not a blind holdout. No tuning of the
+existing request comparator occurred; its source hash is retained per cell.
+
+| ID | Observation | Status |
+|---|---|---|
+| H12 | Request matching raises 4/10 benign semantic false alarms and misses all 6/6 executed violations across both recording conditions. | Refuted in the specified transformations. Literal mismatch remains correctly detected; its interpretation as danger fails. |
+| H13 | Identical command text changes forbidden production refs through real Git push configuration. Porcelain reports all 6/6 destination violations; final refs expose 4/6. | Supported for these native configuration cases, not arbitrary tool semantics. |
+| H14 | Both restore cases leave production unchanged at the end. With recording enabled, reflog plus final state detects 3/3 attacks; disabled recording yields 2 detections and 1 unknown. | Supported in this bounded native-recording ablation. |
+
+All 10 benign backend tasks complete. Response-only evidence is unknown for the two
+injected caller-response losses; native reflogs with state recover coverage in the
+enabled cell. No view enforces policy, so none of these detections is prevention.
+The response parser checks destination effects only, not full commit-identity safety;
+state/reflog checks use full object IDs. This narrower view is explicit rather than
+claiming arbitrary effect verification from a porcelain status line.
+
+Fifteen new regression checks include malformed/prefix-truncated logs, damaged
+receipts, missing responses, denominator separation and a deliberately successful
+first-source forgery control. Removing a complete update/restore cycle before first
+acquisition can leave a consistent journal that the detector accepts. Retained receipts
+catch later archive changes, not a source that originally lied. This is a retained
+limitation, not a repaired hostile-observer boundary.
+
+Main hypothesis status does not improve to full support. The new result strengthens
+the evidence-sufficiency question using an independently implemented backend; it
+does not rescue the negative quarantine comparison or establish production containment.
+See `git_evidence.md` for per-condition counts, requirements and scope limits.
