@@ -13,9 +13,9 @@ from src.effect_bound import (
 def make_broker() -> Broker:
     secret = b"secret"
     verifier = CapabilityVerifier(secret, clock=lambda: 100)
-    server = ToolServer(verifier)
     policy = PolicyRegistry()
     policy.register(EffectContract("list_repositories", "read", "list repositories"))
+    server = ToolServer(verifier, policy=policy)
     return Broker(policy, CapabilityIssuer(secret, clock=lambda: 100), server)
 
 
@@ -80,3 +80,28 @@ def test_policy_denies_sensitive_exfiltration():
     )
     result = broker.submit(request)
     assert result["decision"] == "deny"
+
+
+def test_server_rechecks_policy_for_a_valid_but_forbidden_capability():
+    broker = make_broker()
+    broker.policy.register(EffectContract("delete_repository", "destructive", "delete", decision="deny"))
+    request = Request("delete_repository", {"repo": "demo"}, request_id="forbidden")
+    capability = broker.issuer.issue(request, "forbidden-nonce")
+    event = broker.server.execute(request, capability)
+    assert not event.accepted
+    assert event.reason == "effect violates contract"
+    assert broker.server.repositories == {"demo"}
+
+
+def test_authoritative_event_keeps_full_executed_request():
+    broker = make_broker()
+    intent = Request("list_repositories", {}, request_id="evidence")
+    result = broker.submit(intent)
+    event = result["event"]
+    assert event.executed_request == intent.canonical()
+
+
+def test_secret_read_is_recorded_as_a_returned_label():
+    server = ToolServer(enforce=False)
+    event = server.execute(Request("read_secret", {}, request_id="read"))
+    assert event.returned_labels == ["secret"]

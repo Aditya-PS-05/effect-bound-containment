@@ -17,7 +17,6 @@ from src.effect_bound import (
 def build_broker() -> Broker:
     secret = b"experiment-secret"
     verifier = CapabilityVerifier(secret)
-    server = ToolServer(verifier)
     policy = PolicyRegistry()
     policy.register(EffectContract("list_repositories", "read", "list test repositories"))
     policy.register(
@@ -28,6 +27,7 @@ def build_broker() -> Broker:
             allowed_targets=frozenset({"demo", "other"}),
         )
     )
+    server = ToolServer(verifier, policy=policy)
     policy.register(
         EffectContract(
             "delete_repository",
