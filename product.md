@@ -139,7 +139,7 @@ The local checks cannot prove external host isolation, real network sole-egress 
 
 ## Comparative run
 
-`run_matrix.py` runs 480 deterministic trials: 3 configurations, 8 conditions and 20 repetitions. The configurations isolate the value of the layers:
+`run_matrix.py` runs 540 deterministic trials: 3 configurations, 9 conditions and 20 repetitions. The configurations isolate the value of the layers:
 
 | Configuration | Main result |
 |---|---|
