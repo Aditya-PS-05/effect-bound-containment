@@ -14,4 +14,6 @@ This produces 20 trials for each of 8 conditions under each of 3 configurations:
 
 `matrix_raw.json` contains every trial. `matrix_summary.json` aggregates accepted requests, security violations, state changes, data reads, downstream effects, quarantine signals and observer-chain failures.
 
-These are deterministic local test-double results, not evidence about production Pome or real network isolation.
+These are deterministic local test-double results, not evidence about production Pome or real network isolation. The matrix includes both `benign_registered` and `benign_unknown`; the former measures useful allowed work and the latter measures false quarantine.
+
+Run `python3 measure_resources.py` for local latency and RSS measurements. Run `python3 -m src.pome_adapter --output results/pome_trace.json` only after installing and running Pome; the exported file must come from `pome inspect latest`.

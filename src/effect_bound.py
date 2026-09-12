@@ -200,6 +200,7 @@ class ToolServer:
         enforce: bool = True,
         policy: PolicyRegistry | None = None,
         observer: ObservationLog | None = None,
+        sensitive_guard: bool = True,
     ) -> None:
         self.verifier = verifier
         self.enforce = enforce
@@ -207,6 +208,7 @@ class ToolServer:
         self.repositories = {"demo"}
         self.effects: list[EffectEvent] = []
         self.observer = observer or ObservationLog()
+        self.sensitive_guard = sensitive_guard
 
     def clone(self) -> "ToolServer":
         clone = ToolServer(enforce=False)
@@ -242,7 +244,7 @@ class ToolServer:
         elif request.tool == "get_repository_metadata":
             pass
         elif request.tool == "send_message":
-            if contains_sensitive(request.args):
+            if self.sensitive_guard and contains_sensitive(request.args):
                 return self._record(request, False, "sensitive data exfiltration", before)
             downstream.append("notification:sent")
         else:

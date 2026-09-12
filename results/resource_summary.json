@@ -1,0 +1,8 @@
+{
+  "samples": 100,
+  "latency_ms_min": 0.050367991207167506,
+  "latency_ms_mean": 0.1099161509773694,
+  "latency_ms_max": 1.0597590007819235,
+  "max_rss_delta_kb": 128,
+  "platform_note": "local Python test double; repeat on target deployment"
+}

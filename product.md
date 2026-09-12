@@ -127,7 +127,7 @@ The local prototype now integrates these components end to end:
 | Downstream effects | `EffectEvent.downstream_effects` | limited prototype |
 | Independent observation | `ObservationLog` hash chain | tamper-evident local log |
 | Effect comparison | `incident_record` | implemented |
-| Pome integration | adapter boundary only | not yet connected to the external CLI |
+| Pome integration | `src/pome_adapter.py` | CLI adapter/export implemented; requires local Pome CLI run |
 
 Run the local security matrix with:
 
@@ -139,12 +139,14 @@ The local checks cannot prove external host isolation, real network sole-egress 
 
 ## Comparative run
 
-`run_matrix.py` runs 540 deterministic trials: 3 configurations, 9 conditions and 20 repetitions. The configurations isolate the value of the layers:
+`run_matrix.py` runs 600 deterministic trials: 3 configurations, 10 conditions and 20 repetitions. The configurations isolate the value of the layers:
 
 | Configuration | Main result |
 |---|---|
-| `intent_only` | tool substitution, argument substitution, direct bypass, replay, expiry and sensitive reads were accepted in the local test double |
+| `intent_only` | tool substitution, argument substitution, direct bypass, replay, expiry, sensitive reads and exfiltration were accepted in the local test double; the server guard is disabled for this baseline |
 | `broker_only` | policy quarantine and denial worked, but post-verification mutation, direct bypass, replay and expiry remained possible because the server did not enforce capabilities |
-| `full` | all tested mutation, bypass, replay, expiry and sensitive-read conditions were blocked or quarantined; clean requests remained accepted |
+| `full` | all tested mutation, bypass, replay, expiry and sensitive-read conditions were blocked or quarantined; clean and registered harmless requests remained accepted |
 
 The full results are in [`results/matrix_raw.json`](results/matrix_raw.json) and [`results/matrix_summary.json`](results/matrix_summary.json). This supports only a local, conditional claim. It does not establish real Pome isolation, complete information-flow coverage or production safety.
+
+`measure_resources.py` records local request latency and process RSS in [`results/resource_summary.json`](results/resource_summary.json). These are machine-specific overhead measurements, not independent security evidence. To export an actual Pome trace after running a local twin, use `python3 -m src.pome_adapter --output results/pome_trace.json`; the command fails if the Pome CLI is unavailable rather than creating synthetic Pome evidence.

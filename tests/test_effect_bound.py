@@ -1,3 +1,5 @@
+from concurrent.futures import ThreadPoolExecutor
+
 from src.effect_bound import (
     Broker,
     CapabilityIssuer,
@@ -8,6 +10,8 @@ from src.effect_bound import (
     Request,
     ToolServer,
 )
+from src.process_observer import ProcessObservationLog
+from src.pome_adapter import PomeCLI
 
 
 def make_broker() -> Broker:
@@ -105,3 +109,31 @@ def test_secret_read_is_recorded_as_a_returned_label():
     server = ToolServer(enforce=False)
     event = server.execute(Request("read_secret", {}, request_id="read"))
     assert event.returned_labels == ["secret"]
+
+
+def test_capability_replay_race_accepts_exactly_once():
+    broker = make_broker()
+    request = Request("list_repositories", {}, request_id="race")
+    capability = broker.issuer.issue(request, "race-nonce")
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        events = list(pool.map(lambda _: broker.server.execute(request, capability), range(8)))
+    assert sum(event.accepted for event in events) == 1
+
+
+def test_process_observer_verifies_outside_server_process():
+    server = ToolServer(enforce=False)
+    with ProcessObservationLog() as observer:
+        server.observer = observer
+        event = server.execute(Request("list_repositories", {}, request_id="external-log"))
+        assert event.accepted
+        assert observer.verify()
+
+
+def test_pome_adapter_exports_cli_trace_without_reinterpreting_it(tmp_path):
+    class FakePome(PomeCLI):
+        def _run(self, *args: str) -> str:
+            assert args == ("inspect", "latest")
+            return '{"tape": [{"method": "GET", "changed": false}]}'
+
+    output = FakePome().export_latest(tmp_path / "pome.json")
+    assert output.read_text() == '{\n  "tape": [\n    {\n      "method": "GET",\n      "changed": false\n    }\n  ]\n}\n'

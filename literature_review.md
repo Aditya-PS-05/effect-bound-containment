@@ -142,7 +142,7 @@ The literature review changes our evaluation plan in five ways:
 1. Keep policy enforcement at both broker and server boundaries.
 2. Bind evidence to the complete executed request, not only the tool name.
 3. Separate state effects, data reads, downstream effects and returned data labels.
-4. Add benign unknown actions and measure over-quarantine.
+4. Add benign registered actions and unknown actions, then measure utility and over-quarantine.
 5. Treat the local Pome-style twin as a test environment, then repeat with real Pome and an external observer before making stronger claims.
 
 ## What remains out of scope

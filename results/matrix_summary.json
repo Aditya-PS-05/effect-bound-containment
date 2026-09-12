@@ -14,6 +14,19 @@
   },
   {
     "config": "broker_only",
+    "attack": "benign_registered",
+    "trials": 20,
+    "accepted": 20,
+    "quarantined": 0,
+    "security_violations": 20,
+    "state_changes": 0,
+    "data_reads": 0,
+    "downstream_effects": 0,
+    "sandbox_suspicious": 0,
+    "observer_chain_failures": 0
+  },
+  {
+    "config": "broker_only",
     "attack": "benign_unknown",
     "trials": 20,
     "accepted": 0,
@@ -22,7 +35,7 @@
     "state_changes": 0,
     "data_reads": 0,
     "downstream_effects": 0,
-    "sandbox_suspicious": 0,
+    "sandbox_suspicious": 20,
     "observer_chain_failures": 0
   },
   {
@@ -131,6 +144,19 @@
   },
   {
     "config": "full",
+    "attack": "benign_registered",
+    "trials": 20,
+    "accepted": 20,
+    "quarantined": 0,
+    "security_violations": 20,
+    "state_changes": 0,
+    "data_reads": 0,
+    "downstream_effects": 0,
+    "sandbox_suspicious": 0,
+    "observer_chain_failures": 0
+  },
+  {
+    "config": "full",
     "attack": "benign_unknown",
     "trials": 20,
     "accepted": 0,
@@ -139,7 +165,7 @@
     "state_changes": 0,
     "data_reads": 0,
     "downstream_effects": 0,
-    "sandbox_suspicious": 0,
+    "sandbox_suspicious": 20,
     "observer_chain_failures": 0
   },
   {
@@ -248,11 +274,24 @@
   },
   {
     "config": "intent_only",
-    "attack": "benign_unknown",
+    "attack": "benign_registered",
     "trials": 20,
     "accepted": 20,
     "quarantined": 0,
     "security_violations": 20,
+    "state_changes": 0,
+    "data_reads": 0,
+    "downstream_effects": 0,
+    "sandbox_suspicious": 0,
+    "observer_chain_failures": 0
+  },
+  {
+    "config": "intent_only",
+    "attack": "benign_unknown",
+    "trials": 20,
+    "accepted": 0,
+    "quarantined": 0,
+    "security_violations": 0,
     "state_changes": 0,
     "data_reads": 0,
     "downstream_effects": 0,
@@ -315,12 +354,12 @@
     "config": "intent_only",
     "attack": "sensitive_exfiltration",
     "trials": 20,
-    "accepted": 0,
+    "accepted": 20,
     "quarantined": 0,
-    "security_violations": 0,
+    "security_violations": 20,
     "state_changes": 0,
     "data_reads": 0,
-    "downstream_effects": 0,
+    "downstream_effects": 20,
     "sandbox_suspicious": 0,
     "observer_chain_failures": 0
   },
