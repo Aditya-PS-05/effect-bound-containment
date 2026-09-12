@@ -21,9 +21,9 @@ This review covers foundational computer-security principles, agent-control rese
 
 **Design consequence:** every tool execution must be checked at the tool server, not only at an upstream broker. An unavailable verifier must deny execution. The experiment must include direct calls that bypass the broker.
 
-### Lampson, 1973
+### Hardy, 1988
 
-[The Confused Deputy](https://dl.acm.org/doi/pdf/10.1145/54289.871709) explains how a privileged intermediary can be tricked into using its authority for someone else. An agent broker is a potential confused deputy if it uses broad service credentials without binding a request to the requesting principal and exact effect.
+[The Confused Deputy](https://doi.org/10.1145/54289.871709), by Norm Hardy, explains how a privileged intermediary can be tricked into using its authority for someone else. An agent broker is a potential confused deputy if it uses broad service credentials without binding a request to the requesting principal and exact effect. The author and date were corrected during report preparation against the DOI's Crossref metadata; the earlier attribution to Lampson (1973) was incorrect.
 
 **Design consequence:** use narrowly scoped capabilities, bind them to a run and request, and avoid ambient API keys in the agent or shim.
 
@@ -152,7 +152,7 @@ No cited paper establishes universal safety for arbitrary autonomous agents. The
 ## Sources
 
 1. Saltzer and Schroeder, [The Protection of Information in Computer Systems](https://www.cs.virginia.edu/~evans/cs551/saltzer/), 1975.
-2. Lampson, [The Confused Deputy](https://dl.acm.org/doi/pdf/10.1145/54289.871709), 1973.
+2. Hardy, [The Confused Deputy](https://doi.org/10.1145/54289.871709), ACM SIGOPS Operating Systems Review, 1988.
 3. Denning, [A Lattice Model of Secure Information Flow](https://doi.org/10.1145/360051.360056), 1976.
 4. Miller, Yee and Shapiro, [Capability Myths Demolished](https://srl.cs.jhu.edu/pubs/SRL2003-02.pdf), 2003.
 5. Greenblatt et al., [AI Control](https://arxiv.org/abs/2312.06942), 2023/2024.

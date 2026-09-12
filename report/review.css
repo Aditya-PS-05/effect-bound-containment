@@ -1,0 +1,35 @@
+/* Match the official template's Arial, white-page, black-text document styling. */
+html { color-scheme: light; background: #f0f0ed; }
+body { box-sizing: border-box; max-width: 1040px; margin: 2rem auto;
+  padding: 3rem; background: white; color: #202124;
+  font: 16px/1.65 Arial, sans-serif; overflow-wrap: anywhere; }
+*, *::before, *::after { box-sizing: border-box; }
+h1, h2, h3 { line-height: 1.25; color: #151515; scroll-margin-top: 1rem; }
+h1 { font-size: 1.7rem; margin-top: 2.2rem; }
+header h1 { font-size: 2.4rem; margin-top: 0; }
+h2 { font-size: 1.3rem; margin-top: 1.8rem; }
+p, li { max-width: 90ch; }
+li + li { margin-top: .45rem; }
+a { color: #124fa0; text-underline-offset: .2em; }
+a:focus-visible { outline: 3px solid #124fa0; outline-offset: 3px; }
+nav { border-block: 1px solid #ccc; margin: 2rem 0; padding: 1rem; }
+nav ul { padding-left: 1.2rem; }
+table { width: 100%; border-collapse: collapse; table-layout: fixed;
+  margin: 1.4rem 0; font-size: .87rem; line-height: 1.45; }
+th, td { padding: .7rem .5rem; border-bottom: 1px solid #bbb; text-align: left;
+  vertical-align: top; overflow-wrap: anywhere; }
+thead { background: #eee; }
+tbody tr:nth-child(even) { background: #f8f8f7; }
+blockquote { border-left: 3px solid #555; margin: 1.5rem 0; padding: .25rem 1.2rem; }
+code { font-size: .85em; background: #f2f2f2; padding: .1em .2em; }
+@media (max-width: 640px) {
+  body { padding: 1.1rem; margin: 0; }
+  header h1 { font-size: 1.9rem; }
+  th, td { padding: .5rem .3rem; }
+}
+@media print {
+  html { background: white; }
+  body { max-width: none; margin: 0; padding: 0; font-size: 10pt; }
+  nav { display: none; }
+  tr { break-inside: avoid; }
+}

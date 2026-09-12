@@ -111,3 +111,16 @@ beaten static denial on prevention. Selective release offers a bounded utility t
 but fails when simulation is unfaithful. No single fully isolated, Pome-backed adaptive
 containment deployment has been demonstrated. Next work is report consolidation, not
 silent expansion or replacement of the hypothesis.
+
+### Report consolidation, 2026-09-13
+
+No new experimental hypothesis or run was added during report preparation.
+`report/report.md` maps the frozen evidence to the official template's sections;
+its three results tables and fixed question/hypothesis are covered by four consistency
+tests. The original 78 implementation tests remain separate from these document checks.
+
+The official Guidelines require author-written final narrative. The pack is therefore
+explicitly AI-assisted preparation material, not a finished submission or evidence of
+independent human review. Outstanding author decisions are recorded in its checklist.
+The earlier confused-deputy citation was corrected to Norm Hardy (1988), checked
+against DOI metadata. No effect or detection result changed.
