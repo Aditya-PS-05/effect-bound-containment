@@ -204,3 +204,55 @@ Main hypothesis status does not improve to full support. The new result strength
 the evidence-sufficiency question using an independently implemented backend; it
 does not rescue the negative quarantine comparison or establish production containment.
 See `git_evidence.md` for per-condition counts, requirements and scope limits.
+
+### Execution-time Git enforcement protocol, before implementation/runs
+
+The user requests continued hypothesis development, not report closure. Preserve all
+prior findings. Add a positive, falsifiable mechanism hypothesis rather than choosing
+outcomes or claiming quarantine outperforms deny-all:
+
+**H15. At matched benign task completion, a Git receive-time effect gate prevents
+more tested unauthorized ref changes than a broker-side native dry-run preview.**
+
+The approved effect is the same in every condition: one exact old/new object-ID
+transition on review, with no production change. Compare `intent_only`,
+`exact_command`, `broker_preview`, and `receive_gate`. Exact command is a deliberately
+syntactic baseline; preview and receive gate use the same effect predicate and policy.
+Preview uses actual native Git dry-run output plus resolved object IDs, not a toy
+simulator. The gate uses Git pre-receive's actual old/new/ref batch, rejecting the
+entire batch if any update is outside policy. No claim that this is adaptive learning,
+general semantic understanding, or better than an equally placed static effect gate.
+
+Use the prior eight Git cases plus `post_preview_redirect`, `post_preview_extra`,
+and `post_preview_wrong_commit`. Five benign and six attack cases per condition,
+44 cells total, one deterministic run each. For post-preview cases mutate native
+client configuration or HEAD after the admission decision and before actual push.
+Apply the same schedule in all four conditions. Keep native reflogs enabled.
+All mutations, hooks and policies live only in fresh temporary repositories.
+
+**H16. Receive-time full-batch validation rejects mixed permitted/forbidden pushes
+without committing even the permitted subset.** Check both extra-target cases using
+refs and native journals, not only the CLI exit code. This is a policy rejection
+property, not a promise of atomicity for arbitrary later Git failures.
+
+**H17. Malformed/missing policy and malformed update evidence fail closed.** Test
+bad object IDs, wrong new commit, unexpected refs, duplicated updates, deletion,
+revoked policy and native hook invocation. Also test an allowed command variation
+and benign retry; `--no-verify` must not bypass the server hook.
+
+Score executed violations from per-push backend refs separately from rejection,
+benign completion, false rejection and evidence availability. No quarantine metric
+is claimed: this study does not quarantine. Preserve every cell, including failures.
+Record preview/admission/dispatch time separately from setup and evidence acquisition;
+these single-cell timings are descriptive, not confidence intervals or benchmarks of
+production latency. Test/commit implementation before a new-directory canonical run.
+
+Threat model: adversary can change client command/configuration/HEAD but cannot edit
+server policy, hook, or remote refs directly. Same-host file transport is a controlled
+model of that privilege separation, not its OS enforcement. Pre-receive runs after
+object upload; protecting refs is not prevention of all writes, object transfer,
+resource consumption, reads or downstream effects. No GPU or new external service.
+
+The original main hypothesis remains fixed and qualified. H15 tests its execution
+enforcement mechanism on a real backend; it does not establish an incremental
+quarantine benefit. Any successful result must retain that distinction.
