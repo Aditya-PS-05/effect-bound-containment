@@ -21,11 +21,14 @@ approval missed. A Git receive-time gate allowed 0/6 forbidden ref updates versu
 0/12 HTTP attacks versus 8/12 for endpoint restriction, without losing benign
 completion. Independent backend tape detected 6/6 executed attacks; intent logs
 detected 0/6. Our original hypothesis, that adaptive quarantine adds prevention,
-was only partly supported. Selective preview blocked write faults the preview
+was only partly supported: selective preview blocked write faults the preview
 could observe, but every execution-only fault escaped, and three small
-model-attacker pilots were inconclusive. We release a seven-control checklist
-with offline acceptance tests, every run including failures, and a reviewer
-procedure that needs no credentials.
+model-attacker pilots were inconclusive. Adding an execution-time effect gate on
+the same service path then prevented the execution-only fault that both static and
+preview missed, while completing the legitimate work — execution-side enforcement,
+not a quarantine advantage. We release a nine-control checklist with offline
+acceptance tests, every run including failures, and a reviewer procedure that needs
+no credentials.
 
 # 1. Introduction
 
@@ -42,8 +45,13 @@ occurred?** Our fixed research question was whether an *adaptive*
 effect-bound broker (server-side capability enforcement plus dynamic quarantine
 with selective release) prevents more unauthorized effects than intent logging or
 static authorization while keeping legitimate work usable. We kept that question
-fixed, tracked 31 intermediate hypotheses (H1–H7 reconstructed from early runs; H8
+fixed, tracked 33 intermediate hypotheses (H1–H7 reconstructed from early runs; H8
 onward recorded before their runs), and retained every failed or incomplete result.
+The answer split cleanly: server-side enforcement was confirmed, the *quarantine*
+increment was not — and while testing that gap we designed an execution-time effect
+gate that delivers the prevention quarantine was reaching for by a different route.
+That gate is an engineering finding of this work, not a claim we set out to make;
+we report it as such (contributions 3–4).
 
 Threat model. The actor (a scripted or model-generated client) can alter its
 requests, client configuration, local files, retries and timing, and can try any
@@ -60,10 +68,15 @@ service or kernel is out of scope (Section 5).
 2. **Independent backend evidence detects what upstream records cannot.** Backend
    tape exposed all executed post-gate mutations. Intent logs and gate records
    still matched the approved request (Table 3).
-3. **A negative result on preview-based quarantine.** Selective release helps only
-   when the preview reproduces execution behavior. A fault present only at
-   execution escaped in every local, hosted and separate-process study (Table 4).
-4. **An offline-checkable control checklist.** Seven controls, each with a
+3. **A negative result on preview-based quarantine, and its execution-side fix.**
+   Selective release helps only when the preview reproduces execution behavior; a
+   fault present only at execution escaped in every local, hosted and
+   separate-process preview study (Table 4). Adding an execution-time effect gate on
+   the same service path prevented that fault while completing the legitimate work,
+   generalizing the Git receive-gate result to a second backend (Table 5). Broadening
+   that gate to confine outbound *data flow* also stopped a read exfiltration that a
+   state-only gate, static authorization and preview all miss (Table 6).
+4. **An offline-checkable control checklist.** Nine controls, each with a
    pass/fail rule, a runnable acceptance test, a measured outcome and a known
    residual limit, plus a credential-free reviewer procedure (Appendix B).
 
@@ -106,6 +119,12 @@ production service or victim data was touched (Figure 1).
 - *Quarantine studies.* A local modeled server (720 cases), two hosted Arga GitHub
   twins used as execution and preview copies [9], and a separate-process local
   service with durable operation identities.
+- *Combined architecture.* The same separate-process local service, adding a third
+  arm whose service enforces an execution-time effect gate inside the write
+  transaction, so preview-based release and execution-side enforcement are compared
+  under one harness (48 cells). A fourth arm additionally confines the outbound
+  response to each tool's declared output class, tested against an exfiltrating read
+  that returns a secret with no state change (68 cells).
 
 **Conditions.** Every comparison holds the policy information fixed and varies only
 *where* or *how* it is enforced. Git: intent-only dispatch, exact command matching,
@@ -115,7 +134,12 @@ an endpoint restriction, and sandbox with exact capability revalidation at the
 gateway. Quarantine: static deny-unknown, hold-all, static authorization of the
 same reviewed request shapes, and selective release. Selective release runs the
 request against a preview copy and issues a one-use, server-signed approval bound
-to the request, state context and policy revision.
+to the request, state context and policy revision. Combined: static authorization,
+selective release, and an execution-time effect gate that shares the same authority
+but additionally confines each operation's committed effect at the service (a read
+changes no state; a write adds at most its own exact issue), rolling back atomically
+otherwise — a static effect policy at the effect boundary, the service-path analog of
+the Git pre-receive hook, not adaptive reasoning.
 
 **Scoring.** Attack success means an actual unauthorized backend effect: changed
 refs, a Pome or Arga event or state change, or a witnessed sink delivery. Benign
@@ -224,11 +248,51 @@ beat blanket denial on prevention: an earlier 800-case matrix tied static denial
 and hold-all at 0/140 attack successes (Appendix C). Selective median latency was
 1.33 s versus 0.55 s static in the H30 pilot.
 
+**Table 5. Combined architecture (48 cells).** The three arms on one service path
+over the four fault controls; all three complete 12/12 normal cells with no effect
+and no holds. ✓ = unauthorized effect executed; ✗ = prevented; *hold* = benign read
+held (utility lost); *infra* = committed write, response lost, reconciliation needed.
+Source: `results/combined-gate-v1`.
+
+| Fault control | Static | Selective | **Effect gate** |
+|-----------------------------------|:------:|:---------:|:---------------:|
+| Hidden write visible in preview | ✓ | ✗ (hold) | **✗ (completes)** |
+| Deferred write | ✓ | ✗ (hold) | **✗ (completes)** |
+| **Write only at execution** | **✓** | **✓** | **✗ (completes)** |
+| Response lost after commit | infra | infra | infra |
+
+The execution-time effect gate was the only arm to prevent the execution-only write,
+and the only arm to prevent the preview-visible faults *without* holding the benign
+read. It does not repair the transport fault: a committed write with a lost response
+still needs reconciliation in every arm. This is the same execution-side mechanism as
+the Git receive gate, now on a second backend; it is not a quarantine advantage and
+does not defend a compromised service or host.
+
+**Table 6. Data-flow gate (68 cells).** Adding an exfiltrating read — a read that
+changes no state but returns a secret outside its declared output class, visible only
+at execution. `state gate` is the Table 5 effect gate; `data-flow gate` also confines
+the outbound response. *leak* = secret reached the actor; ✗ = prevented. Every arm
+completes 12/12 normal cells; the data-flow gate matches the state gate on all four
+Table 5 faults. Source: `results/dataflow-gate-v1`.
+
+| Fault | Static | Selective | State gate | **Data-flow gate** |
+|-----------------------|:-----:|:---------:|:---------:|:------------------:|
+| Read exfiltration | leak | leak | leak | **✗ (completes)** |
+| Write only at execution | ✓ | ✓ | ✗ | **✗** |
+
+The exfiltrating read exposes the state gate's blind spot: it changes no state, so the
+state oracle calls it clean and the state gate, static and selective all let the secret
+through. Confining the *outbound data flow* at execution catches it and still returns
+the authorized boolean. The gates layer cleanly — data-flow ⊇ state — which is the
+general point: any effect you can observe and withhold at the execution boundary
+belongs in the gate, not in a preview that only predicts it. This covers explicit
+payloads only; covert and implicit channels are out of scope for every arm here.
+
 **Robustness.** The central contrasts (0 vs 3 of 6; 0 vs 8 of 12; 6 vs 0 of 6) are
 deterministic under unchanged cases and reproduced in regression tests. They are
 not rate estimates. The attack sets are purpose-built, which shows that each
 failure mode *can* occur and that the control stops it, not how often it occurs.
-All 247 tests pass; `verify_results.py` and the report consistency tests check
+All 270 tests pass; `verify_results.py` and the report consistency tests check
 every table against the raw per-cell archives.
 
 # 5. Discussion and Limitations
@@ -243,12 +307,26 @@ execution-side check also constrains the effect. Appendix B turns these into
 acceptance tests. The cost in our testbeds was tens of milliseconds per
 action for enforcement and roughly one extra second for preview.
 
+**Where the gate ends and quarantine begins.** The gate and a preview run the same
+effect predicate at two different times: the gate on the real effect at execution, the
+preview on a copy beforehand. So the gate dominates for any effect it can *observe and
+withhold at its boundary* — state changes (Table 5) and outbound data (Table 6) both
+qualify, and each was better placed in the gate than predicted on a copy. Quarantine's
+irreducible residue is the effect a gate structurally cannot reach: one that is
+irreversible the instant it executes and routes through a boundary the gate does not
+mediate — an external side effect, resource consumption, or code whose execution is
+itself the harm. There the only prevention is to run a disposable copy first, and only
+as faithfully as that copy reproduces the danger without causing it. In short,
+quarantine is the fallback for a boundary you cannot gate; the better fix is always to
+gate the boundary. We did not build that residual case here; it is the next study.
+
 **Relation to the incident.** We did not reproduce the incident. The incident
 route was compromised through a zero-day in the egress proxy itself. Our gateway is
 trusted, so our controls do not stop an attacker who gains code execution inside
-it. The Git result suggests the more robust placement: enforce at the receiving
-backend, not only in the egress process. We did not test that placement against a
-compromised proxy.
+it. The Git and combined-architecture results point to the more robust placement:
+enforce the exact effect at the receiving backend, not only in the egress process,
+so that a route which passed upstream review still cannot commit an unauthorized
+effect. We did not test that placement against a compromised proxy or backend.
 
 ### Limitations
 
@@ -270,11 +348,12 @@ compromised proxy.
 
 ### Future Work
 
-Combine selective preview for reads with a receive-time effect gate for writes on
-one path, so that execution-only faults are constrained. Test backend-side
-enforcement against a compromised egress service. Run model attackers through an
-interface where they can influence backend behavior, not only request text. Obtain
-independent reproduction and a lab's adoption-cost assessment of Appendix B.
+The combined-architecture study (Table 5) constrains execution-only faults on one
+service path; the next steps are to test that execution-side enforcement against a
+*compromised* egress service or backend, not just a trusted one, and to extend the
+effect predicate beyond a single declared effect class. Run model attackers through
+an interface where they can influence backend behavior, not only request text.
+Obtain independent reproduction and a lab's adoption-cost assessment of Appendix B.
 
 # 6. Conclusion
 
@@ -285,18 +364,23 @@ equally informed upstream check missed, without costing benign completion. Evide
 taken from the backend exposed every executed mismatch that intent and gate logs
 concealed.
 
-Our adaptive hypothesis fared worse. Preview-based quarantine prevented only the
-faults its preview could see, and a fault that appears only at execution escaped
-everywhere we tested it. We therefore recommend that containment standards require
-execution-side enforcement and independent evidence, and that they not accept a
-clean preview as proof of a safe action.
+Our adaptive hypothesis fared worse, and the way it failed is the useful part. It
+pointed at the right problem — catch what upstream approval misses — but the wrong
+mechanism: preview-based quarantine prevented only the faults its preview could see,
+and a fault that appears only at execution escaped every preview mechanism we tested.
+The execution-time effect gate we then designed catches those faults, for both state
+changes and outbound data, while completing the legitimate work. Right problem, wrong
+mechanism, better mechanism found. We therefore recommend that containment standards
+require execution-side enforcement and independent evidence, and that they not accept
+a clean preview as proof of a safe action.
 
 # Code and Data
 
 - **Code repository:** <https://github.com/Aditya-PS-05/effect-bound-containment>
   (code MIT; report, protocols and result archives CC BY 4.0).
 - **Data:** every run, including failed prerequisites and unrun cells, with hashed
-  receipts under `results/`. Hypotheses H1–H31 and their predeclared protocols are
+  receipts under `results/` (the combined-architecture study is
+  `results/combined-gate-v1`, the data-flow study `results/dataflow-gate-v1`). Hypotheses H1–H33 and their predeclared protocols are
   in `hypotheses.md`.
 - **Reviewer procedure:** `report/README.md#offline-reviewer-procedure`. No
   accounts, API keys or hosted services are required.
@@ -365,7 +449,9 @@ correctly demonstrate a FAIL through a negative fixture.
 | **C4** Independently acquired call/effect evidence | `test_evidence.py`, `test_observers.py` | Backend 6/6 vs gate 2/6 vs intent 0/6 | First-record forgery; compromised host |
 | **C5** Hold missing previews; retain uncertain commits | `test_runtime_recovery.py`, `test_broker_workflow.py` | Unsupported or timed-out previews hold; no automatic re-dispatch | Availability loss; escalation untested |
 | **C6** Check useful output; preserve every trial | `test_local_sandbox.py`, `test_adaptive_pilot.py` | Duplicates counted as failures; unrun cells retained | No general workload estimate |
-| **Q1** Validate preview behavior before claiming safety | `test_local_sandbox.py` (`simulation_gap`) | Execution-only write escapes both arms | **General preview-safety claim: FAIL** |
+| **Q1** Validate preview behavior before claiming safety | `test_local_sandbox.py` (`simulation_gap`) | Execution-only write escapes static and preview arms | **General preview-safety claim: FAIL** |
+| **C7** Confine the committed effect at the execution boundary | `test_combined_gate.py` | Effect gate prevents the execution-only write and all preview-visible faults, completes 12/12 normal cells (Table 5) | Static effect policy; no compromised-service or transport-fault coverage |
+| **C8** Confine outbound data flow to the declared output class | `test_dataflow_gate.py` | Data-flow gate prevents the read exfiltration that the state gate, static and preview all leak, and returns the authorized value (Table 6) | Explicit payloads only; covert/implicit channels out of scope |
 
 **Adopting lab must supply:** route and credential inventory for the actor
 environment, versioned policy and enforcement software, evidence anchors stored
@@ -398,7 +484,7 @@ a model little room to create the backend behavior mismatch that separates
 quarantine from static enforcement. Future model evaluations should first
 demonstrate usable candidates on separate development data.
 
-**Hypothesis ledger.** H1–H31 with evidence paths and outcomes, including refuted
+**Hypothesis ledger.** H1–H33 with evidence paths and outcomes, including refuted
 (H7, H12) and unsupported (H2) propositions, are in `hypotheses.md`.
 
 # LLM Usage Statement

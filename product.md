@@ -253,6 +253,27 @@ Full-service quarantine restoration remains an open requirement for broader tool
 No production readiness, general sandbox guarantee or autonomous attacker coverage
 is inferred from these local results.
 
+H32 is a user-directed combined-architecture study, not a model pilot. It adds an
+execution-time effect gate to the separate-process local service and compares it with
+static authorization and preview-based selective release over 48 cells in
+`results/combined-gate-v1`. The gate is the only arm that prevents the execution-only
+write both other arms miss, and the only arm that prevents the preview-visible faults
+without holding the benign read; all three complete the 12 normal cells. It does not
+repair the transport fault, does not defend a compromised service or host, and is a
+static effect policy at the effect boundary, not an adaptive-quarantine advantage. It
+generalizes the native Git receive-gate result (H15–H17) to a second backend and
+unifies the project's two halves under one harness. See `combined_gate_protocol.md`.
+The full suite is 270 tests; `verify_results.py` recomputes the 48 + 68 gate cells.
+
+H33 broadens the H32 gate to confine outbound data flow, tested against a read that
+returns a secret with no state change (`results/dataflow-gate-v1`, 68 cells). The
+state-only gate, static and selective all leak it; only the data-flow gate prevents the
+leak and still returns the authorized value, while matching the state gate on every H32
+fault. It makes concrete that any effect observable and withholdable at the execution
+boundary belongs in the gate, shrinking quarantine's residue to irreversible, out-of-band
+effects and covert/implicit channels (out of scope). Additive and default-off; not a
+quarantine or model claim. See `dataflow_gate_protocol.md`.
+
 The local components are:
 
 | Design component | Local implementation | Status |

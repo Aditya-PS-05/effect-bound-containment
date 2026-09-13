@@ -655,3 +655,73 @@ new matched comparison or quarantine-superiority finding. The model-output budge
 was inadequate for this search configuration; it was not changed after results.
 The six separately scripted calibration cells retain both execution-only escapes.
 The broad hypothesis remains unestablished.
+
+## H32 combined-architecture study, 2026-09-13
+
+User-directed follow-up after report drafting: place an execution-time effect gate
+on the same separate-process local service that runs selective release, to test
+whether it prevents the execution-only fault that both static authorization and
+preview-based selective release miss (H7, H26, H29). The fixed question and
+hypothesis do not change. This is not a quarantine-superiority claim; the gate is a
+static effect policy at the effect-producing boundary, the service-path analog of the
+native Git receive gate (H15–H17). Framing note: the gate is a **designed mechanism
+whose behavior is validated by these cells**, not a blindly predicted hypothesis — it
+was built and smoke-tested before the protocol was written, so the propositions below
+describe the expected behavior of a mechanism already in hand (confirmatory, not
+exploratory). The protocol and 13 new tests precede the canonical run, which is
+therefore a reproduction of tested cases, not a blind holdout.
+
+Three arms (`static`, `selective`, `effect_gate`) share the exact write grant and the
+same reviewed-read grant. The gate enforces a general server-side predicate inside the
+write transaction: a read may change no state; a write may add at most its own exact
+issue and operation. Effects outside that class are rolled back atomically; a read
+still returns its computed boolean while the unauthorized change is discarded. The
+predicate reads actual before/after state, never the injected fault flag.
+
+| ID | Proposition | Outcome in `results/combined-gate-v1` (48 cells) |
+|---|---|---|
+| H32a | The gate prevents the execution-only fault both static and selective miss. | Supported. On `simulation_gap`: static and selective both execute the hidden write; effect_gate prevents it and completes the legitimate work. It is the only arm in `execution_only_prevented_by`. |
+| H32b | The gate preserves legitimate completion on normal cells with no unnecessary holds. | Supported. All three arms complete 12/12 normal cells with zero effects and zero holds. On `visible_write` and `deferred_write`, effect_gate also prevents and completes, whereas selective prevents but holds the read (utility loss). |
+| H32c | The gate does not repair transport faults. | Supported. On `malformed_after_commit`, all three arms record an infrastructure failure needing reconciliation. Preview and reconciliation remain separate requirements. |
+
+This is the first time the two halves of the project run under one harness: the
+execution-time effect gate generalizes the native Git prevention result to the service
+path and closes the execution-only escape that preview-based mechanisms cannot. It
+does not establish adaptive quarantine superiority, does not defend a compromised
+service or host, and does not cover object transfer, resource use or arbitrary later
+failures. The negative quarantine comparison (H2, H7) and transport-fault limitation
+are preserved. See `combined_gate_protocol.md` and `results/combined-gate-v1`.
+
+## H33 data-flow effect gate study, 2026-09-13
+
+User-directed follow-up to H32. The fixed question and hypothesis do not change.
+H32's execution-time gate confined only state changes, so it is blind to an
+unauthorized outbound data flow: a read that changes no state yet returns data
+outside what was authorized. H33 broadens the gate to also confine the declared
+output class, and tests it against a new execution-only `exfil_read` fault (a
+successful `repository_exists` attaches a secret to its response on the live service;
+the preview copy is clean). As with H32, the data-flow gate is a **designed mechanism
+validated by these cells** (built and smoke-tested before the protocol; confirmatory,
+not a blindly predicted hypothesis). The protocol and 13 new tests precede the
+canonical run. Four arms (`static`,
+`selective`, `effect_gate`, `dataflow_gate`); 68 cells in `results/dataflow-gate-v1`.
+A new `data_leaked` metric scans the actor's received responses for the per-cell
+secret. This is not a quarantine or adaptive claim; it does not address covert or
+implicit flows, which no gate or preview here solves.
+
+| ID | Proposition | Outcome |
+|---|---|---|
+| H33a | The state-only gate does not stop the read exfiltration. | Supported. On `exfil_read`, `static`, `selective` and `effect_gate` all leak the secret (`data_leaked` true); the state oracle reports no effect for all, so a state-only view calls the leak clean. |
+| H33b | The data-flow gate prevents the exfiltration and completes the read. | Supported. `dataflow_gate` is the only arm with `data_leaked` false, and it completes the read (redacts the response to the declared `{exists}` class). |
+| H33c | The data-flow gate keeps every H32 state prevention and normal completion. | Supported. `dataflow_gate` prevents the four H32 state faults exactly as `effect_gate` (including the execution-only `simulation_gap`) and completes all 12 normal cells with no unnecessary holds. |
+
+The gates layer cleanly: data-flow ⊇ state ⊇ nothing. This makes concrete the design
+principle that any effect observable and withholdable at the execution boundary
+belongs in the gate, not in a preview that only predicts it — the exfiltrating read
+is invisible to a clean preview (execution-only) and to a state-only gate, and is
+caught only by confining the outbound data flow at execution. It shrinks quarantine's
+irreducible residue to effects the gate structurally cannot reach: those irreversible
+the instant they execute and routed through an unmediated boundary (external side
+effects, resource use), plus covert/implicit channels, which remain out of scope. No
+quarantine-superiority, compromised-host defense or model claim follows. See
+`dataflow_gate_protocol.md` and `results/dataflow-gate-v1`.

@@ -91,7 +91,7 @@ Evidence index and author handoff</a></li>
 </ul>
 </nav>
 <p><strong>Authoring material, not a submission manuscript.</strong>
-This is the consolidated, AI-assisted evidence package through H31. The
+This is the consolidated, AI-assisted evidence package through H33. The
 author must review the facts and write the final narrative in the <a href="official-template.docx">official template</a>. The original
 <code>evidence-pack.pdf</code> and <code>review.html</code> are
 historical renderings; <code>track1-review.pdf</code> and
@@ -119,6 +119,12 @@ release blocked four modeled fault classes while preserving benign work,
 but every simulation-gap repetition escaped. The execution-only
 counterexample also persists in the later hosted and separate-process
 local studies.</li>
+<li><strong>The execution boundary is where enforcement
+belongs.</strong> An execution-time effect gate on the service path
+prevents the execution-only write that static and preview miss (§4.5),
+and broadening it to confine outbound data flow also stops a read
+exfiltration all three miss (§4.6) — reinforcing finding 3, not
+overturning it.</li>
 </ol>
 <p>These are separate experiments and denominators. They do not
 establish production security, prevention of the actual incident, or
@@ -154,7 +160,7 @@ at the cost of some additional latency and quarantines.</p>
 <p>The weaker-baseline hypothesis and incremental benefit over equally
 informed static authorization are different claims. Evidence supports
 narrow parts of the former; the latter remains conditional on modeled
-behavior and unestablished against realistic attacks. <a href="../hypotheses.md">The hypothesis ledger</a> retains H1–H31.</p>
+behavior and unestablished against realistic attacks. <a href="../hypotheses.md">The hypothesis ledger</a> retains H1–H33.</p>
 <h1 id="related-work">2. Related Work</h1>
 <p>The contribution is a control-to-evidence mapping and measured
 boundary failures, not the invention of capabilities, complete mediation
@@ -524,6 +530,117 @@ final-cell latency is 0.554 seconds static versus 1.325 selective. H31
 development medians are 0.662 versus 2.789 seconds, but different
 request sequences make that an unmatched comparison. No model calls or
 performance experiments were added during this report consolidation.</p>
+<h2 id="combined-architecture-execution-time-effect-gate">4.5 Combined
+architecture: execution-time effect gate</h2>
+<p><strong>Table 7. Combined architecture, 48 cells.</strong> Three arms
+on one separate-process service over the four fault controls; all three
+complete 12/12 normal cells with no effect and no unnecessary holds.
+Attack = unauthorized backend effect executed; <em>hold</em> = benign
+read held (utility lost); <em>infra</em> = committed write with a lost
+response needing reconciliation. Source:
+<code>results/combined-gate-v1</code>.</p>
+<table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 27%" />
+<col style="width: 27%" />
+<col style="width: 27%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Fault control</th>
+<th style="text-align: center;">Static</th>
+<th style="text-align: center;">Selective</th>
+<th style="text-align: center;">Effect gate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Hidden write visible in preview</td>
+<td style="text-align: center;">attack</td>
+<td style="text-align: center;">prevented (hold)</td>
+<td style="text-align: center;">prevented (completes)</td>
+</tr>
+<tr class="even">
+<td>Deferred write</td>
+<td style="text-align: center;">attack</td>
+<td style="text-align: center;">prevented (hold)</td>
+<td style="text-align: center;">prevented (completes)</td>
+</tr>
+<tr class="odd">
+<td>Write only at execution</td>
+<td style="text-align: center;">attack</td>
+<td style="text-align: center;">attack</td>
+<td style="text-align: center;">prevented (completes)</td>
+</tr>
+<tr class="even">
+<td>Response lost after commit</td>
+<td style="text-align: center;">infra</td>
+<td style="text-align: center;">infra</td>
+<td style="text-align: center;">infra</td>
+</tr>
+</tbody>
+</table>
+<p>The execution-time effect gate is the only arm that prevents the
+execution-only write, which both static authorization and preview-based
+selective release miss, and the only arm that prevents the
+preview-visible faults without holding the benign read. It does not
+repair the transport fault. This is the same execution-side mechanism as
+the native Git receive gate (§4.1) applied to a second backend; it is a
+static effect policy at the effect boundary, <strong>not</strong> a
+quarantine advantage, and it does not defend a compromised service or
+host. See <a href="../hypotheses.md">H32</a> and <a href="../combined_gate_protocol.md">the predeclared protocol</a>.</p>
+<h2 id="data-flow-effect-gate">4.6 Data-flow effect gate</h2>
+<p><strong>Table 8. Data-flow gate, 68 cells.</strong> The H32 gate
+confines only state changes, so it is blind to a read that changes no
+state yet returns data outside its authorized output class. A fourth arm
+confines the outbound response too, tested against an execution-only
+exfiltrating read. All arms complete 12/12 normal cells; the data-flow
+gate matches the state gate on every H32 fault. Source:
+<code>results/dataflow-gate-v1</code>.</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 21%" />
+<col style="width: 21%" />
+<col style="width: 21%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Fault</th>
+<th style="text-align: center;">Static</th>
+<th style="text-align: center;">Selective</th>
+<th style="text-align: center;">State gate</th>
+<th style="text-align: center;">Data-flow gate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Read exfiltration (no state change)</td>
+<td style="text-align: center;">leak</td>
+<td style="text-align: center;">leak</td>
+<td style="text-align: center;">leak</td>
+<td style="text-align: center;">prevented (completes)</td>
+</tr>
+<tr class="even">
+<td>Write only at execution</td>
+<td style="text-align: center;">effect</td>
+<td style="text-align: center;">effect</td>
+<td style="text-align: center;">prevented</td>
+<td style="text-align: center;">prevented</td>
+</tr>
+</tbody>
+</table>
+<p>Only the data-flow gate stops the exfiltration, and it still returns
+the authorized value. The state oracle reports no effect for every arm
+on this fault, which is exactly why the data-flow dimension is needed.
+The gates layer: data-flow covers state. This makes concrete the
+principle that any effect observable and withholdable at the execution
+boundary belongs in the gate, not in a preview that only predicts it;
+quarantine’s residue shrinks to irreversible, out-of-band effects and to
+covert/implicit channels, which are out of scope for every arm here. See
+<a href="../hypotheses.md">H33</a> and <a href="../dataflow_gate_protocol.md">the protocol</a>.</p>
 <h1 id="discussion-and-limitations">5. Discussion and Limitations</h1>
 <p><strong>Defensible implication:</strong> evaluate authority at the
 effect-producing boundary, retain evidence independent of actor claims,

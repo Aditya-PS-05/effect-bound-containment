@@ -1,5 +1,37 @@
 # Verified experiment status
 
+## H32 combined-architecture study, 2026-09-13
+
+User-directed follow-up after report drafting. `results/combined-gate-v1` holds all 48
+cells with archived source, hashes and the predeclared `combined_gate_protocol.md`.
+An execution-time effect gate on the separate-process local service prevents the
+execution-only fault that static authorization and preview-based selective release
+both miss, and prevents the preview-visible faults without holding the benign read;
+all three arms complete 12/12 normal cells. It does not repair the transport fault or
+defend a compromised service/host, and is a static effect policy at the effect
+boundary, not a quarantine advantage. `run_combined_gate.py --verify` recomputes every
+cell from receipts; `verify_results.py` includes it; the full suite is 270 tests
+(13 new in `tests/test_combined_gate.py`, one in `tests/test_report.py`). The change
+is additive: `LocalService(effect_gate=...)` defaults off, so all earlier evidence and
+its verifiers are unchanged. This is a mechanism study; the fixed hypothesis is not
+revised and the negative quarantine comparison (H2, H7) is preserved.
+
+## H33 data-flow effect gate study, 2026-09-13
+
+Follows H32. `results/dataflow-gate-v1` holds all 68 cells with archived source,
+hashes and the predeclared `dataflow_gate_protocol.md`. H32's gate confined only state
+changes, so it leaked a read exfiltration (a read that returns a secret with no state
+change); broadening the gate to confine the outbound response against each tool's
+declared output class prevents that leak and still returns the authorized value, while
+matching the state gate on every H32 fault and completing all 12 normal cells. A new
+`data_leaked` metric scans the actor's received responses for the per-cell secret;
+`run_dataflow_gate.py --verify` recomputes it from receipts and `verify_results.py`
+includes it. The gates layer (data-flow ⊇ state), making concrete that any effect
+observable and withholdable at the boundary belongs in the gate; quarantine's residue
+shrinks to irreversible, out-of-band effects and to covert/implicit channels, which are
+out of scope. The change is additive (`LocalService(data_flow_gate=..., secret=...)`
+default off), so all earlier evidence is unchanged. Not a quarantine or model claim.
+
 ## Consolidated Track 1 review package
 
 The current authoring source is `report/report.md`; current renderings are
