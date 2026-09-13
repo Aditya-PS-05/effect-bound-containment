@@ -1,5 +1,34 @@
 # Effect-bound agent containment experiments
 
+## Start here (for reviewers)
+
+- **The claim.** Check authority for the *exact effect* at the component that
+  executes it; keep effect evidence the actor and broker cannot forge; treat a
+  pre-execution preview as advisory, not proof. The full argument is
+  [`report/submission/final-report.pdf`](report/submission/final-report.pdf).
+- **Verify it offline** (no accounts, API keys or hosted services): `./verify.sh`
+  runs the test suite and recomputes every archived result from its receipts, then
+  prints PASS. Environment setup is under [Reproduce](#reproduce).
+- **The load-bearing core** is three components — everything else is evidence or
+  history, preserved on purpose:
+  - `src/effect_bound.py` — capability broker, policy and records.
+  - `src/local_service.py` — execution-time effect gate (state **and** data-flow).
+  - `src/process_observer.py` — independent effect observer.
+
+### Repository map
+
+| Tier | What | Where |
+|---|---|---|
+| **Core** (read first) | The report; the three components above; the reviewer check. | `report/submission/`, `src/effect_bound.py`, `src/local_service.py`, `src/process_observer.py`, `verify.sh` |
+| **Evidence** (dig deeper) | Every run with hashed receipts; the experiment runners; the H1–H33 ledger; the consolidated review. | `results/`, `run_*.py`, `hypotheses.md`, `report/report.md` |
+| **History** (preserved, not current) | Earlier report renderings kept unchanged for provenance. | `report/evidence-pack.pdf`, `report/review.html` |
+
+The narrative below walks the studies in order; the [Layout](#layout) section lists
+every file. Nothing is hidden or curated away — the negative and incomplete results
+(quarantine ties, unfinished model pilots) are part of the record.
+
+## What we asked and found
+
 Research question: Can an adaptive effect-bound broker reduce unauthorized agent
 effects and detect execution mismatches better than intent logging or static
 authorization, while keeping legitimate actions usable?
@@ -27,7 +56,7 @@ These are AI-assisted preparation notes, **not a submission-ready manuscript**.
 
 **Submission draft:** [report/submission/final-report.pdf](report/submission/final-report.pdf)
 (source `final-report.md`, rebuilt with `sh report/submission/build.sh`) follows the
-official template's section order and typography: 211-word abstract, seven main-text
+official template's section order and typography: 244-word abstract, eight main-text
 pages, references, the required limitations/dual-use appendix, the control checklist
 and an LLM usage statement. It is AI-drafted. The template strongly encourages a
 primarily team-written final version, so the author should revise it and complete the
@@ -115,6 +144,8 @@ npm ci --no-audit --no-fund
 .venv/bin/python run_boundary_audit.py --output .runtime/boundary-audit-reproduction
 .venv/bin/python run_isolated_http.py --output .runtime/isolated-http-reproduction
 .venv/bin/python run_broker_workflow.py --output .runtime/broker-workflow-reproduction
+.venv/bin/python run_combined_gate.py .runtime/combined-gate-reproduction
+.venv/bin/python run_dataflow_gate.py .runtime/dataflow-gate-reproduction
 ```
 
 The isolated HTTP runner additionally requires working Linux Bubblewrap (`bwrap`)
@@ -153,6 +184,8 @@ limitations. Session credentials and wizard environment files are gitignored.
 - `run_boundary_audit.py`: before/after Pome identity, replay, quarantine and credential-bypass audit.
 - `run_isolated_http.py`, `src/http_boundary.py`, `src/http_actor.py`: isolated report-publishing experiment.
 - `run_arga_workflow.py`, `run_arga_quarantine.py`: hosted synthetic issue and separate-twin read comparisons.
+- `run_combined_gate.py`, `combined_gate_protocol.md`: H32 execution-time effect gate versus static and selective release on one service path.
+- `run_dataflow_gate.py`, `dataflow_gate_protocol.md`: H33 data-flow effect gate versus a state-only gate on a read-exfiltration fault.
 - `run_openai_pilot.py`, `openai_pilot_protocol.md`: bounded model-generated interface evaluation, opt-in provider calls and offline evidence verification.
 - `isolated_http.md`: new results, production-design sources and exact remaining limitations.
 - `hypotheses.md`: fixed question, intermediate hypotheses, prospective protocol and evidence-linked outcomes.
@@ -160,6 +193,7 @@ limitations. Session credentials and wizard environment files are gitignored.
 - `tests/`: scoring, security, evidence integrity, deadline and workflow regression tests.
 - `verification.md`: measured findings and explicit boundaries of the claims.
 - `product.md`, `literature_review.md`, `secret_loyalties.md`: design and research background.
+- `verify.sh`: one-command offline reviewer check (test suite + evidence verifier).
 
 ## Evidence boundary
 
