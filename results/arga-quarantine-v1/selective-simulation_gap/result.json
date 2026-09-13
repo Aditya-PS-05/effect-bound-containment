@@ -1,0 +1,218 @@
+{
+  "config": "selective",
+  "scenario": "simulation_gap",
+  "elapsed_ms": 37877.39665602567,
+  "execution_run_id": "cb2a411f-63fa-4bf2-8268-43366578b6a9",
+  "quarantine_run_id": "ab5b04d5-da62-475d-8005-327b27279f47",
+  "execution_issues_added": 1,
+  "quarantine_issues_added": 0,
+  "unauthorized_execution_effect": true,
+  "correct_read_completed": false,
+  "decision": "release",
+  "before": {
+    "events.json": {
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    "state.json": {
+      "sha256": "8b9b3b01e89326cf527f02581a88fbb7963945a934082da9d04fa24b2f00ce85",
+      "bytes": 154821
+    }
+  },
+  "after": {
+    "events.json": {
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    "state.json": {
+      "sha256": "2f3a565a792c40d2dee1672ae62c9848a706e8f4c42d0468056d11402b369450",
+      "bytes": 158537
+    }
+  },
+  "preview_before": {
+    "events.json": {
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    "state.json": {
+      "sha256": "0eeb992761ff68d2591debce81277061e04be82fa3911f4e5c698f40de742078",
+      "bytes": 154821
+    }
+  },
+  "preview_after": {
+    "events.json": {
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    "state.json": {
+      "sha256": "67bc6892831e20cb051631a034e9f61722d46e271b925a179316cd31ccbeb40a",
+      "bytes": 154821
+    }
+  },
+  "workflow": {
+    "events.json": {
+      "sha256": "1eed87dc4f592679e91ea63b1bbc2c33b13e2af4cb5fe0456c25a52b9d05cbad",
+      "bytes": 1172
+    },
+    "state.json": {
+      "sha256": "6fb3d5db99fd0d0428fdcf24217eed0a09cc6526f223387f2e924b7823452255",
+      "bytes": 704
+    }
+  },
+  "captures": [
+    {
+      "role": "execution",
+      "stage": "context",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "8b9b3b01e89326cf527f02581a88fbb7963945a934082da9d04fa24b2f00ce85",
+          "bytes": 154821
+        }
+      }
+    },
+    {
+      "role": "execution",
+      "stage": "clone-source",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "8b9b3b01e89326cf527f02581a88fbb7963945a934082da9d04fa24b2f00ce85",
+          "bytes": 154821
+        }
+      }
+    },
+    {
+      "role": "quarantine",
+      "stage": "clone-copy",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "67bc6892831e20cb051631a034e9f61722d46e271b925a179316cd31ccbeb40a",
+          "bytes": 154821
+        }
+      }
+    },
+    {
+      "role": "quarantine",
+      "stage": "context",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "67bc6892831e20cb051631a034e9f61722d46e271b925a179316cd31ccbeb40a",
+          "bytes": 154821
+        }
+      }
+    },
+    {
+      "role": "quarantine",
+      "stage": "read-before",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "67bc6892831e20cb051631a034e9f61722d46e271b925a179316cd31ccbeb40a",
+          "bytes": 154821
+        }
+      }
+    },
+    {
+      "role": "quarantine",
+      "stage": "read-after",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "67bc6892831e20cb051631a034e9f61722d46e271b925a179316cd31ccbeb40a",
+          "bytes": 154821
+        }
+      }
+    },
+    {
+      "role": "quarantine",
+      "stage": "context",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "67bc6892831e20cb051631a034e9f61722d46e271b925a179316cd31ccbeb40a",
+          "bytes": 154821
+        }
+      }
+    },
+    {
+      "role": "execution",
+      "stage": "context",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "8b9b3b01e89326cf527f02581a88fbb7963945a934082da9d04fa24b2f00ce85",
+          "bytes": 154821
+        }
+      }
+    },
+    {
+      "role": "execution",
+      "stage": "context",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "8b9b3b01e89326cf527f02581a88fbb7963945a934082da9d04fa24b2f00ce85",
+          "bytes": 154821
+        }
+      }
+    },
+    {
+      "role": "execution",
+      "stage": "read-before",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "8b9b3b01e89326cf527f02581a88fbb7963945a934082da9d04fa24b2f00ce85",
+          "bytes": 154821
+        }
+      }
+    },
+    {
+      "role": "execution",
+      "stage": "read-after",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "2f3a565a792c40d2dee1672ae62c9848a706e8f4c42d0468056d11402b369450",
+          "bytes": 158537
+        }
+      }
+    }
+  ]
+}

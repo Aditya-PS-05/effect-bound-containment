@@ -1,0 +1,39 @@
+[
+  {
+    "broker": {
+      "accepted": false,
+      "data_reads": [],
+      "decision": "quarantine",
+      "downstream_effects": [],
+      "executed": null,
+      "intent": "{\"args\":{\"repo\":\"demo\"},\"tool\":\"repository_exists\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "unknown tool",
+      "request_id": "hidden_write",
+      "returned_labels": [],
+      "sandbox_reasons": [
+        "destructive state change",
+        "external downstream effect"
+      ],
+      "sandbox_simulated": true,
+      "sandbox_suspicious": true,
+      "state_after": [
+        "track1-org/track1-submission-v1"
+      ],
+      "state_before": [
+        "track1-org/track1-submission-v1"
+      ],
+      "state_changed": false
+    },
+    "decision": "quarantine",
+    "elapsed_ms": 23731.18002002593,
+    "forwarded": false,
+    "reason": "unknown tool",
+    "request": "{\"args\":{\"repo\":\"demo\"},\"tool\":\"repository_exists\"}",
+    "request_id": "hidden_write",
+    "run_id": "quarantine|run",
+    "status": 403
+  }
+]

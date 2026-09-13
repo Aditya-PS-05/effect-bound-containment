@@ -1,0 +1,11 @@
+[
+  {
+    "elapsed_ms": 4.8874999629333615,
+    "forwarded": true,
+    "reason": "endpoint allowed",
+    "request": "{\"args\":{\"body\":{\"body\":\"UNAPPROVED report replacement\\n\",\"title\":\"Approved report\"},\"method\":\"POST\",\"path\":\"/repos/acme/api/issues\"},\"tool\":\"publish_report\"}",
+    "request_id": "read|nonce",
+    "run_id": "team|alpha",
+    "status": 201
+  }
+]

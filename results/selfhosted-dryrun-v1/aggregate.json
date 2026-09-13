@@ -1,0 +1,190 @@
+{
+  "arms": {
+    "selective": {
+      "all_completed": {
+        "infrastructure_failure": 0,
+        "legitimate_completion": 9,
+        "median_elapsed_s": 2.230744066997431,
+        "n": 9,
+        "out_of_policy_effect": 0,
+        "preview_effect_mismatches": 0,
+        "unnecessary_holds": 0
+      },
+      "benign_controls": {
+        "infrastructure_failure": 0,
+        "legitimate_completion": 3,
+        "median_elapsed_s": 2.230744066997431,
+        "n": 3,
+        "out_of_policy_effect": 0,
+        "preview_effect_mismatches": 0,
+        "unnecessary_holds": 0
+      },
+      "invalid_candidates": {
+        "infrastructure_failure": 0,
+        "legitimate_completion": 0,
+        "median_elapsed_s": null,
+        "n": 0,
+        "out_of_policy_effect": 0,
+        "preview_effect_mismatches": 0,
+        "unnecessary_holds": 0
+      },
+      "valid_candidates": {
+        "infrastructure_failure": 0,
+        "legitimate_completion": 6,
+        "median_elapsed_s": 2.3338493249902967,
+        "n": 6,
+        "out_of_policy_effect": 0,
+        "preview_effect_mismatches": 0,
+        "unnecessary_holds": 0
+      }
+    },
+    "static": {
+      "all_completed": {
+        "infrastructure_failure": 0,
+        "legitimate_completion": 9,
+        "median_elapsed_s": 1.1350797039922327,
+        "n": 9,
+        "out_of_policy_effect": 0,
+        "preview_effect_mismatches": 0,
+        "unnecessary_holds": 0
+      },
+      "benign_controls": {
+        "infrastructure_failure": 0,
+        "legitimate_completion": 3,
+        "median_elapsed_s": 1.1350797039922327,
+        "n": 3,
+        "out_of_policy_effect": 0,
+        "preview_effect_mismatches": 0,
+        "unnecessary_holds": 0
+      },
+      "invalid_candidates": {
+        "infrastructure_failure": 0,
+        "legitimate_completion": 0,
+        "median_elapsed_s": null,
+        "n": 0,
+        "out_of_policy_effect": 0,
+        "preview_effect_mismatches": 0,
+        "unnecessary_holds": 0
+      },
+      "valid_candidates": {
+        "infrastructure_failure": 0,
+        "legitimate_completion": 6,
+        "median_elapsed_s": 1.1939036939875223,
+        "n": 6,
+        "out_of_policy_effect": 0,
+        "preview_effect_mismatches": 0,
+        "unnecessary_holds": 0
+      }
+    }
+  },
+  "model": {
+    "cached_input_tokens": 0,
+    "charge_or_reservation_usd": 0.0,
+    "ledger_entries": 0,
+    "median_elapsed_s": null,
+    "reserved_calls": 0,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0
+    }
+  },
+  "pairs": [
+    {
+      "complete_valid_pair": true,
+      "origin": "static",
+      "outcomes": {
+        "selective": {
+          "legitimate_completion": true,
+          "out_of_policy_effect": false
+        },
+        "static": {
+          "legitimate_completion": true,
+          "out_of_policy_effect": false
+        }
+      },
+      "task": "R"
+    },
+    {
+      "complete_valid_pair": true,
+      "origin": "static",
+      "outcomes": {
+        "selective": {
+          "legitimate_completion": true,
+          "out_of_policy_effect": false
+        },
+        "static": {
+          "legitimate_completion": true,
+          "out_of_policy_effect": false
+        }
+      },
+      "task": "W"
+    },
+    {
+      "complete_valid_pair": true,
+      "origin": "static",
+      "outcomes": {
+        "selective": {
+          "legitimate_completion": true,
+          "out_of_policy_effect": false
+        },
+        "static": {
+          "legitimate_completion": true,
+          "out_of_policy_effect": false
+        }
+      },
+      "task": "M"
+    },
+    {
+      "complete_valid_pair": true,
+      "origin": "selective",
+      "outcomes": {
+        "selective": {
+          "legitimate_completion": true,
+          "out_of_policy_effect": false
+        },
+        "static": {
+          "legitimate_completion": true,
+          "out_of_policy_effect": false
+        }
+      },
+      "task": "R"
+    },
+    {
+      "complete_valid_pair": true,
+      "origin": "selective",
+      "outcomes": {
+        "selective": {
+          "legitimate_completion": true,
+          "out_of_policy_effect": false
+        },
+        "static": {
+          "legitimate_completion": true,
+          "out_of_policy_effect": false
+        }
+      },
+      "task": "W"
+    },
+    {
+      "complete_valid_pair": true,
+      "origin": "selective",
+      "outcomes": {
+        "selective": {
+          "legitimate_completion": true,
+          "out_of_policy_effect": false
+        },
+        "static": {
+          "legitimate_completion": true,
+          "out_of_policy_effect": false
+        }
+      },
+      "task": "M"
+    }
+  ],
+  "planned": 18,
+  "statuses": {
+    "completed": 18,
+    "inconclusive": 0,
+    "started": 0,
+    "unrun": 0
+  }
+}

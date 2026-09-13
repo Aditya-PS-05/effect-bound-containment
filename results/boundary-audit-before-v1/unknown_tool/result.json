@@ -1,0 +1,52 @@
+{
+  "case": "unknown_tool",
+  "sources": {
+    "src/effect_bound.py": "562baf7d3d0bfc2858211210bb5de50d4bb62b105fd4181ddc5c27e84002e7c4",
+    "src/pome_adapter.py": "94ef0fb1cb37424760c718b0ace6dd86ca7b599ad8de53cf3afd055752afb77c",
+    "src/process_observer.py": "d92884421b7f06e45fe8989432169c12189c79ce146c7bd33007d548839b7418",
+    "run_boundary_audit.py": "9d2902214fa152da299fcefd02f5f3abea413a37bbdfe2d9a22409d77db1938d"
+  },
+  "accepted": false,
+  "signature_reused": false,
+  "exception": "NotImplementedError: Pome quarantine needs a separately seeded twin; local clone forbidden",
+  "incident": null,
+  "expected_correlations": [],
+  "observer_status": "available",
+  "initial": {
+    "snapshot": "snapshot-000",
+    "receipt": {
+      "events.json": {
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3
+      },
+      "state.json": {
+        "sha256": "5575a19936c0d91f0a889edd2208f640630550623dcd6b56585ce9e627625fb0",
+        "bytes": 2703
+      }
+    },
+    "pid": 3703276,
+    "capture_ms": 20.83650103304535,
+    "max_rss_kib": 27208
+  },
+  "final": {
+    "snapshot": "snapshot-001",
+    "receipt": {
+      "events.json": {
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3
+      },
+      "state.json": {
+        "sha256": "5575a19936c0d91f0a889edd2208f640630550623dcd6b56585ce9e627625fb0",
+        "bytes": 2703
+      }
+    },
+    "pid": 3703276,
+    "capture_ms": 4.929290036670864,
+    "max_rss_kib": 27208
+  },
+  "state_changed": false,
+  "allowed_created": false,
+  "forbidden_created": false,
+  "tape_count": 0,
+  "correlations": []
+}

@@ -1,0 +1,490 @@
+[
+  {
+    "case": "clean_separator_identity",
+    "sources": {
+      "src/effect_bound.py": "562baf7d3d0bfc2858211210bb5de50d4bb62b105fd4181ddc5c27e84002e7c4",
+      "src/pome_adapter.py": "94ef0fb1cb37424760c718b0ace6dd86ca7b599ad8de53cf3afd055752afb77c",
+      "src/process_observer.py": "d92884421b7f06e45fe8989432169c12189c79ce146c7bd33007d548839b7418",
+      "run_boundary_audit.py": "9d2902214fa152da299fcefd02f5f3abea413a37bbdfe2d9a22409d77db1938d"
+    },
+    "accepted": true,
+    "signature_reused": false,
+    "exception": null,
+    "incident": {
+      "request_id": "job",
+      "decision": "allow",
+      "intent": "{\"args\":{\"repo\":\"allowed\"},\"tool\":\"create_repository\"}",
+      "executed": "create_repository",
+      "executed_request": "{\"args\":{\"repo\":\"allowed\"},\"tool\":\"create_repository\"}",
+      "accepted": true,
+      "reason": "Pome HTTP 201",
+      "state_before": [
+        "acme/api"
+      ],
+      "state_after": [
+        "acme/api",
+        "pome-agent/allowed"
+      ],
+      "state_changed": true,
+      "data_reads": [],
+      "downstream_effects": [],
+      "returned_labels": [],
+      "pending_effects": [],
+      "response": null,
+      "effect_mismatch": false,
+      "observer_chain_valid": true,
+      "mismatch": false
+    },
+    "executed_identity": [
+      "team|alpha",
+      "job"
+    ],
+    "authorized_identity": [
+      "team|alpha",
+      "job"
+    ],
+    "expected_correlations": [
+      "job"
+    ],
+    "observer_status": "available",
+    "initial": {
+      "snapshot": "snapshot-000",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "01c58592e6ea8c86b99652bd680dacf59841ae06c74dac8785d67c909b3170b3",
+          "bytes": 2703
+        }
+      },
+      "pid": 3703185,
+      "capture_ms": 23.00169598311186,
+      "max_rss_kib": 26664
+    },
+    "final": {
+      "snapshot": "snapshot-001",
+      "receipt": {
+        "events.json": {
+          "sha256": "1e78fcdda7ddeeaeeb56ab6e8b6c23e70ebb1f99db6fd0ea0c5682ef29bf62b3",
+          "bytes": 2376
+        },
+        "state.json": {
+          "sha256": "9dd0ff3e2db3cc51cd8db5f5df6333d5dcd246baea6703ac77822bd5da44dc30",
+          "bytes": 3780
+        }
+      },
+      "pid": 3703185,
+      "capture_ms": 4.1080969967879355,
+      "max_rss_kib": 26664
+    },
+    "state_changed": true,
+    "allowed_created": true,
+    "forbidden_created": false,
+    "tape_count": 1,
+    "correlations": [
+      "job"
+    ]
+  },
+  {
+    "case": "ordinary_identity_change",
+    "sources": {
+      "src/effect_bound.py": "562baf7d3d0bfc2858211210bb5de50d4bb62b105fd4181ddc5c27e84002e7c4",
+      "src/pome_adapter.py": "94ef0fb1cb37424760c718b0ace6dd86ca7b599ad8de53cf3afd055752afb77c",
+      "src/process_observer.py": "d92884421b7f06e45fe8989432169c12189c79ce146c7bd33007d548839b7418",
+      "run_boundary_audit.py": "9d2902214fa152da299fcefd02f5f3abea413a37bbdfe2d9a22409d77db1938d"
+    },
+    "accepted": false,
+    "signature_reused": false,
+    "exception": null,
+    "incident": {
+      "request_id": "job",
+      "decision": "allow",
+      "intent": "{\"args\":{\"repo\":\"allowed\"},\"tool\":\"create_repository\"}",
+      "executed": "create_repository",
+      "executed_request": "{\"args\":{\"repo\":\"allowed\"},\"tool\":\"create_repository\"}",
+      "accepted": false,
+      "reason": "request identity mismatch",
+      "state_before": [
+        "acme/api"
+      ],
+      "state_after": [
+        "acme/api"
+      ],
+      "state_changed": false,
+      "data_reads": [],
+      "downstream_effects": [],
+      "returned_labels": [],
+      "pending_effects": [],
+      "response": null,
+      "effect_mismatch": false,
+      "observer_chain_valid": true,
+      "mismatch": false
+    },
+    "executed_identity": [
+      "other-team",
+      "job"
+    ],
+    "authorized_identity": [
+      "team|alpha",
+      "job"
+    ],
+    "expected_correlations": [],
+    "observer_status": "available",
+    "initial": {
+      "snapshot": "snapshot-000",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "19710aa3d2b7f8026acf40eac7efb0791a401a312d6550d9b02d6708bdfd132a",
+          "bytes": 2703
+        }
+      },
+      "pid": 3703216,
+      "capture_ms": 22.75042497785762,
+      "max_rss_kib": 27208
+    },
+    "final": {
+      "snapshot": "snapshot-001",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "19710aa3d2b7f8026acf40eac7efb0791a401a312d6550d9b02d6708bdfd132a",
+          "bytes": 2703
+        }
+      },
+      "pid": 3703216,
+      "capture_ms": 3.3977669663727283,
+      "max_rss_kib": 27208
+    },
+    "state_changed": false,
+    "allowed_created": false,
+    "forbidden_created": false,
+    "tape_count": 0,
+    "correlations": []
+  },
+  {
+    "case": "identity_rebinding",
+    "sources": {
+      "src/effect_bound.py": "562baf7d3d0bfc2858211210bb5de50d4bb62b105fd4181ddc5c27e84002e7c4",
+      "src/pome_adapter.py": "94ef0fb1cb37424760c718b0ace6dd86ca7b599ad8de53cf3afd055752afb77c",
+      "src/process_observer.py": "d92884421b7f06e45fe8989432169c12189c79ce146c7bd33007d548839b7418",
+      "run_boundary_audit.py": "9d2902214fa152da299fcefd02f5f3abea413a37bbdfe2d9a22409d77db1938d"
+    },
+    "accepted": true,
+    "signature_reused": true,
+    "exception": null,
+    "incident": {
+      "request_id": "job",
+      "decision": "allow",
+      "intent": "{\"args\":{\"repo\":\"allowed\"},\"tool\":\"create_repository\"}",
+      "executed": "create_repository",
+      "executed_request": "{\"args\":{\"repo\":\"allowed\"},\"tool\":\"create_repository\"}",
+      "accepted": true,
+      "reason": "Pome HTTP 201",
+      "state_before": [
+        "acme/api"
+      ],
+      "state_after": [
+        "acme/api",
+        "pome-agent/allowed"
+      ],
+      "state_changed": true,
+      "data_reads": [],
+      "downstream_effects": [],
+      "returned_labels": [],
+      "pending_effects": [],
+      "response": null,
+      "effect_mismatch": false,
+      "observer_chain_valid": true,
+      "mismatch": false
+    },
+    "executed_identity": [
+      "team",
+      "alpha|job"
+    ],
+    "authorized_identity": [
+      "team|alpha",
+      "job"
+    ],
+    "expected_correlations": [
+      "job"
+    ],
+    "observer_status": "unknown",
+    "observer_error": "ValueError: Missing or unexpected requests in tape",
+    "initial": {
+      "snapshot": "snapshot-000",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "58759a261933ae5bf89efbc70dfa0bc986347dbc37c57034902339cf4bca4eec",
+          "bytes": 2703
+        }
+      },
+      "pid": 3703246,
+      "capture_ms": 21.51786402100697,
+      "max_rss_kib": 27208
+    },
+    "final": {
+      "snapshot": "snapshot-001",
+      "receipt": {
+        "events.json": {
+          "sha256": "c908995a0850447911d238f67e7a26d29be2644a3a2351da70ac26535fac7995",
+          "bytes": 2395
+        },
+        "state.json": {
+          "sha256": "a461ae19dc03fb923c2ce91811ff5bd9fc2c8b11802283014d8bfb2f7af14aa9",
+          "bytes": 3780
+        }
+      },
+      "pid": 3703246,
+      "capture_ms": 5.1125549944117665,
+      "max_rss_kib": 27208
+    },
+    "state_changed": true,
+    "allowed_created": true,
+    "forbidden_created": false,
+    "tape_count": 1,
+    "correlations": [
+      "alpha|job"
+    ]
+  },
+  {
+    "case": "nonce_rebinding_replay",
+    "sources": {
+      "src/effect_bound.py": "562baf7d3d0bfc2858211210bb5de50d4bb62b105fd4181ddc5c27e84002e7c4",
+      "src/pome_adapter.py": "94ef0fb1cb37424760c718b0ace6dd86ca7b599ad8de53cf3afd055752afb77c",
+      "src/process_observer.py": "d92884421b7f06e45fe8989432169c12189c79ce146c7bd33007d548839b7418",
+      "run_boundary_audit.py": "9d2902214fa152da299fcefd02f5f3abea413a37bbdfe2d9a22409d77db1938d"
+    },
+    "accepted": true,
+    "signature_reused": true,
+    "exception": null,
+    "incident": null,
+    "second_reason": "Pome HTTP 200",
+    "original_consumed": true,
+    "expected_correlations": [
+      "read|nonce"
+    ],
+    "observer_status": "unknown",
+    "observer_error": "ValueError: Missing or unexpected requests in tape",
+    "initial": {
+      "snapshot": "snapshot-000",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "1a1f587e6c96665e81c12b0f083f346b8e1262c154296b2915307c09cc772155",
+          "bytes": 2703
+        }
+      },
+      "pid": 3703261,
+      "capture_ms": 17.403584031853825,
+      "max_rss_kib": 27208
+    },
+    "final": {
+      "snapshot": "snapshot-001",
+      "receipt": {
+        "events.json": {
+          "sha256": "72442357b766e75608f0819a4153b3d2a0d849539858dd0b6f26851da7c8b491",
+          "bytes": 3759
+        },
+        "state.json": {
+          "sha256": "1a1f587e6c96665e81c12b0f083f346b8e1262c154296b2915307c09cc772155",
+          "bytes": 2703
+        }
+      },
+      "pid": 3703261,
+      "capture_ms": 3.0051099602133036,
+      "max_rss_kib": 27208
+    },
+    "state_changed": false,
+    "allowed_created": false,
+    "forbidden_created": false,
+    "tape_count": 2,
+    "correlations": [
+      "read|nonce",
+      "read"
+    ]
+  },
+  {
+    "case": "unknown_tool",
+    "sources": {
+      "src/effect_bound.py": "562baf7d3d0bfc2858211210bb5de50d4bb62b105fd4181ddc5c27e84002e7c4",
+      "src/pome_adapter.py": "94ef0fb1cb37424760c718b0ace6dd86ca7b599ad8de53cf3afd055752afb77c",
+      "src/process_observer.py": "d92884421b7f06e45fe8989432169c12189c79ce146c7bd33007d548839b7418",
+      "run_boundary_audit.py": "9d2902214fa152da299fcefd02f5f3abea413a37bbdfe2d9a22409d77db1938d"
+    },
+    "accepted": false,
+    "signature_reused": false,
+    "exception": "NotImplementedError: Pome quarantine needs a separately seeded twin; local clone forbidden",
+    "incident": null,
+    "expected_correlations": [],
+    "observer_status": "available",
+    "initial": {
+      "snapshot": "snapshot-000",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "5575a19936c0d91f0a889edd2208f640630550623dcd6b56585ce9e627625fb0",
+          "bytes": 2703
+        }
+      },
+      "pid": 3703276,
+      "capture_ms": 20.83650103304535,
+      "max_rss_kib": 27208
+    },
+    "final": {
+      "snapshot": "snapshot-001",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "5575a19936c0d91f0a889edd2208f640630550623dcd6b56585ce9e627625fb0",
+          "bytes": 2703
+        }
+      },
+      "pid": 3703276,
+      "capture_ms": 4.929290036670864,
+      "max_rss_kib": 27208
+    },
+    "state_changed": false,
+    "allowed_created": false,
+    "forbidden_created": false,
+    "tape_count": 0,
+    "correlations": []
+  },
+  {
+    "case": "direct_invalid_token",
+    "sources": {
+      "src/effect_bound.py": "562baf7d3d0bfc2858211210bb5de50d4bb62b105fd4181ddc5c27e84002e7c4",
+      "src/pome_adapter.py": "94ef0fb1cb37424760c718b0ace6dd86ca7b599ad8de53cf3afd055752afb77c",
+      "src/process_observer.py": "d92884421b7f06e45fe8989432169c12189c79ce146c7bd33007d548839b7418",
+      "run_boundary_audit.py": "9d2902214fa152da299fcefd02f5f3abea413a37bbdfe2d9a22409d77db1938d"
+    },
+    "accepted": false,
+    "signature_reused": false,
+    "exception": null,
+    "incident": null,
+    "broker_decision": "deny",
+    "direct_status": 401,
+    "expected_correlations": [],
+    "observer_status": "available",
+    "initial": {
+      "snapshot": "snapshot-000",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "6640b43de3f4aa90210ea2356b1746de73b43e6c16087468b207a85d06c83e12",
+          "bytes": 2703
+        }
+      },
+      "pid": 3703291,
+      "capture_ms": 21.890764008276165,
+      "max_rss_kib": 27208
+    },
+    "final": {
+      "snapshot": "snapshot-001",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "6640b43de3f4aa90210ea2356b1746de73b43e6c16087468b207a85d06c83e12",
+          "bytes": 2703
+        }
+      },
+      "pid": 3703291,
+      "capture_ms": 4.243528004735708,
+      "max_rss_kib": 27208
+    },
+    "state_changed": false,
+    "allowed_created": false,
+    "forbidden_created": false,
+    "tape_count": 0,
+    "correlations": []
+  },
+  {
+    "case": "credential_file_bypass",
+    "sources": {
+      "src/effect_bound.py": "562baf7d3d0bfc2858211210bb5de50d4bb62b105fd4181ddc5c27e84002e7c4",
+      "src/pome_adapter.py": "94ef0fb1cb37424760c718b0ace6dd86ca7b599ad8de53cf3afd055752afb77c",
+      "src/process_observer.py": "d92884421b7f06e45fe8989432169c12189c79ce146c7bd33007d548839b7418",
+      "run_boundary_audit.py": "9d2902214fa152da299fcefd02f5f3abea413a37bbdfe2d9a22409d77db1938d"
+    },
+    "accepted": false,
+    "signature_reused": false,
+    "exception": null,
+    "incident": null,
+    "broker_decision": "deny",
+    "child": {
+      "status": 201,
+      "created_name": "pome-agent/forbidden"
+    },
+    "child_same_uid": 1000,
+    "credential_file_mode": "0o664",
+    "expected_correlations": [],
+    "observer_status": "unknown",
+    "observer_error": "ValueError: Missing or unexpected requests in tape",
+    "initial": {
+      "snapshot": "snapshot-000",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "72888b55ba491f8cd2549c4c142f1ad3d2627cb565f5d1125629047a4641d88f",
+          "bytes": 2703
+        }
+      },
+      "pid": 3703333,
+      "capture_ms": 24.0764879854396,
+      "max_rss_kib": 27208
+    },
+    "final": {
+      "snapshot": "snapshot-001",
+      "receipt": {
+        "events.json": {
+          "sha256": "d3fd0a07204f9cddc497693ff4841d0890e4b35c242857a88b2bdd7f735531f4",
+          "bytes": 2405
+        },
+        "state.json": {
+          "sha256": "65e6efbce94dd08b7eefc36a602bf6373b7b290b3dfc539410c7de7270d9600f",
+          "bytes": 3786
+        }
+      },
+      "pid": 3703333,
+      "capture_ms": 5.022043013013899,
+      "max_rss_kib": 27208
+    },
+    "state_changed": true,
+    "allowed_created": false,
+    "forbidden_created": true,
+    "tape_count": 1,
+    "correlations": [
+      "direct"
+    ]
+  }
+]

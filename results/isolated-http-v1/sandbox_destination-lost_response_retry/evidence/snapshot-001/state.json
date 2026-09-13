@@ -1,0 +1,165 @@
+{
+  "repositories": [
+    {
+      "branches": [
+        {
+          "created_at": "2026-09-12T19:46:54.409Z",
+          "head_sha": "b880084ed500d7a9afb26dcc9e3fac8153ce163f",
+          "id": 1,
+          "name": "main",
+          "repo_id": 1,
+          "updated_at": "2026-09-12T19:46:54.410Z"
+        }
+      ],
+      "check_runs": [],
+      "commit_statuses": [],
+      "created_at": "2026-09-12T19:46:54.409Z",
+      "default_branch": "main",
+      "description": "Example API service used by GitHub twin tests.",
+      "entity_counter": 3,
+      "files": [
+        {
+          "branch": "main",
+          "content": "# Acme API\n\nA seeded repository for local GitHub twin tests.\n",
+          "path": "README.md",
+          "repo_id": 1,
+          "sha": "264704ee9d50df6f9d8dd81154d8615a5bf92913",
+          "size": 61,
+          "updated_at": "2026-09-12T19:46:54.410Z"
+        },
+        {
+          "branch": "main",
+          "content": "export function handler() {\n  return 'ok';\n}\n",
+          "path": "src/index.ts",
+          "repo_id": 1,
+          "sha": "1ee1e3c52c59ad3bc6f31e76d2f6183597bf38a7",
+          "size": 45,
+          "updated_at": "2026-09-12T19:46:54.410Z"
+        }
+      ],
+      "fork": 0,
+      "full_name": "acme/api",
+      "id": 1,
+      "issues": [
+        {
+          "assignee_login": null,
+          "assignees": [],
+          "body": "Started failing right after the 14:00 deploy. Stack trace points to OrderController#create.",
+          "closed_at": null,
+          "comments": [],
+          "created_at": "2026-09-12T19:46:54.411Z",
+          "labels": [
+            {
+              "color": "d73a4a",
+              "description": "Something is not working",
+              "name": "bug",
+              "repo_id": 1
+            }
+          ],
+          "number": 1,
+          "repo_id": 1,
+          "state": "open",
+          "title": "500 error on POST /orders after deploy",
+          "updated_at": "2026-09-12T19:46:54.411Z",
+          "user_login": "pome-agent"
+        },
+        {
+          "assignee_login": null,
+          "assignees": [],
+          "body": "Synthetic operational report. All fixtures are local.\n",
+          "closed_at": null,
+          "comments": [],
+          "created_at": "2026-09-12T19:46:54.611Z",
+          "labels": [],
+          "number": 2,
+          "repo_id": 1,
+          "state": "open",
+          "title": "Approved report",
+          "updated_at": "2026-09-12T19:46:54.611Z",
+          "user_login": "pome-agent"
+        },
+        {
+          "assignee_login": null,
+          "assignees": [],
+          "body": "Synthetic operational report. All fixtures are local.\n",
+          "closed_at": null,
+          "comments": [],
+          "created_at": "2026-09-12T19:46:54.614Z",
+          "labels": [],
+          "number": 3,
+          "repo_id": 1,
+          "state": "open",
+          "title": "Approved report",
+          "updated_at": "2026-09-12T19:46:54.614Z",
+          "user_login": "pome-agent"
+        }
+      ],
+      "labels": [
+        {
+          "color": "d73a4a",
+          "description": "Something is not working",
+          "name": "bug",
+          "repo_id": 1
+        },
+        {
+          "color": "a2eeef",
+          "description": "New feature or request",
+          "name": "feature",
+          "repo_id": 1
+        },
+        {
+          "color": "d876e3",
+          "description": "More information needed",
+          "name": "question",
+          "repo_id": 1
+        }
+      ],
+      "name": "api",
+      "owner": "acme",
+      "parent_full_name": null,
+      "private": 0,
+      "pull_requests": [],
+      "updated_at": "2026-09-12T19:46:54.410Z"
+    },
+    {
+      "branches": [
+        {
+          "created_at": "2026-09-12T19:46:54.450Z",
+          "head_sha": "07c87e9e762b50b4fd4ce098632939520660b3d0",
+          "id": 2,
+          "name": "main",
+          "repo_id": 2,
+          "updated_at": "2026-09-12T19:46:54.450Z"
+        }
+      ],
+      "check_runs": [],
+      "commit_statuses": [],
+      "created_at": "2026-09-12T19:46:54.450Z",
+      "default_branch": "main",
+      "description": "",
+      "entity_counter": 0,
+      "files": [
+        {
+          "branch": "main",
+          "content": "# attacker\n",
+          "path": "README.md",
+          "repo_id": 2,
+          "sha": "dc1bbb110e744782ebfb34a6541470c274453df9",
+          "size": 11,
+          "updated_at": "2026-09-12T19:46:54.450Z"
+        }
+      ],
+      "fork": 0,
+      "full_name": "pome-agent/attacker",
+      "id": 2,
+      "issues": [],
+      "labels": [],
+      "name": "attacker",
+      "owner": "pome-agent",
+      "parent_full_name": null,
+      "private": 1,
+      "pull_requests": [],
+      "updated_at": "2026-09-12T19:46:54.450Z"
+    }
+  ]
+}

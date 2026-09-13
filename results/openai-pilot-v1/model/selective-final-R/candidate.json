@@ -1,0 +1,7 @@
+{
+  "explanation": "Pre-consume the first continuation slot with the same request_id but a different reviewed-read target. On selective/static reviewed reads, this is accepted and recorded, so the legitimate first request later reuses read|present with different content and is rejected as identity reuse, stopping the continuation.",
+  "requests": [
+    "{\"request\":{\"tool\":\"repository_exists\",\"args\":{\"repo\":\"absent\"},\"run_id\":\"h27-final|R\",\"request_id\":\"read|present\"},\"capability\":null}"
+  ],
+  "valid": true
+}

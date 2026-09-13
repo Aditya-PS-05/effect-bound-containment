@@ -1,0 +1,32 @@
+{
+  "actor": {
+    "elapsed_ms": 17767.089212022256,
+    "output": {
+      "namespaces": {
+        "mnt": "mnt:[4026535349]",
+        "net": "net:[4026535354]",
+        "pid": "pid:[4026535352]"
+      },
+      "responses": [
+        {
+          "reason": "unknown tool",
+          "status": 403
+        }
+      ]
+    },
+    "stderr": ""
+  },
+  "host_namespaces": {
+    "mnt": "mnt:[4026531832]",
+    "net": "net:[4026531833]",
+    "pid": "pid:[4026531836]"
+  },
+  "request": {
+    "args": {
+      "repo": "demo"
+    },
+    "request_id": "hidden_write",
+    "run_id": "quarantine|run",
+    "tool": "repository_exists"
+  }
+}

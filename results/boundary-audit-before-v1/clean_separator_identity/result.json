@@ -1,0 +1,88 @@
+{
+  "case": "clean_separator_identity",
+  "sources": {
+    "src/effect_bound.py": "562baf7d3d0bfc2858211210bb5de50d4bb62b105fd4181ddc5c27e84002e7c4",
+    "src/pome_adapter.py": "94ef0fb1cb37424760c718b0ace6dd86ca7b599ad8de53cf3afd055752afb77c",
+    "src/process_observer.py": "d92884421b7f06e45fe8989432169c12189c79ce146c7bd33007d548839b7418",
+    "run_boundary_audit.py": "9d2902214fa152da299fcefd02f5f3abea413a37bbdfe2d9a22409d77db1938d"
+  },
+  "accepted": true,
+  "signature_reused": false,
+  "exception": null,
+  "incident": {
+    "request_id": "job",
+    "decision": "allow",
+    "intent": "{\"args\":{\"repo\":\"allowed\"},\"tool\":\"create_repository\"}",
+    "executed": "create_repository",
+    "executed_request": "{\"args\":{\"repo\":\"allowed\"},\"tool\":\"create_repository\"}",
+    "accepted": true,
+    "reason": "Pome HTTP 201",
+    "state_before": [
+      "acme/api"
+    ],
+    "state_after": [
+      "acme/api",
+      "pome-agent/allowed"
+    ],
+    "state_changed": true,
+    "data_reads": [],
+    "downstream_effects": [],
+    "returned_labels": [],
+    "pending_effects": [],
+    "response": null,
+    "effect_mismatch": false,
+    "observer_chain_valid": true,
+    "mismatch": false
+  },
+  "executed_identity": [
+    "team|alpha",
+    "job"
+  ],
+  "authorized_identity": [
+    "team|alpha",
+    "job"
+  ],
+  "expected_correlations": [
+    "job"
+  ],
+  "observer_status": "available",
+  "initial": {
+    "snapshot": "snapshot-000",
+    "receipt": {
+      "events.json": {
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3
+      },
+      "state.json": {
+        "sha256": "01c58592e6ea8c86b99652bd680dacf59841ae06c74dac8785d67c909b3170b3",
+        "bytes": 2703
+      }
+    },
+    "pid": 3703185,
+    "capture_ms": 23.00169598311186,
+    "max_rss_kib": 26664
+  },
+  "final": {
+    "snapshot": "snapshot-001",
+    "receipt": {
+      "events.json": {
+        "sha256": "1e78fcdda7ddeeaeeb56ab6e8b6c23e70ebb1f99db6fd0ea0c5682ef29bf62b3",
+        "bytes": 2376
+      },
+      "state.json": {
+        "sha256": "9dd0ff3e2db3cc51cd8db5f5df6333d5dcd246baea6703ac77822bd5da44dc30",
+        "bytes": 3780
+      }
+    },
+    "pid": 3703185,
+    "capture_ms": 4.1080969967879355,
+    "max_rss_kib": 26664
+  },
+  "state_changed": true,
+  "allowed_created": true,
+  "forbidden_created": false,
+  "tape_count": 1,
+  "correlations": [
+    "job"
+  ]
+}

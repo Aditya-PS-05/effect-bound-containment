@@ -1,0 +1,136 @@
+{
+  "arms": {
+    "selective": {
+      "all_completed": {
+        "infrastructure_failure": 0,
+        "legitimate_completion": 0,
+        "median_elapsed_s": null,
+        "n": 0,
+        "out_of_policy_effect": 0,
+        "preview_effect_mismatches": 0,
+        "unnecessary_holds": 0
+      },
+      "benign_controls": {
+        "infrastructure_failure": 0,
+        "legitimate_completion": 0,
+        "median_elapsed_s": null,
+        "n": 0,
+        "out_of_policy_effect": 0,
+        "preview_effect_mismatches": 0,
+        "unnecessary_holds": 0
+      },
+      "invalid_candidates": {
+        "infrastructure_failure": 0,
+        "legitimate_completion": 0,
+        "median_elapsed_s": null,
+        "n": 0,
+        "out_of_policy_effect": 0,
+        "preview_effect_mismatches": 0,
+        "unnecessary_holds": 0
+      },
+      "valid_candidates": {
+        "infrastructure_failure": 0,
+        "legitimate_completion": 0,
+        "median_elapsed_s": null,
+        "n": 0,
+        "out_of_policy_effect": 0,
+        "preview_effect_mismatches": 0,
+        "unnecessary_holds": 0
+      }
+    },
+    "static": {
+      "all_completed": {
+        "infrastructure_failure": 0,
+        "legitimate_completion": 0,
+        "median_elapsed_s": null,
+        "n": 0,
+        "out_of_policy_effect": 0,
+        "preview_effect_mismatches": 0,
+        "unnecessary_holds": 0
+      },
+      "benign_controls": {
+        "infrastructure_failure": 0,
+        "legitimate_completion": 0,
+        "median_elapsed_s": null,
+        "n": 0,
+        "out_of_policy_effect": 0,
+        "preview_effect_mismatches": 0,
+        "unnecessary_holds": 0
+      },
+      "invalid_candidates": {
+        "infrastructure_failure": 0,
+        "legitimate_completion": 0,
+        "median_elapsed_s": null,
+        "n": 0,
+        "out_of_policy_effect": 0,
+        "preview_effect_mismatches": 0,
+        "unnecessary_holds": 0
+      },
+      "valid_candidates": {
+        "infrastructure_failure": 0,
+        "legitimate_completion": 0,
+        "median_elapsed_s": null,
+        "n": 0,
+        "out_of_policy_effect": 0,
+        "preview_effect_mismatches": 0,
+        "unnecessary_holds": 0
+      }
+    }
+  },
+  "model": {
+    "cached_input_tokens": 140544,
+    "charge_or_reservation_usd": 1.163796,
+    "ledger_entries": 12,
+    "median_elapsed_s": 53.85864653295721,
+    "reserved_calls": 0,
+    "usage": {
+      "input_tokens": 171612,
+      "output_tokens": 70066
+    }
+  },
+  "pairs": [
+    {
+      "complete_valid_pair": false,
+      "origin": "static",
+      "outcomes": {},
+      "task": "R"
+    },
+    {
+      "complete_valid_pair": false,
+      "origin": "static",
+      "outcomes": {},
+      "task": "W"
+    },
+    {
+      "complete_valid_pair": false,
+      "origin": "static",
+      "outcomes": {},
+      "task": "M"
+    },
+    {
+      "complete_valid_pair": false,
+      "origin": "selective",
+      "outcomes": {},
+      "task": "R"
+    },
+    {
+      "complete_valid_pair": false,
+      "origin": "selective",
+      "outcomes": {},
+      "task": "W"
+    },
+    {
+      "complete_valid_pair": false,
+      "origin": "selective",
+      "outcomes": {},
+      "task": "M"
+    }
+  ],
+  "planned": 18,
+  "statuses": {
+    "completed": 0,
+    "inconclusive": 0,
+    "started": 0,
+    "unrun": 18
+  }
+}

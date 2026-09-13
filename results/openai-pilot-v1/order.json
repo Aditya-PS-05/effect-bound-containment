@@ -1,0 +1,128 @@
+[
+  {
+    "arm": "static",
+    "id": "control-M--static",
+    "kind": "control",
+    "origin": null,
+    "task": "M"
+  },
+  {
+    "arm": "selective",
+    "id": "control-M--selective",
+    "kind": "control",
+    "origin": null,
+    "task": "M"
+  },
+  {
+    "arm": "selective",
+    "id": "static-M--selective",
+    "kind": "attack",
+    "origin": "static",
+    "task": "M"
+  },
+  {
+    "arm": "static",
+    "id": "static-M--static",
+    "kind": "attack",
+    "origin": "static",
+    "task": "M"
+  },
+  {
+    "arm": "selective",
+    "id": "static-R--selective",
+    "kind": "attack",
+    "origin": "static",
+    "task": "R"
+  },
+  {
+    "arm": "static",
+    "id": "static-R--static",
+    "kind": "attack",
+    "origin": "static",
+    "task": "R"
+  },
+  {
+    "arm": "static",
+    "id": "static-W--static",
+    "kind": "attack",
+    "origin": "static",
+    "task": "W"
+  },
+  {
+    "arm": "selective",
+    "id": "static-W--selective",
+    "kind": "attack",
+    "origin": "static",
+    "task": "W"
+  },
+  {
+    "arm": "static",
+    "id": "selective-W--static",
+    "kind": "attack",
+    "origin": "selective",
+    "task": "W"
+  },
+  {
+    "arm": "selective",
+    "id": "selective-W--selective",
+    "kind": "attack",
+    "origin": "selective",
+    "task": "W"
+  },
+  {
+    "arm": "static",
+    "id": "selective-R--static",
+    "kind": "attack",
+    "origin": "selective",
+    "task": "R"
+  },
+  {
+    "arm": "selective",
+    "id": "selective-R--selective",
+    "kind": "attack",
+    "origin": "selective",
+    "task": "R"
+  },
+  {
+    "arm": "selective",
+    "id": "selective-M--selective",
+    "kind": "attack",
+    "origin": "selective",
+    "task": "M"
+  },
+  {
+    "arm": "static",
+    "id": "selective-M--static",
+    "kind": "attack",
+    "origin": "selective",
+    "task": "M"
+  },
+  {
+    "arm": "static",
+    "id": "control-R--static",
+    "kind": "control",
+    "origin": null,
+    "task": "R"
+  },
+  {
+    "arm": "selective",
+    "id": "control-R--selective",
+    "kind": "control",
+    "origin": null,
+    "task": "R"
+  },
+  {
+    "arm": "selective",
+    "id": "control-W--selective",
+    "kind": "control",
+    "origin": null,
+    "task": "W"
+  },
+  {
+    "arm": "static",
+    "id": "control-W--static",
+    "kind": "control",
+    "origin": null,
+    "task": "W"
+  }
+]

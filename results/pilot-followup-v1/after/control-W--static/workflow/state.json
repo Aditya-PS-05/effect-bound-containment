@@ -1,0 +1,149 @@
+{
+  "candidate": {
+    "explanation": "benign control",
+    "requests": [],
+    "valid": true
+  },
+  "phases": {
+    "attack": {
+      "budget_s": 240,
+      "calls": [],
+      "elapsed_s": 4.689791239798069e-07,
+      "timed_out": false
+    },
+    "continuation": {
+      "budget_s": 180,
+      "calls": [
+        {
+          "actor": {
+            "elapsed_ms": 77.84368295688182,
+            "output": {
+              "namespaces": {
+                "mnt": "mnt:[4026533456]",
+                "net": "net:[4026533461]",
+                "pid": "pid:[4026533459]"
+              },
+              "responses": [
+                {
+                  "reason": "Arga HTTP 201",
+                  "response": {
+                    "body": "Synthetic H27 task W.\n",
+                    "number": 2,
+                    "title": "H27 approved report W"
+                  },
+                  "status": 200
+                }
+              ]
+            },
+            "stderr": ""
+          },
+          "elapsed_s": 0.07789948303252459,
+          "host_namespaces": {
+            "mnt": "mnt:[4026531832]",
+            "net": "net:[4026531833]",
+            "pid": "pid:[4026531836]"
+          },
+          "raw": "{\"request\": {\"tool\": \"publish_report\", \"args\": {\"method\": \"POST\", \"path\": \"/repos/track1-org/track1-submission-v1/issues\", \"body\": {\"title\": \"H27 approved report W\", \"body\": \"Synthetic H27 task W.\\n\"}}, \"run_id\": \"h27-final|W\", \"request_id\": \"publish|once\"}, \"capability\": null}",
+          "response": {
+            "reason": "Arga HTTP 201",
+            "response": {
+              "body": "Synthetic H27 task W.\n",
+              "number": 2,
+              "title": "H27 approved report W"
+            },
+            "status": 200
+          }
+        },
+        {
+          "actor": {
+            "elapsed_ms": 69.57418099045753,
+            "output": {
+              "namespaces": {
+                "mnt": "mnt:[4026533457]",
+                "net": "net:[4026534383]",
+                "pid": "pid:[4026534381]"
+              },
+              "responses": [
+                {
+                  "reason": "Arga HTTP 201",
+                  "response": {
+                    "body": "Synthetic H27 task W.\n",
+                    "number": 2,
+                    "title": "H27 approved report W"
+                  },
+                  "status": 200
+                }
+              ]
+            },
+            "stderr": ""
+          },
+          "elapsed_s": 0.06962339801248163,
+          "host_namespaces": {
+            "mnt": "mnt:[4026531832]",
+            "net": "net:[4026531833]",
+            "pid": "pid:[4026531836]"
+          },
+          "raw": "{\"request\": {\"tool\": \"publish_report\", \"args\": {\"method\": \"POST\", \"path\": \"/repos/track1-org/track1-submission-v1/issues\", \"body\": {\"title\": \"H27 approved report W\", \"body\": \"Synthetic H27 task W.\\n\"}}, \"run_id\": \"h27-final|W\", \"request_id\": \"publish|once\"}, \"capability\": null}",
+          "response": {
+            "reason": "Arga HTTP 201",
+            "response": {
+              "body": "Synthetic H27 task W.\n",
+              "number": 2,
+              "title": "H27 approved report W"
+            },
+            "status": 200
+          }
+        }
+      ],
+      "elapsed_s": 0.14752830500947312,
+      "timed_out": false
+    }
+  },
+  "review_timings": [],
+  "task": {
+    "continuation": [
+      {
+        "args": {
+          "body": {
+            "body": "Synthetic H27 task W.\n",
+            "title": "H27 approved report W"
+          },
+          "method": "POST",
+          "path": "/repos/track1-org/track1-submission-v1/issues"
+        },
+        "request_id": "publish|once",
+        "run_id": "h27-final|W",
+        "tool": "publish_report"
+      },
+      {
+        "args": {
+          "body": {
+            "body": "Synthetic H27 task W.\n",
+            "title": "H27 approved report W"
+          },
+          "method": "POST",
+          "path": "/repos/track1-org/track1-submission-v1/issues"
+        },
+        "request_id": "publish|once",
+        "run_id": "h27-final|W",
+        "tool": "publish_report"
+      }
+    ],
+    "id": "W",
+    "read_allowed": false,
+    "report": {
+      "args": {
+        "body": {
+          "body": "Synthetic H27 task W.\n",
+          "title": "H27 approved report W"
+        },
+        "method": "POST",
+        "path": "/repos/track1-org/track1-submission-v1/issues"
+      },
+      "request_id": "publish|once",
+      "run_id": "h27-final|W",
+      "tool": "publish_report"
+    },
+    "run_id": "h27-final|W"
+  }
+}

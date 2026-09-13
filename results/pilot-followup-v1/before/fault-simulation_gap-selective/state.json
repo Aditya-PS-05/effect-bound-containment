@@ -1,0 +1,596 @@
+{
+  "after": {
+    "events": [],
+    "state": {
+      "auth_context": "local-development-only",
+      "provider": {
+        "generic_resources": {},
+        "generic_singletons": {},
+        "org_members": {},
+        "orgs": {},
+        "repos": {
+          "track1-org/track1-submission-v1": {
+            "files": {
+              "fixture": "development"
+            },
+            "issues": [
+              {
+                "body": "Preserve.",
+                "number": 1,
+                "title": "Development existing issue"
+              },
+              {
+                "body": "H28 fault",
+                "number": 2,
+                "title": "Synthetic hidden write"
+              }
+            ],
+            "repo": {
+              "name": "track1-submission-v1"
+            }
+          }
+        },
+        "users": {},
+        "webhook_deliveries": []
+      },
+      "stub_hits": {
+        "total_hits": 0
+      }
+    }
+  },
+  "before": {
+    "events": [],
+    "state": {
+      "auth_context": "local-development-only",
+      "provider": {
+        "generic_resources": {},
+        "generic_singletons": {},
+        "org_members": {},
+        "orgs": {},
+        "repos": {
+          "track1-org/track1-submission-v1": {
+            "files": {
+              "fixture": "development"
+            },
+            "issues": [
+              {
+                "body": "Preserve.",
+                "number": 1,
+                "title": "Development existing issue"
+              }
+            ],
+            "repo": {
+              "name": "track1-submission-v1"
+            }
+          }
+        },
+        "users": {},
+        "webhook_deliveries": []
+      },
+      "stub_hits": {
+        "total_hits": 0
+      }
+    }
+  },
+  "captures": [
+    {
+      "payload": {
+        "events": [],
+        "state": {
+          "auth_context": "local-development-only",
+          "provider": {
+            "generic_resources": {},
+            "generic_singletons": {},
+            "org_members": {},
+            "orgs": {},
+            "repos": {
+              "track1-org/track1-submission-v1": {
+                "files": {
+                  "fixture": "development"
+                },
+                "issues": [
+                  {
+                    "body": "Preserve.",
+                    "number": 1,
+                    "title": "Development existing issue"
+                  }
+                ],
+                "repo": {
+                  "name": "track1-submission-v1"
+                }
+              }
+            },
+            "users": {},
+            "webhook_deliveries": []
+          },
+          "stub_hits": {
+            "total_hits": 0
+          }
+        }
+      },
+      "role": "execution",
+      "stage": "context"
+    },
+    {
+      "payload": {
+        "events": [],
+        "state": {
+          "auth_context": "local-development-only",
+          "provider": {
+            "generic_resources": {},
+            "generic_singletons": {},
+            "org_members": {},
+            "orgs": {},
+            "repos": {
+              "track1-org/track1-submission-v1": {
+                "files": {
+                  "fixture": "development"
+                },
+                "issues": [
+                  {
+                    "body": "Preserve.",
+                    "number": 1,
+                    "title": "Development existing issue"
+                  }
+                ],
+                "repo": {
+                  "name": "track1-submission-v1"
+                }
+              }
+            },
+            "users": {},
+            "webhook_deliveries": []
+          },
+          "stub_hits": {
+            "total_hits": 0
+          }
+        }
+      },
+      "role": "execution",
+      "stage": "clone-source"
+    },
+    {
+      "payload": {
+        "events": [],
+        "state": {
+          "auth_context": "local-development-only",
+          "provider": {
+            "generic_resources": {},
+            "generic_singletons": {},
+            "org_members": {},
+            "orgs": {},
+            "repos": {
+              "track1-org/track1-submission-v1": {
+                "files": {
+                  "fixture": "development"
+                },
+                "issues": [
+                  {
+                    "body": "Preserve.",
+                    "number": 1,
+                    "title": "Development existing issue"
+                  }
+                ],
+                "repo": {
+                  "name": "track1-submission-v1"
+                }
+              }
+            },
+            "users": {},
+            "webhook_deliveries": []
+          },
+          "stub_hits": {
+            "total_hits": 0
+          }
+        }
+      },
+      "role": "quarantine",
+      "stage": "clone-copy"
+    },
+    {
+      "payload": {
+        "events": [],
+        "state": {
+          "auth_context": "local-development-only",
+          "provider": {
+            "generic_resources": {},
+            "generic_singletons": {},
+            "org_members": {},
+            "orgs": {},
+            "repos": {
+              "track1-org/track1-submission-v1": {
+                "files": {
+                  "fixture": "development"
+                },
+                "issues": [
+                  {
+                    "body": "Preserve.",
+                    "number": 1,
+                    "title": "Development existing issue"
+                  }
+                ],
+                "repo": {
+                  "name": "track1-submission-v1"
+                }
+              }
+            },
+            "users": {},
+            "webhook_deliveries": []
+          },
+          "stub_hits": {
+            "total_hits": 0
+          }
+        }
+      },
+      "role": "quarantine",
+      "stage": "context"
+    },
+    {
+      "payload": {
+        "events": [],
+        "state": {
+          "auth_context": "local-development-only",
+          "provider": {
+            "generic_resources": {},
+            "generic_singletons": {},
+            "org_members": {},
+            "orgs": {},
+            "repos": {
+              "track1-org/track1-submission-v1": {
+                "files": {
+                  "fixture": "development"
+                },
+                "issues": [
+                  {
+                    "body": "Preserve.",
+                    "number": 1,
+                    "title": "Development existing issue"
+                  }
+                ],
+                "repo": {
+                  "name": "track1-submission-v1"
+                }
+              }
+            },
+            "users": {},
+            "webhook_deliveries": []
+          },
+          "stub_hits": {
+            "total_hits": 0
+          }
+        }
+      },
+      "role": "quarantine",
+      "stage": "read-before"
+    },
+    {
+      "payload": {
+        "events": [],
+        "state": {
+          "auth_context": "local-development-only",
+          "provider": {
+            "generic_resources": {},
+            "generic_singletons": {},
+            "org_members": {},
+            "orgs": {},
+            "repos": {
+              "track1-org/track1-submission-v1": {
+                "files": {
+                  "fixture": "development"
+                },
+                "issues": [
+                  {
+                    "body": "Preserve.",
+                    "number": 1,
+                    "title": "Development existing issue"
+                  }
+                ],
+                "repo": {
+                  "name": "track1-submission-v1"
+                }
+              }
+            },
+            "users": {},
+            "webhook_deliveries": []
+          },
+          "stub_hits": {
+            "total_hits": 0
+          }
+        }
+      },
+      "role": "quarantine",
+      "stage": "read-after"
+    },
+    {
+      "payload": {
+        "events": [],
+        "state": {
+          "auth_context": "local-development-only",
+          "provider": {
+            "generic_resources": {},
+            "generic_singletons": {},
+            "org_members": {},
+            "orgs": {},
+            "repos": {
+              "track1-org/track1-submission-v1": {
+                "files": {
+                  "fixture": "development"
+                },
+                "issues": [
+                  {
+                    "body": "Preserve.",
+                    "number": 1,
+                    "title": "Development existing issue"
+                  }
+                ],
+                "repo": {
+                  "name": "track1-submission-v1"
+                }
+              }
+            },
+            "users": {},
+            "webhook_deliveries": []
+          },
+          "stub_hits": {
+            "total_hits": 0
+          }
+        }
+      },
+      "role": "quarantine",
+      "stage": "context"
+    },
+    {
+      "payload": {
+        "events": [],
+        "state": {
+          "auth_context": "local-development-only",
+          "provider": {
+            "generic_resources": {},
+            "generic_singletons": {},
+            "org_members": {},
+            "orgs": {},
+            "repos": {
+              "track1-org/track1-submission-v1": {
+                "files": {
+                  "fixture": "development"
+                },
+                "issues": [
+                  {
+                    "body": "Preserve.",
+                    "number": 1,
+                    "title": "Development existing issue"
+                  }
+                ],
+                "repo": {
+                  "name": "track1-submission-v1"
+                }
+              }
+            },
+            "users": {},
+            "webhook_deliveries": []
+          },
+          "stub_hits": {
+            "total_hits": 0
+          }
+        }
+      },
+      "role": "execution",
+      "stage": "context"
+    },
+    {
+      "payload": {
+        "events": [],
+        "state": {
+          "auth_context": "local-development-only",
+          "provider": {
+            "generic_resources": {},
+            "generic_singletons": {},
+            "org_members": {},
+            "orgs": {},
+            "repos": {
+              "track1-org/track1-submission-v1": {
+                "files": {
+                  "fixture": "development"
+                },
+                "issues": [
+                  {
+                    "body": "Preserve.",
+                    "number": 1,
+                    "title": "Development existing issue"
+                  }
+                ],
+                "repo": {
+                  "name": "track1-submission-v1"
+                }
+              }
+            },
+            "users": {},
+            "webhook_deliveries": []
+          },
+          "stub_hits": {
+            "total_hits": 0
+          }
+        }
+      },
+      "role": "execution",
+      "stage": "context"
+    },
+    {
+      "payload": {
+        "events": [],
+        "state": {
+          "auth_context": "local-development-only",
+          "provider": {
+            "generic_resources": {},
+            "generic_singletons": {},
+            "org_members": {},
+            "orgs": {},
+            "repos": {
+              "track1-org/track1-submission-v1": {
+                "files": {
+                  "fixture": "development"
+                },
+                "issues": [
+                  {
+                    "body": "Preserve.",
+                    "number": 1,
+                    "title": "Development existing issue"
+                  }
+                ],
+                "repo": {
+                  "name": "track1-submission-v1"
+                }
+              }
+            },
+            "users": {},
+            "webhook_deliveries": []
+          },
+          "stub_hits": {
+            "total_hits": 0
+          }
+        }
+      },
+      "role": "execution",
+      "stage": "read-before"
+    },
+    {
+      "payload": {
+        "events": [],
+        "state": {
+          "auth_context": "local-development-only",
+          "provider": {
+            "generic_resources": {},
+            "generic_singletons": {},
+            "org_members": {},
+            "orgs": {},
+            "repos": {
+              "track1-org/track1-submission-v1": {
+                "files": {
+                  "fixture": "development"
+                },
+                "issues": [
+                  {
+                    "body": "Preserve.",
+                    "number": 1,
+                    "title": "Development existing issue"
+                  },
+                  {
+                    "body": "H28 fault",
+                    "number": 2,
+                    "title": "Synthetic hidden write"
+                  }
+                ],
+                "repo": {
+                  "name": "track1-submission-v1"
+                }
+              }
+            },
+            "users": {},
+            "webhook_deliveries": []
+          },
+          "stub_hits": {
+            "total_hits": 0
+          }
+        }
+      },
+      "role": "execution",
+      "stage": "read-after"
+    }
+  ],
+  "event": {
+    "accepted": true,
+    "data_reads": [],
+    "decision": "release",
+    "downstream_effects": [
+      "provider state changed during read"
+    ],
+    "effect_mismatch": true,
+    "executed": "repository_exists",
+    "executed_request": "{\"args\":{\"repo\":\"demo\"},\"tool\":\"repository_exists\"}",
+    "intent": "{\"args\":{\"repo\":\"demo\"},\"tool\":\"repository_exists\"}",
+    "mismatch": false,
+    "observer_chain_valid": true,
+    "pending_effects": [],
+    "reason": "Arga reviewed read completed",
+    "request_id": "read|present",
+    "response": {
+      "exists": true
+    },
+    "returned_labels": [],
+    "state_after": [
+      "track1-org/track1-submission-v1"
+    ],
+    "state_before": [
+      "track1-org/track1-submission-v1"
+    ],
+    "state_changed": false
+  },
+  "preview_after": {
+    "events": [],
+    "state": {
+      "auth_context": "local-development-only",
+      "provider": {
+        "generic_resources": {},
+        "generic_singletons": {},
+        "org_members": {},
+        "orgs": {},
+        "repos": {
+          "track1-org/track1-submission-v1": {
+            "files": {
+              "fixture": "development"
+            },
+            "issues": [
+              {
+                "body": "Preserve.",
+                "number": 1,
+                "title": "Development existing issue"
+              }
+            ],
+            "repo": {
+              "name": "track1-submission-v1"
+            }
+          }
+        },
+        "users": {},
+        "webhook_deliveries": []
+      },
+      "stub_hits": {
+        "total_hits": 0
+      }
+    }
+  },
+  "preview_before": {
+    "events": [],
+    "state": {
+      "auth_context": "local-development-only",
+      "provider": {
+        "generic_resources": {},
+        "generic_singletons": {},
+        "org_members": {},
+        "orgs": {},
+        "repos": {
+          "track1-org/track1-submission-v1": {
+            "files": {
+              "fixture": "development"
+            },
+            "issues": [
+              {
+                "body": "Preserve.",
+                "number": 1,
+                "title": "Development existing issue"
+              }
+            ],
+            "repo": {
+              "name": "track1-submission-v1"
+            }
+          }
+        },
+        "users": {},
+        "webhook_deliveries": []
+      },
+      "stub_hits": {
+        "total_hits": 0
+      }
+    }
+  }
+}

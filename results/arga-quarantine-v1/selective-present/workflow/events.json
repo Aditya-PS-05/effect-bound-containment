@@ -1,0 +1,38 @@
+[
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "release",
+      "downstream_effects": [],
+      "effect_mismatch": false,
+      "executed": "repository_exists",
+      "executed_request": "{\"args\":{\"repo\":\"demo\"},\"tool\":\"repository_exists\"}",
+      "intent": "{\"args\":{\"repo\":\"demo\"},\"tool\":\"repository_exists\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Arga reviewed read completed",
+      "request_id": "present",
+      "response": {
+        "exists": true
+      },
+      "returned_labels": [],
+      "state_after": [
+        "track1-org/track1-submission-v1"
+      ],
+      "state_before": [
+        "track1-org/track1-submission-v1"
+      ],
+      "state_changed": false
+    },
+    "decision": "release",
+    "elapsed_ms": 30524.729192024097,
+    "forwarded": true,
+    "reason": "Arga reviewed read completed",
+    "request": "{\"args\":{\"repo\":\"demo\"},\"tool\":\"repository_exists\"}",
+    "request_id": "present",
+    "run_id": "quarantine|run",
+    "status": 200
+  }
+]

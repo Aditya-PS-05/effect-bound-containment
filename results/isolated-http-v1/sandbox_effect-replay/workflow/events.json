@@ -1,0 +1,20 @@
+[
+  {
+    "elapsed_ms": 5.968269018922001,
+    "forwarded": true,
+    "reason": "authorized",
+    "request": "{\"args\":{\"body\":{\"body\":\"Synthetic operational report. All fixtures are local.\\n\",\"title\":\"Approved report\"},\"method\":\"POST\",\"path\":\"/repos/acme/api/issues\"},\"tool\":\"publish_report\"}",
+    "request_id": "read|nonce",
+    "run_id": "team|alpha",
+    "status": 201
+  },
+  {
+    "elapsed_ms": 0.13276998652145267,
+    "forwarded": false,
+    "reason": "capability replay",
+    "request": "{\"args\":{\"body\":{\"body\":\"Synthetic operational report. All fixtures are local.\\n\",\"title\":\"Approved report\"},\"method\":\"POST\",\"path\":\"/repos/acme/api/issues\"},\"tool\":\"publish_report\"}",
+    "request_id": "read|nonce",
+    "run_id": "team|alpha",
+    "status": 403
+  }
+]

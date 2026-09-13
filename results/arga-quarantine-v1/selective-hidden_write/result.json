@@ -1,0 +1,176 @@
+{
+  "config": "selective",
+  "scenario": "hidden_write",
+  "elapsed_ms": 23809.85610303469,
+  "execution_run_id": "cb2a411f-63fa-4bf2-8268-43366578b6a9",
+  "quarantine_run_id": "ab5b04d5-da62-475d-8005-327b27279f47",
+  "execution_issues_added": 0,
+  "quarantine_issues_added": 1,
+  "unauthorized_execution_effect": false,
+  "correct_read_completed": false,
+  "decision": "quarantine",
+  "before": {
+    "events.json": {
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    "state.json": {
+      "sha256": "d2e3899269572cc725ed365e0702bdbee01bed1acd0fce3707323e63c2e8ffb6",
+      "bytes": 154821
+    }
+  },
+  "after": {
+    "events.json": {
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    "state.json": {
+      "sha256": "d2e3899269572cc725ed365e0702bdbee01bed1acd0fce3707323e63c2e8ffb6",
+      "bytes": 154821
+    }
+  },
+  "preview_before": {
+    "events.json": {
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    "state.json": {
+      "sha256": "3eb7e8a54b6bae90e76622f8915777bc3ff57860ee0460885fcc2c4af636c61d",
+      "bytes": 154821
+    }
+  },
+  "preview_after": {
+    "events.json": {
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    "state.json": {
+      "sha256": "c59775e00fba97c5cbcaba1d11d6a94cad75766f80294d4e16c6fc7495502eec",
+      "bytes": 158537
+    }
+  },
+  "workflow": {
+    "events.json": {
+      "sha256": "b0dd5dcc22a1cc656df2145db4a197343d960f3f6dae040f0b2e19719d1b1e64",
+      "bytes": 1079
+    },
+    "state.json": {
+      "sha256": "f8e5257341fa7d8a736dbc7f593ca22ce61bdd4f28277529239f92211e81c9d9",
+      "bytes": 622
+    }
+  },
+  "captures": [
+    {
+      "role": "execution",
+      "stage": "context",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "d2e3899269572cc725ed365e0702bdbee01bed1acd0fce3707323e63c2e8ffb6",
+          "bytes": 154821
+        }
+      }
+    },
+    {
+      "role": "execution",
+      "stage": "clone-source",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "d2e3899269572cc725ed365e0702bdbee01bed1acd0fce3707323e63c2e8ffb6",
+          "bytes": 154821
+        }
+      }
+    },
+    {
+      "role": "quarantine",
+      "stage": "clone-copy",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "34916584b471ca1c992186b6137aad45e19ca6fc75a543abbf1cee28ca2752d0",
+          "bytes": 154821
+        }
+      }
+    },
+    {
+      "role": "quarantine",
+      "stage": "context",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "34916584b471ca1c992186b6137aad45e19ca6fc75a543abbf1cee28ca2752d0",
+          "bytes": 154821
+        }
+      }
+    },
+    {
+      "role": "quarantine",
+      "stage": "read-before",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "34916584b471ca1c992186b6137aad45e19ca6fc75a543abbf1cee28ca2752d0",
+          "bytes": 154821
+        }
+      }
+    },
+    {
+      "role": "quarantine",
+      "stage": "read-after",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "c59775e00fba97c5cbcaba1d11d6a94cad75766f80294d4e16c6fc7495502eec",
+          "bytes": 158537
+        }
+      }
+    },
+    {
+      "role": "quarantine",
+      "stage": "context",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "c59775e00fba97c5cbcaba1d11d6a94cad75766f80294d4e16c6fc7495502eec",
+          "bytes": 158537
+        }
+      }
+    },
+    {
+      "role": "execution",
+      "stage": "context",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "d2e3899269572cc725ed365e0702bdbee01bed1acd0fce3707323e63c2e8ffb6",
+          "bytes": 154821
+        }
+      }
+    }
+  ]
+}

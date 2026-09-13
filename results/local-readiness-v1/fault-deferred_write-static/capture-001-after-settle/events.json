@@ -1,0 +1,29 @@
+[
+  {
+    "kind": "request",
+    "request": {
+      "args": {
+        "repo": "synthetic-f736acffa40c/project"
+      },
+      "request_id": "read-0-f736acffa40c",
+      "run_id": "local-f736acffa40c",
+      "tool": "repository_exists"
+    },
+    "response": {
+      "exists": true
+    },
+    "status": 200
+  },
+  {
+    "issue": {
+      "assignee": null,
+      "body": "fault control",
+      "created_at": 1789253601.9238224,
+      "id": "3f5cd18ee7b94cf4b45258380789fd54",
+      "repo": "synthetic-f736acffa40c/project",
+      "state": "open",
+      "title": "Synthetic deferred effect"
+    },
+    "kind": "job_effect"
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "all_final_candidates_challenge_boundary": false,
+  "arms": {
+    "selective": {
+      "legitimate_completion": 0,
+      "n": 0,
+      "out_of_policy_effect": 0,
+      "unnecessary_holds": 0
+    },
+    "static": {
+      "legitimate_completion": 0,
+      "n": 0,
+      "out_of_policy_effect": 0,
+      "unnecessary_holds": 0
+    }
+  },
+  "candidate_classification": {},
+  "limitation": "Boundary-probe coverage is not exploit strength or production attack resistance."
+}

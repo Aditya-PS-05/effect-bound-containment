@@ -1,0 +1,72 @@
+{
+  "after": {
+    "events.json": {
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "state.json": {
+      "bytes": 766,
+      "sha256": "be8a158ff2fee1ba9558c01f66abf6af07a790482c376d7c7c8dbd76ca230a2b"
+    }
+  },
+  "after-attack": {
+    "events.json": {
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "state.json": {
+      "bytes": 624,
+      "sha256": "53b89502be2cca3f857193f16eb2ad7f3cbfe6b3a6743bd712e4cc75c4733458"
+    }
+  },
+  "before": {
+    "events.json": {
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "state.json": {
+      "bytes": 624,
+      "sha256": "53b89502be2cca3f857193f16eb2ad7f3cbfe6b3a6743bd712e4cc75c4733458"
+    }
+  },
+  "preview-after": {
+    "events.json": {
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "state.json": {
+      "bytes": 624,
+      "sha256": "53b89502be2cca3f857193f16eb2ad7f3cbfe6b3a6743bd712e4cc75c4733458"
+    }
+  },
+  "preview-after-attack": {
+    "events.json": {
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "state.json": {
+      "bytes": 624,
+      "sha256": "53b89502be2cca3f857193f16eb2ad7f3cbfe6b3a6743bd712e4cc75c4733458"
+    }
+  },
+  "preview-before": {
+    "events.json": {
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "state.json": {
+      "bytes": 624,
+      "sha256": "53b89502be2cca3f857193f16eb2ad7f3cbfe6b3a6743bd712e4cc75c4733458"
+    }
+  },
+  "workflow": {
+    "events.json": {
+      "bytes": 3209,
+      "sha256": "d8c285fd4c9285dddc949be0a248b9f4225c55ad22a81ac9143d3ec48afdb738"
+    },
+    "state.json": {
+      "bytes": 4612,
+      "sha256": "5335b248e9f130f0fb61a72fe642a8e83aa7aca27ab5a74a830ffe4ac34ec26f"
+    }
+  }
+}

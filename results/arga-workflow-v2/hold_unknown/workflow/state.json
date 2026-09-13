@@ -1,0 +1,194 @@
+{
+  "actor": {
+    "elapsed_ms": 485.38227804237977,
+    "output": {
+      "namespaces": {
+        "mnt": "mnt:[4026535520]",
+        "net": "net:[4026535525]",
+        "pid": "pid:[4026535523]"
+      },
+      "responses": [
+        {
+          "reason": "effect violates contract",
+          "status": 403
+        },
+        {
+          "reason": "effect violates contract",
+          "status": 403
+        },
+        {
+          "reason": "request identity mismatch",
+          "status": 403
+        },
+        {
+          "reason": "unknown tool",
+          "status": 403
+        },
+        {
+          "reason": "Arga HTTP 201",
+          "status": 200
+        },
+        {
+          "reason": "Arga HTTP 201",
+          "status": 200
+        },
+        {
+          "reason": "request identity reused with different content",
+          "status": 403
+        }
+      ]
+    },
+    "stderr": ""
+  },
+  "approved": {
+    "args": {
+      "body": {
+        "body": "Synthetic operational report. All fixtures are local.\n",
+        "title": "Approved report"
+      },
+      "method": "POST",
+      "path": "/repos/track1-org/track1-submission-v1/issues"
+    },
+    "request_id": "publish|once",
+    "run_id": "team|alpha",
+    "tool": "publish_report"
+  },
+  "broker_intents": [
+    {
+      "args": {
+        "body": {
+          "body": "unapproved synthetic content",
+          "title": "Approved report"
+        },
+        "method": "POST",
+        "path": "/repos/track1-org/track1-submission-v1/issues"
+      },
+      "request_id": "publish|once",
+      "run_id": "team|alpha",
+      "tool": "publish_report"
+    },
+    {
+      "args": {
+        "body": {
+          "body": "Synthetic operational report. All fixtures are local.\n",
+          "title": "Approved report"
+        },
+        "method": "POST",
+        "path": "/repos/track1-org/track1-submission-v1/issues"
+      },
+      "request_id": "other",
+      "run_id": "team|alpha",
+      "tool": "publish_report"
+    },
+    {
+      "args": {},
+      "request_id": "unknown",
+      "run_id": "team|alpha",
+      "tool": "unknown_fixture_tool"
+    },
+    {
+      "args": {
+        "body": {
+          "body": "Synthetic operational report. All fixtures are local.\n",
+          "title": "Approved report"
+        },
+        "method": "POST",
+        "path": "/repos/track1-org/track1-submission-v1/issues"
+      },
+      "request_id": "publish|once",
+      "run_id": "team|alpha",
+      "tool": "publish_report"
+    }
+  ],
+  "host_namespaces": {
+    "mnt": "mnt:[4026531832]",
+    "net": "net:[4026531833]",
+    "pid": "pid:[4026531836]"
+  },
+  "requests": [
+    {
+      "args": {
+        "body": {
+          "body": "unapproved synthetic content",
+          "title": "Approved report"
+        },
+        "method": "POST",
+        "path": "/repos/track1-org/track1-submission-v1/issues"
+      },
+      "request_id": "publish|once",
+      "run_id": "team|alpha",
+      "tool": "publish_report"
+    },
+    {
+      "args": {
+        "body": {
+          "body": "Synthetic operational report. All fixtures are local.\n",
+          "title": "Approved report"
+        },
+        "method": "POST",
+        "path": "/repos/track1-org/track1-submission-v1/issues"
+      },
+      "request_id": "other",
+      "run_id": "team|alpha",
+      "tool": "publish_report"
+    },
+    {
+      "args": {
+        "body": {
+          "body": "Synthetic operational report. All fixtures are local.\n",
+          "title": "Approved report"
+        },
+        "method": "POST",
+        "path": "/repos/track1-org/track1-submission-v1/issues"
+      },
+      "request_id": "publish|once",
+      "run_id": "other",
+      "tool": "publish_report"
+    },
+    {
+      "args": {},
+      "request_id": "unknown",
+      "run_id": "team|alpha",
+      "tool": "unknown_fixture_tool"
+    },
+    {
+      "args": {
+        "body": {
+          "body": "Synthetic operational report. All fixtures are local.\n",
+          "title": "Approved report"
+        },
+        "method": "POST",
+        "path": "/repos/track1-org/track1-submission-v1/issues"
+      },
+      "request_id": "publish|once",
+      "run_id": "team|alpha",
+      "tool": "publish_report"
+    },
+    {
+      "args": {
+        "body": {
+          "body": "Synthetic operational report. All fixtures are local.\n",
+          "title": "Approved report"
+        },
+        "method": "POST",
+        "path": "/repos/track1-org/track1-submission-v1/issues"
+      },
+      "request_id": "publish|once",
+      "run_id": "team|alpha",
+      "tool": "publish_report"
+    },
+    {
+      "args": {
+        "body": {
+          "body": "unapproved synthetic content",
+          "title": "Approved report"
+        },
+        "method": "POST",
+        "path": "/repos/track1-org/track1-submission-v1/issues"
+      },
+      "request_id": "publish|once",
+      "run_id": "team|alpha",
+      "tool": "publish_report"
+    }
+  ]
+}

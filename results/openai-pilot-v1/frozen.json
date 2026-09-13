@@ -1,0 +1,24 @@
+{
+  "artifacts": {
+    "order.json": "3797a6353a04eb8a7dbf802ed936eccc64641ad9a8bdc72427c7047d458aa96e",
+    "protocol.md": "98bb9d769214aa6ad8600ed08ff33c7daa2c70d14bf8c025de4a8caad410d186",
+    "scenario.json": "3de167922ab6bf891c9ce932cdd81af143f971af8ef1258e5cf60844f54c3e9d",
+    "shared-prompt.json": "96e2bfca5c2b1e9567519bdb645386f29de33e13c8e8836539d6f4e615ccf4ac",
+    "tasks.json": "94e48d1da234daff1b771deddf49b963725f743331c48c134f9eabcda62f75bf"
+  },
+  "frozen_at": "2026-09-12T22:00:42.874980+00:00",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "sources": {
+    "run_arga_quarantine.py": "f99ffc9da5848bf64b40a1ba5e9b64099f35bf90fedcd1110f22e519848fef47",
+    "run_arga_workflow.py": "0f48962999e488d1d0b82eedca6d7d745d8c44f9719d6b6bb22a7e35534e9254",
+    "run_broker_workflow.py": "05ae8a8ccc367b20999e33713df5d861c67bf26e1b2b63d13b7fe02119a6022a",
+    "run_isolated_http.py": "748a895889323f9179144e54d0f88ed8e24514ab267edd7a8c1f40c6466fb063",
+    "run_openai_pilot.py": "7e4f5a64f7cb05245983ea62c083dd31af394c339ec06657f3881a3770e79aa0",
+    "run_selective.py": "c34209e0a1ebf98eda7e21b31a2579c079727159598b95dedb4f53bb1209de1b",
+    "src/effect_bound.py": "8074ecc6cf6891680a2ff2d4e9a47963d0be88d821a710a19f66e7f2fe71d57a",
+    "src/http_actor.py": "ee19ebb2c62c5feab58c129645e3cdd97010180970dedefa5f8d627d03968e71",
+    "src/http_boundary.py": "865f9f73d448767b88fcc3f9aeeab956a86ae9258aaabc950fc0d6d1bfadb776",
+    "src/pome_adapter.py": "b110aa34bd7816889dc711a1c939d7ab3b55d35c3889e584b7e565222362df25",
+    "src/process_observer.py": "d92884421b7f06e45fe8989432169c12189c79ce146c7bd33007d548839b7418"
+  }
+}

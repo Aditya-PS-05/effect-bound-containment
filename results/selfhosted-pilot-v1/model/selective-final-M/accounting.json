@@ -1,0 +1,17 @@
+{
+  "charge_nano_usd": 4477800,
+  "elapsed_s": 6.415474283974618,
+  "status": "recorded",
+  "usage": {
+    "input_tokens": 7972,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 7424
+    },
+    "output_tokens": 780,
+    "output_tokens_details": {
+      "reasoning_tokens": 516
+    },
+    "total_tokens": 8752
+  }
+}

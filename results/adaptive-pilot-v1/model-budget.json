@@ -1,0 +1,194 @@
+{
+  "selective-dev-0": {
+    "charge_nano_usd": 101273500,
+    "status": "recorded",
+    "usage": {
+      "input_tokens": 13495,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 9984
+      },
+      "output_tokens": 6000,
+      "output_tokens_details": {
+        "reasoning_tokens": 6000
+      },
+      "total_tokens": 19495
+    }
+  },
+  "selective-dev-1": {
+    "charge_nano_usd": 95396500,
+    "status": "recorded",
+    "usage": {
+      "input_tokens": 13909,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 13056
+      },
+      "output_tokens": 6000,
+      "output_tokens_details": {
+        "reasoning_tokens": 6000
+      },
+      "total_tokens": 19909
+    }
+  },
+  "selective-dev-2": {
+    "charge_nano_usd": 96446500,
+    "status": "recorded",
+    "usage": {
+      "input_tokens": 14329,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 13056
+      },
+      "output_tokens": 6000,
+      "output_tokens_details": {
+        "reasoning_tokens": 6000
+      },
+      "total_tokens": 20329
+    }
+  },
+  "selective-dev-3": {
+    "charge_nano_usd": 96574000,
+    "status": "recorded",
+    "usage": {
+      "input_tokens": 14380,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 13056
+      },
+      "output_tokens": 6000,
+      "output_tokens_details": {
+        "reasoning_tokens": 6000
+      },
+      "total_tokens": 20380
+    }
+  },
+  "selective-dev-4": {
+    "charge_nano_usd": 96684000,
+    "status": "recorded",
+    "usage": {
+      "input_tokens": 14424,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 13056
+      },
+      "output_tokens": 6000,
+      "output_tokens_details": {
+        "reasoning_tokens": 6000
+      },
+      "total_tokens": 20424
+    }
+  },
+  "selective-dev-5": {
+    "charge_nano_usd": 96804000,
+    "status": "recorded",
+    "usage": {
+      "input_tokens": 14472,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 13056
+      },
+      "output_tokens": 6000,
+      "output_tokens_details": {
+        "reasoning_tokens": 6000
+      },
+      "total_tokens": 20472
+    }
+  },
+  "static-dev-0": {
+    "charge_nano_usd": 115185000,
+    "status": "recorded",
+    "usage": {
+      "input_tokens": 13494,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 5430,
+      "output_tokens_details": {
+        "reasoning_tokens": 5236
+      },
+      "total_tokens": 18924
+    }
+  },
+  "static-dev-1": {
+    "charge_nano_usd": 84844000,
+    "status": "recorded",
+    "usage": {
+      "input_tokens": 14158,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 13056
+      },
+      "output_tokens": 5255,
+      "output_tokens_details": {
+        "reasoning_tokens": 5005
+      },
+      "total_tokens": 19413
+    }
+  },
+  "static-dev-2": {
+    "charge_nano_usd": 98001500,
+    "status": "recorded",
+    "usage": {
+      "input_tokens": 14951,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 13056
+      },
+      "output_tokens": 6000,
+      "output_tokens_details": {
+        "reasoning_tokens": 6000
+      },
+      "total_tokens": 20951
+    }
+  },
+  "static-dev-3": {
+    "charge_nano_usd": 97501500,
+    "status": "recorded",
+    "usage": {
+      "input_tokens": 14751,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 13056
+      },
+      "output_tokens": 6000,
+      "output_tokens_details": {
+        "reasoning_tokens": 6000
+      },
+      "total_tokens": 20751
+    }
+  },
+  "static-dev-4": {
+    "charge_nano_usd": 87399000,
+    "status": "recorded",
+    "usage": {
+      "input_tokens": 14424,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 13056
+      },
+      "output_tokens": 5381,
+      "output_tokens_details": {
+        "reasoning_tokens": 5178
+      },
+      "total_tokens": 19805
+    }
+  },
+  "static-dev-5": {
+    "charge_nano_usd": 97686500,
+    "status": "recorded",
+    "usage": {
+      "input_tokens": 14825,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 13056
+      },
+      "output_tokens": 6000,
+      "output_tokens_details": {
+        "reasoning_tokens": 6000
+      },
+      "total_tokens": 20825
+    }
+  }
+}

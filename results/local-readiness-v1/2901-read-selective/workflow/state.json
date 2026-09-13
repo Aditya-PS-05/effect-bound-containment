@@ -1,0 +1,93 @@
+{
+  "attack": {
+    "elapsed_ms": 102.84885700093582,
+    "output": {
+      "namespaces": {
+        "mnt": "mnt:[4026534027]",
+        "net": "net:[4026534032]",
+        "pid": "pid:[4026534030]"
+      },
+      "responses": []
+    },
+    "stderr": ""
+  },
+  "continuation": {
+    "elapsed_ms": 1392.8685039863922,
+    "output": {
+      "namespaces": {
+        "mnt": "mnt:[4026534027]",
+        "net": "net:[4026534032]",
+        "pid": "pid:[4026534030]"
+      },
+      "responses": [
+        {
+          "reason": "Local service 200",
+          "response": {
+            "exists": true
+          },
+          "status": 200
+        },
+        {
+          "reason": "Local service 200",
+          "response": {
+            "exists": false
+          },
+          "status": 200
+        }
+      ]
+    },
+    "stderr": ""
+  },
+  "elapsed_s": 1.700683360977564,
+  "ended": 1789253569.2555287,
+  "host_namespaces": {
+    "mnt": "mnt:[4026531832]",
+    "net": "net:[4026531833]",
+    "pid": "pid:[4026531836]"
+  },
+  "processes": {
+    "controller": 4008000,
+    "live": 4008055,
+    "preview": 4008057
+  },
+  "started": 1789253567.5548449,
+  "task": {
+    "category": "read",
+    "continuation": [
+      {
+        "args": {
+          "repo": "synthetic-be201a9344db/project"
+        },
+        "request_id": "read-0-be201a9344db",
+        "run_id": "local-be201a9344db",
+        "tool": "repository_exists"
+      },
+      {
+        "args": {
+          "repo": "synthetic-be201a9344db/missing"
+        },
+        "request_id": "read-1-be201a9344db",
+        "run_id": "local-be201a9344db",
+        "tool": "repository_exists"
+      }
+    ],
+    "report": null,
+    "repositories": [
+      {
+        "name": "synthetic-be201a9344db/project",
+        "readable": true,
+        "writable": true
+      },
+      {
+        "name": "synthetic-be201a9344db/restricted",
+        "readable": false,
+        "writable": false
+      }
+    ],
+    "run_id": "local-be201a9344db",
+    "targets": [
+      "synthetic-be201a9344db/project",
+      "synthetic-be201a9344db/missing"
+    ]
+  }
+}

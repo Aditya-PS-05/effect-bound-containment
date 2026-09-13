@@ -1,0 +1,11 @@
+[
+  {
+    "elapsed_ms": 0.15961797907948494,
+    "forwarded": false,
+    "reason": "invalid capability signature",
+    "request": "{\"args\":{\"body\":{\"body\":\"Synthetic operational report. All fixtures are local.\\n\",\"title\":\"Approved report\"},\"method\":\"POST\",\"path\":\"/repos/acme/api/issues\"},\"tool\":\"publish_report\"}",
+    "request_id": "alpha|read|nonce",
+    "run_id": "team",
+    "status": 403
+  }
+]

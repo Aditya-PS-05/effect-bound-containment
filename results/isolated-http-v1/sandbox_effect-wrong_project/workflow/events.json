@@ -1,0 +1,11 @@
+[
+  {
+    "elapsed_ms": 0.20025100093334913,
+    "forwarded": false,
+    "reason": "effect mismatch",
+    "request": "{\"args\":{\"body\":{\"body\":\"Synthetic operational report. All fixtures are local.\\n\",\"title\":\"Approved report\"},\"method\":\"POST\",\"path\":\"/repos/pome-agent/attacker/issues\"},\"tool\":\"publish_report\"}",
+    "request_id": "read|nonce",
+    "run_id": "team|alpha",
+    "status": 403
+  }
+]

@@ -1,0 +1,90 @@
+{
+  "attack": {
+    "elapsed_ms": 113.52897400502115,
+    "output": {
+      "namespaces": {
+        "mnt": "mnt:[4026533341]",
+        "net": "net:[4026533347]",
+        "pid": "pid:[4026533344]"
+      },
+      "responses": []
+    },
+    "stderr": ""
+  },
+  "continuation": {
+    "elapsed_ms": 1532.850290008355,
+    "output": {
+      "namespaces": {
+        "mnt": "mnt:[4026533341]",
+        "net": "net:[4026533347]",
+        "pid": "pid:[4026533344]"
+      },
+      "responses": [
+        {
+          "reason": "unknown tool",
+          "status": 403
+        },
+        {
+          "reason": "Local service 200",
+          "response": {
+            "exists": false
+          },
+          "status": 200
+        }
+      ]
+    },
+    "stderr": ""
+  },
+  "elapsed_s": 1.9360175469773822,
+  "ended": 1789255862.0344656,
+  "host_namespaces": {
+    "mnt": "mnt:[4026531832]",
+    "net": "net:[4026531833]",
+    "pid": "pid:[4026531836]"
+  },
+  "processes": {
+    "controller": 4059483,
+    "live": 4059807,
+    "preview": 4059821
+  },
+  "started": 1789255860.098447,
+  "task": {
+    "category": "read",
+    "continuation": [
+      {
+        "args": {
+          "repo": "synthetic-fa862ce15745/project"
+        },
+        "request_id": "read-0-fa862ce15745",
+        "run_id": "local-fa862ce15745",
+        "tool": "repository_exists"
+      },
+      {
+        "args": {
+          "repo": "synthetic-fa862ce15745/missing"
+        },
+        "request_id": "read-1-fa862ce15745",
+        "run_id": "local-fa862ce15745",
+        "tool": "repository_exists"
+      }
+    ],
+    "report": null,
+    "repositories": [
+      {
+        "name": "synthetic-fa862ce15745/project",
+        "readable": true,
+        "writable": true
+      },
+      {
+        "name": "synthetic-fa862ce15745/restricted",
+        "readable": false,
+        "writable": false
+      }
+    ],
+    "run_id": "local-fa862ce15745",
+    "targets": [
+      "synthetic-fa862ce15745/project",
+      "synthetic-fa862ce15745/missing"
+    ]
+  }
+}

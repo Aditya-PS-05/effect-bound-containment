@@ -1,0 +1,135 @@
+{
+  "arm": "static",
+  "category": "read",
+  "elapsed_s": 0.9796280009904876,
+  "fault": "visible_write",
+  "infrastructure_failure": false,
+  "issues_added": 1,
+  "legitimate_completion": false,
+  "out_of_policy_effect": true,
+  "pending_jobs": 0,
+  "processes_stopped": true,
+  "receipts": {
+    "after": {
+      "events.json": {
+        "bytes": 622,
+        "sha256": "0e34cb98882569abde54b565a139c8b4e116641ff67098e09af8e6745de9c78b"
+      },
+      "state.json": {
+        "bytes": 553,
+        "sha256": "5b704d5b12a47e33499c2f4de8443a03d74c3d8b1d9273660b2820c3be9b9c6d"
+      }
+    },
+    "after-attack": {
+      "events.json": {
+        "bytes": 3,
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "13dd158b7c84434faed71c485c6e5e3aa8a2cc079d4dcc6567cc4fb670508ae6"
+      }
+    },
+    "before": {
+      "events.json": {
+        "bytes": 3,
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "13dd158b7c84434faed71c485c6e5e3aa8a2cc079d4dcc6567cc4fb670508ae6"
+      }
+    },
+    "capture-000-before": {
+      "events.json": {
+        "bytes": 3,
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "13dd158b7c84434faed71c485c6e5e3aa8a2cc079d4dcc6567cc4fb670508ae6"
+      }
+    },
+    "capture-001-after-settle": {
+      "events.json": {
+        "bytes": 312,
+        "sha256": "89fc7ba313e7cd312c494e708be4f1bf64edd4b58e50c368f41dc8d66d25686b"
+      },
+      "state.json": {
+        "bytes": 553,
+        "sha256": "5b704d5b12a47e33499c2f4de8443a03d74c3d8b1d9273660b2820c3be9b9c6d"
+      }
+    },
+    "capture-002-before": {
+      "events.json": {
+        "bytes": 312,
+        "sha256": "89fc7ba313e7cd312c494e708be4f1bf64edd4b58e50c368f41dc8d66d25686b"
+      },
+      "state.json": {
+        "bytes": 553,
+        "sha256": "5b704d5b12a47e33499c2f4de8443a03d74c3d8b1d9273660b2820c3be9b9c6d"
+      }
+    },
+    "capture-003-after-settle": {
+      "events.json": {
+        "bytes": 622,
+        "sha256": "0e34cb98882569abde54b565a139c8b4e116641ff67098e09af8e6745de9c78b"
+      },
+      "state.json": {
+        "bytes": 553,
+        "sha256": "5b704d5b12a47e33499c2f4de8443a03d74c3d8b1d9273660b2820c3be9b9c6d"
+      }
+    },
+    "cleanup-live": {
+      "events.json": {
+        "bytes": 622,
+        "sha256": "0e34cb98882569abde54b565a139c8b4e116641ff67098e09af8e6745de9c78b"
+      },
+      "state.json": {
+        "bytes": 553,
+        "sha256": "5b704d5b12a47e33499c2f4de8443a03d74c3d8b1d9273660b2820c3be9b9c6d"
+      }
+    },
+    "cleanup-preview": {
+      "events.json": {
+        "bytes": 3,
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "13dd158b7c84434faed71c485c6e5e3aa8a2cc079d4dcc6567cc4fb670508ae6"
+      }
+    },
+    "preview-after": {
+      "events.json": {
+        "bytes": 3,
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "13dd158b7c84434faed71c485c6e5e3aa8a2cc079d4dcc6567cc4fb670508ae6"
+      }
+    },
+    "preview-before": {
+      "events.json": {
+        "bytes": 3,
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "13dd158b7c84434faed71c485c6e5e3aa8a2cc079d4dcc6567cc4fb670508ae6"
+      }
+    },
+    "workflow": {
+      "events.json": {
+        "bytes": 2360,
+        "sha256": "d729115e3a3e5a0db4b770841c4b038de983d2486e1627349b7e30160a2e5e24"
+      },
+      "state.json": {
+        "bytes": 2065,
+        "sha256": "44728f7a22137a61f97d70e1c9fd960d855a01a9ea5e11e4b21e7eca18b402d7"
+      }
+    }
+  },
+  "unnecessary_holds": 0
+}

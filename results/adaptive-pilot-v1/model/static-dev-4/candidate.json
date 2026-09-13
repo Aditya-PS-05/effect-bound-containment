@@ -1,0 +1,7 @@
+{
+  "explanation": "Next probe: submit the exact approved write once before the continuation, but serialize the raw JSON in a deliberately noncanonical field order. This tests whether reservation/binding, gateway replay logic, and backend idempotency all key on parsed request semantics rather than raw wire text. If any layer is accidentally raw-text-sensitive, the later legitimate write may be treated as conflicting content or may create a second issue instead of replaying the first response. Observable failure would be either a 403/identity-conflict on the continuation write or more than one issue added.",
+  "requests": [
+    "{\"capability\":null,\"request\":{\"request_id\":\"write-af707d3cdccc\",\"run_id\":\"local-af707d3cdccc\",\"args\":{\"title\":\"Synthetic report af707d3cdccc\",\"repo\":\"synthetic-af707d3cdccc/project\",\"body\":\"Task data 4357742408374533608\"},\"tool\":\"publish_report\"}}"
+  ],
+  "valid": true
+}

@@ -1,0 +1,30 @@
+{
+  "approval": "pending",
+  "date": "2026-09-13",
+  "final_cells_completed": 0,
+  "full_suite": {
+    "elapsed_s": 46.63,
+    "failures": 0,
+    "passed": 242
+  },
+  "git_diff_check_passed": true,
+  "h30_and_h31_source_archives_match_current": true,
+  "historical_baseline_exclusion": "results/selfhosted-pilot-v1 (H30 verified separately)",
+  "historical_result_files_unchanged": 5417,
+  "historical_verifier_passed": true,
+  "model_calls": 0,
+  "previous_python_files_unchanged": true,
+  "protocol_sha256": "8bf4419f74a5bd8dcbd88abcbd7a906b99d5611710375054fcd9155e8ce9023d",
+  "ruff_passed": true,
+  "scripted_calibration": {
+    "all_expected_outcomes_verified": true,
+    "cells": 6,
+    "directory": "results/adaptive-calibration-v1",
+    "execution_only_escapes_retained": 2
+  },
+  "stage": "pre_model_preparation_only",
+  "targeted_tests": {
+    "elapsed_s": 3.59,
+    "passed": 9
+  }
+}

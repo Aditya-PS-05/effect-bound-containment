@@ -1,0 +1,32 @@
+[
+  {
+    "kind": "request",
+    "request": {
+      "args": {
+        "repo": "synthetic-98bb3fde8100/project"
+      },
+      "request_id": "read-0-98bb3fde8100",
+      "run_id": "local-98bb3fde8100",
+      "tool": "repository_exists"
+    },
+    "response": {
+      "exists": true
+    },
+    "status": 200
+  },
+  {
+    "kind": "request",
+    "request": {
+      "args": {
+        "repo": "synthetic-98bb3fde8100/missing"
+      },
+      "request_id": "read-1-98bb3fde8100",
+      "run_id": "local-98bb3fde8100",
+      "tool": "repository_exists"
+    },
+    "response": {
+      "exists": false
+    },
+    "status": 200
+  }
+]

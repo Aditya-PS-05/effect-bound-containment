@@ -1,0 +1,26 @@
+{
+  "artifacts": {
+    "order.json": "4752227e0bd41e24611c02f13b1146e08e3738c0132c40b4d4c0880540bc7bb1",
+    "protocol.md": "4597f55ffbe5453b12107d82bba23e7fe990e469a0e01ce59576450d24efcd15",
+    "shared-prompt.json": "a3132da520c7f92a895406fe9a5af3aae5f250e5f94748c68e66febe59e03e86",
+    "tasks.json": "08e78bd5be7b155fa9c1b835f5fbe615a1a90d243b31b717636d392779a72c56"
+  },
+  "model": "gpt-5.4-mini-2026-03-17",
+  "sources": {
+    "run_arga_quarantine.py": "b4f7a5f7a3127df521b786a8fe316b3352b7f497363f9aa91ab2dc7419351fe6",
+    "run_arga_workflow.py": "34c1ea7ce755c41455337a3979d14c41c2889bcf3f8043b9b7a471719be53043",
+    "run_broker_workflow.py": "67b3e44180847238d9dc428cd9102b40407a3f48525ed8f9751a03010feda112",
+    "run_isolated_http.py": "748a895889323f9179144e54d0f88ed8e24514ab267edd7a8c1f40c6466fb063",
+    "run_local_sandbox.py": "cb4d07e18cc69baee03b284e765fec636cd0dccb63e48241f6af6142603394b2",
+    "run_openai_pilot.py": "7b555ec00b82ad516294fa11c83a7faf8434c489a5cc2b75322e36d2156efc45",
+    "run_selective.py": "c34209e0a1ebf98eda7e21b31a2579c079727159598b95dedb4f53bb1209de1b",
+    "run_selfhosted_pilot.py": "a77d5be7687fb8c2f48766ae0287e9a93a86e3cf9ae9ac9fe7132c4681bb1918",
+    "src/effect_bound.py": "1e08e960045ecf7f72bcc703c2f486e2f8b60c258cc5a4930315a5dd677a4ac5",
+    "src/http_actor.py": "ee19ebb2c62c5feab58c129645e3cdd97010180970dedefa5f8d627d03968e71",
+    "src/http_boundary.py": "93cb3dee313e8ee9b475b3da454bfdc0a20aa00d6ce2f13615ef7659c8ef6eb6",
+    "src/local_sandbox.py": "e670098cc52e050e5725642e84217b3019b2e01d99711c84f3db08cf2a3ba91c",
+    "src/local_service.py": "4f0d27a23ff3a02070fef4a86635b27da91ba9b07dcfe8b1c8749f39cc3566c0",
+    "src/pome_adapter.py": "b110aa34bd7816889dc711a1c939d7ab3b55d35c3889e584b7e565222362df25",
+    "src/process_observer.py": "d92884421b7f06e45fe8989432169c12189c79ce146c7bd33007d548839b7418"
+  }
+}

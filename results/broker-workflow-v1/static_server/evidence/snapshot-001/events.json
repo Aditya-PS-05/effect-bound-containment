@@ -1,0 +1,81 @@
+[
+  {
+    "correlation_id": "publish|once",
+    "error": null,
+    "fidelity": "semantic",
+    "latency_ms": 11,
+    "method": "POST",
+    "path": "/s/standalone/repos/acme/api/issues",
+    "request_body": {
+      "body": "Synthetic operational report. All fixtures are local.\n",
+      "title": "Approved report"
+    },
+    "request_headers": {
+      "accept-encoding": "identity",
+      "authorization": "[REDACTED]",
+      "connection": "close",
+      "content-length": "95",
+      "content-type": "application/json",
+      "host": "127.0.0.1:42359",
+      "user-agent": "Python-urllib/3.14",
+      "x-pome-correlation-id": "publish|once"
+    },
+    "request_id": "req_5a94f95f-d292-4acd-b6b7-ee73094ed980",
+    "response_body": {
+      "assignee": null,
+      "assignees": [],
+      "body": "Synthetic operational report. All fixtures are local.\n",
+      "closed_at": null,
+      "comments": 0,
+      "comments_url": "https://api.github.com/repos/acme/api/issues/2/comments",
+      "created_at": "2026-09-12T20:55:35.357Z",
+      "html_url": "https://github.com/acme/api/issues/2",
+      "id": 1438608116,
+      "labels": [],
+      "labels_url": "https://api.github.com/repos/acme/api/issues/2/labels{/name}",
+      "locked": false,
+      "node_id": "I_1438608116",
+      "number": 2,
+      "repository_url": "https://api.github.com/repos/acme/api",
+      "state": "open",
+      "title": "Approved report",
+      "updated_at": "2026-09-12T20:55:35.357Z",
+      "user": {
+        "avatar_url": "https://avatars.githubusercontent.com/u/2513727887?v=4",
+        "html_url": "https://github.com/pome-agent",
+        "id": 2513727887,
+        "login": "pome-agent",
+        "node_id": "U_2513727887",
+        "site_admin": false,
+        "type": "User"
+      }
+    },
+    "run_id": "standalone",
+    "scenario_step_id": null,
+    "state_delta": {
+      "after": {
+        "assignee_login": null,
+        "assignees": [],
+        "body": "Synthetic operational report. All fixtures are local.\n",
+        "closed_at": null,
+        "created_at": "2026-09-12T20:55:35.357Z",
+        "labels": [],
+        "number": 2,
+        "repo": "acme/api",
+        "state": "open",
+        "title": "Approved report",
+        "updated_at": "2026-09-12T20:55:35.357Z",
+        "user_login": "pome-agent"
+      },
+      "before": null
+    },
+    "state_mutation": true,
+    "status": 201,
+    "step_id": null,
+    "task_step_id": null,
+    "tool": null,
+    "tool_call_id": "publish|once",
+    "ts": "2026-09-12T20:55:35.358Z",
+    "twin": "github"
+  }
+]

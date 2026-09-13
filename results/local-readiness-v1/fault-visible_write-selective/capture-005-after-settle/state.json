@@ -1,0 +1,27 @@
+{
+  "issues": [
+    {
+      "assignee": null,
+      "body": "fault control",
+      "created_at": 1789253599.9922314,
+      "id": "50844ea2d8fb41e28700775d00f2e4f9",
+      "repo": "synthetic-f736acffa40c/project",
+      "state": "open",
+      "title": "Synthetic hidden effect"
+    }
+  ],
+  "jobs": [],
+  "operations": [],
+  "repositories": [
+    {
+      "name": "synthetic-f736acffa40c/project",
+      "readable": 1,
+      "writable": 1
+    },
+    {
+      "name": "synthetic-f736acffa40c/restricted",
+      "readable": 0,
+      "writable": 0
+    }
+  ]
+}

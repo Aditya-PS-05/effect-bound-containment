@@ -1,0 +1,121 @@
+[
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "release",
+      "downstream_effects": [],
+      "effect_mismatch": false,
+      "executed": "repository_exists",
+      "executed_request": "{\"args\":{\"repo\":\"synthetic-dc2baf167bf9/project\"},\"tool\":\"repository_exists\"}",
+      "intent": "{\"args\":{\"repo\":\"synthetic-dc2baf167bf9/project\"},\"tool\":\"repository_exists\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Local service 200",
+      "request_id": "read-0-dc2baf167bf9",
+      "response": {
+        "exists": true
+      },
+      "returned_labels": [],
+      "state_after": [
+        "demo"
+      ],
+      "state_before": [
+        "demo"
+      ],
+      "state_changed": false
+    },
+    "decision": "release",
+    "elapsed_ms": 633.1174349761568,
+    "forwarded": true,
+    "outcome": "completed",
+    "reason": "Local service 200",
+    "request": "{\"args\":{\"repo\":\"synthetic-dc2baf167bf9/project\"},\"tool\":\"repository_exists\"}",
+    "request_id": "read-0-dc2baf167bf9",
+    "run_id": "local-dc2baf167bf9",
+    "status": 200
+  },
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "allow",
+      "downstream_effects": [
+        "service state changed"
+      ],
+      "effect_mismatch": false,
+      "executed": "publish_report",
+      "executed_request": "{\"args\":{\"body\":\"Task data 9116040030262663336\",\"repo\":\"synthetic-dc2baf167bf9/project\",\"title\":\"Synthetic report dc2baf167bf9\"},\"tool\":\"publish_report\"}",
+      "intent": "{\"args\":{\"body\":\"Task data 9116040030262663336\",\"repo\":\"synthetic-dc2baf167bf9/project\",\"title\":\"Synthetic report dc2baf167bf9\"},\"tool\":\"publish_report\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Local service 201",
+      "request_id": "write-dc2baf167bf9",
+      "response": {
+        "assignee": null,
+        "body": "Task data 9116040030262663336",
+        "created_at": 1789255030.817417,
+        "id": "3e68f1d3fa0d4ed281e62cc942bdd0cd",
+        "repo": "synthetic-dc2baf167bf9/project",
+        "state": "open",
+        "title": "Synthetic report dc2baf167bf9"
+      },
+      "returned_labels": [],
+      "state_after": [
+        "demo"
+      ],
+      "state_before": [
+        "demo"
+      ],
+      "state_changed": false
+    },
+    "decision": "allow",
+    "elapsed_ms": 89.25018802983686,
+    "forwarded": true,
+    "outcome": "completed",
+    "reason": "Local service 201",
+    "request": "{\"args\":{\"body\":\"Task data 9116040030262663336\",\"repo\":\"synthetic-dc2baf167bf9/project\",\"title\":\"Synthetic report dc2baf167bf9\"},\"tool\":\"publish_report\"}",
+    "request_id": "write-dc2baf167bf9",
+    "run_id": "local-dc2baf167bf9",
+    "status": 200
+  },
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "release",
+      "downstream_effects": [],
+      "effect_mismatch": false,
+      "executed": "repository_exists",
+      "executed_request": "{\"args\":{\"repo\":\"synthetic-dc2baf167bf9/missing\"},\"tool\":\"repository_exists\"}",
+      "intent": "{\"args\":{\"repo\":\"synthetic-dc2baf167bf9/missing\"},\"tool\":\"repository_exists\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Local service 200",
+      "request_id": "read-1-dc2baf167bf9",
+      "response": {
+        "exists": false
+      },
+      "returned_labels": [],
+      "state_after": [
+        "demo"
+      ],
+      "state_before": [
+        "demo"
+      ],
+      "state_changed": false
+    },
+    "decision": "release",
+    "elapsed_ms": 676.4493350056,
+    "forwarded": true,
+    "outcome": "completed",
+    "reason": "Local service 200",
+    "request": "{\"args\":{\"repo\":\"synthetic-dc2baf167bf9/missing\"},\"tool\":\"repository_exists\"}",
+    "request_id": "read-1-dc2baf167bf9",
+    "run_id": "local-dc2baf167bf9",
+    "status": 200
+  }
+]

@@ -1,0 +1,508 @@
+[
+  {
+    "case": "clean_separator_identity",
+    "sources": {
+      "src/effect_bound.py": "607ca323260931ab57bf4575e0790c5c4563c1b89793019dcae5d8557d69b268",
+      "src/pome_adapter.py": "94ef0fb1cb37424760c718b0ace6dd86ca7b599ad8de53cf3afd055752afb77c",
+      "src/process_observer.py": "d92884421b7f06e45fe8989432169c12189c79ce146c7bd33007d548839b7418",
+      "run_boundary_audit.py": "9d2902214fa152da299fcefd02f5f3abea413a37bbdfe2d9a22409d77db1938d"
+    },
+    "accepted": true,
+    "signature_reused": false,
+    "exception": null,
+    "incident": {
+      "request_id": "job",
+      "decision": "allow",
+      "intent": "{\"args\":{\"repo\":\"allowed\"},\"tool\":\"create_repository\"}",
+      "executed": "create_repository",
+      "executed_request": "{\"args\":{\"repo\":\"allowed\"},\"tool\":\"create_repository\"}",
+      "accepted": true,
+      "reason": "Pome HTTP 201",
+      "state_before": [
+        "acme/api"
+      ],
+      "state_after": [
+        "acme/api",
+        "pome-agent/allowed"
+      ],
+      "state_changed": true,
+      "data_reads": [],
+      "downstream_effects": [],
+      "returned_labels": [],
+      "pending_effects": [],
+      "response": null,
+      "effect_mismatch": false,
+      "observer_chain_valid": true,
+      "mismatch": false
+    },
+    "executed_identity": [
+      "team|alpha",
+      "job"
+    ],
+    "authorized_identity": [
+      "team|alpha",
+      "job"
+    ],
+    "expected_correlations": [
+      "job"
+    ],
+    "observer_status": "available",
+    "initial": {
+      "snapshot": "snapshot-000",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "c7abf94509326063d6603d31ecf19e3d29ad5a946db692c5a0252741412e132f",
+          "bytes": 2703
+        }
+      },
+      "pid": 3729905,
+      "capture_ms": 22.6814029738307,
+      "max_rss_kib": 26812
+    },
+    "final": {
+      "snapshot": "snapshot-001",
+      "receipt": {
+        "events.json": {
+          "sha256": "d368a38cb8d2301047cd1eb415960831ac19dca3992d61d4b9b7bd2903c45d71",
+          "bytes": 2376
+        },
+        "state.json": {
+          "sha256": "57c5e110d83bbb015075642e06dc9964b7f3870a50bfdbd34a39c12a5e023cec",
+          "bytes": 3780
+        }
+      },
+      "pid": 3729905,
+      "capture_ms": 4.612399963662028,
+      "max_rss_kib": 26812
+    },
+    "state_changed": true,
+    "allowed_created": true,
+    "forbidden_created": false,
+    "tape_count": 1,
+    "correlations": [
+      "job"
+    ]
+  },
+  {
+    "case": "ordinary_identity_change",
+    "sources": {
+      "src/effect_bound.py": "607ca323260931ab57bf4575e0790c5c4563c1b89793019dcae5d8557d69b268",
+      "src/pome_adapter.py": "94ef0fb1cb37424760c718b0ace6dd86ca7b599ad8de53cf3afd055752afb77c",
+      "src/process_observer.py": "d92884421b7f06e45fe8989432169c12189c79ce146c7bd33007d548839b7418",
+      "run_boundary_audit.py": "9d2902214fa152da299fcefd02f5f3abea413a37bbdfe2d9a22409d77db1938d"
+    },
+    "accepted": false,
+    "signature_reused": false,
+    "exception": null,
+    "incident": {
+      "request_id": "job",
+      "decision": "allow",
+      "intent": "{\"args\":{\"repo\":\"allowed\"},\"tool\":\"create_repository\"}",
+      "executed": "create_repository",
+      "executed_request": "{\"args\":{\"repo\":\"allowed\"},\"tool\":\"create_repository\"}",
+      "accepted": false,
+      "reason": "request identity mismatch",
+      "state_before": [
+        "acme/api"
+      ],
+      "state_after": [
+        "acme/api"
+      ],
+      "state_changed": false,
+      "data_reads": [],
+      "downstream_effects": [],
+      "returned_labels": [],
+      "pending_effects": [],
+      "response": null,
+      "effect_mismatch": false,
+      "observer_chain_valid": true,
+      "mismatch": false
+    },
+    "executed_identity": [
+      "other-team",
+      "job"
+    ],
+    "authorized_identity": [
+      "team|alpha",
+      "job"
+    ],
+    "expected_correlations": [],
+    "observer_status": "available",
+    "initial": {
+      "snapshot": "snapshot-000",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "05aad94666398c532ba2abeb9d55a12be5e708ac98d79ddb23bd16d2809d6c8d",
+          "bytes": 2703
+        }
+      },
+      "pid": 3729932,
+      "capture_ms": 24.434646009467542,
+      "max_rss_kib": 27212
+    },
+    "final": {
+      "snapshot": "snapshot-001",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "05aad94666398c532ba2abeb9d55a12be5e708ac98d79ddb23bd16d2809d6c8d",
+          "bytes": 2703
+        }
+      },
+      "pid": 3729932,
+      "capture_ms": 5.4872530163265765,
+      "max_rss_kib": 27212
+    },
+    "state_changed": false,
+    "allowed_created": false,
+    "forbidden_created": false,
+    "tape_count": 0,
+    "correlations": []
+  },
+  {
+    "case": "identity_rebinding",
+    "sources": {
+      "src/effect_bound.py": "607ca323260931ab57bf4575e0790c5c4563c1b89793019dcae5d8557d69b268",
+      "src/pome_adapter.py": "94ef0fb1cb37424760c718b0ace6dd86ca7b599ad8de53cf3afd055752afb77c",
+      "src/process_observer.py": "d92884421b7f06e45fe8989432169c12189c79ce146c7bd33007d548839b7418",
+      "run_boundary_audit.py": "9d2902214fa152da299fcefd02f5f3abea413a37bbdfe2d9a22409d77db1938d"
+    },
+    "accepted": false,
+    "signature_reused": true,
+    "exception": null,
+    "incident": {
+      "request_id": "job",
+      "decision": "allow",
+      "intent": "{\"args\":{\"repo\":\"allowed\"},\"tool\":\"create_repository\"}",
+      "executed": "create_repository",
+      "executed_request": "{\"args\":{\"repo\":\"allowed\"},\"tool\":\"create_repository\"}",
+      "accepted": false,
+      "reason": "invalid capability signature",
+      "state_before": [
+        "acme/api"
+      ],
+      "state_after": [
+        "acme/api"
+      ],
+      "state_changed": false,
+      "data_reads": [],
+      "downstream_effects": [],
+      "returned_labels": [],
+      "pending_effects": [],
+      "response": null,
+      "effect_mismatch": false,
+      "observer_chain_valid": true,
+      "mismatch": false
+    },
+    "executed_identity": [
+      "team",
+      "alpha|job"
+    ],
+    "authorized_identity": [
+      "team|alpha",
+      "job"
+    ],
+    "expected_correlations": [],
+    "observer_status": "available",
+    "initial": {
+      "snapshot": "snapshot-000",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "79c3bbca3dc9356e6a163fd59453bfde314b2396a2672dfa6997caea4ec7a716",
+          "bytes": 2703
+        }
+      },
+      "pid": 3729946,
+      "capture_ms": 22.54653803538531,
+      "max_rss_kib": 27212
+    },
+    "final": {
+      "snapshot": "snapshot-001",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "79c3bbca3dc9356e6a163fd59453bfde314b2396a2672dfa6997caea4ec7a716",
+          "bytes": 2703
+        }
+      },
+      "pid": 3729946,
+      "capture_ms": 3.6405270220711827,
+      "max_rss_kib": 27212
+    },
+    "state_changed": false,
+    "allowed_created": false,
+    "forbidden_created": false,
+    "tape_count": 0,
+    "correlations": []
+  },
+  {
+    "case": "nonce_rebinding_replay",
+    "sources": {
+      "src/effect_bound.py": "607ca323260931ab57bf4575e0790c5c4563c1b89793019dcae5d8557d69b268",
+      "src/pome_adapter.py": "94ef0fb1cb37424760c718b0ace6dd86ca7b599ad8de53cf3afd055752afb77c",
+      "src/process_observer.py": "d92884421b7f06e45fe8989432169c12189c79ce146c7bd33007d548839b7418",
+      "run_boundary_audit.py": "9d2902214fa152da299fcefd02f5f3abea413a37bbdfe2d9a22409d77db1938d"
+    },
+    "accepted": false,
+    "signature_reused": true,
+    "exception": null,
+    "incident": null,
+    "second_reason": "invalid capability signature",
+    "original_consumed": true,
+    "expected_correlations": [
+      "read|nonce"
+    ],
+    "observer_status": "available",
+    "initial": {
+      "snapshot": "snapshot-000",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "ff74c2b82076f1f6b8a84a425ac70a5afd4a5ad533500f8f62be8f391d9fda37",
+          "bytes": 2703
+        }
+      },
+      "pid": 3729961,
+      "capture_ms": 22.265560983214527,
+      "max_rss_kib": 27212
+    },
+    "final": {
+      "snapshot": "snapshot-001",
+      "receipt": {
+        "events.json": {
+          "sha256": "073f55f47b78d1639f6abc1aac168a6f31e434bf0ae31b1e70c1b90f3af3eae0",
+          "bytes": 1890
+        },
+        "state.json": {
+          "sha256": "ff74c2b82076f1f6b8a84a425ac70a5afd4a5ad533500f8f62be8f391d9fda37",
+          "bytes": 2703
+        }
+      },
+      "pid": 3729961,
+      "capture_ms": 3.614390967413783,
+      "max_rss_kib": 27212
+    },
+    "state_changed": false,
+    "allowed_created": false,
+    "forbidden_created": false,
+    "tape_count": 1,
+    "correlations": [
+      "read|nonce"
+    ]
+  },
+  {
+    "case": "unknown_tool",
+    "sources": {
+      "src/effect_bound.py": "607ca323260931ab57bf4575e0790c5c4563c1b89793019dcae5d8557d69b268",
+      "src/pome_adapter.py": "94ef0fb1cb37424760c718b0ace6dd86ca7b599ad8de53cf3afd055752afb77c",
+      "src/process_observer.py": "d92884421b7f06e45fe8989432169c12189c79ce146c7bd33007d548839b7418",
+      "run_boundary_audit.py": "9d2902214fa152da299fcefd02f5f3abea413a37bbdfe2d9a22409d77db1938d"
+    },
+    "accepted": false,
+    "signature_reused": false,
+    "exception": null,
+    "incident": {
+      "request_id": "unknown",
+      "decision": "quarantine",
+      "intent": "{\"args\":{},\"tool\":\"unregistered_benign_read\"}",
+      "executed": null,
+      "accepted": false,
+      "reason": "unknown tool",
+      "sandbox_suspicious": true,
+      "sandbox_simulated": false,
+      "sandbox_reasons": [
+        "quarantine unavailable; not simulated: Pome quarantine needs a separately seeded twin; local clone forbidden"
+      ],
+      "state_before": [
+        "acme/api"
+      ],
+      "state_after": [
+        "acme/api"
+      ],
+      "state_changed": false,
+      "data_reads": [],
+      "downstream_effects": [],
+      "returned_labels": [],
+      "pending_effects": [],
+      "observer_chain_valid": true,
+      "mismatch": false
+    },
+    "decision": "quarantine",
+    "expected_correlations": [],
+    "observer_status": "available",
+    "initial": {
+      "snapshot": "snapshot-000",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "2a091bbb1017d04f42a5a1aa341f6e762a522897ad62a388a4ccc90063baed25",
+          "bytes": 2703
+        }
+      },
+      "pid": 3730011,
+      "capture_ms": 21.78521902533248,
+      "max_rss_kib": 27212
+    },
+    "final": {
+      "snapshot": "snapshot-001",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "2a091bbb1017d04f42a5a1aa341f6e762a522897ad62a388a4ccc90063baed25",
+          "bytes": 2703
+        }
+      },
+      "pid": 3730011,
+      "capture_ms": 3.8872729637660086,
+      "max_rss_kib": 27212
+    },
+    "state_changed": false,
+    "allowed_created": false,
+    "forbidden_created": false,
+    "tape_count": 0,
+    "correlations": []
+  },
+  {
+    "case": "direct_invalid_token",
+    "sources": {
+      "src/effect_bound.py": "607ca323260931ab57bf4575e0790c5c4563c1b89793019dcae5d8557d69b268",
+      "src/pome_adapter.py": "94ef0fb1cb37424760c718b0ace6dd86ca7b599ad8de53cf3afd055752afb77c",
+      "src/process_observer.py": "d92884421b7f06e45fe8989432169c12189c79ce146c7bd33007d548839b7418",
+      "run_boundary_audit.py": "9d2902214fa152da299fcefd02f5f3abea413a37bbdfe2d9a22409d77db1938d"
+    },
+    "accepted": false,
+    "signature_reused": false,
+    "exception": null,
+    "incident": null,
+    "broker_decision": "deny",
+    "direct_status": 401,
+    "expected_correlations": [],
+    "observer_status": "available",
+    "initial": {
+      "snapshot": "snapshot-000",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "dfc4e104bdf9b0e0d4f280f9cc0f0016fd6701ec0c7f81408f8bb1998552cc68",
+          "bytes": 2703
+        }
+      },
+      "pid": 3730026,
+      "capture_ms": 16.512383997906,
+      "max_rss_kib": 27212
+    },
+    "final": {
+      "snapshot": "snapshot-001",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "dfc4e104bdf9b0e0d4f280f9cc0f0016fd6701ec0c7f81408f8bb1998552cc68",
+          "bytes": 2703
+        }
+      },
+      "pid": 3730026,
+      "capture_ms": 3.900569980032742,
+      "max_rss_kib": 27212
+    },
+    "state_changed": false,
+    "allowed_created": false,
+    "forbidden_created": false,
+    "tape_count": 0,
+    "correlations": []
+  },
+  {
+    "case": "credential_file_bypass",
+    "sources": {
+      "src/effect_bound.py": "607ca323260931ab57bf4575e0790c5c4563c1b89793019dcae5d8557d69b268",
+      "src/pome_adapter.py": "94ef0fb1cb37424760c718b0ace6dd86ca7b599ad8de53cf3afd055752afb77c",
+      "src/process_observer.py": "d92884421b7f06e45fe8989432169c12189c79ce146c7bd33007d548839b7418",
+      "run_boundary_audit.py": "9d2902214fa152da299fcefd02f5f3abea413a37bbdfe2d9a22409d77db1938d"
+    },
+    "accepted": false,
+    "signature_reused": false,
+    "exception": null,
+    "incident": null,
+    "broker_decision": "deny",
+    "child": {
+      "status": 201,
+      "created_name": "pome-agent/forbidden"
+    },
+    "child_same_uid": 1000,
+    "credential_file_mode": "0o664",
+    "expected_correlations": [],
+    "observer_status": "unknown",
+    "observer_error": "ValueError: Missing or unexpected requests in tape",
+    "initial": {
+      "snapshot": "snapshot-000",
+      "receipt": {
+        "events.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "state.json": {
+          "sha256": "ec0ae012724dc8185a212e797707740d37ebca2fd415f480a6b819f2522bf9c4",
+          "bytes": 2703
+        }
+      },
+      "pid": 3730050,
+      "capture_ms": 17.85096898674965,
+      "max_rss_kib": 27212
+    },
+    "final": {
+      "snapshot": "snapshot-001",
+      "receipt": {
+        "events.json": {
+          "sha256": "0078142ec4367923de2212b880739f14873c42c607e7218e48ebfc3bd483b85b",
+          "bytes": 2405
+        },
+        "state.json": {
+          "sha256": "fb764dcfd7d252e92c589fca4ad3dcb5d9ed1fecc69875398ea33d2064e88b3d",
+          "bytes": 3786
+        }
+      },
+      "pid": 3730050,
+      "capture_ms": 7.513612974435091,
+      "max_rss_kib": 27212
+    },
+    "state_changed": true,
+    "allowed_created": false,
+    "forbidden_created": true,
+    "tape_count": 1,
+    "correlations": [
+      "direct"
+    ]
+  }
+]

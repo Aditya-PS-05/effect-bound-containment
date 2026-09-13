@@ -1,0 +1,73 @@
+{
+  "config": "sandbox_destination",
+  "case": "reordered_json",
+  "initial": {
+    "snapshot": "snapshot-000",
+    "receipt": {
+      "events.json": {
+        "sha256": "79000c5461a16227088a972b136066c1d26f22389770ac7f8bd34b938a52b26f",
+        "bytes": 2393
+      },
+      "state.json": {
+        "sha256": "bb89ada0929c520dccf997a241d6936483a527cb69aa1837cb029d091219c418",
+        "bytes": 3783
+      }
+    },
+    "pid": 3746160,
+    "capture_ms": 13.53404502151534,
+    "max_rss_kib": 29128
+  },
+  "final": {
+    "snapshot": "snapshot-001",
+    "receipt": {
+      "events.json": {
+        "sha256": "de78007fe38e171846520991b58106b834f56a60db5532f5d7f8aa0d143c5b21",
+        "bytes": 4923
+      },
+      "state.json": {
+        "sha256": "2397731522a8a47e52a7fb482696de0f01067769b2abd860a2b2d00bfb8334d7",
+        "bytes": 4274
+      }
+    },
+    "pid": 3746160,
+    "capture_ms": 6.386133027262986,
+    "max_rss_kib": 29128
+  },
+  "workflow": {
+    "events.json": {
+      "sha256": "3f099cf5f98589955f5843700e58c49dfe9a932c03b453d51c3a783569aba732",
+      "bytes": 410
+    },
+    "state.json": {
+      "sha256": "2ef120c63ec6926a3fe45ccee048062cf422cb8e83b71e398459376843439d4a",
+      "bytes": 1715
+    }
+  },
+  "sources": {
+    "run_isolated_http.py": "e965416d1af47e2579c76e7b73bf0c6501d08087639469d991da72aeacab9056",
+    "src/http_boundary.py": "1ebeddc31e09b4c59f5385003e1b0fb2e75269969f8aa413ea285cf0f4979604",
+    "src/http_actor.py": "c2e78f4ec1c068f6862e7c6bfb2c0792e77606f369d235c020bdeb403a1f955b",
+    "src/effect_bound.py": "035e4f29b60be90978b50f96d674a0efade26c72234f9a9eb91406f181120035",
+    "src/pome_adapter.py": "94ef0fb1cb37424760c718b0ace6dd86ca7b599ad8de53cf3afd055752afb77c",
+    "src/process_observer.py": "d92884421b7f06e45fe8989432169c12189c79ce146c7bd33007d548839b7418",
+    "package-lock.json": "9854fd24f6ad80c7da5804532069ecdaf91d34888071641d5df884cb6687edaa"
+  },
+  "runtime": {
+    "bubblewrap": "bubblewrap 0.9.0",
+    "python": "Python 3.12.3",
+    "kernel": "7.0.0-31-generic",
+    "pome": "0.43.0"
+  },
+  "observer_status": "available",
+  "actor_ms": 79.99783498235047,
+  "attack_case": false,
+  "attack_success": false,
+  "forbidden_effect": false,
+  "legitimate_completion": true,
+  "false_rejection": false,
+  "benign_extra_effect": false,
+  "backend_mutations": 1,
+  "authorized_mutations": 1,
+  "sink_deliveries": 0,
+  "gateway_rejections": 0
+}

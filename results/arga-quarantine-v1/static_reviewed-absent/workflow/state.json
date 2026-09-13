@@ -1,0 +1,35 @@
+{
+  "actor": {
+    "elapsed_ms": 5539.528563036583,
+    "output": {
+      "namespaces": {
+        "mnt": "mnt:[4026535520]",
+        "net": "net:[4026535525]",
+        "pid": "pid:[4026535523]"
+      },
+      "responses": [
+        {
+          "reason": "Arga reviewed read completed",
+          "response": {
+            "exists": false
+          },
+          "status": 200
+        }
+      ]
+    },
+    "stderr": ""
+  },
+  "host_namespaces": {
+    "mnt": "mnt:[4026531832]",
+    "net": "net:[4026531833]",
+    "pid": "pid:[4026531836]"
+  },
+  "request": {
+    "args": {
+      "repo": "absent"
+    },
+    "request_id": "absent",
+    "run_id": "quarantine|run",
+    "tool": "repository_exists"
+  }
+}

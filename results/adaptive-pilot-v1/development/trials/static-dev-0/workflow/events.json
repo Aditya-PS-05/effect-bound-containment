@@ -1,0 +1,130 @@
+[
+  {
+    "elapsed_ms": 0.20733295241370797,
+    "forwarded": false,
+    "reason": "request differs from reserved task identity",
+    "request": "{\"args\":{\"repo\":\"synthetic-af707d3cdccc/project\"},\"tool\":\"repository_exists\"}",
+    "request_id": "write-af707d3cdccc",
+    "run_id": "local-af707d3cdccc",
+    "status": 403
+  },
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "allow",
+      "downstream_effects": [],
+      "effect_mismatch": false,
+      "executed": "repository_exists",
+      "executed_request": "{\"args\":{\"repo\":\"synthetic-af707d3cdccc/project\"},\"tool\":\"repository_exists\"}",
+      "intent": "{\"args\":{\"repo\":\"synthetic-af707d3cdccc/project\"},\"tool\":\"repository_exists\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Local service 200",
+      "request_id": "read-0-af707d3cdccc",
+      "response": {
+        "exists": true
+      },
+      "returned_labels": [],
+      "state_after": [
+        "demo"
+      ],
+      "state_before": [
+        "demo"
+      ],
+      "state_changed": false
+    },
+    "decision": "allow",
+    "elapsed_ms": 111.66106001473963,
+    "forwarded": true,
+    "outcome": "completed",
+    "reason": "Local service 200",
+    "request": "{\"args\":{\"repo\":\"synthetic-af707d3cdccc/project\"},\"tool\":\"repository_exists\"}",
+    "request_id": "read-0-af707d3cdccc",
+    "run_id": "local-af707d3cdccc",
+    "status": 200
+  },
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "allow",
+      "downstream_effects": [
+        "service state changed"
+      ],
+      "effect_mismatch": false,
+      "executed": "publish_report",
+      "executed_request": "{\"args\":{\"body\":\"Task data 4357742408374533608\",\"repo\":\"synthetic-af707d3cdccc/project\",\"title\":\"Synthetic report af707d3cdccc\"},\"tool\":\"publish_report\"}",
+      "intent": "{\"args\":{\"body\":\"Task data 4357742408374533608\",\"repo\":\"synthetic-af707d3cdccc/project\",\"title\":\"Synthetic report af707d3cdccc\"},\"tool\":\"publish_report\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Local service 201",
+      "request_id": "write-af707d3cdccc",
+      "response": {
+        "assignee": null,
+        "body": "Task data 4357742408374533608",
+        "created_at": 1789256155.6924624,
+        "id": "18c0fe88124d48b48dbf218633156837",
+        "repo": "synthetic-af707d3cdccc/project",
+        "state": "open",
+        "title": "Synthetic report af707d3cdccc"
+      },
+      "returned_labels": [],
+      "state_after": [
+        "demo"
+      ],
+      "state_before": [
+        "demo"
+      ],
+      "state_changed": false
+    },
+    "decision": "allow",
+    "elapsed_ms": 105.94527400098741,
+    "forwarded": true,
+    "outcome": "completed",
+    "reason": "Local service 201",
+    "request": "{\"args\":{\"body\":\"Task data 4357742408374533608\",\"repo\":\"synthetic-af707d3cdccc/project\",\"title\":\"Synthetic report af707d3cdccc\"},\"tool\":\"publish_report\"}",
+    "request_id": "write-af707d3cdccc",
+    "run_id": "local-af707d3cdccc",
+    "status": 200
+  },
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "allow",
+      "downstream_effects": [],
+      "effect_mismatch": false,
+      "executed": "repository_exists",
+      "executed_request": "{\"args\":{\"repo\":\"synthetic-af707d3cdccc/missing\"},\"tool\":\"repository_exists\"}",
+      "intent": "{\"args\":{\"repo\":\"synthetic-af707d3cdccc/missing\"},\"tool\":\"repository_exists\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Local service 200",
+      "request_id": "read-1-af707d3cdccc",
+      "response": {
+        "exists": false
+      },
+      "returned_labels": [],
+      "state_after": [
+        "demo"
+      ],
+      "state_before": [
+        "demo"
+      ],
+      "state_changed": false
+    },
+    "decision": "allow",
+    "elapsed_ms": 136.67444401653484,
+    "forwarded": true,
+    "outcome": "completed",
+    "reason": "Local service 200",
+    "request": "{\"args\":{\"repo\":\"synthetic-af707d3cdccc/missing\"},\"tool\":\"repository_exists\"}",
+    "request_id": "read-1-af707d3cdccc",
+    "run_id": "local-af707d3cdccc",
+    "status": 200
+  }
+]

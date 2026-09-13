@@ -1,0 +1,20 @@
+{
+  "approval_verified": true,
+  "cleanup_matches_final": true,
+  "development_cells_verified": 12,
+  "feedback_verified": true,
+  "final_cells_run": 0,
+  "git_diff_check_passed": true,
+  "historical_result_files_unchanged": 6700,
+  "historical_verifier_passed": true,
+  "incomplete_outputs_confirmed_empty": 9,
+  "model_responses_verified": 12,
+  "model_usage_and_candidate_parsing_verified": true,
+  "protocol_sha256": "8bf4419f74a5bd8dcbd88abcbd7a906b99d5611710375054fcd9155e8ce9023d",
+  "report_tests_elapsed_s": 0.09,
+  "report_tests_passed": 4,
+  "retries": 0,
+  "ruff_passed": true,
+  "search_gate": "failed",
+  "source_and_protocol_unchanged": true
+}

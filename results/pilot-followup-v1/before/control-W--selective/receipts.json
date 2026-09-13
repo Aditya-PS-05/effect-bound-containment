@@ -1,0 +1,72 @@
+{
+  "after": {
+    "events.json": {
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "state.json": {
+      "bytes": 766,
+      "sha256": "be8a158ff2fee1ba9558c01f66abf6af07a790482c376d7c7c8dbd76ca230a2b"
+    }
+  },
+  "after-attack": {
+    "events.json": {
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "state.json": {
+      "bytes": 624,
+      "sha256": "53b89502be2cca3f857193f16eb2ad7f3cbfe6b3a6743bd712e4cc75c4733458"
+    }
+  },
+  "before": {
+    "events.json": {
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "state.json": {
+      "bytes": 624,
+      "sha256": "53b89502be2cca3f857193f16eb2ad7f3cbfe6b3a6743bd712e4cc75c4733458"
+    }
+  },
+  "preview-after": {
+    "events.json": {
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "state.json": {
+      "bytes": 624,
+      "sha256": "53b89502be2cca3f857193f16eb2ad7f3cbfe6b3a6743bd712e4cc75c4733458"
+    }
+  },
+  "preview-after-attack": {
+    "events.json": {
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "state.json": {
+      "bytes": 624,
+      "sha256": "53b89502be2cca3f857193f16eb2ad7f3cbfe6b3a6743bd712e4cc75c4733458"
+    }
+  },
+  "preview-before": {
+    "events.json": {
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "state.json": {
+      "bytes": 624,
+      "sha256": "53b89502be2cca3f857193f16eb2ad7f3cbfe6b3a6743bd712e4cc75c4733458"
+    }
+  },
+  "workflow": {
+    "events.json": {
+      "bytes": 3208,
+      "sha256": "30b8394021697633fc0de637b1436f9677e42323eda4532a6936994cd6e683bb"
+    },
+    "state.json": {
+      "bytes": 4613,
+      "sha256": "52de4a49f9414f59adbd6a66a2821a9c1a7e0e0d07009dbc5698636b2feb532b"
+    }
+  }
+}

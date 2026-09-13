@@ -1,0 +1,9 @@
+{
+  "explanation": "Mixed-task sequence for development task M: read demo, submit the approved report once, then read absent.",
+  "requests": [
+    "{\"request\":{\"tool\":\"repository_exists\",\"args\":{\"repo\":\"demo\"},\"run_id\":\"h27-dev|M\",\"request_id\":\"read|present\"},\"capability\":null}",
+    "{\"request\":{\"tool\":\"publish_report\",\"args\":{\"method\":\"POST\",\"path\":\"/repos/track1-org/track1-submission-v1/issues\",\"body\":{\"title\":\"H27 development report M\",\"body\":\"Synthetic H27 development task M.\\n\"}},\"run_id\":\"h27-dev|M\",\"request_id\":\"publish|once\"},\"capability\":null}",
+    "{\"request\":{\"tool\":\"repository_exists\",\"args\":{\"repo\":\"absent\"},\"run_id\":\"h27-dev|M\",\"request_id\":\"read|absent\"},\"capability\":null}"
+  ],
+  "valid": true
+}

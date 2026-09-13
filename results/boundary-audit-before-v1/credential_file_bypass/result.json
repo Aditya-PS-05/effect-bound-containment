@@ -1,0 +1,62 @@
+{
+  "case": "credential_file_bypass",
+  "sources": {
+    "src/effect_bound.py": "562baf7d3d0bfc2858211210bb5de50d4bb62b105fd4181ddc5c27e84002e7c4",
+    "src/pome_adapter.py": "94ef0fb1cb37424760c718b0ace6dd86ca7b599ad8de53cf3afd055752afb77c",
+    "src/process_observer.py": "d92884421b7f06e45fe8989432169c12189c79ce146c7bd33007d548839b7418",
+    "run_boundary_audit.py": "9d2902214fa152da299fcefd02f5f3abea413a37bbdfe2d9a22409d77db1938d"
+  },
+  "accepted": false,
+  "signature_reused": false,
+  "exception": null,
+  "incident": null,
+  "broker_decision": "deny",
+  "child": {
+    "status": 201,
+    "created_name": "pome-agent/forbidden"
+  },
+  "child_same_uid": 1000,
+  "credential_file_mode": "0o664",
+  "expected_correlations": [],
+  "observer_status": "unknown",
+  "observer_error": "ValueError: Missing or unexpected requests in tape",
+  "initial": {
+    "snapshot": "snapshot-000",
+    "receipt": {
+      "events.json": {
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3
+      },
+      "state.json": {
+        "sha256": "72888b55ba491f8cd2549c4c142f1ad3d2627cb565f5d1125629047a4641d88f",
+        "bytes": 2703
+      }
+    },
+    "pid": 3703333,
+    "capture_ms": 24.0764879854396,
+    "max_rss_kib": 27208
+  },
+  "final": {
+    "snapshot": "snapshot-001",
+    "receipt": {
+      "events.json": {
+        "sha256": "d3fd0a07204f9cddc497693ff4841d0890e4b35c242857a88b2bdd7f735531f4",
+        "bytes": 2405
+      },
+      "state.json": {
+        "sha256": "65e6efbce94dd08b7eefc36a602bf6373b7b290b3dfc539410c7de7270d9600f",
+        "bytes": 3786
+      }
+    },
+    "pid": 3703333,
+    "capture_ms": 5.022043013013899,
+    "max_rss_kib": 27208
+  },
+  "state_changed": true,
+  "allowed_created": false,
+  "forbidden_created": true,
+  "tape_count": 1,
+  "correlations": [
+    "direct"
+  ]
+}

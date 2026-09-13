@@ -1,0 +1,93 @@
+[
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "allow",
+      "downstream_effects": [
+        "service state changed"
+      ],
+      "effect_mismatch": false,
+      "executed": "publish_report",
+      "executed_request": "{\"args\":{\"body\":\"Task data 9196588555490302457\",\"repo\":\"synthetic-3325440e94aa/project\",\"title\":\"Synthetic report 3325440e94aa\"},\"tool\":\"publish_report\"}",
+      "intent": "{\"args\":{\"body\":\"Task data 9196588555490302457\",\"repo\":\"synthetic-3325440e94aa/project\",\"title\":\"Synthetic report 3325440e94aa\"},\"tool\":\"publish_report\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Local service 201",
+      "request_id": "write-3325440e94aa",
+      "response": {
+        "assignee": null,
+        "body": "Task data 9196588555490302457",
+        "created_at": 1789255049.5170152,
+        "id": "a9d77ce4ab9042049a4d0c5a2e9a7fc8",
+        "repo": "synthetic-3325440e94aa/project",
+        "state": "open",
+        "title": "Synthetic report 3325440e94aa"
+      },
+      "returned_labels": [],
+      "state_after": [
+        "demo"
+      ],
+      "state_before": [
+        "demo"
+      ],
+      "state_changed": false
+    },
+    "decision": "allow",
+    "elapsed_ms": 103.91381999943405,
+    "forwarded": true,
+    "outcome": "completed",
+    "reason": "Local service 201",
+    "request": "{\"args\":{\"body\":\"Task data 9196588555490302457\",\"repo\":\"synthetic-3325440e94aa/project\",\"title\":\"Synthetic report 3325440e94aa\"},\"tool\":\"publish_report\"}",
+    "request_id": "write-3325440e94aa",
+    "run_id": "local-3325440e94aa",
+    "status": 200
+  },
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "allow",
+      "downstream_effects": [
+        "service state changed"
+      ],
+      "effect_mismatch": false,
+      "executed": "publish_report",
+      "executed_request": "{\"args\":{\"body\":\"Task data 9196588555490302457\",\"repo\":\"synthetic-3325440e94aa/project\",\"title\":\"Synthetic report 3325440e94aa\"},\"tool\":\"publish_report\"}",
+      "intent": "{\"args\":{\"body\":\"Task data 9196588555490302457\",\"repo\":\"synthetic-3325440e94aa/project\",\"title\":\"Synthetic report 3325440e94aa\"},\"tool\":\"publish_report\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Local service 201",
+      "request_id": "write-3325440e94aa",
+      "response": {
+        "assignee": null,
+        "body": "Task data 9196588555490302457",
+        "created_at": 1789255049.5170152,
+        "id": "a9d77ce4ab9042049a4d0c5a2e9a7fc8",
+        "repo": "synthetic-3325440e94aa/project",
+        "state": "open",
+        "title": "Synthetic report 3325440e94aa"
+      },
+      "returned_labels": [],
+      "state_after": [
+        "demo"
+      ],
+      "state_before": [
+        "demo"
+      ],
+      "state_changed": false
+    },
+    "decision": "allow",
+    "elapsed_ms": 0.18518796423450112,
+    "forwarded": false,
+    "outcome": "completed",
+    "reason": "Local service 201",
+    "replayed_response": true,
+    "request": "{\"args\":{\"body\":\"Task data 9196588555490302457\",\"repo\":\"synthetic-3325440e94aa/project\",\"title\":\"Synthetic report 3325440e94aa\"},\"tool\":\"publish_report\"}",
+    "request_id": "write-3325440e94aa",
+    "run_id": "local-3325440e94aa",
+    "status": 200
+  }
+]

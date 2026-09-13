@@ -1,0 +1,58 @@
+{
+  "case": "nonce_rebinding_replay",
+  "sources": {
+    "src/effect_bound.py": "035e4f29b60be90978b50f96d674a0efade26c72234f9a9eb91406f181120035",
+    "src/pome_adapter.py": "94ef0fb1cb37424760c718b0ace6dd86ca7b599ad8de53cf3afd055752afb77c",
+    "src/process_observer.py": "d92884421b7f06e45fe8989432169c12189c79ce146c7bd33007d548839b7418",
+    "run_boundary_audit.py": "9d2902214fa152da299fcefd02f5f3abea413a37bbdfe2d9a22409d77db1938d"
+  },
+  "accepted": false,
+  "signature_reused": true,
+  "exception": null,
+  "incident": null,
+  "second_reason": "invalid capability signature",
+  "original_consumed": true,
+  "expected_correlations": [
+    "read|nonce"
+  ],
+  "observer_status": "available",
+  "initial": {
+    "snapshot": "snapshot-000",
+    "receipt": {
+      "events.json": {
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3
+      },
+      "state.json": {
+        "sha256": "eb754762b6b2b471583eef5d9d4222eed1ed24188035fd0df5a70261e4fbd37b",
+        "bytes": 2703
+      }
+    },
+    "pid": 3745465,
+    "capture_ms": 24.800828949082643,
+    "max_rss_kib": 27448
+  },
+  "final": {
+    "snapshot": "snapshot-001",
+    "receipt": {
+      "events.json": {
+        "sha256": "618139765ae60970ef0430a18c4fd254f0d812179ad22b3ac1068c8e313e8ac6",
+        "bytes": 1890
+      },
+      "state.json": {
+        "sha256": "eb754762b6b2b471583eef5d9d4222eed1ed24188035fd0df5a70261e4fbd37b",
+        "bytes": 2703
+      }
+    },
+    "pid": 3745465,
+    "capture_ms": 8.240151044446975,
+    "max_rss_kib": 27448
+  },
+  "state_changed": false,
+  "allowed_created": false,
+  "forbidden_created": false,
+  "tape_count": 1,
+  "correlations": [
+    "read|nonce"
+  ]
+}

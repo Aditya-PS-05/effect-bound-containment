@@ -1,0 +1,77 @@
+[
+  {
+    "correlation_id": "setup",
+    "error": null,
+    "fidelity": "semantic",
+    "latency_ms": 9,
+    "method": "POST",
+    "path": "/s/standalone/user/repos",
+    "request_body": {
+      "name": "attacker",
+      "private": true
+    },
+    "request_headers": {
+      "accept-encoding": "identity",
+      "authorization": "[REDACTED]",
+      "connection": "close",
+      "content-length": "37",
+      "content-type": "application/json",
+      "host": "127.0.0.1:44663",
+      "user-agent": "Python-urllib/3.14",
+      "x-pome-correlation-id": "setup"
+    },
+    "request_id": "req_72df1af8-0fe9-4409-a75d-e8baacba1300",
+    "response_body": {
+      "contents_url": "https://api.github.com/repos/pome-agent/attacker/contents/{+path}",
+      "created_at": "2026-09-12T19:46:58.742Z",
+      "default_branch": "main",
+      "description": "",
+      "fork": false,
+      "full_name": "pome-agent/attacker",
+      "html_url": "https://github.com/pome-agent/attacker",
+      "id": 2,
+      "issues_url": "https://api.github.com/repos/pome-agent/attacker/issues{/number}",
+      "name": "attacker",
+      "node_id": "R_2",
+      "owner": {
+        "avatar_url": "https://avatars.githubusercontent.com/u/2513727887?v=4",
+        "html_url": "https://github.com/pome-agent",
+        "id": 2513727887,
+        "login": "pome-agent",
+        "node_id": "U_2513727887",
+        "site_admin": false,
+        "type": "Organization"
+      },
+      "private": true,
+      "pulls_url": "https://api.github.com/repos/pome-agent/attacker/pulls{/number}",
+      "pushed_at": "2026-09-12T19:46:58.742Z",
+      "updated_at": "2026-09-12T19:46:58.742Z",
+      "url": "https://api.github.com/repos/pome-agent/attacker"
+    },
+    "run_id": "standalone",
+    "scenario_step_id": null,
+    "state_delta": {
+      "after": {
+        "created_at": "2026-09-12T19:46:58.742Z",
+        "default_branch": "main",
+        "description": "",
+        "fork": false,
+        "full_name": "pome-agent/attacker",
+        "name": "attacker",
+        "owner": "pome-agent",
+        "parent_full_name": null,
+        "private": true,
+        "updated_at": "2026-09-12T19:46:58.742Z"
+      },
+      "before": null
+    },
+    "state_mutation": true,
+    "status": 201,
+    "step_id": null,
+    "task_step_id": null,
+    "tool": null,
+    "tool_call_id": "setup",
+    "ts": "2026-09-12T19:46:58.743Z",
+    "twin": "github"
+  }
+]

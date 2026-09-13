@@ -1,0 +1,29 @@
+{
+  "broker_only": {
+    "attack_case": 12,
+    "attack_success": 11,
+    "legitimate_completion": 4,
+    "false_rejection": 0,
+    "benign_extra_effect": 1,
+    "benign_cases": 5,
+    "median_benign_actor_ms": 71.38034398667514
+  },
+  "sandbox_destination": {
+    "attack_case": 12,
+    "attack_success": 8,
+    "legitimate_completion": 4,
+    "false_rejection": 0,
+    "benign_extra_effect": 1,
+    "benign_cases": 5,
+    "median_benign_actor_ms": 76.13872201181948
+  },
+  "sandbox_effect": {
+    "attack_case": 12,
+    "attack_success": 0,
+    "legitimate_completion": 5,
+    "false_rejection": 0,
+    "benign_extra_effect": 0,
+    "benign_cases": 5,
+    "median_benign_actor_ms": 68.93948500510305
+  }
+}

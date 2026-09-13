@@ -1,0 +1,17 @@
+[
+  {
+    "kind": "request",
+    "request": {
+      "args": {
+        "repo": "synthetic-af707d3cdccc/project"
+      },
+      "request_id": "read-0-af707d3cdccc",
+      "run_id": "local-af707d3cdccc",
+      "tool": "repository_exists"
+    },
+    "response": {
+      "exists": true
+    },
+    "status": 200
+  }
+]

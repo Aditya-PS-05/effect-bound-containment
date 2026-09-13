@@ -1,0 +1,110 @@
+[
+  {
+    "arm": "static",
+    "id": "selective-R--static",
+    "origin": "selective",
+    "task": "R"
+  },
+  {
+    "arm": "selective",
+    "id": "selective-R--selective",
+    "origin": "selective",
+    "task": "R"
+  },
+  {
+    "arm": "selective",
+    "id": "control-R--selective",
+    "origin": null,
+    "task": "R"
+  },
+  {
+    "arm": "static",
+    "id": "control-R--static",
+    "origin": null,
+    "task": "R"
+  },
+  {
+    "arm": "static",
+    "id": "selective-M--static",
+    "origin": "selective",
+    "task": "M"
+  },
+  {
+    "arm": "selective",
+    "id": "selective-M--selective",
+    "origin": "selective",
+    "task": "M"
+  },
+  {
+    "arm": "static",
+    "id": "static-W--static",
+    "origin": "static",
+    "task": "W"
+  },
+  {
+    "arm": "selective",
+    "id": "static-W--selective",
+    "origin": "static",
+    "task": "W"
+  },
+  {
+    "arm": "selective",
+    "id": "static-R--selective",
+    "origin": "static",
+    "task": "R"
+  },
+  {
+    "arm": "static",
+    "id": "static-R--static",
+    "origin": "static",
+    "task": "R"
+  },
+  {
+    "arm": "static",
+    "id": "static-M--static",
+    "origin": "static",
+    "task": "M"
+  },
+  {
+    "arm": "selective",
+    "id": "static-M--selective",
+    "origin": "static",
+    "task": "M"
+  },
+  {
+    "arm": "selective",
+    "id": "control-W--selective",
+    "origin": null,
+    "task": "W"
+  },
+  {
+    "arm": "static",
+    "id": "control-W--static",
+    "origin": null,
+    "task": "W"
+  },
+  {
+    "arm": "selective",
+    "id": "selective-W--selective",
+    "origin": "selective",
+    "task": "W"
+  },
+  {
+    "arm": "static",
+    "id": "selective-W--static",
+    "origin": "selective",
+    "task": "W"
+  },
+  {
+    "arm": "static",
+    "id": "control-M--static",
+    "origin": null,
+    "task": "M"
+  },
+  {
+    "arm": "selective",
+    "id": "control-M--selective",
+    "origin": null,
+    "task": "M"
+  }
+]

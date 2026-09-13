@@ -1,0 +1,33 @@
+{
+  "additional_model_calls": 0,
+  "additional_model_cost_usd": 0,
+  "additional_model_tokens": 0,
+  "artifacts": {
+    "after-sources/run_arga_quarantine.py": "735afd8bd60182a747e7cdbbd9aa4d423d1fa7f11c37444a387bad688d042b8c",
+    "after-sources/run_arga_workflow.py": "bb689f159b9ce3c3320c77482a30d8c7cf1558295e771d750d4a3ec5e31cba93",
+    "after-sources/run_broker_workflow.py": "52b6288a9517e4523b9a2a1cdc263e752ea23a830e192c024054c600e11265b2",
+    "after-sources/run_isolated_http.py": "748a895889323f9179144e54d0f88ed8e24514ab267edd7a8c1f40c6466fb063",
+    "after-sources/run_openai_pilot.py": "f8a52fe2c42aaf8cb1cc01f96981cd9710f0b338bfc45d7c44caeaaba6ca1fd3",
+    "after-sources/run_pilot_followup.py": "83e307e7e2c60e2d65b4d2bba898b41a25335c2f85cd90e1e9de9cc62941c79e",
+    "after-sources/run_selective.py": "c34209e0a1ebf98eda7e21b31a2579c079727159598b95dedb4f53bb1209de1b",
+    "after-sources/src/effect_bound.py": "8074ecc6cf6891680a2ff2d4e9a47963d0be88d821a710a19f66e7f2fe71d57a",
+    "after-sources/src/http_actor.py": "ee19ebb2c62c5feab58c129645e3cdd97010180970dedefa5f8d627d03968e71",
+    "after-sources/src/http_boundary.py": "ea50cd52145791b8a9b00b29725c3cb11db37c10c9199d50d703d264002d9494",
+    "after-sources/src/pome_adapter.py": "b110aa34bd7816889dc711a1c939d7ab3b55d35c3889e584b7e565222362df25",
+    "after-sources/src/process_observer.py": "d92884421b7f06e45fe8989432169c12189c79ce146c7bd33007d548839b7418",
+    "before-sources/run_arga_quarantine.py": "f99ffc9da5848bf64b40a1ba5e9b64099f35bf90fedcd1110f22e519848fef47",
+    "before-sources/run_arga_workflow.py": "0f48962999e488d1d0b82eedca6d7d745d8c44f9719d6b6bb22a7e35534e9254",
+    "before-sources/run_broker_workflow.py": "05ae8a8ccc367b20999e33713df5d861c67bf26e1b2b63d13b7fe02119a6022a",
+    "before-sources/run_isolated_http.py": "748a895889323f9179144e54d0f88ed8e24514ab267edd7a8c1f40c6466fb063",
+    "before-sources/run_openai_pilot.py": "7e4f5a64f7cb05245983ea62c083dd31af394c339ec06657f3881a3770e79aa0",
+    "before-sources/run_selective.py": "c34209e0a1ebf98eda7e21b31a2579c079727159598b95dedb4f53bb1209de1b",
+    "before-sources/src/effect_bound.py": "8074ecc6cf6891680a2ff2d4e9a47963d0be88d821a710a19f66e7f2fe71d57a",
+    "before-sources/src/http_actor.py": "ee19ebb2c62c5feab58c129645e3cdd97010180970dedefa5f8d627d03968e71",
+    "before-sources/src/http_boundary.py": "865f9f73d448767b88fcc3f9aeeab956a86ae9258aaabc950fc0d6d1bfadb776",
+    "before-sources/src/pome_adapter.py": "b110aa34bd7816889dc711a1c939d7ab3b55d35c3889e584b7e565222362df25",
+    "before-sources/src/process_observer.py": "d92884421b7f06e45fe8989432169c12189c79ce146c7bd33007d548839b7418",
+    "candidates.json": "919d8a9b064c49d5ba13ad2a1bf69477b5479bc1bf33a4f163d5087094baa6b9",
+    "protocol.md": "825c67279ef46b6428b0019addf8cdf59b98407e2b0cbbdcb0932a5e7401b583"
+  },
+  "hosted_runs": 0
+}

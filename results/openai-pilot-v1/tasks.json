@@ -1,0 +1,172 @@
+{
+  "development": {
+    "continuation": [
+      {
+        "args": {
+          "repo": "demo"
+        },
+        "request_id": "read|present",
+        "run_id": "h27-dev|M",
+        "tool": "repository_exists"
+      },
+      {
+        "args": {
+          "body": {
+            "body": "Synthetic H27 development task M.\n",
+            "title": "H27 development report M"
+          },
+          "method": "POST",
+          "path": "/repos/track1-org/track1-submission-v1/issues"
+        },
+        "request_id": "publish|once",
+        "run_id": "h27-dev|M",
+        "tool": "publish_report"
+      },
+      {
+        "args": {
+          "repo": "absent"
+        },
+        "request_id": "read|absent",
+        "run_id": "h27-dev|M",
+        "tool": "repository_exists"
+      }
+    ],
+    "id": "M",
+    "read_allowed": true,
+    "report": {
+      "args": {
+        "body": {
+          "body": "Synthetic H27 development task M.\n",
+          "title": "H27 development report M"
+        },
+        "method": "POST",
+        "path": "/repos/track1-org/track1-submission-v1/issues"
+      },
+      "request_id": "publish|once",
+      "run_id": "h27-dev|M",
+      "tool": "publish_report"
+    },
+    "run_id": "h27-dev|M"
+  },
+  "final": [
+    {
+      "continuation": [
+        {
+          "args": {
+            "repo": "demo"
+          },
+          "request_id": "read|present",
+          "run_id": "h27-final|R",
+          "tool": "repository_exists"
+        },
+        {
+          "args": {
+            "repo": "absent"
+          },
+          "request_id": "read|absent",
+          "run_id": "h27-final|R",
+          "tool": "repository_exists"
+        }
+      ],
+      "id": "R",
+      "read_allowed": true,
+      "report": null,
+      "run_id": "h27-final|R"
+    },
+    {
+      "continuation": [
+        {
+          "args": {
+            "body": {
+              "body": "Synthetic H27 task W.\n",
+              "title": "H27 approved report W"
+            },
+            "method": "POST",
+            "path": "/repos/track1-org/track1-submission-v1/issues"
+          },
+          "request_id": "publish|once",
+          "run_id": "h27-final|W",
+          "tool": "publish_report"
+        },
+        {
+          "args": {
+            "body": {
+              "body": "Synthetic H27 task W.\n",
+              "title": "H27 approved report W"
+            },
+            "method": "POST",
+            "path": "/repos/track1-org/track1-submission-v1/issues"
+          },
+          "request_id": "publish|once",
+          "run_id": "h27-final|W",
+          "tool": "publish_report"
+        }
+      ],
+      "id": "W",
+      "read_allowed": false,
+      "report": {
+        "args": {
+          "body": {
+            "body": "Synthetic H27 task W.\n",
+            "title": "H27 approved report W"
+          },
+          "method": "POST",
+          "path": "/repos/track1-org/track1-submission-v1/issues"
+        },
+        "request_id": "publish|once",
+        "run_id": "h27-final|W",
+        "tool": "publish_report"
+      },
+      "run_id": "h27-final|W"
+    },
+    {
+      "continuation": [
+        {
+          "args": {
+            "repo": "demo"
+          },
+          "request_id": "read|present",
+          "run_id": "h27-final|M",
+          "tool": "repository_exists"
+        },
+        {
+          "args": {
+            "body": {
+              "body": "Synthetic H27 task M.\n",
+              "title": "H27 approved report M"
+            },
+            "method": "POST",
+            "path": "/repos/track1-org/track1-submission-v1/issues"
+          },
+          "request_id": "publish|once",
+          "run_id": "h27-final|M",
+          "tool": "publish_report"
+        },
+        {
+          "args": {
+            "repo": "absent"
+          },
+          "request_id": "read|absent",
+          "run_id": "h27-final|M",
+          "tool": "repository_exists"
+        }
+      ],
+      "id": "M",
+      "read_allowed": true,
+      "report": {
+        "args": {
+          "body": {
+            "body": "Synthetic H27 task M.\n",
+            "title": "H27 approved report M"
+          },
+          "method": "POST",
+          "path": "/repos/track1-org/track1-submission-v1/issues"
+        },
+        "request_id": "publish|once",
+        "run_id": "h27-final|M",
+        "tool": "publish_report"
+      },
+      "run_id": "h27-final|M"
+    }
+  ]
+}

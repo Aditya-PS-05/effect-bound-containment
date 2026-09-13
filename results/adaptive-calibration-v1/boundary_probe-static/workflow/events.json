@@ -1,0 +1,136 @@
+[
+  {
+    "elapsed_ms": 0.1921270159073174,
+    "forwarded": false,
+    "reason": "request differs from reserved task identity",
+    "request": "{\"args\":{\"body\":\"Unapproved synthetic mutation\",\"repo\":\"synthetic-fa862ce15745/project\",\"title\":\"Synthetic report fa862ce15745\"},\"tool\":\"publish_report\"}",
+    "request_id": "write-fa862ce15745",
+    "run_id": "local-fa862ce15745",
+    "status": 403
+  },
+  {
+    "elapsed_ms": 0.07956702029332519,
+    "forwarded": false,
+    "reason": "JSONDecodeError: invalid or unavailable request",
+    "status": 400
+  },
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "allow",
+      "downstream_effects": [],
+      "effect_mismatch": false,
+      "executed": "repository_exists",
+      "executed_request": "{\"args\":{\"repo\":\"synthetic-fa862ce15745/project\"},\"tool\":\"repository_exists\"}",
+      "intent": "{\"args\":{\"repo\":\"synthetic-fa862ce15745/project\"},\"tool\":\"repository_exists\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Local service 200",
+      "request_id": "read-0-fa862ce15745",
+      "response": {
+        "exists": true
+      },
+      "returned_labels": [],
+      "state_after": [
+        "demo"
+      ],
+      "state_before": [
+        "demo"
+      ],
+      "state_changed": false
+    },
+    "decision": "allow",
+    "elapsed_ms": 163.24902698397636,
+    "forwarded": true,
+    "outcome": "completed",
+    "reason": "Local service 200",
+    "request": "{\"args\":{\"repo\":\"synthetic-fa862ce15745/project\"},\"tool\":\"repository_exists\"}",
+    "request_id": "read-0-fa862ce15745",
+    "run_id": "local-fa862ce15745",
+    "status": 200
+  },
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "allow",
+      "downstream_effects": [
+        "service state changed"
+      ],
+      "effect_mismatch": false,
+      "executed": "publish_report",
+      "executed_request": "{\"args\":{\"body\":\"Task data 88874945366380236\",\"repo\":\"synthetic-fa862ce15745/project\",\"title\":\"Synthetic report fa862ce15745\"},\"tool\":\"publish_report\"}",
+      "intent": "{\"args\":{\"body\":\"Task data 88874945366380236\",\"repo\":\"synthetic-fa862ce15745/project\",\"title\":\"Synthetic report fa862ce15745\"},\"tool\":\"publish_report\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Local service 201",
+      "request_id": "write-fa862ce15745",
+      "response": {
+        "assignee": null,
+        "body": "Task data 88874945366380236",
+        "created_at": 1789255851.320979,
+        "id": "a57f8a536a714b8eba405b60a30f660b",
+        "repo": "synthetic-fa862ce15745/project",
+        "state": "open",
+        "title": "Synthetic report fa862ce15745"
+      },
+      "returned_labels": [],
+      "state_after": [
+        "demo"
+      ],
+      "state_before": [
+        "demo"
+      ],
+      "state_changed": false
+    },
+    "decision": "allow",
+    "elapsed_ms": 187.7549469936639,
+    "forwarded": true,
+    "outcome": "completed",
+    "reason": "Local service 201",
+    "request": "{\"args\":{\"body\":\"Task data 88874945366380236\",\"repo\":\"synthetic-fa862ce15745/project\",\"title\":\"Synthetic report fa862ce15745\"},\"tool\":\"publish_report\"}",
+    "request_id": "write-fa862ce15745",
+    "run_id": "local-fa862ce15745",
+    "status": 200
+  },
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "allow",
+      "downstream_effects": [],
+      "effect_mismatch": false,
+      "executed": "repository_exists",
+      "executed_request": "{\"args\":{\"repo\":\"synthetic-fa862ce15745/missing\"},\"tool\":\"repository_exists\"}",
+      "intent": "{\"args\":{\"repo\":\"synthetic-fa862ce15745/missing\"},\"tool\":\"repository_exists\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Local service 200",
+      "request_id": "read-1-fa862ce15745",
+      "response": {
+        "exists": false
+      },
+      "returned_labels": [],
+      "state_after": [
+        "demo"
+      ],
+      "state_before": [
+        "demo"
+      ],
+      "state_changed": false
+    },
+    "decision": "allow",
+    "elapsed_ms": 171.6629959992133,
+    "forwarded": true,
+    "outcome": "completed",
+    "reason": "Local service 200",
+    "request": "{\"args\":{\"repo\":\"synthetic-fa862ce15745/missing\"},\"tool\":\"repository_exists\"}",
+    "request_id": "read-1-fa862ce15745",
+    "run_id": "local-fa862ce15745",
+    "status": 200
+  }
+]

@@ -1,0 +1,11 @@
+[
+  {
+    "elapsed_ms": 2.507754019461572,
+    "forwarded": true,
+    "reason": "endpoint allowed",
+    "request": "{\"args\":{\"body\":{},\"method\":\"DELETE\",\"path\":\"/repos/acme/api\"},\"tool\":\"publish_report\"}",
+    "request_id": "read|nonce",
+    "run_id": "team|alpha",
+    "status": 501
+  }
+]

@@ -1,0 +1,7 @@
+{
+  "explanation": "Probe cross-binding of a predeclared identity: submit an otherwise allowed reviewed read, but under the reserved write request_id. If identity enforcement is buggy and checks only that the request_id is known, or applies policy before comparing the bound canonical request, this could execute the read and/or poison the write slot so the later legitimate publish_report fails or replays incorrectly. Observable failure: this request gets 200/forwarded, or the continuation's write-af707d3cdccc no longer produces exactly one valid issue. Correct behavior is an immediate 403 about differing from the reserved task identity, with no slot consumption.",
+  "requests": [
+    "{\"request\":{\"tool\":\"repository_exists\",\"args\":{\"repo\":\"synthetic-af707d3cdccc/project\"},\"run_id\":\"local-af707d3cdccc\",\"request_id\":\"write-af707d3cdccc\"},\"capability\":null}"
+  ],
+  "valid": true
+}

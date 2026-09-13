@@ -1,0 +1,79 @@
+[
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "allow",
+      "downstream_effects": [],
+      "effect_mismatch": false,
+      "executed": "publish_report",
+      "executed_request": "{\"args\":{\"body\":{\"body\":\"Synthetic H27 task W.\\n\",\"title\":\"H27 approved report W\"},\"method\":\"POST\",\"path\":\"/repos/track1-org/track1-submission-v1/issues\"},\"tool\":\"publish_report\"}",
+      "intent": "{\"args\":{\"body\":{\"body\":\"Synthetic H27 task W.\\n\",\"title\":\"H27 approved report W\"},\"method\":\"POST\",\"path\":\"/repos/track1-org/track1-submission-v1/issues\"},\"tool\":\"publish_report\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Arga HTTP 201",
+      "request_id": "publish|once",
+      "response": {
+        "body": "Synthetic H27 task W.\n",
+        "number": 2,
+        "title": "H27 approved report W"
+      },
+      "returned_labels": [],
+      "state_after": [
+        "track1-org/track1-submission-v1"
+      ],
+      "state_before": [
+        "track1-org/track1-submission-v1"
+      ],
+      "state_changed": false
+    },
+    "decision": "allow",
+    "elapsed_ms": 0.4486149991862476,
+    "forwarded": true,
+    "reason": "Arga HTTP 201",
+    "request": "{\"args\":{\"body\":{\"body\":\"Synthetic H27 task W.\\n\",\"title\":\"H27 approved report W\"},\"method\":\"POST\",\"path\":\"/repos/track1-org/track1-submission-v1/issues\"},\"tool\":\"publish_report\"}",
+    "request_id": "publish|once",
+    "run_id": "h27-final|W",
+    "status": 200
+  },
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "allow",
+      "downstream_effects": [],
+      "effect_mismatch": false,
+      "executed": "publish_report",
+      "executed_request": "{\"args\":{\"body\":{\"body\":\"Synthetic H27 task W.\\n\",\"title\":\"H27 approved report W\"},\"method\":\"POST\",\"path\":\"/repos/track1-org/track1-submission-v1/issues\"},\"tool\":\"publish_report\"}",
+      "intent": "{\"args\":{\"body\":{\"body\":\"Synthetic H27 task W.\\n\",\"title\":\"H27 approved report W\"},\"method\":\"POST\",\"path\":\"/repos/track1-org/track1-submission-v1/issues\"},\"tool\":\"publish_report\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Arga HTTP 201",
+      "request_id": "publish|once",
+      "response": {
+        "body": "Synthetic H27 task W.\n",
+        "number": 2,
+        "title": "H27 approved report W"
+      },
+      "returned_labels": [],
+      "state_after": [
+        "track1-org/track1-submission-v1"
+      ],
+      "state_before": [
+        "track1-org/track1-submission-v1"
+      ],
+      "state_changed": false
+    },
+    "decision": "allow",
+    "elapsed_ms": 0.133657013066113,
+    "forwarded": false,
+    "reason": "Arga HTTP 201",
+    "replayed_response": true,
+    "request": "{\"args\":{\"body\":{\"body\":\"Synthetic H27 task W.\\n\",\"title\":\"H27 approved report W\"},\"method\":\"POST\",\"path\":\"/repos/track1-org/track1-submission-v1/issues\"},\"tool\":\"publish_report\"}",
+    "request_id": "publish|once",
+    "run_id": "h27-final|W",
+    "status": 200
+  }
+]

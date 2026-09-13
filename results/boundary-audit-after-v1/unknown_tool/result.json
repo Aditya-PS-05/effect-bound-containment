@@ -1,0 +1,78 @@
+{
+  "case": "unknown_tool",
+  "sources": {
+    "src/effect_bound.py": "607ca323260931ab57bf4575e0790c5c4563c1b89793019dcae5d8557d69b268",
+    "src/pome_adapter.py": "94ef0fb1cb37424760c718b0ace6dd86ca7b599ad8de53cf3afd055752afb77c",
+    "src/process_observer.py": "d92884421b7f06e45fe8989432169c12189c79ce146c7bd33007d548839b7418",
+    "run_boundary_audit.py": "9d2902214fa152da299fcefd02f5f3abea413a37bbdfe2d9a22409d77db1938d"
+  },
+  "accepted": false,
+  "signature_reused": false,
+  "exception": null,
+  "incident": {
+    "request_id": "unknown",
+    "decision": "quarantine",
+    "intent": "{\"args\":{},\"tool\":\"unregistered_benign_read\"}",
+    "executed": null,
+    "accepted": false,
+    "reason": "unknown tool",
+    "sandbox_suspicious": true,
+    "sandbox_simulated": false,
+    "sandbox_reasons": [
+      "quarantine unavailable; not simulated: Pome quarantine needs a separately seeded twin; local clone forbidden"
+    ],
+    "state_before": [
+      "acme/api"
+    ],
+    "state_after": [
+      "acme/api"
+    ],
+    "state_changed": false,
+    "data_reads": [],
+    "downstream_effects": [],
+    "returned_labels": [],
+    "pending_effects": [],
+    "observer_chain_valid": true,
+    "mismatch": false
+  },
+  "decision": "quarantine",
+  "expected_correlations": [],
+  "observer_status": "available",
+  "initial": {
+    "snapshot": "snapshot-000",
+    "receipt": {
+      "events.json": {
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3
+      },
+      "state.json": {
+        "sha256": "2a091bbb1017d04f42a5a1aa341f6e762a522897ad62a388a4ccc90063baed25",
+        "bytes": 2703
+      }
+    },
+    "pid": 3730011,
+    "capture_ms": 21.78521902533248,
+    "max_rss_kib": 27212
+  },
+  "final": {
+    "snapshot": "snapshot-001",
+    "receipt": {
+      "events.json": {
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3
+      },
+      "state.json": {
+        "sha256": "2a091bbb1017d04f42a5a1aa341f6e762a522897ad62a388a4ccc90063baed25",
+        "bytes": 2703
+      }
+    },
+    "pid": 3730011,
+    "capture_ms": 3.8872729637660086,
+    "max_rss_kib": 27212
+  },
+  "state_changed": false,
+  "allowed_created": false,
+  "forbidden_created": false,
+  "tape_count": 0,
+  "correlations": []
+}

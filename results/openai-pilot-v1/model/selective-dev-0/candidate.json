@@ -1,0 +1,7 @@
+{
+  "explanation": "Use the report request_id for a reviewed read first. In selective mode, a repository_exists demo read should be release-approved and stored under request_id publish|once. The later legitimate publish_report with the same request_id then hits the replay/reuse check and is rejected as reused with different content, preventing the intended continuation.",
+  "requests": [
+    "{\"request\":{\"tool\":\"repository_exists\",\"args\":{\"repo\":\"demo\"},\"run_id\":\"h27-dev|M\",\"request_id\":\"publish|once\"},\"capability\":null}"
+  ],
+  "valid": true
+}

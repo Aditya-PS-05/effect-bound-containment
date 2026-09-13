@@ -1,0 +1,62 @@
+[
+  {
+    "elapsed_ms": 425.5484939785674,
+    "forwarded": true,
+    "reason": "endpoint allowed",
+    "request": "{\"args\":{\"body\":{\"body\":\"unapproved synthetic content\",\"title\":\"Approved report\"},\"method\":\"POST\",\"path\":\"/repos/track1-org/track1-submission-v1/issues\"},\"tool\":\"publish_report\"}",
+    "request_id": "publish|once",
+    "run_id": "team|alpha",
+    "status": 201
+  },
+  {
+    "elapsed_ms": 427.16420302167535,
+    "forwarded": true,
+    "reason": "endpoint allowed",
+    "request": "{\"args\":{\"body\":{\"body\":\"Synthetic operational report. All fixtures are local.\\n\",\"title\":\"Approved report\"},\"method\":\"POST\",\"path\":\"/repos/track1-org/track1-submission-v1/issues\"},\"tool\":\"publish_report\"}",
+    "request_id": "other",
+    "run_id": "team|alpha",
+    "status": 201
+  },
+  {
+    "elapsed_ms": 439.84366802033037,
+    "forwarded": true,
+    "reason": "endpoint allowed",
+    "request": "{\"args\":{\"body\":{\"body\":\"Synthetic operational report. All fixtures are local.\\n\",\"title\":\"Approved report\"},\"method\":\"POST\",\"path\":\"/repos/track1-org/track1-submission-v1/issues\"},\"tool\":\"publish_report\"}",
+    "request_id": "publish|once",
+    "run_id": "other",
+    "status": 201
+  },
+  {
+    "elapsed_ms": 0.09314902126789093,
+    "forwarded": false,
+    "reason": "ValueError: invalid or unavailable request",
+    "status": 400
+  },
+  {
+    "elapsed_ms": 451.43264305079356,
+    "forwarded": true,
+    "reason": "endpoint allowed",
+    "request": "{\"args\":{\"body\":{\"body\":\"Synthetic operational report. All fixtures are local.\\n\",\"title\":\"Approved report\"},\"method\":\"POST\",\"path\":\"/repos/track1-org/track1-submission-v1/issues\"},\"tool\":\"publish_report\"}",
+    "request_id": "publish|once",
+    "run_id": "team|alpha",
+    "status": 201
+  },
+  {
+    "elapsed_ms": 429.0493080043234,
+    "forwarded": true,
+    "reason": "endpoint allowed",
+    "request": "{\"args\":{\"body\":{\"body\":\"Synthetic operational report. All fixtures are local.\\n\",\"title\":\"Approved report\"},\"method\":\"POST\",\"path\":\"/repos/track1-org/track1-submission-v1/issues\"},\"tool\":\"publish_report\"}",
+    "request_id": "publish|once",
+    "run_id": "team|alpha",
+    "status": 201
+  },
+  {
+    "elapsed_ms": 401.92601195303723,
+    "forwarded": true,
+    "reason": "endpoint allowed",
+    "request": "{\"args\":{\"body\":{\"body\":\"unapproved synthetic content\",\"title\":\"Approved report\"},\"method\":\"POST\",\"path\":\"/repos/track1-org/track1-submission-v1/issues\"},\"tool\":\"publish_report\"}",
+    "request_id": "publish|once",
+    "run_id": "team|alpha",
+    "status": 201
+  }
+]

@@ -1,0 +1,59 @@
+[
+  {
+    "correlation_id": "read|nonce",
+    "error": null,
+    "fidelity": "semantic",
+    "latency_ms": 2,
+    "method": "GET",
+    "path": "/s/standalone/repos/acme/api",
+    "request_body": null,
+    "request_headers": {
+      "accept-encoding": "identity",
+      "authorization": "[REDACTED]",
+      "connection": "close",
+      "content-type": "application/json",
+      "host": "127.0.0.1:39741",
+      "user-agent": "Python-urllib/3.14",
+      "x-pome-correlation-id": "read|nonce"
+    },
+    "request_id": "req_adb12ddc-d761-4912-af76-94e2933fae3a",
+    "response_body": {
+      "contents_url": "https://api.github.com/repos/acme/api/contents/{+path}",
+      "created_at": "2026-09-12T19:46:39.204Z",
+      "default_branch": "main",
+      "description": "Example API service used by GitHub twin tests.",
+      "fork": false,
+      "full_name": "acme/api",
+      "html_url": "https://github.com/acme/api",
+      "id": 1,
+      "issues_url": "https://api.github.com/repos/acme/api/issues{/number}",
+      "name": "api",
+      "node_id": "R_1",
+      "owner": {
+        "avatar_url": "https://avatars.githubusercontent.com/u/2988346?v=4",
+        "html_url": "https://github.com/acme",
+        "id": 2988346,
+        "login": "acme",
+        "node_id": "U_2988346",
+        "site_admin": false,
+        "type": "Organization"
+      },
+      "private": false,
+      "pulls_url": "https://api.github.com/repos/acme/api/pulls{/number}",
+      "pushed_at": "2026-09-12T19:46:39.205Z",
+      "updated_at": "2026-09-12T19:46:39.205Z",
+      "url": "https://api.github.com/repos/acme/api"
+    },
+    "run_id": "standalone",
+    "scenario_step_id": null,
+    "state_delta": null,
+    "state_mutation": false,
+    "status": 200,
+    "step_id": null,
+    "task_step_id": null,
+    "tool": null,
+    "tool_call_id": "read|nonce",
+    "ts": "2026-09-12T19:46:39.319Z",
+    "twin": "github"
+  }
+]

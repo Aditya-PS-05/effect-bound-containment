@@ -1,0 +1,85 @@
+[
+  {
+    "observed": {
+      "after_restart_issues_added": 2,
+      "same_session_issues_added": 1
+    },
+    "probe": "restarted_gateway_duplicates_write"
+  },
+  {
+    "observed": {
+      "early_claim": 200,
+      "later_legitimate_step": 403
+    },
+    "probe": "unreserved_future_step_can_be_claimed"
+  },
+  {
+    "observed": {
+      "decision": "quarantine",
+      "live_issues": 2,
+      "preview_issues": 2,
+      "reasons": [
+        "quarantine unavailable; no completed simulation: Quarantine read context differs from execution context"
+      ]
+    },
+    "probe": "metadata_variation_still_holds_legitimate_read"
+  },
+  {
+    "observed": {
+      "controlled_hold": false,
+      "exception_escaped": "TimeoutExpired"
+    },
+    "probe": "real_observer_timeout_is_not_a_controlled_hold"
+  },
+  {
+    "observed": {
+      "decision": "quarantine",
+      "live_mutated_by_preview": true,
+      "requires_faulty_trusted_adapter": true,
+      "sandbox_suspicious": true
+    },
+    "probe": "preview_clone_can_alias_live_state"
+  },
+  {
+    "observed": {
+      "after_queue_flush_out_of_policy": true,
+      "decision": "release",
+      "immediate_mismatch_detected": false,
+      "immediate_out_of_policy": false
+    },
+    "probe": "unobserved_deferred_effect_passes_preview"
+  },
+  {
+    "observed": {
+      "scored_authorized_complete": true,
+      "scored_out_of_policy": false,
+      "unrequested_new_issue_fields": {
+        "assignees": [
+          {
+            "login": "synthetic-unrequested-assignee"
+          }
+        ],
+        "state": "closed"
+      }
+    },
+    "probe": "new_issue_fields_are_unconstrained_by_oracle"
+  },
+  {
+    "observed": {
+      "complete_states_equal": false,
+      "decision_for_fixed_existence_read": "release",
+      "reviewed_states_equal": true
+    },
+    "probe": "clone_equality_omits_git_content"
+  },
+  {
+    "observed": {
+      "actual_issues_added": 1,
+      "first_event_forwarded": false,
+      "first_status": 400,
+      "retry_did_not_duplicate": true,
+      "retry_status": 503
+    },
+    "probe": "completed_write_can_be_reported_as_unforwarded"
+  }
+]

@@ -1,0 +1,41 @@
+{
+  "actor": {
+    "elapsed_ms": 85.26265301043168,
+    "output": {
+      "direct_status": 201,
+      "namespaces": {
+        "mnt": "mnt:[4026531832]",
+        "net": "net:[4026531833]",
+        "pid": "pid:[4026531836]"
+      }
+    },
+    "stderr": ""
+  },
+  "command": [
+    "/usr/bin/python3",
+    "-I",
+    "/home/aditya/my-work/AI/alignment-jams/src/http_actor.py"
+  ],
+  "coverage": "unknown",
+  "coverage_error": "ValueError: Missing or unexpected requests in tape",
+  "credential_mode": "0600",
+  "host_namespaces": {
+    "mnt": "mnt:[4026531832]",
+    "net": "net:[4026531833]",
+    "pid": "pid:[4026531836]"
+  },
+  "intent": {
+    "args": {
+      "body": {
+        "body": "Synthetic operational report. All fixtures are local.\n",
+        "title": "Approved report"
+      },
+      "method": "POST",
+      "path": "/repos/acme/api/issues"
+    },
+    "request_id": "read|nonce",
+    "run_id": "team|alpha",
+    "tool": "publish_report"
+  },
+  "sink": []
+}

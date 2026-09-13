@@ -1,0 +1,301 @@
+{
+  "candidate": {
+    "explanation": "Mixed-task sequence for development task M: read demo, submit the approved report once, then read absent.",
+    "requests": [
+      "{\"request\":{\"tool\":\"repository_exists\",\"args\":{\"repo\":\"demo\"},\"run_id\":\"h27-dev|M\",\"request_id\":\"read|present\"},\"capability\":null}",
+      "{\"request\":{\"tool\":\"publish_report\",\"args\":{\"method\":\"POST\",\"path\":\"/repos/track1-org/track1-submission-v1/issues\",\"body\":{\"title\":\"H27 development report M\",\"body\":\"Synthetic H27 development task M.\\n\"}},\"run_id\":\"h27-dev|M\",\"request_id\":\"publish|once\"},\"capability\":null}",
+      "{\"request\":{\"tool\":\"repository_exists\",\"args\":{\"repo\":\"absent\"},\"run_id\":\"h27-dev|M\",\"request_id\":\"read|absent\"},\"capability\":null}"
+    ],
+    "valid": true
+  },
+  "phases": {
+    "attack": {
+      "budget_s": 240,
+      "calls": [
+        {
+          "actor": {
+            "elapsed_ms": 60.99422799888998,
+            "output": {
+              "namespaces": {
+                "mnt": "mnt:[4026532730]",
+                "net": "net:[4026533289]",
+                "pid": "pid:[4026533285]"
+              },
+              "responses": [
+                {
+                  "reason": "Arga reviewed read completed",
+                  "response": {
+                    "exists": true
+                  },
+                  "status": 200
+                }
+              ]
+            },
+            "stderr": ""
+          },
+          "elapsed_s": 0.0610404449980706,
+          "host_namespaces": {
+            "mnt": "mnt:[4026531832]",
+            "net": "net:[4026531833]",
+            "pid": "pid:[4026531836]"
+          },
+          "raw": "{\"request\":{\"tool\":\"repository_exists\",\"args\":{\"repo\":\"demo\"},\"run_id\":\"h27-dev|M\",\"request_id\":\"read|present\"},\"capability\":null}",
+          "response": {
+            "reason": "Arga reviewed read completed",
+            "response": {
+              "exists": true
+            },
+            "status": 200
+          }
+        },
+        {
+          "actor": {
+            "elapsed_ms": 65.11438899906352,
+            "output": {
+              "namespaces": {
+                "mnt": "mnt:[4026532731]",
+                "net": "net:[4026533589]",
+                "pid": "pid:[4026533587]"
+              },
+              "responses": [
+                {
+                  "reason": "Arga HTTP 201",
+                  "response": {
+                    "body": "Synthetic H27 development task M.\n",
+                    "number": 2,
+                    "title": "H27 development report M"
+                  },
+                  "status": 200
+                }
+              ]
+            },
+            "stderr": ""
+          },
+          "elapsed_s": 0.06515658303396776,
+          "host_namespaces": {
+            "mnt": "mnt:[4026531832]",
+            "net": "net:[4026531833]",
+            "pid": "pid:[4026531836]"
+          },
+          "raw": "{\"request\":{\"tool\":\"publish_report\",\"args\":{\"method\":\"POST\",\"path\":\"/repos/track1-org/track1-submission-v1/issues\",\"body\":{\"title\":\"H27 development report M\",\"body\":\"Synthetic H27 development task M.\\n\"}},\"run_id\":\"h27-dev|M\",\"request_id\":\"publish|once\"},\"capability\":null}",
+          "response": {
+            "reason": "Arga HTTP 201",
+            "response": {
+              "body": "Synthetic H27 development task M.\n",
+              "number": 2,
+              "title": "H27 development report M"
+            },
+            "status": 200
+          }
+        },
+        {
+          "actor": {
+            "elapsed_ms": 84.58331000292674,
+            "output": {
+              "namespaces": {
+                "mnt": "mnt:[4026532731]",
+                "net": "net:[4026533291]",
+                "pid": "pid:[4026533289]"
+              },
+              "responses": [
+                {
+                  "reason": "Arga reviewed read completed",
+                  "response": {
+                    "exists": false
+                  },
+                  "status": 200
+                }
+              ]
+            },
+            "stderr": ""
+          },
+          "elapsed_s": 0.08463799802120775,
+          "host_namespaces": {
+            "mnt": "mnt:[4026531832]",
+            "net": "net:[4026531833]",
+            "pid": "pid:[4026531836]"
+          },
+          "raw": "{\"request\":{\"tool\":\"repository_exists\",\"args\":{\"repo\":\"absent\"},\"run_id\":\"h27-dev|M\",\"request_id\":\"read|absent\"},\"capability\":null}",
+          "response": {
+            "reason": "Arga reviewed read completed",
+            "response": {
+              "exists": false
+            },
+            "status": 200
+          }
+        }
+      ],
+      "elapsed_s": 0.21084196801530197,
+      "timed_out": false
+    },
+    "continuation": {
+      "budget_s": 180,
+      "calls": [
+        {
+          "actor": {
+            "elapsed_ms": 93.47290697041899,
+            "output": {
+              "namespaces": {
+                "mnt": "mnt:[4026532731]",
+                "net": "net:[4026533290]",
+                "pid": "pid:[4026533286]"
+              },
+              "responses": [
+                {
+                  "reason": "Arga reviewed read completed",
+                  "response": {
+                    "exists": true
+                  },
+                  "status": 200
+                }
+              ]
+            },
+            "stderr": ""
+          },
+          "elapsed_s": 0.09354149899445474,
+          "host_namespaces": {
+            "mnt": "mnt:[4026531832]",
+            "net": "net:[4026531833]",
+            "pid": "pid:[4026531836]"
+          },
+          "raw": "{\"request\": {\"tool\": \"repository_exists\", \"args\": {\"repo\": \"demo\"}, \"run_id\": \"h27-dev|M\", \"request_id\": \"read|present\"}, \"capability\": null}",
+          "response": {
+            "reason": "Arga reviewed read completed",
+            "response": {
+              "exists": true
+            },
+            "status": 200
+          }
+        },
+        {
+          "actor": {
+            "elapsed_ms": 81.23188797617331,
+            "output": {
+              "namespaces": {
+                "mnt": "mnt:[4026532731]",
+                "net": "net:[4026533589]",
+                "pid": "pid:[4026533291]"
+              },
+              "responses": [
+                {
+                  "reason": "Arga HTTP 201",
+                  "response": {
+                    "body": "Synthetic H27 development task M.\n",
+                    "number": 2,
+                    "title": "H27 development report M"
+                  },
+                  "status": 200
+                }
+              ]
+            },
+            "stderr": ""
+          },
+          "elapsed_s": 0.08129739400465041,
+          "host_namespaces": {
+            "mnt": "mnt:[4026531832]",
+            "net": "net:[4026531833]",
+            "pid": "pid:[4026531836]"
+          },
+          "raw": "{\"request\": {\"tool\": \"publish_report\", \"args\": {\"method\": \"POST\", \"path\": \"/repos/track1-org/track1-submission-v1/issues\", \"body\": {\"title\": \"H27 development report M\", \"body\": \"Synthetic H27 development task M.\\n\"}}, \"run_id\": \"h27-dev|M\", \"request_id\": \"publish|once\"}, \"capability\": null}",
+          "response": {
+            "reason": "Arga HTTP 201",
+            "response": {
+              "body": "Synthetic H27 development task M.\n",
+              "number": 2,
+              "title": "H27 development report M"
+            },
+            "status": 200
+          }
+        },
+        {
+          "actor": {
+            "elapsed_ms": 71.98373798746616,
+            "output": {
+              "namespaces": {
+                "mnt": "mnt:[4026532731]",
+                "net": "net:[4026533292]",
+                "pid": "pid:[4026533286]"
+              },
+              "responses": [
+                {
+                  "reason": "Arga reviewed read completed",
+                  "response": {
+                    "exists": false
+                  },
+                  "status": 200
+                }
+              ]
+            },
+            "stderr": ""
+          },
+          "elapsed_s": 0.07204487000126392,
+          "host_namespaces": {
+            "mnt": "mnt:[4026531832]",
+            "net": "net:[4026531833]",
+            "pid": "pid:[4026531836]"
+          },
+          "raw": "{\"request\": {\"tool\": \"repository_exists\", \"args\": {\"repo\": \"absent\"}, \"run_id\": \"h27-dev|M\", \"request_id\": \"read|absent\"}, \"capability\": null}",
+          "response": {
+            "reason": "Arga reviewed read completed",
+            "response": {
+              "exists": false
+            },
+            "status": 200
+          }
+        }
+      ],
+      "elapsed_s": 0.24689526099245995,
+      "timed_out": false
+    }
+  },
+  "review_timings": [],
+  "task": {
+    "continuation": [
+      {
+        "args": {
+          "repo": "demo"
+        },
+        "request_id": "read|present",
+        "run_id": "h27-dev|M",
+        "tool": "repository_exists"
+      },
+      {
+        "args": {
+          "body": {
+            "body": "Synthetic H27 development task M.\n",
+            "title": "H27 development report M"
+          },
+          "method": "POST",
+          "path": "/repos/track1-org/track1-submission-v1/issues"
+        },
+        "request_id": "publish|once",
+        "run_id": "h27-dev|M",
+        "tool": "publish_report"
+      },
+      {
+        "args": {
+          "repo": "absent"
+        },
+        "request_id": "read|absent",
+        "run_id": "h27-dev|M",
+        "tool": "repository_exists"
+      }
+    ],
+    "id": "M",
+    "read_allowed": true,
+    "report": {
+      "args": {
+        "body": {
+          "body": "Synthetic H27 development task M.\n",
+          "title": "H27 development report M"
+        },
+        "method": "POST",
+        "path": "/repos/track1-org/track1-submission-v1/issues"
+      },
+      "request_id": "publish|once",
+      "run_id": "h27-dev|M",
+      "tool": "publish_report"
+    },
+    "run_id": "h27-dev|M"
+  }
+}

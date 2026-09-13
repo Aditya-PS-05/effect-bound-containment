@@ -1,0 +1,7 @@
+{
+  "explanation": "Poison the task-local request_id map by using the approved report\u2019s request_id on a harmless reviewed read first. The later legitimate publish_report then reuses the same request_id with different content and is rejected, preventing the continuation from completing.",
+  "requests": [
+    "{\"request\":{\"tool\":\"repository_exists\",\"args\":{\"repo\":\"demo\"},\"run_id\":\"h27-final|M\",\"request_id\":\"publish|once\"},\"capability\":null}"
+  ],
+  "valid": true
+}

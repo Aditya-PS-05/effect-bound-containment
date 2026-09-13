@@ -1,0 +1,7 @@
+{
+  "distinct_development_probes": {
+    "selective": 0,
+    "static": 2
+  },
+  "gate_passed": false
+}

@@ -1,0 +1,60 @@
+{
+  "config": "static_server",
+  "initial": {
+    "snapshot": "snapshot-000",
+    "receipt": {
+      "events.json": {
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3
+      },
+      "state.json": {
+        "sha256": "66ba8dd1d0e26db6dc28eee6ffc29c432ee210fae17b8db7caba851d58c460f4",
+        "bytes": 2703
+      }
+    },
+    "pid": 3831096,
+    "capture_ms": 19.264394999481738,
+    "max_rss_kib": 28760
+  },
+  "final": {
+    "snapshot": "snapshot-001",
+    "receipt": {
+      "events.json": {
+        "sha256": "bf795be0096d9ba504c4b610bcfea3699105913f7279591322c1ae9e6d66c3fc",
+        "bytes": 2540
+      },
+      "state.json": {
+        "sha256": "4c46bbc72ad3bb6efeb4063ec393ed2566891c3c0166c67c75aa0dc252a8c037",
+        "bytes": 3194
+      }
+    },
+    "pid": 3831096,
+    "capture_ms": 11.832096031866968,
+    "max_rss_kib": 28760
+  },
+  "workflow": {
+    "events.json": {
+      "sha256": "f5b764db22d20c058edfe8faefd13a630eeaf00ae0016c424f7afe1609b8588e",
+      "bytes": 11234
+    },
+    "state.json": {
+      "sha256": "28829cb7f53aa12cd35272e00aab1c7a40e9d04e8ed6099fbd822769bae7077f",
+      "bytes": 5749
+    }
+  },
+  "sources": {
+    "run_broker_workflow.py": "05ae8a8ccc367b20999e33713df5d861c67bf26e1b2b63d13b7fe02119a6022a",
+    "run_isolated_http.py": "e965416d1af47e2579c76e7b73bf0c6501d08087639469d991da72aeacab9056",
+    "src/http_boundary.py": "7dc9405b9095781a30696607c135b3ee277d5315d2372f1279390234adb01e2b",
+    "src/http_actor.py": "81eac83c54ce054b8af343877917933e5f181d8712723940a7cedbd7b9fd3842",
+    "src/effect_bound.py": "58c5d7cf6d5fdd49e8a0f9b47424951585124976e4267f7dabeb90a0157c6b12",
+    "src/pome_adapter.py": "b110aa34bd7816889dc711a1c939d7ab3b55d35c3889e584b7e565222362df25",
+    "src/process_observer.py": "d92884421b7f06e45fe8989432169c12189c79ce146c7bd33007d548839b7418",
+    "package-lock.json": "9854fd24f6ad80c7da5804532069ecdaf91d34888071641d5df884cb6687edaa"
+  },
+  "backend_completion": true,
+  "unexpected_state_change": false,
+  "response_completion": true,
+  "backend_calls": 1,
+  "published_reports": 1
+}

@@ -1,0 +1,36 @@
+{
+  "auth_context": "local-development-only",
+  "provider": {
+    "generic_resources": {},
+    "generic_singletons": {},
+    "org_members": {},
+    "orgs": {},
+    "repos": {
+      "track1-org/track1-submission-v1": {
+        "files": {
+          "fixture": "development"
+        },
+        "issues": [
+          {
+            "body": "Preserve.",
+            "number": 1,
+            "title": "Development existing issue"
+          },
+          {
+            "body": "Synthetic H27 task W.\n",
+            "number": 2,
+            "title": "H27 approved report W"
+          }
+        ],
+        "repo": {
+          "name": "track1-submission-v1"
+        }
+      }
+    },
+    "users": {},
+    "webhook_deliveries": []
+  },
+  "stub_hits": {
+    "total_hits": 0
+  }
+}

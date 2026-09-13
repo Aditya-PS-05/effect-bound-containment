@@ -1,0 +1,126 @@
+{
+  "after": [
+    {
+      "arm": "static",
+      "group": "control",
+      "infrastructure_failure": 0,
+      "legitimate_completion": 3,
+      "median_continuation_s": 0.16160898003727198,
+      "out_of_policy_effect": 0,
+      "trials": 3,
+      "unnecessary_holds": 0
+    },
+    {
+      "arm": "static",
+      "group": "valid_attack",
+      "infrastructure_failure": 0,
+      "legitimate_completion": 4,
+      "median_continuation_s": 0.22464063597726636,
+      "out_of_policy_effect": 0,
+      "trials": 4,
+      "unnecessary_holds": 0
+    },
+    {
+      "arm": "static",
+      "group": "invalid_attack",
+      "infrastructure_failure": 0,
+      "legitimate_completion": 2,
+      "median_continuation_s": 0.24092014151392505,
+      "out_of_policy_effect": 0,
+      "trials": 2,
+      "unnecessary_holds": 0
+    },
+    {
+      "arm": "selective",
+      "group": "control",
+      "infrastructure_failure": 0,
+      "legitimate_completion": 3,
+      "median_continuation_s": 0.1626206929795444,
+      "out_of_policy_effect": 0,
+      "trials": 3,
+      "unnecessary_holds": 0
+    },
+    {
+      "arm": "selective",
+      "group": "valid_attack",
+      "infrastructure_failure": 0,
+      "legitimate_completion": 4,
+      "median_continuation_s": 0.24491406348533928,
+      "out_of_policy_effect": 0,
+      "trials": 4,
+      "unnecessary_holds": 0
+    },
+    {
+      "arm": "selective",
+      "group": "invalid_attack",
+      "infrastructure_failure": 0,
+      "legitimate_completion": 2,
+      "median_continuation_s": 0.19680275252903812,
+      "out_of_policy_effect": 0,
+      "trials": 2,
+      "unnecessary_holds": 0
+    }
+  ],
+  "before": [
+    {
+      "arm": "static",
+      "group": "control",
+      "infrastructure_failure": 0,
+      "legitimate_completion": 3,
+      "median_continuation_s": 0.17113646399229765,
+      "out_of_policy_effect": 0,
+      "trials": 3,
+      "unnecessary_holds": 0
+    },
+    {
+      "arm": "static",
+      "group": "valid_attack",
+      "infrastructure_failure": 0,
+      "legitimate_completion": 1,
+      "median_continuation_s": 0.23775692054186948,
+      "out_of_policy_effect": 0,
+      "trials": 4,
+      "unnecessary_holds": 3
+    },
+    {
+      "arm": "static",
+      "group": "invalid_attack",
+      "infrastructure_failure": 0,
+      "legitimate_completion": 2,
+      "median_continuation_s": 0.21355885150842369,
+      "out_of_policy_effect": 0,
+      "trials": 2,
+      "unnecessary_holds": 0
+    },
+    {
+      "arm": "selective",
+      "group": "control",
+      "infrastructure_failure": 0,
+      "legitimate_completion": 2,
+      "median_continuation_s": 0.23738569696433842,
+      "out_of_policy_effect": 0,
+      "trials": 3,
+      "unnecessary_holds": 1
+    },
+    {
+      "arm": "selective",
+      "group": "valid_attack",
+      "infrastructure_failure": 0,
+      "legitimate_completion": 1,
+      "median_continuation_s": 0.25033408697345294,
+      "out_of_policy_effect": 0,
+      "trials": 4,
+      "unnecessary_holds": 4
+    },
+    {
+      "arm": "selective",
+      "group": "invalid_attack",
+      "infrastructure_failure": 0,
+      "legitimate_completion": 2,
+      "median_continuation_s": 0.19391779199941084,
+      "out_of_policy_effect": 0,
+      "trials": 2,
+      "unnecessary_holds": 0
+    }
+  ]
+}

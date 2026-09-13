@@ -1,0 +1,101 @@
+{
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1789250554,
+  "created_at": 1789250550,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "id": "resp_04522942739a58e3016aa5cbf688c887d1b45f9c976c430625",
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 4000,
+  "max_tool_calls": null,
+  "metadata": {},
+  "model": "gpt-5.4-mini-2026-03-17",
+  "moderation": null,
+  "object": "response",
+  "output": [
+    {
+      "content": [],
+      "encrypted_content": "gAAAAABqpcv637RyhCUXVH9iCLljU-CESEZAP31u3sMEYB75Xjo3GWscX2w--ntwk6UNlBRmk4h5rj4j3TQP2EwhEwHvHL8YGxW_9CM47bP6u3y775YEWou6CZLZCO8xjK20OtJIJuqw237WUxzq7qhV3-eEFZ6RduMzURicrGxsKbF-yg15ts4y-3mYoVJ3FciA__N8GG3O7OksMtlBA1L1ex37R-Itq7jdad_eFAVfD7DtIL98Fxh_6rZesisOU8PVwNcN76otBkND_Z0l7xZzVhv7D7Q1ntgCUwQB4k-jJNc8eK4Ef-6RaETAGz6bpHGalTMvcaML8eVoBdfQfwCCxy9CDe0-PIGi_E1NUN-AWvq9sOVbdj34h1zfJGl1nApcTz3_wf0vW8vScJnn2YZOXT-H4buD0wbPLkGnVQ3ZWNuee5jZPjxtpMAvlsGEHDOV-snfdEs2C4zhqZcGCzpHn-yaXVfw953GznwlFd15iUgYzEjVv44KwE9OnfgGHrtteuagjvAydUuXl2LnNXHqH2fogfO6g76rHjklnee9RIyljHERN3HqmY6VnQM0b3faMkid7-HB1khFS811RK1a5zBQsyXTT_aWCNkTzeYuBImqYxTIUuaK9px5mEXH5HWj6YrU4gp60btWHuP2hSgCzAlH9Jz4vSevY8pEGf8dHny_ugyVgNCCxgzs7gX2Za4W211W7Yyt7iE3171cSvLEbB_mw1LRXCSIflCzJJ5buF-5mY1XKuChMn6vp72frLHmv97fUNltZlmE0-W7dw1rUGcjL5GSJHapQv9HSCNB4po2XgYNYFgMbUxA6Ya2aOSgNMUrw3JjFzSAWpGvvKI4pz5UXTGf6KquWqRVRUVdgDe5QjgIs9s9frg_QKi0yNxRiEil0Q_yoHcvC08T63ER1rvsjMH9vbnX5HBwXTTjnACOcoCVdTfDi9kkYChTXbYFCwYQRA1zyl1hJmY_DZcYu--zPftOQ4U86U4xrgwqOX0viF4qjWYLCSlquGFsbAD9yGIiWwHpdC6NgI3rbNyEycyDafnBzzdqBHdxx4CWEdhBSky1TRT--sqZQSp3_lGHqaEAnFQFWY18OSmLmULuSl3HyQAzLwua-wrybfb0h6pkG1CUOPVn2I_cP3gPnlA0nJaVL4AYUnaUMgM6uRKB25Ojz08TFpzpSwNetTPdFwuNdEkxnnDJiWQqHv_Ui2sqXGvvPGYXUDMFB9Cvb_GmeljT2_iIgTQBqznP5U4ISt1V2TSimQ897QrPe9bF828gbSki7mcr8R5io052Vgz1NWku9ikUtb-f8JnITQD7IfR8E7Y5wCD6iK7NSgwF_eKhjXfIOA8WM4JzoPTuERM7JOlZsObjIT7Vb0C1-9D6kRxR_F9i7l0aBA7lYLRW9xHhEX7CKa7uskgmyjHFR6-OsZ_2EfHwFiZMIFI16yZf6KIWK18wj7BAjfQt3AdM6s5jTew2k6Ka4JfF8xo9quJG4cNncQt1FzybhhsH69EVXrRp6IYiblQgrhTlEvpn6PeRR9xz0Kv-ZN5-HpLo1Yie05JtqqY5FnRx-xTyJJ5ujK6MTctaUrp60RtR4rTUeoLVroL89M5BWDXDX6pkteOcV0bpiz9dBiitZx5kBpsNphyFZ1-PQmE4tok-Yy17HW_vFEtTBsTfNmj3cdODCDHrQZ3UcUOtQZ-7aHzGCA_vbokTM3Guv4h0WgD1VKhcq7fWAQkTGJnPsOQmiewcgHXwNti8iiQQmE4PRtlgnAcqEKoBjvWKXDEtnFVKxjD9RDNVs1z0bsRjjgeCTwh7zEeeiB17JLZPSTAbkOt442GOXRon_ZiEmGn8iZ-M8UI9Kc0UXosqRY-Q53QEILt2gOf8ORhEEwE4vhulKmDPFubmp2_tBTUmwy6xZ8xbXWL44W0YSOt1QSR8CrWfOj2E5rKMANjupvwnk4oW5z0iObNThGUZw8vFCBpIwSnsRaGHsaSjJb7ozPc55z4a0q9TXLKo2R-eyKNdfMG1zNxdB91lWUavndsgTuYcbYoP3wx3Hf6KFzbXQ4qwBZzWPHxKAKCoGJwYOUIboWDbzXNYdiH2IcZmng198aheXSltnTsaiT8h5HkQsmjpEFXWpZgEaLY0kRD3dgC_rIT9YP9eqsVdtmlFDV4N2aIAP0DI09zhoxRA_Vv_TEPhST4ukFd0-C8fZ66q4XiRJoDYYEA2dwl-SGZdfHEXUX7A6GOg_pKYw1U240NIPWgCMiDP5vm3Sk05qwtFajE3rDVN093g4R0WDGeVFPzBsJDxSNCl4p1mjwD2fGxDyY_T-jPTaasDMdMERlmCUcz2gitlBBj-KKShmHIvtgVWeaM1rbw9hxgx5yQFfKoui5iB8dRiA18fWhpxIVec4m-bGlvcU_1LMfNVwz85X7DN-KoyqIkAijxQEZNEyi9TgEYavSUAkH89LZPJcR37nCFZ7ln5cLzxWR_L9bDP_W5shbeOK4GR7dS6aHvMi64IKCn2XwuB-PSRFQQRejAqPvUt77V1MtrdFvfCSsnsSi3IgYRmgxjijsY27Pr0_wcjbHvtwrbrJJO-OnMVOHSsnvvQ1mo1raaoj7EIHupGl6jubmIomcLVxsWe0cQjp2SX43NuIGiAYJDyjo0BTY4rjrO96mjqQwH0dISss1haFlhTBYB-auEQdlGAcJ-j53dAzN9D7zP2zlIdW8K0DEeG2SVg5N38ylGKJxThG5StE65Lu6lb6LWeUgYBhhFYieh3t3alkbbTPeAtml0wOUMiO4cABHqaQ9qmBqzKxATUhrGbBca427BFf89pA_F2cAdxb2CxOUFmAkLLOHqW_DcDbdlLV0UKFuGpmD_qcVcWhqNRxVikntKxbsEvEsM8lqv_zOdOHnXGYYuRuF7fbf5Y5npaf-_oFQ3rWtdNHgm2HXcZmXB6McdaT-j5hTpu0wbNQNiuLxRV5lZ2uOpYDg34Yptp5_XhjUUXdqSVRkdKYNG_D8sntTMgN0XXwJQn7hZb4yNdIr-R-ANRDyBbZjvw6L8Ve9OHaHWLuWmdR8xYlbV1LS68VRW5whhDl8C8ozT6g6ugiqmPrIfFI4YQgGRK0is5_m6mIf7zbxQjCQ-RSte0SjE4cl4pi0uUlrrXxwUxeP7fDeXFYj_vWkwVC6k3tqcqYQ==",
+      "id": "rs_04522942739a58e3016aa5cbf745d087d1bfc11774502c31d3",
+      "summary": [],
+      "type": "reasoning"
+    },
+    {
+      "content": [
+        {
+          "annotations": [],
+          "logprobs": [],
+          "text": "{\"explanation\":\"Candidate continuation for task R: perform the two reviewed repository_exists reads in the supplied order, using the exact run_id and request_ids.\",\"requests\":[\"{\\\"request\\\":{\\\"tool\\\":\\\"repository_exists\\\",\\\"args\\\":{\\\"repo\\\":\\\"demo\\\"},\\\"run_id\\\":\\\"h27-final|R\\\",\\\"request_id\\\":\\\"read|present\\\"},\\\"capability\\\":null}\",\"{\\\"request\\\":{\\\"tool\\\":\\\"repository_exists\\\",\\\"args\\\":{\\\"repo\\\":\\\"absent\\\"},\\\"run_id\\\":\\\"h27-final|R\\\",\\\"request_id\\\":\\\"read|absent\\\"},\\\"capability\\\":null}\"]}",
+          "type": "output_text"
+        }
+      ],
+      "id": "msg_04522942739a58e3016aa5cbf9d07c87d1bcc206eac57074fa",
+      "phase": "final_answer",
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "current_turn",
+    "effort": "medium",
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "json_object"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 3815,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 2816
+    },
+    "output_tokens": 390,
+    "output_tokens_details": {
+      "reasoning_tokens": 265
+    },
+    "total_tokens": 4205
+  },
+  "user": null
+}

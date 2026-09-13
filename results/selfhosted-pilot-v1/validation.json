@@ -1,0 +1,15 @@
+{
+  "api_retries": 0,
+  "candidate_seal_verified": true,
+  "cleanup_snapshots_match_final": true,
+  "development_cells_verified": 4,
+  "earlier_evidence_changed": [],
+  "final_cells_verified": 18,
+  "frozen_source_and_protocol_verified": true,
+  "median_paired_latency_difference_s": 0.8474577030283399,
+  "model_calls_verified": 10,
+  "model_cost_usd": 0.0952803,
+  "new_arga_runs": 0,
+  "new_ec2_instances": 0,
+  "reorganization_source_edits": 0
+}

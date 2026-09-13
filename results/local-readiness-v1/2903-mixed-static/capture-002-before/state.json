@@ -1,0 +1,17 @@
+{
+  "issues": [],
+  "jobs": [],
+  "operations": [],
+  "repositories": [
+    {
+      "name": "synthetic-1be4d5ac826e/project",
+      "readable": 1,
+      "writable": 1
+    },
+    {
+      "name": "synthetic-1be4d5ac826e/restricted",
+      "readable": 0,
+      "writable": 0
+    }
+  ]
+}

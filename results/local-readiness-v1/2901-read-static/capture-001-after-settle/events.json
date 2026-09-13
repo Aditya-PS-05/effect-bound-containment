@@ -1,0 +1,17 @@
+[
+  {
+    "kind": "request",
+    "request": {
+      "args": {
+        "repo": "synthetic-be201a9344db/project"
+      },
+      "request_id": "read-0-be201a9344db",
+      "run_id": "local-be201a9344db",
+      "tool": "repository_exists"
+    },
+    "response": {
+      "exists": true
+    },
+    "status": 200
+  }
+]

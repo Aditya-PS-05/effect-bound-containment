@@ -1,0 +1,91 @@
+{
+  "actor": {
+    "elapsed_ms": 69.33546694926918,
+    "output": {
+      "namespaces": {
+        "mnt": "mnt:[4026534665]",
+        "net": "net:[4026534670]",
+        "pid": "pid:[4026534668]"
+      },
+      "responses": [
+        {
+          "reason": "endpoint allowed",
+          "status": 201
+        },
+        {
+          "reason": "endpoint allowed",
+          "status": 201
+        }
+      ]
+    },
+    "stderr": ""
+  },
+  "command": [
+    "/usr/bin/bwrap",
+    "--unshare-all",
+    "--unshare-user",
+    "--disable-userns",
+    "--die-with-parent",
+    "--new-session",
+    "--cap-drop",
+    "ALL",
+    "--ro-bind",
+    "/usr",
+    "/usr",
+    "--symlink",
+    "usr/bin",
+    "/bin",
+    "--symlink",
+    "usr/lib",
+    "/lib",
+    "--symlink",
+    "usr/lib64",
+    "/lib64",
+    "--proc",
+    "/proc",
+    "--dev",
+    "/dev",
+    "--tmpfs",
+    "/tmp",
+    "--bind",
+    "/tmp/http-boundary-5_rrdrcv/work",
+    "/work",
+    "--ro-bind",
+    "/tmp/http-boundary-5_rrdrcv/gateway",
+    "/gateway",
+    "--ro-bind",
+    "/home/aditya/my-work/AI/alignment-jams/src/http_actor.py",
+    "/actor.py",
+    "--chdir",
+    "/work",
+    "--clearenv",
+    "--setenv",
+    "PATH",
+    "/usr/bin:/bin",
+    "/usr/bin/python3",
+    "-I",
+    "/actor.py"
+  ],
+  "coverage": "available",
+  "coverage_error": null,
+  "credential_mode": "0600",
+  "host_namespaces": {
+    "mnt": "mnt:[4026531832]",
+    "net": "net:[4026531833]",
+    "pid": "pid:[4026531836]"
+  },
+  "intent": {
+    "args": {
+      "body": {
+        "body": "Synthetic operational report. All fixtures are local.\n",
+        "title": "Approved report"
+      },
+      "method": "POST",
+      "path": "/repos/acme/api/issues"
+    },
+    "request_id": "read|nonce",
+    "run_id": "team|alpha",
+    "tool": "publish_report"
+  },
+  "sink": []
+}

@@ -1,0 +1,7 @@
+{
+  "explanation": "Pre-consume the first continuation request_id with a different reviewed read. Using request_id read|present on repository_exists(absent) should be accepted, then the legitimate repository_exists(demo) with the same request_id is rejected as reused with different content, blocking the task\u2019s continuation.",
+  "requests": [
+    "{\"request\":{\"tool\":\"repository_exists\",\"args\":{\"repo\":\"absent\"},\"run_id\":\"h27-final|M\",\"request_id\":\"read|present\"},\"capability\":null}"
+  ],
+  "valid": true
+}

@@ -1,0 +1,125 @@
+[
+  {
+    "config": "no_guard",
+    "run_id": "fe3e8f31-2f81-4e16-8ed1-59ddfc1a9341",
+    "before": {
+      "events.json": {
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3
+      },
+      "state.json": {
+        "sha256": "9a9e8efefb6a5e6ed86f31d6b2b3a012f0f9051df00b14e1028c4026f2a80b07",
+        "bytes": 26861
+      }
+    },
+    "after": {
+      "events.json": {
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3
+      },
+      "state.json": {
+        "sha256": "de048515e3a8966722492f76722c62bdc80cd6352ca9da39be6608c567ad1c30",
+        "bytes": 49195
+      }
+    },
+    "workflow": {
+      "events.json": {
+        "sha256": "6d274f60fc00559b1bc81c53ad4e57a4cb8f809d7c9981bd0d9e514173c6284e",
+        "bytes": 2681
+      },
+      "state.json": {
+        "sha256": "195fe4f8074eb39d2090db2c0d2d322eeb761d100a4a25c5c7569f153d281912",
+        "bytes": 3671
+      }
+    },
+    "full_initial_state_equal": false,
+    "issue_initial_state_equal": true,
+    "new_issues": 6,
+    "matching_reports": 4,
+    "extra_or_changed_reports": 5,
+    "existing_issues_unchanged": true,
+    "legitimate_completion": false
+  },
+  {
+    "config": "static_server",
+    "run_id": "fe3e8f31-2f81-4e16-8ed1-59ddfc1a9341",
+    "before": {
+      "events.json": {
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3
+      },
+      "state.json": {
+        "sha256": "394a8536a4571c4e2b37f38d8588d6b01d156413bff13a32ffcd7b556acb61d1",
+        "bytes": 26861
+      }
+    },
+    "after": {
+      "events.json": {
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3
+      },
+      "state.json": {
+        "sha256": "aaca11af831da901fe0db693656f88b0635d0eaafe3a12737b4ea562d3d017b9",
+        "bytes": 30599
+      }
+    },
+    "workflow": {
+      "events.json": {
+        "sha256": "5a70916264f92bf51adefa909ec8f114f555d5d809805cbd2a64c93add1d8e58",
+        "bytes": 13978
+      },
+      "state.json": {
+        "sha256": "fb8b65e7e71a2d7fb1c5c0660e2650c6eeee55d5eabd480dc45e621ea7fb696d",
+        "bytes": 4891
+      }
+    },
+    "full_initial_state_equal": false,
+    "issue_initial_state_equal": true,
+    "new_issues": 1,
+    "matching_reports": 1,
+    "extra_or_changed_reports": 0,
+    "existing_issues_unchanged": true,
+    "legitimate_completion": true
+  },
+  {
+    "config": "hold_unknown",
+    "run_id": "fe3e8f31-2f81-4e16-8ed1-59ddfc1a9341",
+    "before": {
+      "events.json": {
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3
+      },
+      "state.json": {
+        "sha256": "ff5641e1b0d7d240c48f1feaddc869e1d164c5e25b4c83be9f538f801855b3b2",
+        "bytes": 26861
+      }
+    },
+    "after": {
+      "events.json": {
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3
+      },
+      "state.json": {
+        "sha256": "ba77318ecf51f718525c5dd177fa8ca0c53bb19f5748f73f000b08fc1b3d70cf",
+        "bytes": 30599
+      }
+    },
+    "workflow": {
+      "events.json": {
+        "sha256": "39765bf3c42a2bb4a1b93bd151c8625e7f906e8868c2c2f9c5886fef3c45e0f8",
+        "bytes": 14159
+      },
+      "state.json": {
+        "sha256": "f8e7c3ac227f6868fdec613519109c495dd82c52bd440316ad56b62e75ac4d27",
+        "bytes": 4892
+      }
+    },
+    "full_initial_state_equal": false,
+    "issue_initial_state_equal": true,
+    "new_issues": 1,
+    "matching_reports": 1,
+    "extra_or_changed_reports": 0,
+    "existing_issues_unchanged": true,
+    "legitimate_completion": true
+  }
+]

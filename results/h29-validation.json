@@ -1,0 +1,31 @@
+{
+  "earlier_full_suite": {
+    "passed": 228,
+    "failed": 0,
+    "seconds": 42.69
+  },
+  "expanded_full_suite": {
+    "passed": 232,
+    "failed": 1,
+    "seconds": 84.64,
+    "failure": "tests/test_broker_workflow.py::test_complete_isolated_broker_workflow[hold_unknown]",
+    "error": "ValueError: Missing or unexpected requests in tape",
+    "cause": "not established; failing observer did not retain rejected tape"
+  },
+  "isolated_rerun": {
+    "passed": 1,
+    "seconds": 2.08
+  },
+  "model_calls_this_followup": 0,
+  "cloud_resources_provisioned": 0,
+  "final_full_suite": {
+    "passed": 233,
+    "failed": 0,
+    "seconds": 67.91
+  },
+  "security_assertions_passed": 11,
+  "historical_evidence_verified": true,
+  "readiness_cells_verified": 32,
+  "offline_plumbing_cells_verified": 18,
+  "ruff_and_diff_check_passed": true
+}

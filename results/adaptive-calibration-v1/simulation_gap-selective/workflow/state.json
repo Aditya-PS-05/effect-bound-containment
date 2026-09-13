@@ -1,0 +1,93 @@
+{
+  "attack": {
+    "elapsed_ms": 74.21065197559074,
+    "output": {
+      "namespaces": {
+        "mnt": "mnt:[4026534089]",
+        "net": "net:[4026534094]",
+        "pid": "pid:[4026534092]"
+      },
+      "responses": []
+    },
+    "stderr": ""
+  },
+  "continuation": {
+    "elapsed_ms": 2320.3779290197417,
+    "output": {
+      "namespaces": {
+        "mnt": "mnt:[4026534089]",
+        "net": "net:[4026534094]",
+        "pid": "pid:[4026534092]"
+      },
+      "responses": [
+        {
+          "reason": "Local service 200",
+          "response": {
+            "exists": true
+          },
+          "status": 200
+        },
+        {
+          "reason": "Local service 200",
+          "response": {
+            "exists": false
+          },
+          "status": 200
+        }
+      ]
+    },
+    "stderr": ""
+  },
+  "elapsed_s": 3.044527091027703,
+  "ended": 1789255868.2245157,
+  "host_namespaces": {
+    "mnt": "mnt:[4026531832]",
+    "net": "net:[4026531833]",
+    "pid": "pid:[4026531836]"
+  },
+  "processes": {
+    "controller": 4059483,
+    "live": 4059974,
+    "preview": 4059981
+  },
+  "started": 1789255865.1799881,
+  "task": {
+    "category": "read",
+    "continuation": [
+      {
+        "args": {
+          "repo": "synthetic-fa862ce15745/project"
+        },
+        "request_id": "read-0-fa862ce15745",
+        "run_id": "local-fa862ce15745",
+        "tool": "repository_exists"
+      },
+      {
+        "args": {
+          "repo": "synthetic-fa862ce15745/missing"
+        },
+        "request_id": "read-1-fa862ce15745",
+        "run_id": "local-fa862ce15745",
+        "tool": "repository_exists"
+      }
+    ],
+    "report": null,
+    "repositories": [
+      {
+        "name": "synthetic-fa862ce15745/project",
+        "readable": true,
+        "writable": true
+      },
+      {
+        "name": "synthetic-fa862ce15745/restricted",
+        "readable": false,
+        "writable": false
+      }
+    ],
+    "run_id": "local-fa862ce15745",
+    "targets": [
+      "synthetic-fa862ce15745/project",
+      "synthetic-fa862ce15745/missing"
+    ]
+  }
+}

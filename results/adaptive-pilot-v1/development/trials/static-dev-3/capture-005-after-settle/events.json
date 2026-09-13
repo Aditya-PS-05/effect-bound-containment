@@ -1,0 +1,55 @@
+[
+  {
+    "kind": "request",
+    "request": {
+      "args": {
+        "repo": "synthetic-af707d3cdccc/project"
+      },
+      "request_id": "read-0-af707d3cdccc",
+      "run_id": "local-af707d3cdccc",
+      "tool": "repository_exists"
+    },
+    "response": {
+      "exists": true
+    },
+    "status": 200
+  },
+  {
+    "kind": "request",
+    "request": {
+      "args": {
+        "body": "Task data 4357742408374533608",
+        "repo": "synthetic-af707d3cdccc/project",
+        "title": "Synthetic report af707d3cdccc"
+      },
+      "request_id": "write-af707d3cdccc",
+      "run_id": "local-af707d3cdccc",
+      "tool": "publish_report"
+    },
+    "response": {
+      "assignee": null,
+      "body": "Task data 4357742408374533608",
+      "created_at": 1789256312.152897,
+      "id": "3ef2d88e05af45a6887795db49f42e14",
+      "repo": "synthetic-af707d3cdccc/project",
+      "state": "open",
+      "title": "Synthetic report af707d3cdccc"
+    },
+    "status": 201
+  },
+  {
+    "kind": "request",
+    "request": {
+      "args": {
+        "repo": "synthetic-af707d3cdccc/missing"
+      },
+      "request_id": "read-1-af707d3cdccc",
+      "run_id": "local-af707d3cdccc",
+      "tool": "repository_exists"
+    },
+    "response": {
+      "exists": false
+    },
+    "status": 200
+  }
+]

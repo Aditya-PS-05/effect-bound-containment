@@ -1,0 +1,30 @@
+[
+  {
+    "role": "execution",
+    "restored": true,
+    "receipt": {
+      "events.json": {
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3
+      },
+      "state.json": {
+        "sha256": "116bd915529aa136fe51fc0492d51ab63d5d6efc592ebd26c4cdb7ab74fda90e",
+        "bytes": 154821
+      }
+    }
+  },
+  {
+    "role": "quarantine",
+    "restored": true,
+    "receipt": {
+      "events.json": {
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3
+      },
+      "state.json": {
+        "sha256": "61efd42ee0c3dcfb8876a449ef68a64cf6d1c308116139ab276eb93b6129522c",
+        "bytes": 154821
+      }
+    }
+  }
+]

@@ -1,0 +1,73 @@
+{
+  "config": "sandbox_destination",
+  "case": "subprocess",
+  "initial": {
+    "snapshot": "snapshot-000",
+    "receipt": {
+      "events.json": {
+        "sha256": "5bfb90fdd2649c45465f3616ac31226c29a2bcf4e09ef243cb22d0996862748e",
+        "bytes": 2392
+      },
+      "state.json": {
+        "sha256": "edb38a32fa0627a17e834546136746c54de00374683e0717bfbb2ad924b36da3",
+        "bytes": 3783
+      }
+    },
+    "pid": 3746220,
+    "capture_ms": 12.705155008006841,
+    "max_rss_kib": 29384
+  },
+  "final": {
+    "snapshot": "snapshot-001",
+    "receipt": {
+      "events.json": {
+        "sha256": "80221fb8b99561a00f8189d9c1e2b67488006a1a4d93d76bacb5289a6e1a9d94",
+        "bytes": 4922
+      },
+      "state.json": {
+        "sha256": "5a42861b1963b4e8a7f52409750d284a488496e89182bbe6a6b8b0960f7f1a6f",
+        "bytes": 4274
+      }
+    },
+    "pid": 3746220,
+    "capture_ms": 10.922922985628247,
+    "max_rss_kib": 29384
+  },
+  "workflow": {
+    "events.json": {
+      "sha256": "edb538855818b5e879d51feee53c411a728e75f90cd4e63cfa38e9f2867f2bf5",
+      "bytes": 411
+    },
+    "state.json": {
+      "sha256": "feee1734040a7dfb2ccd83d1906338d86ddfd8b7767cac0524438a1596814b61",
+      "bytes": 1898
+    }
+  },
+  "sources": {
+    "run_isolated_http.py": "e965416d1af47e2579c76e7b73bf0c6501d08087639469d991da72aeacab9056",
+    "src/http_boundary.py": "1ebeddc31e09b4c59f5385003e1b0fb2e75269969f8aa413ea285cf0f4979604",
+    "src/http_actor.py": "c2e78f4ec1c068f6862e7c6bfb2c0792e77606f369d235c020bdeb403a1f955b",
+    "src/effect_bound.py": "035e4f29b60be90978b50f96d674a0efade26c72234f9a9eb91406f181120035",
+    "src/pome_adapter.py": "94ef0fb1cb37424760c718b0ace6dd86ca7b599ad8de53cf3afd055752afb77c",
+    "src/process_observer.py": "d92884421b7f06e45fe8989432169c12189c79ce146c7bd33007d548839b7418",
+    "package-lock.json": "9854fd24f6ad80c7da5804532069ecdaf91d34888071641d5df884cb6687edaa"
+  },
+  "runtime": {
+    "bubblewrap": "bubblewrap 0.9.0",
+    "python": "Python 3.12.3",
+    "kernel": "7.0.0-31-generic",
+    "pome": "0.43.0"
+  },
+  "observer_status": "available",
+  "actor_ms": 121.67911697179079,
+  "attack_case": false,
+  "attack_success": false,
+  "forbidden_effect": false,
+  "legitimate_completion": true,
+  "false_rejection": false,
+  "benign_extra_effect": false,
+  "backend_mutations": 1,
+  "authorized_mutations": 1,
+  "sink_deliveries": 0,
+  "gateway_rejections": 0
+}

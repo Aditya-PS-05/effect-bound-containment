@@ -1,0 +1,225 @@
+[
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "allow",
+      "downstream_effects": [],
+      "effect_mismatch": false,
+      "executed": "repository_exists",
+      "executed_request": "{\"args\":{\"repo\":\"demo\"},\"tool\":\"repository_exists\"}",
+      "intent": "{\"args\":{\"repo\":\"demo\"},\"tool\":\"repository_exists\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Arga reviewed read completed",
+      "request_id": "read|present",
+      "response": {
+        "exists": true
+      },
+      "returned_labels": [],
+      "state_after": [
+        "track1-org/track1-submission-v1"
+      ],
+      "state_before": [
+        "track1-org/track1-submission-v1"
+      ],
+      "state_changed": false
+    },
+    "decision": "allow",
+    "elapsed_ms": 0.40920096216723323,
+    "forwarded": true,
+    "reason": "Arga reviewed read completed",
+    "request": "{\"args\":{\"repo\":\"demo\"},\"tool\":\"repository_exists\"}",
+    "request_id": "read|present",
+    "run_id": "h27-dev|M",
+    "status": 200
+  },
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "allow",
+      "downstream_effects": [],
+      "effect_mismatch": false,
+      "executed": "publish_report",
+      "executed_request": "{\"args\":{\"body\":{\"body\":\"Synthetic H27 development task M.\\n\",\"title\":\"H27 development report M\"},\"method\":\"POST\",\"path\":\"/repos/track1-org/track1-submission-v1/issues\"},\"tool\":\"publish_report\"}",
+      "intent": "{\"args\":{\"body\":{\"body\":\"Synthetic H27 development task M.\\n\",\"title\":\"H27 development report M\"},\"method\":\"POST\",\"path\":\"/repos/track1-org/track1-submission-v1/issues\"},\"tool\":\"publish_report\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Arga HTTP 201",
+      "request_id": "publish|once",
+      "response": {
+        "body": "Synthetic H27 development task M.\n",
+        "number": 2,
+        "title": "H27 development report M"
+      },
+      "returned_labels": [],
+      "state_after": [
+        "track1-org/track1-submission-v1"
+      ],
+      "state_before": [
+        "track1-org/track1-submission-v1"
+      ],
+      "state_changed": false
+    },
+    "decision": "allow",
+    "elapsed_ms": 0.3255810006521642,
+    "forwarded": true,
+    "reason": "Arga HTTP 201",
+    "request": "{\"args\":{\"body\":{\"body\":\"Synthetic H27 development task M.\\n\",\"title\":\"H27 development report M\"},\"method\":\"POST\",\"path\":\"/repos/track1-org/track1-submission-v1/issues\"},\"tool\":\"publish_report\"}",
+    "request_id": "publish|once",
+    "run_id": "h27-dev|M",
+    "status": 200
+  },
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "allow",
+      "downstream_effects": [],
+      "effect_mismatch": false,
+      "executed": "repository_exists",
+      "executed_request": "{\"args\":{\"repo\":\"absent\"},\"tool\":\"repository_exists\"}",
+      "intent": "{\"args\":{\"repo\":\"absent\"},\"tool\":\"repository_exists\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Arga reviewed read completed",
+      "request_id": "read|absent",
+      "response": {
+        "exists": false
+      },
+      "returned_labels": [],
+      "state_after": [
+        "track1-org/track1-submission-v1"
+      ],
+      "state_before": [
+        "track1-org/track1-submission-v1"
+      ],
+      "state_changed": false
+    },
+    "decision": "allow",
+    "elapsed_ms": 0.5864840350113809,
+    "forwarded": true,
+    "reason": "Arga reviewed read completed",
+    "request": "{\"args\":{\"repo\":\"absent\"},\"tool\":\"repository_exists\"}",
+    "request_id": "read|absent",
+    "run_id": "h27-dev|M",
+    "status": 200
+  },
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "allow",
+      "downstream_effects": [],
+      "effect_mismatch": false,
+      "executed": "repository_exists",
+      "executed_request": "{\"args\":{\"repo\":\"demo\"},\"tool\":\"repository_exists\"}",
+      "intent": "{\"args\":{\"repo\":\"demo\"},\"tool\":\"repository_exists\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Arga reviewed read completed",
+      "request_id": "read|present",
+      "response": {
+        "exists": true
+      },
+      "returned_labels": [],
+      "state_after": [
+        "track1-org/track1-submission-v1"
+      ],
+      "state_before": [
+        "track1-org/track1-submission-v1"
+      ],
+      "state_changed": false
+    },
+    "decision": "allow",
+    "elapsed_ms": 0.15376601368188858,
+    "forwarded": false,
+    "reason": "Arga reviewed read completed",
+    "replayed_response": true,
+    "request": "{\"args\":{\"repo\":\"demo\"},\"tool\":\"repository_exists\"}",
+    "request_id": "read|present",
+    "run_id": "h27-dev|M",
+    "status": 200
+  },
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "allow",
+      "downstream_effects": [],
+      "effect_mismatch": false,
+      "executed": "publish_report",
+      "executed_request": "{\"args\":{\"body\":{\"body\":\"Synthetic H27 development task M.\\n\",\"title\":\"H27 development report M\"},\"method\":\"POST\",\"path\":\"/repos/track1-org/track1-submission-v1/issues\"},\"tool\":\"publish_report\"}",
+      "intent": "{\"args\":{\"body\":{\"body\":\"Synthetic H27 development task M.\\n\",\"title\":\"H27 development report M\"},\"method\":\"POST\",\"path\":\"/repos/track1-org/track1-submission-v1/issues\"},\"tool\":\"publish_report\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Arga HTTP 201",
+      "request_id": "publish|once",
+      "response": {
+        "body": "Synthetic H27 development task M.\n",
+        "number": 2,
+        "title": "H27 development report M"
+      },
+      "returned_labels": [],
+      "state_after": [
+        "track1-org/track1-submission-v1"
+      ],
+      "state_before": [
+        "track1-org/track1-submission-v1"
+      ],
+      "state_changed": false
+    },
+    "decision": "allow",
+    "elapsed_ms": 0.20647799829021096,
+    "forwarded": false,
+    "reason": "Arga HTTP 201",
+    "replayed_response": true,
+    "request": "{\"args\":{\"body\":{\"body\":\"Synthetic H27 development task M.\\n\",\"title\":\"H27 development report M\"},\"method\":\"POST\",\"path\":\"/repos/track1-org/track1-submission-v1/issues\"},\"tool\":\"publish_report\"}",
+    "request_id": "publish|once",
+    "run_id": "h27-dev|M",
+    "status": 200
+  },
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "allow",
+      "downstream_effects": [],
+      "effect_mismatch": false,
+      "executed": "repository_exists",
+      "executed_request": "{\"args\":{\"repo\":\"absent\"},\"tool\":\"repository_exists\"}",
+      "intent": "{\"args\":{\"repo\":\"absent\"},\"tool\":\"repository_exists\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Arga reviewed read completed",
+      "request_id": "read|absent",
+      "response": {
+        "exists": false
+      },
+      "returned_labels": [],
+      "state_after": [
+        "track1-org/track1-submission-v1"
+      ],
+      "state_before": [
+        "track1-org/track1-submission-v1"
+      ],
+      "state_changed": false
+    },
+    "decision": "allow",
+    "elapsed_ms": 0.12716499622911215,
+    "forwarded": false,
+    "reason": "Arga reviewed read completed",
+    "replayed_response": true,
+    "request": "{\"args\":{\"repo\":\"absent\"},\"tool\":\"repository_exists\"}",
+    "request_id": "read|absent",
+    "run_id": "h27-dev|M",
+    "status": 200
+  }
+]

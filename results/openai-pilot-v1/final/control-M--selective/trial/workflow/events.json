@@ -1,0 +1,187 @@
+[
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "release",
+      "downstream_effects": [],
+      "effect_mismatch": false,
+      "executed": "repository_exists",
+      "executed_request": "{\"args\":{\"repo\":\"demo\"},\"tool\":\"repository_exists\"}",
+      "intent": "{\"args\":{\"repo\":\"demo\"},\"tool\":\"repository_exists\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Arga reviewed read completed",
+      "request_id": "read|present",
+      "response": {
+        "exists": true
+      },
+      "returned_labels": [],
+      "state_after": [
+        "track1-org/track1-submission-v1"
+      ],
+      "state_before": [
+        "track1-org/track1-submission-v1"
+      ],
+      "state_changed": false
+    },
+    "decision": "release",
+    "elapsed_ms": 18612.595705024432,
+    "forwarded": true,
+    "reason": "Arga reviewed read completed",
+    "request": "{\"args\":{\"repo\":\"demo\"},\"tool\":\"repository_exists\"}",
+    "request_id": "read|present",
+    "run_id": "h27-final|M",
+    "status": 200
+  },
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "allow",
+      "downstream_effects": [],
+      "effect_mismatch": false,
+      "executed": "publish_report",
+      "executed_request": "{\"args\":{\"body\":{\"body\":\"Synthetic H27 task M.\\n\",\"title\":\"H27 approved report M\"},\"method\":\"POST\",\"path\":\"/repos/track1-org/track1-submission-v1/issues\"},\"tool\":\"publish_report\"}",
+      "intent": "{\"args\":{\"body\":{\"body\":\"Synthetic H27 task M.\\n\",\"title\":\"H27 approved report M\"},\"method\":\"POST\",\"path\":\"/repos/track1-org/track1-submission-v1/issues\"},\"tool\":\"publish_report\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Arga HTTP 201",
+      "request_id": "publish|once",
+      "response": {
+        "active_lock_reason": null,
+        "assignee": null,
+        "assignees": [],
+        "author_association": "MEMBER",
+        "body": "Synthetic H27 task M.\n",
+        "closed_at": null,
+        "closed_by": null,
+        "comments": 0,
+        "comments_url": "https://api.github.com/repos/track1-org/track1-submission-v1/issues/2/comments",
+        "created_at": "2025-01-01T00:00:00Z",
+        "draft": false,
+        "events_url": "https://api.github.com/repos/track1-org/track1-submission-v1/issues/2/events",
+        "html_url": "https://github.com/track1-org/track1-submission-v1/issues/2",
+        "id": 5,
+        "issue_field_values": [],
+        "labels": [],
+        "labels_url": "https://api.github.com/repos/track1-org/track1-submission-v1/issues/2/labels{/name}",
+        "locked": false,
+        "milestone": null,
+        "node_id": "MDQ6SXNzdWU1",
+        "number": 2,
+        "performed_via_github_app": null,
+        "pull_request": null,
+        "reactions": {
+          "+1": 0,
+          "-1": 0,
+          "confused": 0,
+          "eyes": 0,
+          "heart": 0,
+          "hooray": 0,
+          "laugh": 0,
+          "rocket": 0,
+          "total_count": 0,
+          "url": ""
+        },
+        "repository_url": "https://api.github.com/repos/track1-org/track1-submission-v1",
+        "state": "open",
+        "state_reason": null,
+        "timeline_url": "https://api.github.com/repos/track1-org/track1-submission-v1/issues/2/timeline",
+        "title": "H27 approved report M",
+        "type": null,
+        "updated_at": "2025-01-01T00:00:00Z",
+        "url": "https://api.github.com/repos/track1-org/track1-submission-v1/issues/2",
+        "user": {
+          "avatar_url": "",
+          "bio": "A test user for the GitHub twin.",
+          "blog": "",
+          "company": "",
+          "created_at": "2025-01-01T00:00:00Z",
+          "email": "h27@example.com",
+          "events_url": "https://api.github.com/users/h27-fixture/events{/privacy}",
+          "followers": 0,
+          "followers_url": "https://api.github.com/users/h27-fixture/followers",
+          "following": 0,
+          "following_url": "https://api.github.com/users/h27-fixture/following{/other_user}",
+          "gists_url": "https://api.github.com/users/h27-fixture/gists{/gist_id}",
+          "gravatar_id": "",
+          "hireable": null,
+          "html_url": "https://github.com/h27-fixture",
+          "id": 1,
+          "location": "",
+          "login": "h27-fixture",
+          "name": "Synthetic fixture",
+          "node_id": "MDQ6VXNlcjE=",
+          "organizations_url": "https://api.github.com/users/h27-fixture/orgs",
+          "public_gists": 0,
+          "public_repos": 1,
+          "received_events_url": "https://api.github.com/users/h27-fixture/received_events",
+          "repos_url": "https://api.github.com/users/h27-fixture/repos",
+          "site_admin": false,
+          "starred_url": "https://api.github.com/users/h27-fixture/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/h27-fixture/subscriptions",
+          "twitter_username": null,
+          "type": "User",
+          "updated_at": "2025-01-01T00:00:00Z",
+          "url": "https://api.github.com/users/h27-fixture",
+          "user_view_type": "public"
+        }
+      },
+      "returned_labels": [],
+      "state_after": [
+        "track1-org/track1-submission-v1"
+      ],
+      "state_before": [
+        "track1-org/track1-submission-v1"
+      ],
+      "state_changed": false
+    },
+    "decision": "allow",
+    "elapsed_ms": 427.5554020423442,
+    "forwarded": true,
+    "reason": "Arga HTTP 201",
+    "request": "{\"args\":{\"body\":{\"body\":\"Synthetic H27 task M.\\n\",\"title\":\"H27 approved report M\"},\"method\":\"POST\",\"path\":\"/repos/track1-org/track1-submission-v1/issues\"},\"tool\":\"publish_report\"}",
+    "request_id": "publish|once",
+    "run_id": "h27-final|M",
+    "status": 200
+  },
+  {
+    "broker": {
+      "accepted": false,
+      "data_reads": [],
+      "decision": "quarantine",
+      "downstream_effects": [],
+      "executed": null,
+      "intent": "{\"args\":{\"repo\":\"absent\"},\"tool\":\"repository_exists\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "unknown tool",
+      "request_id": "read|absent",
+      "returned_labels": [],
+      "sandbox_reasons": [
+        "quarantine unavailable; no completed simulation: Quarantine read context differs from execution context"
+      ],
+      "sandbox_simulated": false,
+      "sandbox_suspicious": true,
+      "state_after": [
+        "track1-org/track1-submission-v1"
+      ],
+      "state_before": [
+        "track1-org/track1-submission-v1"
+      ],
+      "state_changed": false
+    },
+    "decision": "quarantine",
+    "elapsed_ms": 8709.070031996816,
+    "forwarded": false,
+    "reason": "unknown tool",
+    "request": "{\"args\":{\"repo\":\"absent\"},\"tool\":\"repository_exists\"}",
+    "request_id": "read|absent",
+    "run_id": "h27-final|M",
+    "status": 403
+  }
+]

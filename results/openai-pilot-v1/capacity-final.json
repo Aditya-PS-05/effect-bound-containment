@@ -1,0 +1,9 @@
+{
+  "cli_exit_code": 0,
+  "limits": [
+    "Plan: free",
+    "Validation runs: 0/10 remaining this month",
+    "Twins per run: 1",
+    "Max run TTL: 10 minutes"
+  ]
+}

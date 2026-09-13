@@ -1,0 +1,72 @@
+{
+  "after": {
+    "events.json": {
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "state.json": {
+      "bytes": 766,
+      "sha256": "be8a158ff2fee1ba9558c01f66abf6af07a790482c376d7c7c8dbd76ca230a2b"
+    }
+  },
+  "after-attack": {
+    "events.json": {
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "state.json": {
+      "bytes": 624,
+      "sha256": "53b89502be2cca3f857193f16eb2ad7f3cbfe6b3a6743bd712e4cc75c4733458"
+    }
+  },
+  "before": {
+    "events.json": {
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "state.json": {
+      "bytes": 624,
+      "sha256": "53b89502be2cca3f857193f16eb2ad7f3cbfe6b3a6743bd712e4cc75c4733458"
+    }
+  },
+  "preview-after": {
+    "events.json": {
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "state.json": {
+      "bytes": 624,
+      "sha256": "53b89502be2cca3f857193f16eb2ad7f3cbfe6b3a6743bd712e4cc75c4733458"
+    }
+  },
+  "preview-after-attack": {
+    "events.json": {
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "state.json": {
+      "bytes": 624,
+      "sha256": "53b89502be2cca3f857193f16eb2ad7f3cbfe6b3a6743bd712e4cc75c4733458"
+    }
+  },
+  "preview-before": {
+    "events.json": {
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "state.json": {
+      "bytes": 624,
+      "sha256": "53b89502be2cca3f857193f16eb2ad7f3cbfe6b3a6743bd712e4cc75c4733458"
+    }
+  },
+  "workflow": {
+    "events.json": {
+      "bytes": 3208,
+      "sha256": "c13ba1a62c034909fe3a62e02c2cfe1b38343468a4618aabb89d493f0c12598c"
+    },
+    "state.json": {
+      "bytes": 4638,
+      "sha256": "ee7fb53e28cfacf16d012fdbc1f786a440882541e05ef0e575cc54a7b4ed85ce"
+    }
+  }
+}

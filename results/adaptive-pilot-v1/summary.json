@@ -1,0 +1,128 @@
+[
+  {
+    "arm": "static",
+    "id": "selective-R--static",
+    "origin": "selective",
+    "status": "unrun",
+    "task": "R"
+  },
+  {
+    "arm": "selective",
+    "id": "selective-R--selective",
+    "origin": "selective",
+    "status": "unrun",
+    "task": "R"
+  },
+  {
+    "arm": "selective",
+    "id": "control-R--selective",
+    "origin": null,
+    "status": "unrun",
+    "task": "R"
+  },
+  {
+    "arm": "static",
+    "id": "control-R--static",
+    "origin": null,
+    "status": "unrun",
+    "task": "R"
+  },
+  {
+    "arm": "static",
+    "id": "selective-M--static",
+    "origin": "selective",
+    "status": "unrun",
+    "task": "M"
+  },
+  {
+    "arm": "selective",
+    "id": "selective-M--selective",
+    "origin": "selective",
+    "status": "unrun",
+    "task": "M"
+  },
+  {
+    "arm": "static",
+    "id": "static-W--static",
+    "origin": "static",
+    "status": "unrun",
+    "task": "W"
+  },
+  {
+    "arm": "selective",
+    "id": "static-W--selective",
+    "origin": "static",
+    "status": "unrun",
+    "task": "W"
+  },
+  {
+    "arm": "selective",
+    "id": "static-R--selective",
+    "origin": "static",
+    "status": "unrun",
+    "task": "R"
+  },
+  {
+    "arm": "static",
+    "id": "static-R--static",
+    "origin": "static",
+    "status": "unrun",
+    "task": "R"
+  },
+  {
+    "arm": "static",
+    "id": "static-M--static",
+    "origin": "static",
+    "status": "unrun",
+    "task": "M"
+  },
+  {
+    "arm": "selective",
+    "id": "static-M--selective",
+    "origin": "static",
+    "status": "unrun",
+    "task": "M"
+  },
+  {
+    "arm": "selective",
+    "id": "control-W--selective",
+    "origin": null,
+    "status": "unrun",
+    "task": "W"
+  },
+  {
+    "arm": "static",
+    "id": "control-W--static",
+    "origin": null,
+    "status": "unrun",
+    "task": "W"
+  },
+  {
+    "arm": "selective",
+    "id": "selective-W--selective",
+    "origin": "selective",
+    "status": "unrun",
+    "task": "W"
+  },
+  {
+    "arm": "static",
+    "id": "selective-W--static",
+    "origin": "selective",
+    "status": "unrun",
+    "task": "W"
+  },
+  {
+    "arm": "static",
+    "id": "control-M--static",
+    "origin": null,
+    "status": "unrun",
+    "task": "M"
+  },
+  {
+    "arm": "selective",
+    "id": "control-M--selective",
+    "origin": null,
+    "status": "unrun",
+    "task": "M"
+  }
+]

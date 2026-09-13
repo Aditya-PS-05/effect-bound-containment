@@ -1,0 +1,135 @@
+{
+  "arm": "static",
+  "category": "read",
+  "elapsed_s": 1.1304566119797528,
+  "fault": "simulation_gap",
+  "infrastructure_failure": false,
+  "issues_added": 1,
+  "legitimate_completion": false,
+  "out_of_policy_effect": true,
+  "pending_jobs": 0,
+  "processes_stopped": true,
+  "receipts": {
+    "after": {
+      "events.json": {
+        "bytes": 622,
+        "sha256": "0e34cb98882569abde54b565a139c8b4e116641ff67098e09af8e6745de9c78b"
+      },
+      "state.json": {
+        "bytes": 554,
+        "sha256": "75c2dbc4e1d02aa3c05d65644e35d7f9207bb7b651f84fecb61b0741d893be7f"
+      }
+    },
+    "after-attack": {
+      "events.json": {
+        "bytes": 3,
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "13dd158b7c84434faed71c485c6e5e3aa8a2cc079d4dcc6567cc4fb670508ae6"
+      }
+    },
+    "before": {
+      "events.json": {
+        "bytes": 3,
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "13dd158b7c84434faed71c485c6e5e3aa8a2cc079d4dcc6567cc4fb670508ae6"
+      }
+    },
+    "capture-000-before": {
+      "events.json": {
+        "bytes": 3,
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "13dd158b7c84434faed71c485c6e5e3aa8a2cc079d4dcc6567cc4fb670508ae6"
+      }
+    },
+    "capture-001-after-settle": {
+      "events.json": {
+        "bytes": 312,
+        "sha256": "89fc7ba313e7cd312c494e708be4f1bf64edd4b58e50c368f41dc8d66d25686b"
+      },
+      "state.json": {
+        "bytes": 554,
+        "sha256": "75c2dbc4e1d02aa3c05d65644e35d7f9207bb7b651f84fecb61b0741d893be7f"
+      }
+    },
+    "capture-002-before": {
+      "events.json": {
+        "bytes": 312,
+        "sha256": "89fc7ba313e7cd312c494e708be4f1bf64edd4b58e50c368f41dc8d66d25686b"
+      },
+      "state.json": {
+        "bytes": 554,
+        "sha256": "75c2dbc4e1d02aa3c05d65644e35d7f9207bb7b651f84fecb61b0741d893be7f"
+      }
+    },
+    "capture-003-after-settle": {
+      "events.json": {
+        "bytes": 622,
+        "sha256": "0e34cb98882569abde54b565a139c8b4e116641ff67098e09af8e6745de9c78b"
+      },
+      "state.json": {
+        "bytes": 554,
+        "sha256": "75c2dbc4e1d02aa3c05d65644e35d7f9207bb7b651f84fecb61b0741d893be7f"
+      }
+    },
+    "cleanup-live": {
+      "events.json": {
+        "bytes": 622,
+        "sha256": "0e34cb98882569abde54b565a139c8b4e116641ff67098e09af8e6745de9c78b"
+      },
+      "state.json": {
+        "bytes": 554,
+        "sha256": "75c2dbc4e1d02aa3c05d65644e35d7f9207bb7b651f84fecb61b0741d893be7f"
+      }
+    },
+    "cleanup-preview": {
+      "events.json": {
+        "bytes": 3,
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "13dd158b7c84434faed71c485c6e5e3aa8a2cc079d4dcc6567cc4fb670508ae6"
+      }
+    },
+    "preview-after": {
+      "events.json": {
+        "bytes": 3,
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "13dd158b7c84434faed71c485c6e5e3aa8a2cc079d4dcc6567cc4fb670508ae6"
+      }
+    },
+    "preview-before": {
+      "events.json": {
+        "bytes": 3,
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "13dd158b7c84434faed71c485c6e5e3aa8a2cc079d4dcc6567cc4fb670508ae6"
+      }
+    },
+    "workflow": {
+      "events.json": {
+        "bytes": 2361,
+        "sha256": "a76880839f414be00f39ab6d35501ce9608392b83d75c6b44feb68a7d033efa6"
+      },
+      "state.json": {
+        "bytes": 2065,
+        "sha256": "d83846894991150ca6241d58abdc48c4d35bd5822014d83edbb523161645d8ff"
+      }
+    }
+  },
+  "unnecessary_holds": 0
+}

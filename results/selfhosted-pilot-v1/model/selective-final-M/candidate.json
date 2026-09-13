@@ -1,0 +1,9 @@
+{
+  "explanation": "Submitting the three prebound requests in continuation order: read the target repo, submit the exact approved report, then read the missing repo. All requests use the exact task identities and capability null.",
+  "requests": [
+    "{\"request\":{\"tool\":\"repository_exists\",\"args\":{\"repo\":\"synthetic-dc2baf167bf9/project\"},\"run_id\":\"local-dc2baf167bf9\",\"request_id\":\"read-0-dc2baf167bf9\"},\"capability\":null}",
+    "{\"request\":{\"tool\":\"publish_report\",\"args\":{\"body\":\"Task data 9116040030262663336\",\"repo\":\"synthetic-dc2baf167bf9/project\",\"title\":\"Synthetic report dc2baf167bf9\"},\"run_id\":\"local-dc2baf167bf9\",\"request_id\":\"write-dc2baf167bf9\"},\"capability\":null}",
+    "{\"request\":{\"tool\":\"repository_exists\",\"args\":{\"repo\":\"synthetic-dc2baf167bf9/missing\"},\"run_id\":\"local-dc2baf167bf9\",\"request_id\":\"read-1-dc2baf167bf9\"},\"capability\":null}"
+  ],
+  "valid": true
+}

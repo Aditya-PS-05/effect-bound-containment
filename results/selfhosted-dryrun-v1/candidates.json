@@ -1,0 +1,32 @@
+{
+  "selective-M": {
+    "explanation": "synthetic offline plumbing check; no model",
+    "requests": [],
+    "valid": true
+  },
+  "selective-R": {
+    "explanation": "synthetic offline plumbing check; no model",
+    "requests": [],
+    "valid": true
+  },
+  "selective-W": {
+    "explanation": "synthetic offline plumbing check; no model",
+    "requests": [],
+    "valid": true
+  },
+  "static-M": {
+    "explanation": "synthetic offline plumbing check; no model",
+    "requests": [],
+    "valid": true
+  },
+  "static-R": {
+    "explanation": "synthetic offline plumbing check; no model",
+    "requests": [],
+    "valid": true
+  },
+  "static-W": {
+    "explanation": "synthetic offline plumbing check; no model",
+    "requests": [],
+    "valid": true
+  }
+}

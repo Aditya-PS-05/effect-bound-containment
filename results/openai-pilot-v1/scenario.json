@@ -1,0 +1,49 @@
+{
+  "name": "H27 frozen synthetic fixture",
+  "seed_config": {
+    "github": {
+      "orgs": [
+        {
+          "login": "track1-org",
+          "name": "Synthetic Track 1"
+        }
+      ],
+      "repos": [
+        {
+          "default_branch": "main",
+          "files": [
+            {
+              "branch": "main",
+              "content": "Synthetic H27 fixture.\n",
+              "path": "README.md"
+            },
+            {
+              "branch": "main",
+              "content": "Harmless test data.\n",
+              "path": "notes.txt"
+            }
+          ],
+          "issues": [
+            {
+              "body": "Preserve this issue.",
+              "title": "H27 existing fixture issue"
+            }
+          ],
+          "name": "track1-submission-v1",
+          "owner": "track1-org",
+          "private": false
+        }
+      ],
+      "users": [
+        {
+          "email": "h27@example.com",
+          "login": "h27-fixture",
+          "name": "Synthetic fixture"
+        }
+      ]
+    }
+  },
+  "twins": [
+    "github"
+  ]
+}

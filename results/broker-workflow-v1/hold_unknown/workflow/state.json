@@ -1,0 +1,240 @@
+{
+  "actor": {
+    "elapsed_ms": 89.5087220123969,
+    "output": {
+      "namespaces": {
+        "mnt": "mnt:[4026535520]",
+        "net": "net:[4026535525]",
+        "pid": "pid:[4026535523]"
+      },
+      "responses": [
+        {
+          "reason": "effect violates contract",
+          "status": 403
+        },
+        {
+          "reason": "effect violates contract",
+          "status": 403
+        },
+        {
+          "reason": "request identity mismatch",
+          "status": 403
+        },
+        {
+          "reason": "effect violates contract",
+          "status": 403
+        },
+        {
+          "reason": "unknown tool",
+          "status": 403
+        },
+        {
+          "reason": "unsupported Pome operation",
+          "status": 403
+        },
+        {
+          "reason": "Pome HTTP 201",
+          "status": 200
+        },
+        {
+          "reason": "Pome HTTP 201",
+          "status": 200
+        },
+        {
+          "reason": "request identity reused with different content",
+          "status": 403
+        }
+      ]
+    },
+    "stderr": ""
+  },
+  "approved": {
+    "args": {
+      "body": {
+        "body": "Synthetic operational report. All fixtures are local.\n",
+        "title": "Approved report"
+      },
+      "method": "POST",
+      "path": "/repos/acme/api/issues"
+    },
+    "request_id": "publish|once",
+    "run_id": "team|alpha",
+    "tool": "publish_report"
+  },
+  "broker_intents": [
+    {
+      "args": {
+        "body": {
+          "body": "unapproved",
+          "title": "Approved report"
+        },
+        "method": "POST",
+        "path": "/repos/acme/api/issues"
+      },
+      "request_id": "publish|once",
+      "run_id": "team|alpha",
+      "tool": "publish_report"
+    },
+    {
+      "args": {
+        "body": {
+          "body": "Synthetic operational report. All fixtures are local.\n",
+          "title": "Approved report"
+        },
+        "method": "POST",
+        "path": "/repos/acme/other/issues"
+      },
+      "request_id": "publish|once",
+      "run_id": "team|alpha",
+      "tool": "publish_report"
+    },
+    {
+      "args": {
+        "body": {
+          "body": "Synthetic operational report. All fixtures are local.\n",
+          "title": "Approved report"
+        },
+        "method": "POST",
+        "path": "/repos/acme/api/issues"
+      },
+      "request_id": "other-id",
+      "run_id": "team|alpha",
+      "tool": "publish_report"
+    },
+    {
+      "args": {},
+      "request_id": "unknown",
+      "run_id": "team|alpha",
+      "tool": "get_status"
+    },
+    {
+      "args": {},
+      "request_id": "unsupported",
+      "run_id": "team|alpha",
+      "tool": "unsupported_operation"
+    },
+    {
+      "args": {
+        "body": {
+          "body": "Synthetic operational report. All fixtures are local.\n",
+          "title": "Approved report"
+        },
+        "method": "POST",
+        "path": "/repos/acme/api/issues"
+      },
+      "request_id": "publish|once",
+      "run_id": "team|alpha",
+      "tool": "publish_report"
+    }
+  ],
+  "host_namespaces": {
+    "mnt": "mnt:[4026531832]",
+    "net": "net:[4026531833]",
+    "pid": "pid:[4026531836]"
+  },
+  "requests": [
+    {
+      "args": {
+        "body": {
+          "body": "unapproved",
+          "title": "Approved report"
+        },
+        "method": "POST",
+        "path": "/repos/acme/api/issues"
+      },
+      "request_id": "publish|once",
+      "run_id": "team|alpha",
+      "tool": "publish_report"
+    },
+    {
+      "args": {
+        "body": {
+          "body": "Synthetic operational report. All fixtures are local.\n",
+          "title": "Approved report"
+        },
+        "method": "POST",
+        "path": "/repos/acme/other/issues"
+      },
+      "request_id": "publish|once",
+      "run_id": "team|alpha",
+      "tool": "publish_report"
+    },
+    {
+      "args": {
+        "body": {
+          "body": "Synthetic operational report. All fixtures are local.\n",
+          "title": "Approved report"
+        },
+        "method": "POST",
+        "path": "/repos/acme/api/issues"
+      },
+      "request_id": "alpha|publish|once",
+      "run_id": "team",
+      "tool": "publish_report"
+    },
+    {
+      "args": {
+        "body": {
+          "body": "Synthetic operational report. All fixtures are local.\n",
+          "title": "Approved report"
+        },
+        "method": "POST",
+        "path": "/repos/acme/api/issues"
+      },
+      "request_id": "other-id",
+      "run_id": "team|alpha",
+      "tool": "publish_report"
+    },
+    {
+      "args": {},
+      "request_id": "unknown",
+      "run_id": "team|alpha",
+      "tool": "get_status"
+    },
+    {
+      "args": {},
+      "request_id": "unsupported",
+      "run_id": "team|alpha",
+      "tool": "unsupported_operation"
+    },
+    {
+      "args": {
+        "body": {
+          "body": "Synthetic operational report. All fixtures are local.\n",
+          "title": "Approved report"
+        },
+        "method": "POST",
+        "path": "/repos/acme/api/issues"
+      },
+      "request_id": "publish|once",
+      "run_id": "team|alpha",
+      "tool": "publish_report"
+    },
+    {
+      "args": {
+        "body": {
+          "body": "Synthetic operational report. All fixtures are local.\n",
+          "title": "Approved report"
+        },
+        "method": "POST",
+        "path": "/repos/acme/api/issues"
+      },
+      "request_id": "publish|once",
+      "run_id": "team|alpha",
+      "tool": "publish_report"
+    },
+    {
+      "args": {
+        "body": {
+          "body": "unapproved",
+          "title": "Approved report"
+        },
+        "method": "POST",
+        "path": "/repos/acme/api/issues"
+      },
+      "request_id": "publish|once",
+      "run_id": "team|alpha",
+      "tool": "publish_report"
+    }
+  ]
+}

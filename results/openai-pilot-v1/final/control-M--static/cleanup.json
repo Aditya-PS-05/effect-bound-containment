@@ -1,0 +1,34 @@
+[
+  {
+    "final_status": "torn_down",
+    "restoration": {
+      "events.json": {
+        "bytes": 3,
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "state.json": {
+        "bytes": 29351,
+        "sha256": "d2a0abee98d13c7c93e73e1a8d2028bcb9896a576129d51e00f05c5778cac5c1"
+      }
+    },
+    "role": "execution",
+    "run_id": "003d7db8-244a-4eb7-9b77-495207945279",
+    "teardown_requested": "tearing_down"
+  },
+  {
+    "final_status": "torn_down",
+    "restoration": {
+      "events.json": {
+        "bytes": 3,
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "state.json": {
+        "bytes": 29351,
+        "sha256": "7462fa0e6dd34abb5fca12a798fa32c4d5ad35095cfb6c13c81181a7552a1cf5"
+      }
+    },
+    "role": "preview",
+    "run_id": "fe5bfcc0-435c-4493-b0d4-ea151e628d25",
+    "teardown_requested": "tearing_down"
+  }
+]

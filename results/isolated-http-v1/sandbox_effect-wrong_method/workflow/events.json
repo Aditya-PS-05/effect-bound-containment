@@ -1,0 +1,11 @@
+[
+  {
+    "elapsed_ms": 0.16977399354800582,
+    "forwarded": false,
+    "reason": "effect mismatch",
+    "request": "{\"args\":{\"body\":{},\"method\":\"DELETE\",\"path\":\"/repos/acme/api\"},\"tool\":\"publish_report\"}",
+    "request_id": "read|nonce",
+    "run_id": "team|alpha",
+    "status": 403
+  }
+]

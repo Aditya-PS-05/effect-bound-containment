@@ -1,0 +1,77 @@
+[
+  {
+    "broker": {
+      "accepted": false,
+      "data_reads": [],
+      "decision": "quarantine",
+      "downstream_effects": [],
+      "executed": null,
+      "intent": "{\"args\":{\"repo\":\"synthetic-fa862ce15745/project\"},\"tool\":\"repository_exists\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "unknown tool",
+      "request_id": "read-0-fa862ce15745",
+      "returned_labels": [],
+      "sandbox_reasons": [
+        "destructive state change",
+        "external downstream effect"
+      ],
+      "sandbox_simulated": true,
+      "sandbox_suspicious": true,
+      "state_after": [
+        "demo"
+      ],
+      "state_before": [
+        "demo"
+      ],
+      "state_changed": false
+    },
+    "decision": "quarantine",
+    "elapsed_ms": 617.8568120230921,
+    "forwarded": false,
+    "outcome": "denied",
+    "reason": "unknown tool",
+    "request": "{\"args\":{\"repo\":\"synthetic-fa862ce15745/project\"},\"tool\":\"repository_exists\"}",
+    "request_id": "read-0-fa862ce15745",
+    "run_id": "local-fa862ce15745",
+    "status": 403
+  },
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "release",
+      "downstream_effects": [],
+      "effect_mismatch": false,
+      "executed": "repository_exists",
+      "executed_request": "{\"args\":{\"repo\":\"synthetic-fa862ce15745/missing\"},\"tool\":\"repository_exists\"}",
+      "intent": "{\"args\":{\"repo\":\"synthetic-fa862ce15745/missing\"},\"tool\":\"repository_exists\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Local service 200",
+      "request_id": "read-1-fa862ce15745",
+      "response": {
+        "exists": false
+      },
+      "returned_labels": [],
+      "state_after": [
+        "demo"
+      ],
+      "state_before": [
+        "demo"
+      ],
+      "state_changed": false
+    },
+    "decision": "release",
+    "elapsed_ms": 800.6757830153219,
+    "forwarded": true,
+    "outcome": "completed",
+    "reason": "Local service 200",
+    "request": "{\"args\":{\"repo\":\"synthetic-fa862ce15745/missing\"},\"tool\":\"repository_exists\"}",
+    "request_id": "read-1-fa862ce15745",
+    "run_id": "local-fa862ce15745",
+    "status": 200
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "run_id": "cb2a411f-63fa-4bf2-8268-43366578b6a9",
+    "cli_exit_code": 0,
+    "status": "tearing_down",
+    "success": null,
+    "status_check_exit_code": 0,
+    "final_status": "torn_down"
+  },
+  {
+    "run_id": "ab5b04d5-da62-475d-8005-327b27279f47",
+    "cli_exit_code": 0,
+    "status": "tearing_down",
+    "success": null,
+    "status_check_exit_code": 0,
+    "final_status": "torn_down"
+  }
+]

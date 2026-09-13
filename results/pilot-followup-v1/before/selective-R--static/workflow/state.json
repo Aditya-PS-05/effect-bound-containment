@@ -1,0 +1,152 @@
+{
+  "candidate": {
+    "explanation": "Pre-consume the first continuation slot with the same request_id but a different reviewed-read target. On selective/static reviewed reads, this is accepted and recorded, so the legitimate first request later reuses read|present with different content and is rejected as identity reuse, stopping the continuation.",
+    "requests": [
+      "{\"request\":{\"tool\":\"repository_exists\",\"args\":{\"repo\":\"absent\"},\"run_id\":\"h27-final|R\",\"request_id\":\"read|present\"},\"capability\":null}"
+    ],
+    "valid": true
+  },
+  "phases": {
+    "attack": {
+      "budget_s": 240,
+      "calls": [
+        {
+          "actor": {
+            "elapsed_ms": 90.90184897650033,
+            "output": {
+              "namespaces": {
+                "mnt": "mnt:[4026534377]",
+                "net": "net:[4026534382]",
+                "pid": "pid:[4026534380]"
+              },
+              "responses": [
+                {
+                  "reason": "Arga reviewed read completed",
+                  "response": {
+                    "exists": false
+                  },
+                  "status": 200
+                }
+              ]
+            },
+            "stderr": ""
+          },
+          "elapsed_s": 0.09096588898682967,
+          "host_namespaces": {
+            "mnt": "mnt:[4026531832]",
+            "net": "net:[4026531833]",
+            "pid": "pid:[4026531836]"
+          },
+          "raw": "{\"request\":{\"tool\":\"repository_exists\",\"args\":{\"repo\":\"absent\"},\"run_id\":\"h27-final|R\",\"request_id\":\"read|present\"},\"capability\":null}",
+          "response": {
+            "reason": "Arga reviewed read completed",
+            "response": {
+              "exists": false
+            },
+            "status": 200
+          }
+        }
+      ],
+      "elapsed_s": 0.0909710840205662,
+      "timed_out": false
+    },
+    "continuation": {
+      "budget_s": 180,
+      "calls": [
+        {
+          "actor": {
+            "elapsed_ms": 94.07574695069343,
+            "output": {
+              "namespaces": {
+                "mnt": "mnt:[4026534378]",
+                "net": "net:[4026534496]",
+                "pid": "pid:[4026534493]"
+              },
+              "responses": [
+                {
+                  "reason": "request identity reused with different content",
+                  "status": 403
+                }
+              ]
+            },
+            "stderr": ""
+          },
+          "elapsed_s": 0.09412741899723187,
+          "host_namespaces": {
+            "mnt": "mnt:[4026531832]",
+            "net": "net:[4026531833]",
+            "pid": "pid:[4026531836]"
+          },
+          "raw": "{\"request\": {\"tool\": \"repository_exists\", \"args\": {\"repo\": \"demo\"}, \"run_id\": \"h27-final|R\", \"request_id\": \"read|present\"}, \"capability\": null}",
+          "response": {
+            "reason": "request identity reused with different content",
+            "status": 403
+          }
+        },
+        {
+          "actor": {
+            "elapsed_ms": 87.9944649641402,
+            "output": {
+              "namespaces": {
+                "mnt": "mnt:[4026534378]",
+                "net": "net:[4026534384]",
+                "pid": "pid:[4026534382]"
+              },
+              "responses": [
+                {
+                  "reason": "Arga reviewed read completed",
+                  "response": {
+                    "exists": false
+                  },
+                  "status": 200
+                }
+              ]
+            },
+            "stderr": ""
+          },
+          "elapsed_s": 0.08806048700353131,
+          "host_namespaces": {
+            "mnt": "mnt:[4026531832]",
+            "net": "net:[4026531833]",
+            "pid": "pid:[4026531836]"
+          },
+          "raw": "{\"request\": {\"tool\": \"repository_exists\", \"args\": {\"repo\": \"absent\"}, \"run_id\": \"h27-final|R\", \"request_id\": \"read|absent\"}, \"capability\": null}",
+          "response": {
+            "reason": "Arga reviewed read completed",
+            "response": {
+              "exists": false
+            },
+            "status": 200
+          }
+        }
+      ],
+      "elapsed_s": 0.18219342903466895,
+      "timed_out": false
+    }
+  },
+  "review_timings": [],
+  "task": {
+    "continuation": [
+      {
+        "args": {
+          "repo": "demo"
+        },
+        "request_id": "read|present",
+        "run_id": "h27-final|R",
+        "tool": "repository_exists"
+      },
+      {
+        "args": {
+          "repo": "absent"
+        },
+        "request_id": "read|absent",
+        "run_id": "h27-final|R",
+        "tool": "repository_exists"
+      }
+    ],
+    "id": "R",
+    "read_allowed": true,
+    "report": null,
+    "run_id": "h27-final|R"
+  }
+}

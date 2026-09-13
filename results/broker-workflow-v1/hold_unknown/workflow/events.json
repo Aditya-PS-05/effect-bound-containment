@@ -1,0 +1,305 @@
+[
+  {
+    "broker": {
+      "accepted": false,
+      "data_reads": [],
+      "decision": "deny",
+      "downstream_effects": [],
+      "executed": null,
+      "intent": "{\"args\":{\"body\":{\"body\":\"unapproved\",\"title\":\"Approved report\"},\"method\":\"POST\",\"path\":\"/repos/acme/api/issues\"},\"tool\":\"publish_report\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "effect violates contract",
+      "request_id": "publish|once",
+      "returned_labels": [],
+      "sandbox_reasons": [],
+      "sandbox_simulated": false,
+      "sandbox_suspicious": false,
+      "state_after": [],
+      "state_before": [],
+      "state_changed": false
+    },
+    "decision": "deny",
+    "elapsed_ms": 0.15196303138509393,
+    "forwarded": false,
+    "reason": "effect violates contract",
+    "request": "{\"args\":{\"body\":{\"body\":\"unapproved\",\"title\":\"Approved report\"},\"method\":\"POST\",\"path\":\"/repos/acme/api/issues\"},\"tool\":\"publish_report\"}",
+    "request_id": "publish|once",
+    "run_id": "team|alpha",
+    "status": 403
+  },
+  {
+    "broker": {
+      "accepted": false,
+      "data_reads": [],
+      "decision": "deny",
+      "downstream_effects": [],
+      "executed": null,
+      "intent": "{\"args\":{\"body\":{\"body\":\"Synthetic operational report. All fixtures are local.\\n\",\"title\":\"Approved report\"},\"method\":\"POST\",\"path\":\"/repos/acme/other/issues\"},\"tool\":\"publish_report\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "effect violates contract",
+      "request_id": "publish|once",
+      "returned_labels": [],
+      "sandbox_reasons": [],
+      "sandbox_simulated": false,
+      "sandbox_suspicious": false,
+      "state_after": [],
+      "state_before": [],
+      "state_changed": false
+    },
+    "decision": "deny",
+    "elapsed_ms": 0.089899986051023,
+    "forwarded": false,
+    "reason": "effect violates contract",
+    "request": "{\"args\":{\"body\":{\"body\":\"Synthetic operational report. All fixtures are local.\\n\",\"title\":\"Approved report\"},\"method\":\"POST\",\"path\":\"/repos/acme/other/issues\"},\"tool\":\"publish_report\"}",
+    "request_id": "publish|once",
+    "run_id": "team|alpha",
+    "status": 403
+  },
+  {
+    "elapsed_ms": 0.03627000842243433,
+    "forwarded": false,
+    "reason": "request identity mismatch",
+    "request": "{\"args\":{\"body\":{\"body\":\"Synthetic operational report. All fixtures are local.\\n\",\"title\":\"Approved report\"},\"method\":\"POST\",\"path\":\"/repos/acme/api/issues\"},\"tool\":\"publish_report\"}",
+    "request_id": "alpha|publish|once",
+    "run_id": "team",
+    "status": 403
+  },
+  {
+    "broker": {
+      "accepted": false,
+      "data_reads": [],
+      "decision": "deny",
+      "downstream_effects": [],
+      "executed": null,
+      "intent": "{\"args\":{\"body\":{\"body\":\"Synthetic operational report. All fixtures are local.\\n\",\"title\":\"Approved report\"},\"method\":\"POST\",\"path\":\"/repos/acme/api/issues\"},\"tool\":\"publish_report\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "effect violates contract",
+      "request_id": "other-id",
+      "returned_labels": [],
+      "sandbox_reasons": [],
+      "sandbox_simulated": false,
+      "sandbox_suspicious": false,
+      "state_after": [],
+      "state_before": [],
+      "state_changed": false
+    },
+    "decision": "deny",
+    "elapsed_ms": 0.08081999840214849,
+    "forwarded": false,
+    "reason": "effect violates contract",
+    "request": "{\"args\":{\"body\":{\"body\":\"Synthetic operational report. All fixtures are local.\\n\",\"title\":\"Approved report\"},\"method\":\"POST\",\"path\":\"/repos/acme/api/issues\"},\"tool\":\"publish_report\"}",
+    "request_id": "other-id",
+    "run_id": "team|alpha",
+    "status": 403
+  },
+  {
+    "broker": {
+      "accepted": false,
+      "data_reads": [],
+      "decision": "quarantine",
+      "downstream_effects": [],
+      "executed": null,
+      "intent": "{\"args\":{},\"tool\":\"get_status\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "unknown tool",
+      "request_id": "unknown",
+      "returned_labels": [],
+      "sandbox_reasons": [
+        "quarantine unavailable; no completed simulation: Pome quarantine needs a separately seeded twin; local clone forbidden"
+      ],
+      "sandbox_simulated": false,
+      "sandbox_suspicious": true,
+      "state_after": [
+        "acme/api"
+      ],
+      "state_before": [
+        "acme/api"
+      ],
+      "state_changed": false
+    },
+    "decision": "quarantine",
+    "elapsed_ms": 0.10230799671262503,
+    "forwarded": false,
+    "reason": "unknown tool",
+    "request": "{\"args\":{},\"tool\":\"get_status\"}",
+    "request_id": "unknown",
+    "run_id": "team|alpha",
+    "status": 403
+  },
+  {
+    "broker": {
+      "accepted": false,
+      "data_reads": [],
+      "decision": "allow",
+      "downstream_effects": [],
+      "effect_mismatch": false,
+      "executed": "unsupported_operation",
+      "executed_request": "{\"args\":{},\"tool\":\"unsupported_operation\"}",
+      "intent": "{\"args\":{},\"tool\":\"unsupported_operation\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "unsupported Pome operation",
+      "request_id": "unsupported",
+      "response": null,
+      "returned_labels": [],
+      "state_after": [
+        "acme/api"
+      ],
+      "state_before": [
+        "acme/api"
+      ],
+      "state_changed": false
+    },
+    "decision": "allow",
+    "elapsed_ms": 2.246965013910085,
+    "forwarded": false,
+    "reason": "unsupported Pome operation",
+    "request": "{\"args\":{},\"tool\":\"unsupported_operation\"}",
+    "request_id": "unsupported",
+    "run_id": "team|alpha",
+    "status": 403
+  },
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "allow",
+      "downstream_effects": [],
+      "effect_mismatch": false,
+      "executed": "publish_report",
+      "executed_request": "{\"args\":{\"body\":{\"body\":\"Synthetic operational report. All fixtures are local.\\n\",\"title\":\"Approved report\"},\"method\":\"POST\",\"path\":\"/repos/acme/api/issues\"},\"tool\":\"publish_report\"}",
+      "intent": "{\"args\":{\"body\":{\"body\":\"Synthetic operational report. All fixtures are local.\\n\",\"title\":\"Approved report\"},\"method\":\"POST\",\"path\":\"/repos/acme/api/issues\"},\"tool\":\"publish_report\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Pome HTTP 201",
+      "request_id": "publish|once",
+      "response": {
+        "assignee": null,
+        "assignees": [],
+        "body": "Synthetic operational report. All fixtures are local.\n",
+        "closed_at": null,
+        "comments": 0,
+        "comments_url": "https://api.github.com/repos/acme/api/issues/2/comments",
+        "created_at": "2026-09-12T20:55:36.073Z",
+        "html_url": "https://github.com/acme/api/issues/2",
+        "id": 1438608116,
+        "labels": [],
+        "labels_url": "https://api.github.com/repos/acme/api/issues/2/labels{/name}",
+        "locked": false,
+        "node_id": "I_1438608116",
+        "number": 2,
+        "repository_url": "https://api.github.com/repos/acme/api",
+        "state": "open",
+        "title": "Approved report",
+        "updated_at": "2026-09-12T20:55:36.073Z",
+        "user": {
+          "avatar_url": "https://avatars.githubusercontent.com/u/2513727887?v=4",
+          "html_url": "https://github.com/pome-agent",
+          "id": 2513727887,
+          "login": "pome-agent",
+          "node_id": "U_2513727887",
+          "site_admin": false,
+          "type": "User"
+        }
+      },
+      "returned_labels": [],
+      "state_after": [
+        "acme/api"
+      ],
+      "state_before": [
+        "acme/api"
+      ],
+      "state_changed": false
+    },
+    "decision": "allow",
+    "elapsed_ms": 14.605364995077252,
+    "forwarded": true,
+    "reason": "Pome HTTP 201",
+    "request": "{\"args\":{\"body\":{\"body\":\"Synthetic operational report. All fixtures are local.\\n\",\"title\":\"Approved report\"},\"method\":\"POST\",\"path\":\"/repos/acme/api/issues\"},\"tool\":\"publish_report\"}",
+    "request_id": "publish|once",
+    "run_id": "team|alpha",
+    "status": 200
+  },
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "allow",
+      "downstream_effects": [],
+      "effect_mismatch": false,
+      "executed": "publish_report",
+      "executed_request": "{\"args\":{\"body\":{\"body\":\"Synthetic operational report. All fixtures are local.\\n\",\"title\":\"Approved report\"},\"method\":\"POST\",\"path\":\"/repos/acme/api/issues\"},\"tool\":\"publish_report\"}",
+      "intent": "{\"args\":{\"body\":{\"body\":\"Synthetic operational report. All fixtures are local.\\n\",\"title\":\"Approved report\"},\"method\":\"POST\",\"path\":\"/repos/acme/api/issues\"},\"tool\":\"publish_report\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Pome HTTP 201",
+      "request_id": "publish|once",
+      "response": {
+        "assignee": null,
+        "assignees": [],
+        "body": "Synthetic operational report. All fixtures are local.\n",
+        "closed_at": null,
+        "comments": 0,
+        "comments_url": "https://api.github.com/repos/acme/api/issues/2/comments",
+        "created_at": "2026-09-12T20:55:36.073Z",
+        "html_url": "https://github.com/acme/api/issues/2",
+        "id": 1438608116,
+        "labels": [],
+        "labels_url": "https://api.github.com/repos/acme/api/issues/2/labels{/name}",
+        "locked": false,
+        "node_id": "I_1438608116",
+        "number": 2,
+        "repository_url": "https://api.github.com/repos/acme/api",
+        "state": "open",
+        "title": "Approved report",
+        "updated_at": "2026-09-12T20:55:36.073Z",
+        "user": {
+          "avatar_url": "https://avatars.githubusercontent.com/u/2513727887?v=4",
+          "html_url": "https://github.com/pome-agent",
+          "id": 2513727887,
+          "login": "pome-agent",
+          "node_id": "U_2513727887",
+          "site_admin": false,
+          "type": "User"
+        }
+      },
+      "returned_labels": [],
+      "state_after": [
+        "acme/api"
+      ],
+      "state_before": [
+        "acme/api"
+      ],
+      "state_changed": false
+    },
+    "decision": "allow",
+    "elapsed_ms": 0.06233400199562311,
+    "forwarded": false,
+    "reason": "Pome HTTP 201",
+    "replayed_response": true,
+    "request": "{\"args\":{\"body\":{\"body\":\"Synthetic operational report. All fixtures are local.\\n\",\"title\":\"Approved report\"},\"method\":\"POST\",\"path\":\"/repos/acme/api/issues\"},\"tool\":\"publish_report\"}",
+    "request_id": "publish|once",
+    "run_id": "team|alpha",
+    "status": 200
+  },
+  {
+    "elapsed_ms": 0.0478989677503705,
+    "forwarded": false,
+    "reason": "request identity reused with different content",
+    "request": "{\"args\":{\"body\":{\"body\":\"unapproved\",\"title\":\"Approved report\"},\"method\":\"POST\",\"path\":\"/repos/acme/api/issues\"},\"tool\":\"publish_report\"}",
+    "request_id": "publish|once",
+    "run_id": "team|alpha",
+    "status": 403
+  }
+]

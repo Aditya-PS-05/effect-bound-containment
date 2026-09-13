@@ -1,0 +1,24 @@
+{
+  "original": {
+    "events.json": {
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    "state.json": {
+      "sha256": "b2e409bc3beee9a8b7fc7ffe195e0807e9b8ede63177d1619a701cba3a6098c1",
+      "bytes": 26861
+    }
+  },
+  "restored": {
+    "events.json": {
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    "state.json": {
+      "sha256": "28216eaee3f3c2cd19055b08c00babf45461c5f9d9d97159013a7034864bb304",
+      "bytes": 26861
+    }
+  },
+  "full_state_equal": false,
+  "issue_state_equal": true
+}

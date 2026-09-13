@@ -1,0 +1,83 @@
+{
+  "case": "identity_rebinding",
+  "sources": {
+    "src/effect_bound.py": "035e4f29b60be90978b50f96d674a0efade26c72234f9a9eb91406f181120035",
+    "src/pome_adapter.py": "94ef0fb1cb37424760c718b0ace6dd86ca7b599ad8de53cf3afd055752afb77c",
+    "src/process_observer.py": "d92884421b7f06e45fe8989432169c12189c79ce146c7bd33007d548839b7418",
+    "run_boundary_audit.py": "9d2902214fa152da299fcefd02f5f3abea413a37bbdfe2d9a22409d77db1938d"
+  },
+  "accepted": false,
+  "signature_reused": true,
+  "exception": null,
+  "incident": {
+    "request_id": "job",
+    "decision": "allow",
+    "intent": "{\"args\":{\"repo\":\"allowed\"},\"tool\":\"create_repository\"}",
+    "executed": "create_repository",
+    "executed_request": "{\"args\":{\"repo\":\"allowed\"},\"tool\":\"create_repository\"}",
+    "accepted": false,
+    "reason": "invalid capability signature",
+    "state_before": [
+      "acme/api"
+    ],
+    "state_after": [
+      "acme/api"
+    ],
+    "state_changed": false,
+    "data_reads": [],
+    "downstream_effects": [],
+    "returned_labels": [],
+    "pending_effects": [],
+    "response": null,
+    "effect_mismatch": false,
+    "observer_chain_valid": true,
+    "mismatch": false
+  },
+  "executed_identity": [
+    "team",
+    "alpha|job"
+  ],
+  "authorized_identity": [
+    "team|alpha",
+    "job"
+  ],
+  "expected_correlations": [],
+  "observer_status": "available",
+  "initial": {
+    "snapshot": "snapshot-000",
+    "receipt": {
+      "events.json": {
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3
+      },
+      "state.json": {
+        "sha256": "19bd944ade073da078d33435766d9661fc4b1acf69eac5c2a5b7bc6669f671cb",
+        "bytes": 2703
+      }
+    },
+    "pid": 3745450,
+    "capture_ms": 21.63787098834291,
+    "max_rss_kib": 27448
+  },
+  "final": {
+    "snapshot": "snapshot-001",
+    "receipt": {
+      "events.json": {
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3
+      },
+      "state.json": {
+        "sha256": "19bd944ade073da078d33435766d9661fc4b1acf69eac5c2a5b7bc6669f671cb",
+        "bytes": 2703
+      }
+    },
+    "pid": 3745450,
+    "capture_ms": 4.082776024006307,
+    "max_rss_kib": 27448
+  },
+  "state_changed": false,
+  "allowed_created": false,
+  "forbidden_created": false,
+  "tape_count": 0,
+  "correlations": []
+}
