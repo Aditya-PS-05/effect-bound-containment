@@ -148,6 +148,23 @@ def test_preview_cannot_hide_a_state_write_by_omitting_it_from_event(monkeypatch
     assert broker.server.repositories == {"demo"}
 
 
+def test_state_change_during_preview_cannot_be_signed_as_reviewed(monkeypatch):
+    broker = build("selective")
+    clone = broker.server.clone()
+    execute = clone.execute
+
+    def changed_live_state(request, capability=None):
+        event = execute(request, capability)
+        broker.server.repositories.add("changed-during-preview")
+        return event
+
+    monkeypatch.setattr(clone, "execute", changed_live_state)
+    monkeypatch.setattr(broker.server, "clone", lambda: clone)
+    result, approval = broker.server.review_release(Request("get_status", {}))
+    assert result.suspicious and approval is None
+    assert "live context changed during preview" in result.reasons
+
+
 def test_policy_change_during_broker_handoff_cannot_override_revocation(monkeypatch):
     broker = build("selective")
     issue = broker.issuer.issue

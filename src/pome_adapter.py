@@ -112,6 +112,13 @@ class LocalPome:
 
 def wire_request(request):
     """Explicit supported route mapping; no arbitrary URL or query forwarding."""
+    if request.tool == "publish_report" and set(request.args) == {"method", "path", "body"}:
+        args = request.args
+        if (args["method"] == "POST" and isinstance(args["path"], str)
+                and re.fullmatch(r"/repos/[A-Za-z0-9_-]+/[A-Za-z0-9_.-]+/issues", args["path"])
+                and isinstance(args["body"], dict) and set(args["body"]) == {"title", "body"}
+                and all(isinstance(value, str) for value in args["body"].values())):
+            return "POST", args["path"], args["body"]
     if request.tool == "get_repository_metadata" and set(request.args) == {"repo"}:
         repo = request.args["repo"]
         if isinstance(repo, str) and re.fullmatch(r"[A-Za-z0-9_-]+/[A-Za-z0-9_.-]+", repo):
@@ -143,10 +150,14 @@ class PomeToolServer(ToolServer):
         reason = self.authorize(request, capability)
         if reason is not None:
             return self._record(request, False, reason, before)
-        method, path, body = wire_request(request)
-        status, _ = self.client.request(method, path, body, request.request_id)
+        try:
+            method, path, body = wire_request(request)
+        except ValueError:
+            return self._record(request, False, "unsupported Pome operation", before)
+        status, response = self.client.request(method, path, body, request.request_id)
         self.repositories = self._repository_names()
-        return self._record(request, status < 400, f"Pome HTTP {status}", before)
+        return self._record(request, status < 400, f"Pome HTTP {status}", before,
+                            response=response, forwarded=True)
 
     def clone(self):
         raise NotImplementedError("Pome quarantine needs a separately seeded twin; local clone forbidden")

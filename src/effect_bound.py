@@ -9,6 +9,7 @@ from __future__ import annotations
 import hashlib
 import hmac
 import json
+import math
 import threading
 import time
 import uuid
@@ -62,7 +63,7 @@ class EffectContract:
     def accepts(self, request: Request) -> bool:
         if self.allowed_targets:
             target = request.args.get("repo") or request.args.get("channel")
-            if target not in self.allowed_targets:
+            if not isinstance(target, str) or target not in self.allowed_targets:
                 return False
         if self.rejects_sensitive_data and contains_sensitive(request.args):
             return False
@@ -82,6 +83,9 @@ class PolicyRegistry:
             self.revision += 1
 
     def classify(self, request: Request) -> tuple[str, str]:
+        if (not isinstance(request.args, dict) or any(not isinstance(value, str) or not value
+                for value in (request.tool, request.run_id, request.request_id))):
+            return "deny", "invalid request shape"
         contract = self._contracts.get(request.tool)
         if contract is None:
             return "quarantine", "unknown tool"
@@ -124,6 +128,12 @@ class Capability:
     signature: str
     approval: ReleaseApproval | None = None
 
+    def body(self) -> bytes:
+        return json.dumps(["capability-v2", self.request_hash, self.run_id, self.request_id,
+                           self.nonce, self.expires_at,
+                           self.approval.signature if self.approval is not None else None],
+                          separators=(",", ":"), allow_nan=False).encode()
+
 
 class CapabilityIssuer:
     def __init__(self, secret: bytes, clock: Callable[[], float] = time.time) -> None:
@@ -134,11 +144,9 @@ class CapabilityIssuer:
               approval: ReleaseApproval | None = None) -> Capability:
         expiry = self.clock() + ttl
         request_hash = hashlib.sha256(request.canonical().encode()).hexdigest()
-        body = f"{request_hash}|{request.run_id}|{request.request_id}|{nonce}|{expiry}"
-        if approval is not None:
-            body += "|" + approval.signature
-        signature = hmac.new(self.secret, body.encode(), hashlib.sha256).hexdigest()
-        return Capability(request_hash, request.run_id, request.request_id, nonce, expiry, signature, approval)
+        capability = Capability(request_hash, request.run_id, request.request_id, nonce, expiry, "", approval)
+        signature = hmac.new(self.secret, capability.body(), hashlib.sha256).hexdigest()
+        return replace(capability, signature=signature)
 
 
 class CapabilityVerifier:
@@ -149,14 +157,20 @@ class CapabilityVerifier:
         self._lock = threading.Lock()
 
     def verify(self, request: Request, capability: Capability) -> tuple[bool, str]:
+        if (capability.approval is not None and not isinstance(capability.approval, ReleaseApproval)):
+            return False, "invalid release approval"
+        if (type(capability.expires_at) not in (int, float) or not -math.inf < capability.expires_at < math.inf
+                or any(not isinstance(value, str) for value in
+                       (capability.run_id, capability.request_id, capability.nonce))
+                or any(not isinstance(value, str) or len(value) != 64
+                       or any(char not in "0123456789abcdef" for char in value)
+                       for value in (capability.request_hash, capability.signature))):
+            return False, "invalid capability fields"
         request_hash = hashlib.sha256(request.canonical().encode()).hexdigest()
-        body = (
-            f"{capability.request_hash}|{capability.run_id}|{capability.request_id}|"
-            f"{capability.nonce}|{capability.expires_at}"
-        )
-        if capability.approval is not None:
-            body += "|" + capability.approval.signature
-        expected = hmac.new(self._secret, body.encode(), hashlib.sha256).hexdigest()
+        try:
+            expected = hmac.new(self._secret, capability.body(), hashlib.sha256).hexdigest()
+        except (TypeError, ValueError):
+            return False, "invalid capability encoding"
         with self._lock:
             if request.run_id != capability.run_id or request.request_id != capability.request_id:
                 return False, "request identity mismatch"
@@ -187,6 +201,7 @@ class EffectEvent:
     returned_labels: list[str] = field(default_factory=list)
     pending_effects: list[str] = field(default_factory=list)
     response: Any = None
+    forwarded: bool = False
 
 
 class ObservationLog:
@@ -260,25 +275,32 @@ class ToolServer:
                    self.policy.revision if self.policy is not None else None]
         return hashlib.sha256(json.dumps(payload, sort_keys=True).encode()).hexdigest()
 
+    def release_template(self, request: Request) -> bool:
+        return release_template(request)
+
     def review_release(self, request: Request) -> tuple[SandboxResult, ReleaseApproval | None]:
         request = deepcopy(request)
         with self._execution_lock, self.policy._lock if self.policy is not None else nullcontext():
-            if not release_template(request):
+            if not self.release_template(request):
                 reason = "outside reviewed release templates; not simulated"
                 state = sorted(self.repositories)
                 event = EffectEvent(request.request_id, request.run_id, request.tool,
                                     request.canonical(), False, reason, state, state)
-                return SandboxResult(True, (reason,), event), None
+                return SandboxResult(True, (reason,), event, simulated=False), None
+            reviewed_context = self.release_context()
             result = QuarantineSandbox(self).run(request)
+            if self.release_context() != reviewed_context:
+                result = replace(result, suspicious=True,
+                                 reasons=(*result.reasons, "live context changed during preview"))
             if not result.suspicious and not release_output(request, result.event.response):
                 result = SandboxResult(True, ("unexpected output shape",), result.event)
             if (not self.enforce or self.verifier is None or self.policy is None
                     or self.policy.classify(request)[0] != "quarantine"
-                    or not release_template(request) or result.suspicious):
+                    or not self.release_template(request) or result.suspicious):
                 return result, None
             approval = ReleaseApproval(
                 secrets.token_hex(16), hashlib.sha256(request.canonical().encode()).hexdigest(),
-                request.run_id, request.request_id, self.release_context(), self.verifier._clock() + 5)
+                request.run_id, request.request_id, reviewed_context, self.verifier._clock() + 5)
             signature = hmac.new(self._release_key, approval.body(), hashlib.sha256).hexdigest()
             return result, replace(approval, signature=signature)
 
@@ -293,7 +315,7 @@ class ToolServer:
                 and approval.request_hash == capability.request_hash
                 and approval.expires_at > self.verifier._clock()
                 and approval.context == self.release_context()
-                and release_template(request))
+                and self.release_template(request))
 
     def execute(self, request: Request, capability: Capability | None = None) -> EffectEvent:
         # Frozen dataclasses do not freeze nested dicts. Bind checking and execution to one private copy.
@@ -365,6 +387,7 @@ class ToolServer:
         downstream: list[str] | None = None,
         returned_labels: list[str] | None = None,
         response: Any = None,
+        forwarded: bool = False,
     ) -> EffectEvent:
         if before != sorted(self.repositories):
             self._state_revision += 1
@@ -382,6 +405,7 @@ class ToolServer:
             returned_labels or [],
             list(self.pending_effects),
             response,
+            forwarded,
         )
         self.effects.append(event)
         self.observer.append(event)
@@ -393,18 +417,30 @@ class SandboxResult:
     suspicious: bool
     reasons: tuple[str, ...]
     event: EffectEvent
+    simulated: bool = True  # False means no completed simulation evidence, even if a clone partially ran.
 
 
 class QuarantineSandbox:
     def __init__(self, source: ToolServer) -> None:
         self.source = source
 
+    def unavailable(self, request: Request, error: Exception) -> SandboxResult:
+        reason = f"quarantine unavailable; no completed simulation: {error}"
+        state = sorted(self.source.repositories)
+        event = EffectEvent(request.request_id, request.run_id, request.tool,
+                            request.canonical(), False, reason, state, state)
+        return SandboxResult(True, (reason,), event, simulated=False)
+
     def run(self, request: Request) -> SandboxResult:
-        twin = self.source.clone()
-        initial_context = twin.release_context()
-        event = twin.execute(request)
+        try:
+            twin = self.source.clone()
+            initial_context = twin.release_context()
+            event = twin.execute(request)
+            final_context = twin.release_context()
+        except (NotImplementedError, OSError) as error:
+            return self.unavailable(request, error)
         reasons: list[str] = []
-        if event.tool == "delete_repository" or twin.release_context() != initial_context:
+        if event.tool == "delete_repository" or final_context != initial_context:
             reasons.append("destructive state change")
         if event.data_reads or event.returned_labels or contains_sensitive(event.response):
             reasons.append("sensitive data read")
@@ -463,7 +499,10 @@ class Broker:
             decision = "deny"
         if decision == "quarantine":
             if self.selective_release:
-                result, approval = self.server.review_release(request)
+                try:
+                    result, approval = self.server.review_release(request)
+                except (NotImplementedError, OSError) as error:
+                    result, approval = self.sandbox.unavailable(request, error), None
                 if approval is not None:
                     capability = self.issuer.issue(request, approval.nonce, ttl=5, approval=approval)
                     event = self.server.execute(actual or request, capability)
@@ -535,6 +574,7 @@ def incident_record(intent: Request, result: dict[str, Any]) -> dict[str, Any]:
         "accepted": False,
         "reason": result.get("reason"),
         "sandbox_suspicious": bool(sandbox and sandbox.suspicious),
+        "sandbox_simulated": bool(sandbox and sandbox.simulated),
         "sandbox_reasons": list(sandbox.reasons) if sandbox else [],
         "state_before": sandbox.event.state_before if sandbox else [],
         "state_after": sandbox.event.state_after if sandbox else [],
