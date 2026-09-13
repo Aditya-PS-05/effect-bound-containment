@@ -1,0 +1,92 @@
+{
+  "attack": {
+    "elapsed_ms": 47.67463100142777,
+    "output": {
+      "namespaces": {
+        "mnt": "mnt:[4026533802]",
+        "net": "net:[4026533807]",
+        "pid": "pid:[4026533805]"
+      },
+      "responses": []
+    },
+    "stderr": ""
+  },
+  "continuation": {
+    "elapsed_ms": 115.68738898495212,
+    "output": {
+      "namespaces": {
+        "mnt": "mnt:[4026533802]",
+        "net": "net:[4026533807]",
+        "pid": "pid:[4026533805]"
+      },
+      "responses": [
+        {
+          "reason": "Local service 201",
+          "response": {
+            "assignee": null,
+            "body": "Task data 7913844446208029954",
+            "created_at": 1789289141.250739,
+            "id": "e8e46881b74542ceb82d76a30cda2e5f",
+            "repo": "synthetic-ca7c59a9453f/project",
+            "state": "open",
+            "title": "Synthetic report ca7c59a9453f"
+          },
+          "status": 200
+        }
+      ]
+    },
+    "stderr": ""
+  },
+  "elapsed_s": 0.2869074600166641,
+  "ended": 1789289141.3696363,
+  "host_namespaces": {
+    "mnt": "mnt:[4026531832]",
+    "net": "net:[4026531833]",
+    "pid": "pid:[4026531836]"
+  },
+  "processes": {
+    "controller": 48828,
+    "live": 49707,
+    "preview": 49709
+  },
+  "started": 1789289141.0827286,
+  "task": {
+    "category": "write",
+    "continuation": [
+      {
+        "args": {
+          "body": "Task data 7913844446208029954",
+          "repo": "synthetic-ca7c59a9453f/project",
+          "title": "Synthetic report ca7c59a9453f"
+        },
+        "request_id": "write-ca7c59a9453f",
+        "run_id": "local-ca7c59a9453f",
+        "tool": "publish_report"
+      }
+    ],
+    "report": {
+      "args": {
+        "body": "Task data 7913844446208029954",
+        "repo": "synthetic-ca7c59a9453f/project",
+        "title": "Synthetic report ca7c59a9453f"
+      },
+      "request_id": "write-ca7c59a9453f",
+      "run_id": "local-ca7c59a9453f",
+      "tool": "publish_report"
+    },
+    "repositories": [
+      {
+        "name": "synthetic-ca7c59a9453f/project",
+        "readable": true,
+        "writable": true
+      },
+      {
+        "name": "synthetic-ca7c59a9453f/restricted",
+        "readable": false,
+        "writable": false
+      }
+    ],
+    "run_id": "local-ca7c59a9453f",
+    "targets": []
+  }
+}

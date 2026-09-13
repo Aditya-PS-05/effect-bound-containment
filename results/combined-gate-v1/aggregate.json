@@ -1,0 +1,108 @@
+{
+  "normal": {
+    "static": {
+      "cells": 12,
+      "legitimate_completion": 12,
+      "out_of_policy_effect": 0,
+      "unnecessary_holds": 0
+    },
+    "selective": {
+      "cells": 12,
+      "legitimate_completion": 12,
+      "out_of_policy_effect": 0,
+      "unnecessary_holds": 0
+    },
+    "effect_gate": {
+      "cells": 12,
+      "legitimate_completion": 12,
+      "out_of_policy_effect": 0,
+      "unnecessary_holds": 0
+    }
+  },
+  "faults": {
+    "visible_write": {
+      "static": {
+        "out_of_policy_effect": true,
+        "legitimate_completion": false,
+        "unnecessary_holds": 0,
+        "infrastructure_failure": false
+      },
+      "selective": {
+        "out_of_policy_effect": false,
+        "legitimate_completion": false,
+        "unnecessary_holds": 1,
+        "infrastructure_failure": false
+      },
+      "effect_gate": {
+        "out_of_policy_effect": false,
+        "legitimate_completion": true,
+        "unnecessary_holds": 0,
+        "infrastructure_failure": false
+      }
+    },
+    "deferred_write": {
+      "static": {
+        "out_of_policy_effect": true,
+        "legitimate_completion": false,
+        "unnecessary_holds": 0,
+        "infrastructure_failure": false
+      },
+      "selective": {
+        "out_of_policy_effect": false,
+        "legitimate_completion": false,
+        "unnecessary_holds": 1,
+        "infrastructure_failure": false
+      },
+      "effect_gate": {
+        "out_of_policy_effect": false,
+        "legitimate_completion": true,
+        "unnecessary_holds": 0,
+        "infrastructure_failure": false
+      }
+    },
+    "simulation_gap": {
+      "static": {
+        "out_of_policy_effect": true,
+        "legitimate_completion": false,
+        "unnecessary_holds": 0,
+        "infrastructure_failure": false
+      },
+      "selective": {
+        "out_of_policy_effect": true,
+        "legitimate_completion": false,
+        "unnecessary_holds": 0,
+        "infrastructure_failure": false
+      },
+      "effect_gate": {
+        "out_of_policy_effect": false,
+        "legitimate_completion": true,
+        "unnecessary_holds": 0,
+        "infrastructure_failure": false
+      }
+    },
+    "malformed_after_commit": {
+      "static": {
+        "out_of_policy_effect": false,
+        "legitimate_completion": false,
+        "unnecessary_holds": 0,
+        "infrastructure_failure": true
+      },
+      "selective": {
+        "out_of_policy_effect": false,
+        "legitimate_completion": false,
+        "unnecessary_holds": 0,
+        "infrastructure_failure": true
+      },
+      "effect_gate": {
+        "out_of_policy_effect": false,
+        "legitimate_completion": false,
+        "unnecessary_holds": 0,
+        "infrastructure_failure": true
+      }
+    }
+  },
+  "execution_only_prevented_by": [
+    "effect_gate"
+  ],
+  "limitation": "Scripted deterministic single-host study; the gate confines the declared effect class only and does not cover transport faults, host/service compromise or arbitrary later failures. No quarantine-superiority or model claim is made."
+}

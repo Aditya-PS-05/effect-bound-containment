@@ -1,0 +1,86 @@
+[
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "release",
+      "downstream_effects": [],
+      "effect_mismatch": false,
+      "executed": "repository_exists",
+      "executed_request": "{\"args\":{\"repo\":\"synthetic-7fd132b50589/project\"},\"tool\":\"repository_exists\"}",
+      "intent": "{\"args\":{\"repo\":\"synthetic-7fd132b50589/project\"},\"tool\":\"repository_exists\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Local service 200",
+      "request_id": "read-0-7fd132b50589",
+      "response": {
+        "exists": true
+      },
+      "returned_labels": [],
+      "state_after": [
+        "demo"
+      ],
+      "state_before": [
+        "demo"
+      ],
+      "state_changed": false
+    },
+    "decision": "release",
+    "elapsed_ms": 479.93466700427234,
+    "forwarded": true,
+    "outcome": "completed",
+    "reason": "Local service 200",
+    "request": "{\"args\":{\"repo\":\"synthetic-7fd132b50589/project\"},\"tool\":\"repository_exists\"}",
+    "request_id": "read-0-7fd132b50589",
+    "run_id": "local-7fd132b50589",
+    "status": 200
+  },
+  {
+    "elapsed_ms": 42.745338985696435,
+    "forwarded": null,
+    "outcome": "unknown",
+    "reason": "execution outcome unavailable; reconcile backend evidence before retry",
+    "request": "{\"args\":{\"body\":\"Task data 10920139667865092991\",\"repo\":\"synthetic-7fd132b50589/project\",\"title\":\"Synthetic report 7fd132b50589\"},\"tool\":\"publish_report\"}",
+    "request_id": "write-7fd132b50589",
+    "run_id": "local-7fd132b50589",
+    "status": 503
+  },
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "release",
+      "downstream_effects": [],
+      "effect_mismatch": false,
+      "executed": "repository_exists",
+      "executed_request": "{\"args\":{\"repo\":\"synthetic-7fd132b50589/missing\"},\"tool\":\"repository_exists\"}",
+      "intent": "{\"args\":{\"repo\":\"synthetic-7fd132b50589/missing\"},\"tool\":\"repository_exists\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Local service 200",
+      "request_id": "read-1-7fd132b50589",
+      "response": {
+        "exists": false
+      },
+      "returned_labels": [],
+      "state_after": [
+        "demo"
+      ],
+      "state_before": [
+        "demo"
+      ],
+      "state_changed": false
+    },
+    "decision": "release",
+    "elapsed_ms": 416.8940130039118,
+    "forwarded": true,
+    "outcome": "completed",
+    "reason": "Local service 200",
+    "request": "{\"args\":{\"repo\":\"synthetic-7fd132b50589/missing\"},\"tool\":\"repository_exists\"}",
+    "request_id": "read-1-7fd132b50589",
+    "run_id": "local-7fd132b50589",
+    "status": 200
+  }
+]

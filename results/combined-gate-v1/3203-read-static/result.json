@@ -1,0 +1,135 @@
+{
+  "arm": "static",
+  "category": "read",
+  "elapsed_s": 0.4345530259888619,
+  "fault": "normal",
+  "infrastructure_failure": false,
+  "issues_added": 0,
+  "legitimate_completion": true,
+  "out_of_policy_effect": false,
+  "pending_jobs": 0,
+  "processes_stopped": true,
+  "receipts": {
+    "after": {
+      "events.json": {
+        "bytes": 622,
+        "sha256": "03ecf9f52d23cd37939c0b73069706933be30f81dd275251e1e435dfb31305df"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "41e290caaecbbd50ce3f6d6bf0fad26357166acdfe3a02101b26d5462510eec3"
+      }
+    },
+    "after-attack": {
+      "events.json": {
+        "bytes": 3,
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "41e290caaecbbd50ce3f6d6bf0fad26357166acdfe3a02101b26d5462510eec3"
+      }
+    },
+    "before": {
+      "events.json": {
+        "bytes": 3,
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "41e290caaecbbd50ce3f6d6bf0fad26357166acdfe3a02101b26d5462510eec3"
+      }
+    },
+    "capture-000-before": {
+      "events.json": {
+        "bytes": 3,
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "41e290caaecbbd50ce3f6d6bf0fad26357166acdfe3a02101b26d5462510eec3"
+      }
+    },
+    "capture-001-after-settle": {
+      "events.json": {
+        "bytes": 312,
+        "sha256": "b8712ad5d1b5aad74b63487a1a487549f268dcd78a770c5967f2852b722b749a"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "41e290caaecbbd50ce3f6d6bf0fad26357166acdfe3a02101b26d5462510eec3"
+      }
+    },
+    "capture-002-before": {
+      "events.json": {
+        "bytes": 312,
+        "sha256": "b8712ad5d1b5aad74b63487a1a487549f268dcd78a770c5967f2852b722b749a"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "41e290caaecbbd50ce3f6d6bf0fad26357166acdfe3a02101b26d5462510eec3"
+      }
+    },
+    "capture-003-after-settle": {
+      "events.json": {
+        "bytes": 622,
+        "sha256": "03ecf9f52d23cd37939c0b73069706933be30f81dd275251e1e435dfb31305df"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "41e290caaecbbd50ce3f6d6bf0fad26357166acdfe3a02101b26d5462510eec3"
+      }
+    },
+    "cleanup-live": {
+      "events.json": {
+        "bytes": 622,
+        "sha256": "03ecf9f52d23cd37939c0b73069706933be30f81dd275251e1e435dfb31305df"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "41e290caaecbbd50ce3f6d6bf0fad26357166acdfe3a02101b26d5462510eec3"
+      }
+    },
+    "cleanup-preview": {
+      "events.json": {
+        "bytes": 3,
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "41e290caaecbbd50ce3f6d6bf0fad26357166acdfe3a02101b26d5462510eec3"
+      }
+    },
+    "preview-after": {
+      "events.json": {
+        "bytes": 3,
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "41e290caaecbbd50ce3f6d6bf0fad26357166acdfe3a02101b26d5462510eec3"
+      }
+    },
+    "preview-before": {
+      "events.json": {
+        "bytes": 3,
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "41e290caaecbbd50ce3f6d6bf0fad26357166acdfe3a02101b26d5462510eec3"
+      }
+    },
+    "workflow": {
+      "events.json": {
+        "bytes": 2320,
+        "sha256": "7060933d61a6df8687b8580b0646b9333b094d42dd8e7780f77275e8e546b882"
+      },
+      "state.json": {
+        "bytes": 2059,
+        "sha256": "201242a0d280330a068ebd820c6447db91a2f9e1ba26ec513ee54edd87aae37a"
+      }
+    }
+  },
+  "unnecessary_holds": 0
+}

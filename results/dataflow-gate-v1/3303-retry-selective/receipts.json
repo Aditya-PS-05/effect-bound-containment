@@ -1,0 +1,102 @@
+{
+  "before": {
+    "events.json": {
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    "state.json": {
+      "sha256": "3772d92f1b6815c13d714c7ad44a7310a9af806c74baaae66a9323c2f138c767",
+      "bytes": 284
+    }
+  },
+  "preview-before": {
+    "events.json": {
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    "state.json": {
+      "sha256": "3772d92f1b6815c13d714c7ad44a7310a9af806c74baaae66a9323c2f138c767",
+      "bytes": 284
+    }
+  },
+  "after-attack": {
+    "events.json": {
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    "state.json": {
+      "sha256": "3772d92f1b6815c13d714c7ad44a7310a9af806c74baaae66a9323c2f138c767",
+      "bytes": 284
+    }
+  },
+  "after": {
+    "events.json": {
+      "sha256": "fa42b97591c9cd8fa305a6cce3f5ec8d89837ea7055f692b620e15b247897c8e",
+      "bytes": 657
+    },
+    "state.json": {
+      "sha256": "b719191343e7c15023a8c4c7fd2c7d8303be6f496f652c455a5d26744602bbe8",
+      "bytes": 1198
+    }
+  },
+  "preview-after": {
+    "events.json": {
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    "state.json": {
+      "sha256": "3772d92f1b6815c13d714c7ad44a7310a9af806c74baaae66a9323c2f138c767",
+      "bytes": 284
+    }
+  },
+  "workflow": {
+    "events.json": {
+      "sha256": "21829048cb38d5ab97a86b7070a9a3f4e71b8d66d4dbb9275bfa56bbb32c8c8c",
+      "bytes": 3437
+    },
+    "state.json": {
+      "sha256": "de55243ec100fe7514ebbf290ca1bb706043d304955ac02a10f236ab70b7e230",
+      "bytes": 3035
+    }
+  },
+  "capture-000-before": {
+    "events.json": {
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    "state.json": {
+      "sha256": "3772d92f1b6815c13d714c7ad44a7310a9af806c74baaae66a9323c2f138c767",
+      "bytes": 284
+    }
+  },
+  "capture-001-after-settle": {
+    "events.json": {
+      "sha256": "fa42b97591c9cd8fa305a6cce3f5ec8d89837ea7055f692b620e15b247897c8e",
+      "bytes": 657
+    },
+    "state.json": {
+      "sha256": "b719191343e7c15023a8c4c7fd2c7d8303be6f496f652c455a5d26744602bbe8",
+      "bytes": 1198
+    }
+  },
+  "cleanup-live": {
+    "events.json": {
+      "sha256": "fa42b97591c9cd8fa305a6cce3f5ec8d89837ea7055f692b620e15b247897c8e",
+      "bytes": 657
+    },
+    "state.json": {
+      "sha256": "b719191343e7c15023a8c4c7fd2c7d8303be6f496f652c455a5d26744602bbe8",
+      "bytes": 1198
+    }
+  },
+  "cleanup-preview": {
+    "events.json": {
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    "state.json": {
+      "sha256": "3772d92f1b6815c13d714c7ad44a7310a9af806c74baaae66a9323c2f138c767",
+      "bytes": 284
+    }
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "before": {
+    "events.json": {
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    "state.json": {
+      "sha256": "5bb19f7fbaf8217c94d9bff44c529fe4916feb8872b45fdaa6d45c4f42a0c6c5",
+      "bytes": 284
+    }
+  },
+  "preview-before": {
+    "events.json": {
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    "state.json": {
+      "sha256": "5bb19f7fbaf8217c94d9bff44c529fe4916feb8872b45fdaa6d45c4f42a0c6c5",
+      "bytes": 284
+    }
+  },
+  "after-attack": {
+    "events.json": {
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    "state.json": {
+      "sha256": "5bb19f7fbaf8217c94d9bff44c529fe4916feb8872b45fdaa6d45c4f42a0c6c5",
+      "bytes": 284
+    }
+  },
+  "after": {
+    "events.json": {
+      "sha256": "5404b6dbf1a190e7c1b3a0bccafaad89bae8d5cb8dd873f2b2dfc71c35e98b84",
+      "bytes": 1303
+    },
+    "state.json": {
+      "sha256": "575a492596ca9f0dba884c612259bcf8044a5bd818fcd321dd68d04c2cdad935",
+      "bytes": 1210
+    }
+  },
+  "preview-after": {
+    "events.json": {
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    "state.json": {
+      "sha256": "5bb19f7fbaf8217c94d9bff44c529fe4916feb8872b45fdaa6d45c4f42a0c6c5",
+      "bytes": 284
+    }
+  },
+  "workflow": {
+    "events.json": {
+      "sha256": "ca3879d1225f179b4ffa66353bdd2da2db357ea05a7ada3eabd93d822d74f6be",
+      "bytes": 4036
+    },
+    "state.json": {
+      "sha256": "160a05756f5b9a0b8c8560b2c2bbc6a73be263f467cc805176532b0153971369",
+      "bytes": 3113
+    }
+  },
+  "capture-000-before": {
+    "events.json": {
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    "state.json": {
+      "sha256": "5bb19f7fbaf8217c94d9bff44c529fe4916feb8872b45fdaa6d45c4f42a0c6c5",
+      "bytes": 284
+    }
+  },
+  "capture-001-after-settle": {
+    "events.json": {
+      "sha256": "8e019b6cf807f4fdac74b5168665bf8ae5d06c325b5db5d92f9f1a5d8ac549e4",
+      "bytes": 331
+    },
+    "state.json": {
+      "sha256": "5bb19f7fbaf8217c94d9bff44c529fe4916feb8872b45fdaa6d45c4f42a0c6c5",
+      "bytes": 284
+    }
+  },
+  "capture-002-before": {
+    "events.json": {
+      "sha256": "8e019b6cf807f4fdac74b5168665bf8ae5d06c325b5db5d92f9f1a5d8ac549e4",
+      "bytes": 331
+    },
+    "state.json": {
+      "sha256": "5bb19f7fbaf8217c94d9bff44c529fe4916feb8872b45fdaa6d45c4f42a0c6c5",
+      "bytes": 284
+    }
+  },
+  "capture-003-after-settle": {
+    "events.json": {
+      "sha256": "bf2acfdbe5619b803d934f98b864f98cc5693238dcee390cf5bc1da626936a41",
+      "bytes": 993
+    },
+    "state.json": {
+      "sha256": "575a492596ca9f0dba884c612259bcf8044a5bd818fcd321dd68d04c2cdad935",
+      "bytes": 1210
+    }
+  },
+  "capture-004-before": {
+    "events.json": {
+      "sha256": "bf2acfdbe5619b803d934f98b864f98cc5693238dcee390cf5bc1da626936a41",
+      "bytes": 993
+    },
+    "state.json": {
+      "sha256": "575a492596ca9f0dba884c612259bcf8044a5bd818fcd321dd68d04c2cdad935",
+      "bytes": 1210
+    }
+  },
+  "capture-005-after-settle": {
+    "events.json": {
+      "sha256": "5404b6dbf1a190e7c1b3a0bccafaad89bae8d5cb8dd873f2b2dfc71c35e98b84",
+      "bytes": 1303
+    },
+    "state.json": {
+      "sha256": "575a492596ca9f0dba884c612259bcf8044a5bd818fcd321dd68d04c2cdad935",
+      "bytes": 1210
+    }
+  },
+  "cleanup-live": {
+    "events.json": {
+      "sha256": "5404b6dbf1a190e7c1b3a0bccafaad89bae8d5cb8dd873f2b2dfc71c35e98b84",
+      "bytes": 1303
+    },
+    "state.json": {
+      "sha256": "575a492596ca9f0dba884c612259bcf8044a5bd818fcd321dd68d04c2cdad935",
+      "bytes": 1210
+    }
+  },
+  "cleanup-preview": {
+    "events.json": {
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    "state.json": {
+      "sha256": "5bb19f7fbaf8217c94d9bff44c529fe4916feb8872b45fdaa6d45c4f42a0c6c5",
+      "bytes": 284
+    }
+  }
+}

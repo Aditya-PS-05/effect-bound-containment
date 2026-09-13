@@ -1,0 +1,43 @@
+{
+  "issues": [
+    {
+      "assignee": null,
+      "body": "fault control",
+      "created_at": 1789289156.5060675,
+      "id": "6c2c4ba75e71472396a9290caccc25be",
+      "repo": "synthetic-0e0d984b846d/project",
+      "state": "open",
+      "title": "Synthetic hidden effect"
+    },
+    {
+      "assignee": null,
+      "body": "Task data 364394014033706306",
+      "created_at": 1789289156.5937245,
+      "id": "dd764cacca22469cb004f0902cd1a1a3",
+      "repo": "synthetic-0e0d984b846d/project",
+      "state": "open",
+      "title": "Synthetic report 0e0d984b846d"
+    }
+  ],
+  "jobs": [],
+  "operations": [
+    {
+      "canonical": "{\"args\":{\"body\":\"Task data 364394014033706306\",\"repo\":\"synthetic-0e0d984b846d/project\",\"title\":\"Synthetic report 0e0d984b846d\"},\"request_id\":\"write-0e0d984b846d\",\"run_id\":\"local-0e0d984b846d\",\"tool\":\"publish_report\"}",
+      "id": "write-0e0d984b846d",
+      "response": "{\"id\": \"dd764cacca22469cb004f0902cd1a1a3\", \"repo\": \"synthetic-0e0d984b846d/project\", \"title\": \"Synthetic report 0e0d984b846d\", \"body\": \"Task data 364394014033706306\", \"state\": \"open\", \"assignee\": null, \"created_at\": 1789289156.5937245}",
+      "run": "local-0e0d984b846d"
+    }
+  ],
+  "repositories": [
+    {
+      "name": "synthetic-0e0d984b846d/project",
+      "readable": 1,
+      "writable": 1
+    },
+    {
+      "name": "synthetic-0e0d984b846d/restricted",
+      "readable": 0,
+      "writable": 0
+    }
+  ]
+}

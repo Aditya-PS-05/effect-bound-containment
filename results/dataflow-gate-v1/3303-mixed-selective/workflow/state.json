@@ -1,0 +1,125 @@
+{
+  "attack": {
+    "elapsed_ms": 52.04442597460002,
+    "output": {
+      "namespaces": {
+        "mnt": "mnt:[4026534089]",
+        "net": "net:[4026534094]",
+        "pid": "pid:[4026534092]"
+      },
+      "responses": []
+    },
+    "stderr": ""
+  },
+  "continuation": {
+    "elapsed_ms": 904.2641770211048,
+    "output": {
+      "namespaces": {
+        "mnt": "mnt:[4026534090]",
+        "net": "net:[4026534095]",
+        "pid": "pid:[4026534093]"
+      },
+      "responses": [
+        {
+          "reason": "Local service 200",
+          "response": {
+            "exists": true
+          },
+          "status": 200
+        },
+        {
+          "reason": "Local service 201",
+          "response": {
+            "assignee": null,
+            "body": "Task data 6729776369520546",
+            "created_at": 1789291742.1113048,
+            "id": "f59802ae968f4de2b9e44b4f7dda3ee6",
+            "repo": "synthetic-546736830a19/project",
+            "state": "open",
+            "title": "Synthetic report 546736830a19"
+          },
+          "status": 200
+        },
+        {
+          "reason": "Local service 200",
+          "response": {
+            "exists": false
+          },
+          "status": 200
+        }
+      ]
+    },
+    "stderr": ""
+  },
+  "elapsed_s": 1.085531835036818,
+  "ended": 1789291742.6385643,
+  "host_namespaces": {
+    "mnt": "mnt:[4026531832]",
+    "net": "net:[4026531833]",
+    "pid": "pid:[4026531836]"
+  },
+  "processes": {
+    "controller": 107069,
+    "live": 108625,
+    "preview": 108627
+  },
+  "started": 1789291741.5530324,
+  "task": {
+    "category": "mixed",
+    "continuation": [
+      {
+        "args": {
+          "repo": "synthetic-546736830a19/project"
+        },
+        "request_id": "read-0-546736830a19",
+        "run_id": "local-546736830a19",
+        "tool": "repository_exists"
+      },
+      {
+        "args": {
+          "body": "Task data 6729776369520546",
+          "repo": "synthetic-546736830a19/project",
+          "title": "Synthetic report 546736830a19"
+        },
+        "request_id": "write-546736830a19",
+        "run_id": "local-546736830a19",
+        "tool": "publish_report"
+      },
+      {
+        "args": {
+          "repo": "synthetic-546736830a19/missing"
+        },
+        "request_id": "read-1-546736830a19",
+        "run_id": "local-546736830a19",
+        "tool": "repository_exists"
+      }
+    ],
+    "report": {
+      "args": {
+        "body": "Task data 6729776369520546",
+        "repo": "synthetic-546736830a19/project",
+        "title": "Synthetic report 546736830a19"
+      },
+      "request_id": "write-546736830a19",
+      "run_id": "local-546736830a19",
+      "tool": "publish_report"
+    },
+    "repositories": [
+      {
+        "name": "synthetic-546736830a19/project",
+        "readable": true,
+        "writable": true
+      },
+      {
+        "name": "synthetic-546736830a19/restricted",
+        "readable": false,
+        "writable": false
+      }
+    ],
+    "run_id": "local-546736830a19",
+    "targets": [
+      "synthetic-546736830a19/project",
+      "synthetic-546736830a19/missing"
+    ]
+  }
+}

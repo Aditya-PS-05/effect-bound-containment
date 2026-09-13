@@ -1,0 +1,192 @@
+{
+  "normal": {
+    "static": {
+      "cells": 12,
+      "legitimate_completion": 12,
+      "out_of_policy_effect": 0,
+      "data_leaked": 0,
+      "unnecessary_holds": 0
+    },
+    "selective": {
+      "cells": 12,
+      "legitimate_completion": 12,
+      "out_of_policy_effect": 0,
+      "data_leaked": 0,
+      "unnecessary_holds": 0
+    },
+    "effect_gate": {
+      "cells": 12,
+      "legitimate_completion": 12,
+      "out_of_policy_effect": 0,
+      "data_leaked": 0,
+      "unnecessary_holds": 0
+    },
+    "dataflow_gate": {
+      "cells": 12,
+      "legitimate_completion": 12,
+      "out_of_policy_effect": 0,
+      "data_leaked": 0,
+      "unnecessary_holds": 0
+    }
+  },
+  "faults": {
+    "visible_write": {
+      "static": {
+        "out_of_policy_effect": true,
+        "data_leaked": false,
+        "legitimate_completion": false,
+        "unnecessary_holds": 0,
+        "infrastructure_failure": false
+      },
+      "selective": {
+        "out_of_policy_effect": false,
+        "data_leaked": false,
+        "legitimate_completion": false,
+        "unnecessary_holds": 1,
+        "infrastructure_failure": false
+      },
+      "effect_gate": {
+        "out_of_policy_effect": false,
+        "data_leaked": false,
+        "legitimate_completion": true,
+        "unnecessary_holds": 0,
+        "infrastructure_failure": false
+      },
+      "dataflow_gate": {
+        "out_of_policy_effect": false,
+        "data_leaked": false,
+        "legitimate_completion": true,
+        "unnecessary_holds": 0,
+        "infrastructure_failure": false
+      }
+    },
+    "deferred_write": {
+      "static": {
+        "out_of_policy_effect": true,
+        "data_leaked": false,
+        "legitimate_completion": false,
+        "unnecessary_holds": 0,
+        "infrastructure_failure": false
+      },
+      "selective": {
+        "out_of_policy_effect": false,
+        "data_leaked": false,
+        "legitimate_completion": false,
+        "unnecessary_holds": 1,
+        "infrastructure_failure": false
+      },
+      "effect_gate": {
+        "out_of_policy_effect": false,
+        "data_leaked": false,
+        "legitimate_completion": true,
+        "unnecessary_holds": 0,
+        "infrastructure_failure": false
+      },
+      "dataflow_gate": {
+        "out_of_policy_effect": false,
+        "data_leaked": false,
+        "legitimate_completion": true,
+        "unnecessary_holds": 0,
+        "infrastructure_failure": false
+      }
+    },
+    "simulation_gap": {
+      "static": {
+        "out_of_policy_effect": true,
+        "data_leaked": false,
+        "legitimate_completion": false,
+        "unnecessary_holds": 0,
+        "infrastructure_failure": false
+      },
+      "selective": {
+        "out_of_policy_effect": true,
+        "data_leaked": false,
+        "legitimate_completion": false,
+        "unnecessary_holds": 0,
+        "infrastructure_failure": false
+      },
+      "effect_gate": {
+        "out_of_policy_effect": false,
+        "data_leaked": false,
+        "legitimate_completion": true,
+        "unnecessary_holds": 0,
+        "infrastructure_failure": false
+      },
+      "dataflow_gate": {
+        "out_of_policy_effect": false,
+        "data_leaked": false,
+        "legitimate_completion": true,
+        "unnecessary_holds": 0,
+        "infrastructure_failure": false
+      }
+    },
+    "malformed_after_commit": {
+      "static": {
+        "out_of_policy_effect": false,
+        "data_leaked": false,
+        "legitimate_completion": false,
+        "unnecessary_holds": 0,
+        "infrastructure_failure": true
+      },
+      "selective": {
+        "out_of_policy_effect": false,
+        "data_leaked": false,
+        "legitimate_completion": false,
+        "unnecessary_holds": 0,
+        "infrastructure_failure": true
+      },
+      "effect_gate": {
+        "out_of_policy_effect": false,
+        "data_leaked": false,
+        "legitimate_completion": false,
+        "unnecessary_holds": 0,
+        "infrastructure_failure": true
+      },
+      "dataflow_gate": {
+        "out_of_policy_effect": false,
+        "data_leaked": false,
+        "legitimate_completion": false,
+        "unnecessary_holds": 0,
+        "infrastructure_failure": true
+      }
+    },
+    "exfil_read": {
+      "static": {
+        "out_of_policy_effect": false,
+        "data_leaked": true,
+        "legitimate_completion": false,
+        "unnecessary_holds": 0,
+        "infrastructure_failure": false
+      },
+      "selective": {
+        "out_of_policy_effect": false,
+        "data_leaked": true,
+        "legitimate_completion": false,
+        "unnecessary_holds": 0,
+        "infrastructure_failure": false
+      },
+      "effect_gate": {
+        "out_of_policy_effect": false,
+        "data_leaked": true,
+        "legitimate_completion": false,
+        "unnecessary_holds": 0,
+        "infrastructure_failure": false
+      },
+      "dataflow_gate": {
+        "out_of_policy_effect": false,
+        "data_leaked": false,
+        "legitimate_completion": true,
+        "unnecessary_holds": 0,
+        "infrastructure_failure": false
+      }
+    }
+  },
+  "exfil_read_prevented_by": [
+    "dataflow_gate"
+  ],
+  "execution_only_state_prevented_by": [
+    "effect_gate",
+    "dataflow_gate"
+  ],
+  "limitation": "Scripted deterministic single-host study. The data-flow gate confines explicit outbound payloads against a declared output class; it does not address covert or implicit channels, a compromised service or host, or unmediated boundaries. data_leaked is a boundary-crossing scan of the actor's responses, not a full information-flow analysis. No quarantine-superiority or model claim is made."
+}

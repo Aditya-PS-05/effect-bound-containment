@@ -1,0 +1,38 @@
+[
+  {
+    "discarded": "state change outside authorized effect",
+    "kind": "gate_rejected",
+    "request": {
+      "args": {
+        "repo": "synthetic-0e0d984b846d/project"
+      },
+      "request_id": "read-0-0e0d984b846d",
+      "run_id": "local-0e0d984b846d",
+      "tool": "repository_exists"
+    },
+    "status": 200
+  },
+  {
+    "kind": "request",
+    "request": {
+      "args": {
+        "body": "Task data 364394014033706306",
+        "repo": "synthetic-0e0d984b846d/project",
+        "title": "Synthetic report 0e0d984b846d"
+      },
+      "request_id": "write-0e0d984b846d",
+      "run_id": "local-0e0d984b846d",
+      "tool": "publish_report"
+    },
+    "response": {
+      "assignee": null,
+      "body": "Task data 364394014033706306",
+      "created_at": 1789289158.9503086,
+      "id": "ede475076e534c77867714d0f46579de",
+      "repo": "synthetic-0e0d984b846d/project",
+      "state": "open",
+      "title": "Synthetic report 0e0d984b846d"
+    },
+    "status": 201
+  }
+]

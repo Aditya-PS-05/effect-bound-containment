@@ -1,0 +1,27 @@
+{
+  "issues": [
+    {
+      "assignee": null,
+      "body": "fault control",
+      "created_at": 1789289159.8203423,
+      "id": "bf1d15067e044a9c9b1baa8d18ab9a85",
+      "repo": "synthetic-0e0d984b846d/project",
+      "state": "open",
+      "title": "Synthetic deferred effect"
+    }
+  ],
+  "jobs": [],
+  "operations": [],
+  "repositories": [
+    {
+      "name": "synthetic-0e0d984b846d/project",
+      "readable": 1,
+      "writable": 1
+    },
+    {
+      "name": "synthetic-0e0d984b846d/restricted",
+      "readable": 0,
+      "writable": 0
+    }
+  ]
+}

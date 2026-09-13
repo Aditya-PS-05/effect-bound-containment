@@ -1,0 +1,32 @@
+[
+  {
+    "kind": "request",
+    "request": {
+      "args": {
+        "repo": "synthetic-f8e4d9e28b1b/project"
+      },
+      "request_id": "read-0-f8e4d9e28b1b",
+      "run_id": "local-f8e4d9e28b1b",
+      "tool": "repository_exists"
+    },
+    "response": {
+      "exists": true
+    },
+    "status": 200
+  },
+  {
+    "kind": "request",
+    "request": {
+      "args": {
+        "repo": "synthetic-f8e4d9e28b1b/missing"
+      },
+      "request_id": "read-1-f8e4d9e28b1b",
+      "run_id": "local-f8e4d9e28b1b",
+      "tool": "repository_exists"
+    },
+    "response": {
+      "exists": false
+    },
+    "status": 200
+  }
+]

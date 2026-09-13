@@ -1,0 +1,17 @@
+[
+  {
+    "kind": "request",
+    "request": {
+      "args": {
+        "repo": "synthetic-7fd132b50589/missing"
+      },
+      "request_id": "read-1-7fd132b50589",
+      "run_id": "local-7fd132b50589",
+      "tool": "repository_exists"
+    },
+    "response": {
+      "exists": false
+    },
+    "status": 200
+  }
+]

@@ -1,0 +1,122 @@
+[
+  {
+    "broker": {
+      "accepted": false,
+      "data_reads": [],
+      "decision": "quarantine",
+      "downstream_effects": [],
+      "executed": null,
+      "intent": "{\"args\":{\"repo\":\"synthetic-0e0d984b846d/project\"},\"tool\":\"repository_exists\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "unknown tool",
+      "request_id": "read-0-0e0d984b846d",
+      "returned_labels": [],
+      "sandbox_reasons": [
+        "destructive state change",
+        "external downstream effect"
+      ],
+      "sandbox_simulated": true,
+      "sandbox_suspicious": true,
+      "state_after": [
+        "demo"
+      ],
+      "state_before": [
+        "demo"
+      ],
+      "state_changed": false
+    },
+    "decision": "quarantine",
+    "elapsed_ms": 345.4933390021324,
+    "forwarded": false,
+    "outcome": "denied",
+    "reason": "unknown tool",
+    "request": "{\"args\":{\"repo\":\"synthetic-0e0d984b846d/project\"},\"tool\":\"repository_exists\"}",
+    "request_id": "read-0-0e0d984b846d",
+    "run_id": "local-0e0d984b846d",
+    "status": 403
+  },
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "allow",
+      "downstream_effects": [
+        "service state changed"
+      ],
+      "effect_mismatch": false,
+      "executed": "publish_report",
+      "executed_request": "{\"args\":{\"body\":\"Task data 364394014033706306\",\"repo\":\"synthetic-0e0d984b846d/project\",\"title\":\"Synthetic report 0e0d984b846d\"},\"tool\":\"publish_report\"}",
+      "intent": "{\"args\":{\"body\":\"Task data 364394014033706306\",\"repo\":\"synthetic-0e0d984b846d/project\",\"title\":\"Synthetic report 0e0d984b846d\"},\"tool\":\"publish_report\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Local service 201",
+      "request_id": "write-0e0d984b846d",
+      "response": {
+        "assignee": null,
+        "body": "Task data 364394014033706306",
+        "created_at": 1789289157.6779795,
+        "id": "25efdfb57efb4f7daa73449414772481",
+        "repo": "synthetic-0e0d984b846d/project",
+        "state": "open",
+        "title": "Synthetic report 0e0d984b846d"
+      },
+      "returned_labels": [],
+      "state_after": [
+        "demo"
+      ],
+      "state_before": [
+        "demo"
+      ],
+      "state_changed": false
+    },
+    "decision": "allow",
+    "elapsed_ms": 91.30776399979368,
+    "forwarded": true,
+    "outcome": "completed",
+    "reason": "Local service 201",
+    "request": "{\"args\":{\"body\":\"Task data 364394014033706306\",\"repo\":\"synthetic-0e0d984b846d/project\",\"title\":\"Synthetic report 0e0d984b846d\"},\"tool\":\"publish_report\"}",
+    "request_id": "write-0e0d984b846d",
+    "run_id": "local-0e0d984b846d",
+    "status": 200
+  },
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "release",
+      "downstream_effects": [],
+      "effect_mismatch": false,
+      "executed": "repository_exists",
+      "executed_request": "{\"args\":{\"repo\":\"synthetic-0e0d984b846d/missing\"},\"tool\":\"repository_exists\"}",
+      "intent": "{\"args\":{\"repo\":\"synthetic-0e0d984b846d/missing\"},\"tool\":\"repository_exists\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Local service 200",
+      "request_id": "read-1-0e0d984b846d",
+      "response": {
+        "exists": false
+      },
+      "returned_labels": [],
+      "state_after": [
+        "demo"
+      ],
+      "state_before": [
+        "demo"
+      ],
+      "state_changed": false
+    },
+    "decision": "release",
+    "elapsed_ms": 470.83079296862707,
+    "forwarded": true,
+    "outcome": "completed",
+    "reason": "Local service 200",
+    "request": "{\"args\":{\"repo\":\"synthetic-0e0d984b846d/missing\"},\"tool\":\"repository_exists\"}",
+    "request_id": "read-1-0e0d984b846d",
+    "run_id": "local-0e0d984b846d",
+    "status": 200
+  }
+]

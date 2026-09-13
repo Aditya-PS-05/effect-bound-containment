@@ -1,0 +1,93 @@
+{
+  "attack": {
+    "elapsed_ms": 50.0961400102824,
+    "output": {
+      "namespaces": {
+        "mnt": "mnt:[4026534089]",
+        "net": "net:[4026534094]",
+        "pid": "pid:[4026534092]"
+      },
+      "responses": []
+    },
+    "stderr": ""
+  },
+  "continuation": {
+    "elapsed_ms": 730.1583970547654,
+    "output": {
+      "namespaces": {
+        "mnt": "mnt:[4026534089]",
+        "net": "net:[4026534094]",
+        "pid": "pid:[4026534092]"
+      },
+      "responses": [
+        {
+          "reason": "Local service 200",
+          "response": {
+            "exists": true
+          },
+          "status": 200
+        },
+        {
+          "reason": "Local service 200",
+          "response": {
+            "exists": false
+          },
+          "status": 200
+        }
+      ]
+    },
+    "stderr": ""
+  },
+  "elapsed_s": 0.8928512259735726,
+  "ended": 1789291711.83822,
+  "host_namespaces": {
+    "mnt": "mnt:[4026531832]",
+    "net": "net:[4026531833]",
+    "pid": "pid:[4026531836]"
+  },
+  "processes": {
+    "controller": 107069,
+    "live": 107109,
+    "preview": 107113
+  },
+  "started": 1789291710.9453685,
+  "task": {
+    "category": "read",
+    "continuation": [
+      {
+        "args": {
+          "repo": "synthetic-31a13761ae5b/project"
+        },
+        "request_id": "read-0-31a13761ae5b",
+        "run_id": "local-31a13761ae5b",
+        "tool": "repository_exists"
+      },
+      {
+        "args": {
+          "repo": "synthetic-31a13761ae5b/missing"
+        },
+        "request_id": "read-1-31a13761ae5b",
+        "run_id": "local-31a13761ae5b",
+        "tool": "repository_exists"
+      }
+    ],
+    "report": null,
+    "repositories": [
+      {
+        "name": "synthetic-31a13761ae5b/project",
+        "readable": true,
+        "writable": true
+      },
+      {
+        "name": "synthetic-31a13761ae5b/restricted",
+        "readable": false,
+        "writable": false
+      }
+    ],
+    "run_id": "local-31a13761ae5b",
+    "targets": [
+      "synthetic-31a13761ae5b/project",
+      "synthetic-31a13761ae5b/missing"
+    ]
+  }
+}

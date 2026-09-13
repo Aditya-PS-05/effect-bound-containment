@@ -16,6 +16,8 @@ from run_arga_workflow import verify_run as verify_arga_workflow
 from run_arga_quarantine import verify_run as verify_arga_quarantine
 from run_openai_pilot import verify_run as verify_openai_pilot
 from run_pilot_followup import verify_run as verify_pilot_followup
+from run_combined_gate import verify as verify_combined_gate
+from run_dataflow_gate import verify as verify_dataflow_gate
 
 
 def main():
@@ -58,6 +60,8 @@ def main():
     arga_quarantine = verify_arga_quarantine(root / "arga-quarantine-v1")
     pilot = verify_openai_pilot(root / "openai-pilot-v1")
     verify_pilot_followup(root / "pilot-followup-v1")
+    combined_gate = verify_combined_gate(root / "combined-gate-v1")
+    dataflow_gate = verify_dataflow_gate(root / "dataflow-gate-v1")
     print(f"Verified {len(raw)} baseline + {len(selective_raw)} selective cases, {len(rows)} prior Pome runs, "
           f"{len(observers)} observer-comparison runs, {len(checks)} workflow snapshots "
           f"and {len(git_rows)} native Git evidence + {len(enforcement)} enforcement runs; "
@@ -65,7 +69,8 @@ def main():
           f"{len(broker_workflows)} integrated broker workflows + {len(arga_workflows)} Arga conditions "
           f"+ {len(arga_quarantine)} separate-twin quarantine cells; "
           f"H27 {sum(r['status'] == 'completed' for r in pilot)}/{len(pilot)} completed planned cells; "
-          "H28 36 local replay cells + 12 scripted fidelity controls")
+          f"H28 36 local replay cells + 12 scripted fidelity controls; "
+          f"H32 {len(combined_gate)} combined-gate cells + H33 {len(dataflow_gate)} data-flow cells")
 
 
 if __name__ == "__main__":

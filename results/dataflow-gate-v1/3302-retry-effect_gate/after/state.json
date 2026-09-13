@@ -1,0 +1,34 @@
+{
+  "issues": [
+    {
+      "assignee": null,
+      "body": "Task data 1587463923552565752",
+      "created_at": 1789291727.810274,
+      "id": "ec0185bb89974c9695341c8dbc431206",
+      "repo": "synthetic-8d2f10cdc544/project",
+      "state": "open",
+      "title": "Synthetic report 8d2f10cdc544"
+    }
+  ],
+  "jobs": [],
+  "operations": [
+    {
+      "canonical": "{\"args\":{\"body\":\"Task data 1587463923552565752\",\"repo\":\"synthetic-8d2f10cdc544/project\",\"title\":\"Synthetic report 8d2f10cdc544\"},\"request_id\":\"write-8d2f10cdc544\",\"run_id\":\"local-8d2f10cdc544\",\"tool\":\"publish_report\"}",
+      "id": "write-8d2f10cdc544",
+      "response": "{\"id\": \"ec0185bb89974c9695341c8dbc431206\", \"repo\": \"synthetic-8d2f10cdc544/project\", \"title\": \"Synthetic report 8d2f10cdc544\", \"body\": \"Task data 1587463923552565752\", \"state\": \"open\", \"assignee\": null, \"created_at\": 1789291727.810274}",
+      "run": "local-8d2f10cdc544"
+    }
+  ],
+  "repositories": [
+    {
+      "name": "synthetic-8d2f10cdc544/project",
+      "readable": 1,
+      "writable": 1
+    },
+    {
+      "name": "synthetic-8d2f10cdc544/restricted",
+      "readable": 0,
+      "writable": 0
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+[
+  {
+    "kind": "request",
+    "request": {
+      "args": {
+        "repo": "synthetic-0e0d984b846d/project"
+      },
+      "request_id": "read-0-0e0d984b846d",
+      "run_id": "local-0e0d984b846d",
+      "tool": "repository_exists"
+    },
+    "response": {
+      "exists": true
+    },
+    "status": 200
+  },
+  {
+    "issue": {
+      "assignee": null,
+      "body": "fault control",
+      "created_at": 1789289159.8203423,
+      "id": "bf1d15067e044a9c9b1baa8d18ab9a85",
+      "repo": "synthetic-0e0d984b846d/project",
+      "state": "open",
+      "title": "Synthetic deferred effect"
+    },
+    "kind": "job_effect"
+  },
+  {
+    "kind": "request",
+    "request": {
+      "args": {
+        "body": "Task data 364394014033706306",
+        "repo": "synthetic-0e0d984b846d/project",
+        "title": "Synthetic report 0e0d984b846d"
+      },
+      "request_id": "write-0e0d984b846d",
+      "run_id": "local-0e0d984b846d",
+      "tool": "publish_report"
+    },
+    "response": {
+      "assignee": null,
+      "body": "Task data 364394014033706306",
+      "created_at": 1789289159.925826,
+      "id": "47e680e487d34c02b41d85366ebf58a0",
+      "repo": "synthetic-0e0d984b846d/project",
+      "state": "open",
+      "title": "Synthetic report 0e0d984b846d"
+    },
+    "status": 201
+  }
+]

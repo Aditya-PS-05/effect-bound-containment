@@ -1,0 +1,93 @@
+{
+  "attack": {
+    "elapsed_ms": 69.8012460488826,
+    "output": {
+      "namespaces": {
+        "mnt": "mnt:[4026533803]",
+        "net": "net:[4026533808]",
+        "pid": "pid:[4026533806]"
+      },
+      "responses": []
+    },
+    "stderr": ""
+  },
+  "continuation": {
+    "elapsed_ms": 803.9933789987117,
+    "output": {
+      "namespaces": {
+        "mnt": "mnt:[4026533802]",
+        "net": "net:[4026533807]",
+        "pid": "pid:[4026533805]"
+      },
+      "responses": [
+        {
+          "reason": "Local service 200",
+          "response": {
+            "exists": true
+          },
+          "status": 200
+        },
+        {
+          "reason": "Local service 200",
+          "response": {
+            "exists": false
+          },
+          "status": 200
+        }
+      ]
+    },
+    "stderr": ""
+  },
+  "elapsed_s": 1.045060887990985,
+  "ended": 1789289139.6591055,
+  "host_namespaces": {
+    "mnt": "mnt:[4026531832]",
+    "net": "net:[4026531833]",
+    "pid": "pid:[4026531836]"
+  },
+  "processes": {
+    "controller": 48828,
+    "live": 49544,
+    "preview": 49547
+  },
+  "started": 1789289138.6140444,
+  "task": {
+    "category": "read",
+    "continuation": [
+      {
+        "args": {
+          "repo": "synthetic-ca7c59a9453f/project"
+        },
+        "request_id": "read-0-ca7c59a9453f",
+        "run_id": "local-ca7c59a9453f",
+        "tool": "repository_exists"
+      },
+      {
+        "args": {
+          "repo": "synthetic-ca7c59a9453f/missing"
+        },
+        "request_id": "read-1-ca7c59a9453f",
+        "run_id": "local-ca7c59a9453f",
+        "tool": "repository_exists"
+      }
+    ],
+    "report": null,
+    "repositories": [
+      {
+        "name": "synthetic-ca7c59a9453f/project",
+        "readable": true,
+        "writable": true
+      },
+      {
+        "name": "synthetic-ca7c59a9453f/restricted",
+        "readable": false,
+        "writable": false
+      }
+    ],
+    "run_id": "local-ca7c59a9453f",
+    "targets": [
+      "synthetic-ca7c59a9453f/project",
+      "synthetic-ca7c59a9453f/missing"
+    ]
+  }
+}
