@@ -1,179 +1,159 @@
 ---
-title: "Effect-bound containment: report authoring pack"
+title: "Track 1 evidence review: authorization, observation and preview fidelity"
 date: "13 September 2026"
 fontsize: 10pt
 geometry: margin=0.8in
 colorlinks: true
 ---
 
-**Evidence and planning notes, not a submission manuscript.** The sprint's
-[Guidelines](https://apartresearch.com/sprints/ai-incident-response-sprint-2026-09-11-to-2026-09-13)
-require the final narrative to be the team's own writing. Use these checked facts
-to write in the [official template](https://docs.google.com/document/d/1PQBlhI3tM5vb51x7jBWXBQMYg6hkiU_x8RaCws4kjl4/copy?usp=sharing),
-also saved as `report/official-template.docx`. This pack follows its section order;
-its PDF is a review copy, not a substitute for the completed template.
+**Authoring material, not a submission manuscript.** This is the consolidated,
+AI-assisted evidence package through H31. The author must review the facts and
+write the final narrative in the [official template](official-template.docx).
+The original `evidence-pack.pdf` and `review.html` are historical renderings;
+`track1-review.pdf` and `track1-review.html` render this current source.
+Nothing in this package has been submitted or independently reproduced by a reviewer.
 
-**Candidate finding-led title:** Backend evidence exposes request mutations that
-upstream logs miss. **Author:** Aditya Pratap Singh. **Affiliation:** confirm before
-submission; do not imply employer endorsement. **Track:** 1, Containment.
+**Author review needed:** Aditya Pratap Singh; affiliation unconfirmed. Working
+report title: *Where authorization stops: auditable containment and its limits*.
+The [event guidelines](https://apartresearch.com/sprints/ai-incident-response-sprint-2026-09-11-to-2026-09-13)
+and template govern the final submission. Use at most 150 words for the abstract,
+at most eight main pages, and include the limitations/dual-use appendix.
 
-**Submission constraints checked on 13 September:** main report at most eight pages,
-excluding references and appendices; required Limitations and Dual-Use Considerations
-appendix; author names and affiliations. The template suggests a 150–250-word abstract,
-but the event Guidelines cap the submitted abstract at 150. Use at most 150 for the
-form and report to satisfy the tighter event rule. Public code and a video are optional.
+## Findings to review
 
-**Abstract planning, not drafted prose:** problem (15 words); tested mechanism and
-environment (30); principal numerical result (45); negative control and scope limit
-(40); practical takeaway (20). Lead with backend evidence, not a claim of perfect
-containment. Do not combine different suites into one attack-success percentage.
+1. **Execution-time authorization helps in the tested environments.** In native Git,
+   an equally informed broker preview allowed 3/6 forbidden ref-update workflows;
+   the receive-time effect gate allowed 0/6. Both completed 5/5 benign workflows.
+2. **Independent backend evidence reveals effects upstream records miss.** On six
+   executed Pome attacks, intent detected 0/6, gate-entry evidence 2/6 and backend
+   tape 6/6. Detection did not undo those effects.
+3. **Quarantine depends on preview fidelity.** Selective release blocked four
+   modeled fault classes while preserving benign work, but every simulation-gap
+   repetition escaped. The execution-only counterexample also persists in the
+   later hosted and separate-process local studies.
+
+These are separate experiments and denominators. They do not establish production
+security, prevention of the actual incident, or quarantine superiority against a
+realistic AI attacker. H27 is incomplete, H30 lacked substantive attacks, and H31
+failed its search-coverage gate. Their unfavorable outcomes remain in Section 4.4.
 
 # 1. Introduction
 
-Author's task: explain why an honest upstream log may be an incomplete incident record.
+**Argument for the author to develop:** containment needs evidence of both the
+authority checked and the effect actually executed. An accurate intent log can
+miss changes later in the call path. A correct dry run can also disagree with a
+later execution. The deliverable is an engineering control/evidence checklist,
+backed by reproducible examples of prevention, detection and failure.
 
-- Incident motivation: Hugging Face's technical reconstruction describes an intrusion
-  spanning evaluation and third-party systems, using both recovered agent logs and
-  platform logs [1]. It supports the need to compare evidence across boundaries.
-  Our experiments are **not** a replay of its exploits or a demonstration that this
-  prototype would have stopped that incident.
-- Tested failure: an approved operation can be substituted before or after an
-  authorization gate. The upstream record can remain accurate about what it saw
-  while failing to describe what the backend received.
-- Intended user: an agent-platform or evaluation engineer checking where authorization
-  ends and what evidence an incident reviewer can independently acquire.
-- Contributions to describe narrowly: a reproducible boundary-mutation harness;
-  separately scored prevention, detection and utility controls; durable real-twin
-  evidence; and a bounded selective-release experiment with an explicit failure case.
-- Do not claim invention of capabilities, complete mediation, simulation or independent
-  logging. The contribution is their measured interaction in this small controlled setting.
+The intended reader is an agent-platform or evaluation engineer deciding where to
+place enforcement and what evidence to retain. Track 1 fit rests on inspectable
+requirements and practical review, not on obtaining a positive quarantine result.
+No lab has assessed adoption, and no external reviewer has reproduced this package.
 
-**Unchanged research question**
+**Preserved research question**
 
 > Can an adaptive effect-bound broker reduce unauthorized agent effects and detect
 > execution mismatches better than intent logging or static authorization, while
 > keeping legitimate actions usable?
 
-**Unchanged hypothesis**
+**Preserved hypothesis**
 
 > In a deterministic test environment, server-side capability enforcement combined
 > with dynamic quarantine will prevent more tested unauthorized effects than intent
 > logging or broker-only authorization, at the cost of some additional latency and
 > quarantines.
 
-Hypothesis history is in `hypotheses.md`. H1–H7 were reconstructed retrospectively.
-H8–H11 were recorded in commit `1378ec7` before the canonical observer comparison,
-after related earlier examples were already known. This is not a blind or externally
-preregistered study. Current status is partial support with material qualifications.
+The weaker-baseline hypothesis and incremental benefit over equally informed static
+authorization are different claims. Evidence supports narrow parts of the former;
+the latter remains conditional on modeled behavior and unestablished against
+realistic attacks. [The hypothesis ledger](../hypotheses.md) retains H1–H31.
 
 # 2. Related Work
 
-Use these verified sources to explain the comparison, not to claim a comprehensive
-state-of-the-art benchmark. No head-to-head run against these systems was performed.
-
-| Source | Relevant principle | Relationship to this artifact |
-|---|---|---|
-| Saltzer and Schroeder [2] | Complete mediation and fail-safe defaults | Motivate checking at execution and testing paths after the gate. |
-| Hardy [3] | Confused-deputy authority misuse | Motivate scoped authority rather than broad service credentials. |
-| AI Control [4] | Evaluate protocols under intentional subversion | Our attacker is a deterministic mutation script, not a frontier model. |
-| AgentDojo [5] | Extensible agent-security and useful-task evaluation | Motivate benign controls; its tasks and attack distribution are not used here. |
-| CaMeL [6] | Trusted control/data-flow separation and tool-call policy | Closely related capability-based defense; our request comparison does not implement its information-flow guarantees. |
-| Pome [7] | Stateful API simulation with request/state tape | Supplies the actual GitHub twin and backend evidence, not our scorer or capability enforcement. |
-
-The older literature notebook includes additional sources not needed for this report.
-Its Hardy citation has been corrected; do not reuse unchecked bibliographic entries
-or comparative performance claims merely because they appear in the notebook.
+The contribution is a control-to-evidence mapping and measured boundary failures,
+not the invention of capabilities, complete mediation or simulation. Saltzer and
+Schroeder [1] motivate complete mediation; Hardy [2] motivates scoped authority.
+AI Control [3] motivates testing intentional subversion, but our scripted suites
+are not frontier-agent evaluations. AgentDojo [4] and CaMeL [5] address related
+agent-tool security questions; we neither run their benchmarks nor reproduce their
+information-flow guarantees. Pome [6] supplies a separately implemented API twin;
+native Git [7] supplies an execution-side ref-update interface.
 
 # 3. Methods
 
-## 3.1 Threat model and implemented boundaries
+## 3.1 Boundaries and authority
 
-- Scripted caller; no LLM inference, training, GPU or production account. Pome uses
-  project-local Node 24.21.0 and CLI 0.43.0, pinned in `package-lock.json`.
-- Local capability binds canonical tool/arguments, run ID, request ID, nonce and
-  expiry under HMAC. The server verifies it and checks server policy. Nonces are
-  process-memory state, not durable revocation storage.
-- The local server copies mutable input and holds execution/policy locks. Selective
-  release additionally binds a separately signed approval to the exact request,
-  current modeled state and policy revision, with a five-second expiry.
-- Three passive evidence views receive the same operator-approved wire request:
-  intent, gate-entry request, or Pome tape. Comparators see method/path/body, not
-  attack labels. Agreement is request consistency, **not semantic safety**.
-- The Pome gate is Python code upstream of the REST endpoint. Pome authenticates a
-  bearer credential but does not check our capabilities. Post-gate mutation is an
-  intentional positive attack control, not proof of a Pome vulnerability.
-- A spawned observer fetches Pome's events/state itself, validates tape identity and
-  prefix continuity, writes fsynced snapshots, and returns byte counts and SHA-256
-  receipts. Retained receipts must be trusted separately from a mutable archive.
-  The observer is a separate process, **not a separate host or trust root**.
+The early suites use a local modeled server and real local Pome GitHub twins.
+Capabilities bind tool, canonical arguments, run/request identities, nonce and
+expiry. A Python gate protects the Pome path; Pome itself does not validate our
+capability. A separate observer fetches tape/state and retains hashed snapshots.
+It is a separate process, not a separate host or independent trust root.
 
-**Figure 1 specification for the author's report.** Draw caller, intent record,
-Python gate, Pome server, and separate observer as five boxes. Put mutation point A
-between intent and gate, and mutation point B between gate and Pome. Draw the
-observer's evidence arrows from Pome's tape/state endpoints, not from the broker.
-Label B “detected after execution, not prevented.” Draw all processes inside one
-shared-host boundary. Show local clone-based quarantine as a separate inset, not
-as an integrated Pome isolation layer.
+The native Git comparison uses identical allowed ref and old/new object predicates
+at broker dry-run and receive time. The later HTTP suite runs the actor inside
+Bubblewrap mount/network/PID namespaces. H29 adds separate live/preview service
+processes, SQLite operation identities, explicit queued jobs and independent
+snapshot subprocesses. The host, broker and backend remain trusted. Exact task
+identities are prebound in H30/H31, greatly restricting their request-only search.
 
-## 3.2 Experiment manifest and denominators
+![Three tested boundaries. Each row describes a separate experiment; this is not one combined deployment. Solid arrows show operation flow; the observation branch records effects after execution.](boundaries.png){width=100%}
 
-| Suite | Unique cells and repetitions | What it establishes |
-|---|---|---|
-| Local matrix | 4 configurations × 10 scenarios × 20 repeats = 800 cases | Admission/effect outcomes for seven attack and three benign scenarios. |
-| Selective release | 4 × 9 × 20 = 720 cases | Four benign workflows and five deliberately injected backend fault types. |
-| Prior Pome comparison | 4 × 5 = 20 fresh twins | Pre/post-gate request substitution against real twin tape/state. |
-| Observer comparison | 2 × 8 = 16 fresh twins | Three evidence views on the same cases; eight benign cases, eight attack attempts. |
-| Workflow suite | One controlled run, 11 evidence checkpoints | Named concurrency, revocation, delayed-dispatch and partial-failure schedules. |
+## 3.2 What counts as evidence
 
-Twenty repetitions in the local suites are deterministic consistency runs, not twenty
-independent discoveries. Do not add statistical confidence intervals, significance
-claims, or estimated production attack rates. In the observer suite, eight attempts
-produce six executed attacks and two prevented attempts: keep those denominators separate.
+A denied request or nonzero process exit alone does not establish prevention.
+Native Git uses refs and journals; Pome uses received-call tape and state; H29
+uses declared database state and events, including queued effects. Legitimate
+completion checks outputs and duplicates in the later suites. The original local
+matrix uses an acceptance proxy, which is weaker than application completion.
 
-**Local matrix conditions:** intent-only; broker-only; static server with deny-unknown;
-full server with hold-all quarantine. Attacks are tool/argument substitution, replay,
-expiry, direct bypass, unknown sensitive read and explicit-label exfiltration. Benign
-controls are a clean call, registered metadata and supported-but-unregistered status.
-The weak intent-only condition does not silently retain the server exfiltration guard.
+Missing evidence is unresolved, not clean. Receipts detect later archive alteration
+only against a separately trusted anchor; originally fabricated consistent source
+evidence remains a known limitation. A post-execution alert is detection, not
+containment. Denied calls must not consume authority needed for legitimate work.
 
-**Selective conditions:** static deny-unknown, hold-all quarantine, selective release,
-and an equally informed static policy allowing the same reviewed input shapes.
-Reviewed operations are `get_status({})` and `repository_exists` on `demo` or `absent`.
-Simulation rejects modeled writes, sensitive reads, extra output and queued effects.
-The fifth attack deliberately omits the live effect from the clone. It must stay in
-the results. Two calls in the repeated-status case are one workflow, not two trials.
-
-**Observer conditions:** broker-only and full gate. Benign scenarios are metadata,
-creation, expected 404, and creation followed by injected response loss. Attacks are
-pre-gate tool/argument substitutions and post-gate creation/file-read substitutions.
-The read returns Pome's seeded README outside approved metadata scope. It contains
-no real secret and changes no final state.
-
-## 3.3 Scoring, failures and timing
-
-- Local attack success is scenario-defined: a state change, sensitive read, outgoing
-  notification, or unauthorized admission for replay/expiry. These outcomes are not
-  all state-changing damage. Baseline benign completion is an acceptance proxy;
-  its metadata stub does not demonstrate real application usefulness.
-- Selective benign completion checks expected returned values; malicious outcomes
-  come from executed records and final state after flushing modeled pending effects.
-- Observer attack success checks actual created resources or returned file content,
-  independently of the detector's alert. Legitimate completion checks the backend
-  objective. An expected 404 can complete a task; response loss can leave a committed
-  task with a client timeout. Neither implies a successfully delivered response.
-- Missing/damaged evidence becomes `unknown`, not clean, prevented, detected or missed.
-  A gate alert on a blocked attempt is reported separately from executed detection.
-- Dispatch uses `perf_counter`. Backend effect time lies somewhere between dispatch
-  start and completion; subtract both from comparison completion to obtain a delay
-  interval. This is post-dispatch acquisition, not a continuous alerting service.
+Synthetic fixtures and temporary repositories are used throughout. Historical Arga
+runs used owned hosted twins. No real victim data or production targets were tested.
+Deterministic repetitions are consistency checks, not independent random samples;
+no population attack rates, significance claim or pooled success percentage is made.
+Per-suite protocols, source copies and reproduction links are indexed in Appendix C.
 
 # 4. Results
 
-## 4.1 Local prevention and utility
+## 4.1 Execution-time authorization
 
-Table 1. Local matrix totals. AS = attack successes; LC = legitimate completions;
-FR = false rejection; FQ = false quarantine. Each configuration has 140 attack and
-60 benign cases, from seven and three unique scenarios repeated twenty times.
+**Table 1. Native Git, 44 cells.** Six adversarial and five benign workflows per
+condition. Same policy information at preview and receive time.
+
+| Git condition | Attack successes / 6 | Benign completion / 5 | False rejection / 5 |
+|---|---:|---:|---:|
+| Intent dispatch | 6 | 5 | 0 |
+| Exact command | 6 | 3 | 2 |
+| Broker preview | 3 | 5 | 0 |
+| Receive gate | 0 | 5 | 0 |
+
+The three changes after preview were blocked only at receive time. Exact command
+matching is a weak baseline that rejects harmless variations. The receive gate is
+itself a static effect policy; this result is **not a quarantine advantage**.
+Evidence: [raw cells](../results/git-enforcement-v1/raw.json),
+[summary](../results/git-enforcement-v1/summary.json), [methods](../git_enforcement.md).
+
+**Table 2. Isolated HTTP, 51 scripted cells.** Twelve adversarial and five benign
+workflows per condition, including identity changes, bypass and retry controls.
+
+| HTTP condition | Attack successes / 12 | Benign completion / 5 | Benign extra effects |
+|---|---:|---:|---:|
+| Upstream approval | 11 | 4 | 1 |
+| Endpoint restriction | 8 | 4 | 1 |
+| Exact gateway authority | 0 | 5 | 0 |
+
+Endpoint restriction alone did not bind the action. The weak conditions duplicated
+an approved report on retry. These are ordinary-user sandbox fixtures, not kernel
+escape tests. Evidence: [raw cells](../results/isolated-http-v1/raw.json),
+[summary](../results/isolated-http-v1/summary.json), [methods](../isolated_http.md).
+
+**Table 3. Earlier local matrix, 800 cases.** Seven attack and three benign scenarios
+per configuration, each repeated twenty times. AS = attack successes; LC = accepted
+legitimate calls; FR = false rejection; FQ = false quarantine.
 
 | Configuration | AS / 140 | LC / 60 | FR | FQ |
 |---|---:|---:|---:|---:|
@@ -182,15 +162,14 @@ FR = false rejection; FQ = false quarantine. Each configuration has 140 attack a
 | Static server | 0 | 40 | 20 | 0 |
 | Full, hold-all | 0 | 40 | 0 | 20 |
 
-Evidence: `results/matrix_raw.json`, `results/matrix_summary.json`; runner
-`run_matrix.py`. Interpretation boundary: server enforcement improves the tested
-outcomes against weaker baselines. Hold-all quarantine adds no demonstrated prevention
-or utility advantage over static deny-unknown in this matrix (H2).
+Server enforcement improved these weaker-baseline outcomes. Static denial and
+hold-all quarantine tied on prevention and acceptance. Evidence:
+[raw matrix](../results/matrix_raw.json), [summary](../results/matrix_summary.json).
 
 ## 4.2 Selective-release tradeoff
 
-Table 2. Local selective-release totals. Each configuration has 100 attack cases
-and 80 benign workflows. Fault scenarios intentionally violate declared harmless behavior.
+**Table 4. Modeled selective release, 720 cases.** Five attack and four benign
+workflows per configuration, each repeated twenty times. Completion checks values.
 
 | Configuration | AS / 100 | LC / 80 | FR | FQ |
 |---|---:|---:|---:|---:|
@@ -199,17 +178,29 @@ and 80 benign workflows. Fault scenarios intentionally violate declared harmless
 | Selective | 20 | 80 | 0 | 0 |
 | Static, same reviewed shapes | 100 | 80 | 0 | 0 |
 
-Evidence: `results/selective-release-v1/raw.json` and `summary.json`; runner
-`run_selective.py`. Selective release holds four of five modeled fault classes,
-but all twenty simulation-gap repetitions succeed. Its local comparator flags those
-twenty after execution. The result is a fidelity-dependent utility tradeoff, not
-evidence that simulation is safer than denying every unknown action (H6–H7).
+Selective release blocked four modeled fault classes. All twenty simulation-gap
+repetitions escaped, with mismatch flags only after execution. This is a conditional
+benefit over equally informed permissions, not superiority over denying everything.
+Evidence: [raw cells](../results/selective-release-v1/raw.json),
+[summary](../results/selective-release-v1/summary.json), [methods](../selective_release.md).
+
+**Later fidelity checks.** H26 has twelve hosted Arga cells across hold-all, static
+and selective conditions. Static and selective complete both benign reads;
+selective blocks the preview-visible hidden write, and both allow the execution-only
+write. State equality is limited to the declared issue/access context, not full Git
+identity. [H26 receipts](../results/arga-quarantine-v1/summary.json) retain all cells.
+
+H29 has 24 normal cells plus eight fault cells. Both arms complete 12/12 normal
+workflows. Selective blocks visible and deferred writes; both allow the execution-
+only fault. Both also lose completion after malformed commit responses until
+separate trusted reconciliation. [H29 records](../results/local-readiness-v1/summary.json)
+and [the follow-up report](selfhosted-readiness.md) preserve these failures.
+Copying declared state does not establish matching future behavior.
 
 ## 4.3 Independent backend evidence
 
-Table 3. Observer comparison, six executed attacks and eight benign controls.
-Two further attack attempts were prevented. Counts pool two defense configurations
-for the evidence-view comparison; they are not six independent mutation families.
+**Table 5. Pome observer comparison, 16 cells.** Six executed attacks, two prevented
+attempts and eight benign controls across two defense conditions.
 
 | Evidence view | Detected / 6 | Missed / 6 | Blocked attempts alerted / 2 | False alarms / 8 |
 |---|---:|---:|---:|---:|
@@ -217,187 +208,233 @@ for the evidence-view comparison; they are not six independent mutation families
 | Gate | 2 | 4 | 2 | 0 |
 | Backend tape | 6 | 0 | 0 | 0 |
 
-Evidence: `results/observer-comparison-v1/raw.json`, `summary.json` and per-cell
-snapshot receipts; runner `run_observers.py`. Broker-only permits 4/4 attempts;
-full enforcement permits 2/4, both post-gate. Both complete 4/4 benign backend tasks.
-All captures are available; evidence-failure behavior comes from injected regression
-tests, not naturally observed outages in this matrix.
+Both post-gate reads returned synthetic file content without changing state.
+Upstream records still matched approved intent; backend tape showed the mismatch.
+Broker-only allowed 4/4 attacks; full gate allowed 2/4, both after the gate. Both
+completed 4/4 benign tasks. Expected 404 and lost-response controls produced no
+mismatch alarms. Zero alarms on eight controls is not a population estimate.
+Evidence: [raw cells](../results/observer-comparison-v1/raw.json),
+[summary](../results/observer-comparison-v1/summary.json), [methods](../observer_comparison.md).
 
-Specific checks for the report: both post-gate reads return content without state
-change; gate and intent match the approved request while backend tape does not.
-Both expected-404 and lost-response controls produce no mismatch alarms. This supports
-H8–H10 only on the stated cells; 0/8 false alarms is not a reliable population estimate.
+\newpage
 
-## 4.4 Costs and stress checks
+## 4.4 Model pilots, repairs and costs
 
-- Local clean-request medians: intent 0.020 ms, broker 0.048 ms, static/full 0.057 ms
-  each. Source `results/resource_summary.json`: five warmups and 100 measurements
-  per condition. Costs exclude real sandbox startup and do not estimate deployment.
-- Selective status median: approximately 0.123 ms, versus 0.043 ms hold-all, 0.009 ms
-  static denial and 0.052 ms equally informed static permission. Twenty short local
-  measurements per condition; not production latency or independent safety samples.
-- Observer final capture median: 4.99 ms. Six executed-attack delay intervals have
-  lower endpoints 4.47–9.87 ms and upper endpoints 12.71–22.17 ms. Report these as
-  ranges of interval endpoints, **not** a confidence interval or exact detection time.
-- Eleven workflow checkpoints include eight-way concurrent replay (one backend call),
-  eight distinct concurrent requests, policy revocation before execution, delayed
-  dispatch, duplicate-create failure, committed write with lost response, rejected
-  replay after response loss, and cross-run denial. Scheduling is harness-controlled,
-  not real CI/webhook behavior or exhaustive interleaving exploration.
-- Verified repository checks at preparation: 78 tests pass, including successful
-  attack negative controls. `verify_results.py` validates receipts and recomputes
-  summaries; test success must not be described as every attack being blocked.
+**Table 6. Complete pilot status; never pool these denominators.**
+
+| Study | Model calls | Final cells completed / planned | Interpretation |
+|---|---:|---:|---|
+| H27, hosted | 10 | 3 / 18 | Arga quota stopped the run; no completed matched attack pair. |
+| H30, local | 10 | 18 / 18 | Four empty and two authorized-only candidates; no substantive attack coverage. |
+| H31, local adaptive | 12 | 0 / 18 | Nine outputs exhausted their token limit; coverage gate failed. |
+
+H27 found request-ID poisoning that disrupted a legitimate report. A benign mixed
+quarantine workflow also failed after the write because preview state could not be
+reconstructed. H28 repaired those known issues: 36 before/after replay cells and
+12 separate fault controls remain archived. Fixed replay completes 9/9 per arm;
+this is post-discovery regression evidence, not fresh attack resistance.
+
+H30 completes 9/9 final tasks per arm without effects or holds, but its candidates
+do not test adversarial boundaries. H31 produces two unsuccessful static probes,
+one authorized serialization check and nine invalid outputs (all six selective
+outputs invalid). All twelve development continuations complete, mostly with empty
+attack phases. No final candidate is generated. Full inventory, costs, latency,
+tokens and failed trials are in [H27](openai-pilot.md), [H28](pilot-followup.md) and
+[H29–H31](selfhosted-readiness.md). Neither study resolves quarantine superiority.
+
+Estimated model charges are H27 $0.1359192, H30 $0.0952803, H31 $1.163796; total
+$1.3949955, not an account invoice. H30 median final-cell latency is 0.554 seconds
+static versus 1.325 selective. H31 development medians are 0.662 versus 2.789 seconds,
+but different request sequences make that an unmatched comparison. No model calls
+or performance experiments were added during this report consolidation.
 
 # 5. Discussion and Limitations
 
-Author's task: connect the results to an auditable engineering requirement, then state
-the assumptions under which it stops helping. Suggested claims to defend:
+**Defensible implication:** evaluate authority at the effect-producing boundary,
+retain evidence independent of actor claims, and reject the inference that a clean
+preview guarantees clean execution. Appendix B translates these findings into
+acceptance rules and known failures. It is a proposed engineering checklist, not an
+adopted standard or deployment certificate.
 
-- Request authorization and effect observation answer different questions. Neither
-  an accurate intent record nor a signed capability proves what a later backend did.
-- The strongest real-twin result is improved mismatch evidence, not containment.
-  The strongest local prevention result comes from execution-time enforcement.
-- An equally informed static baseline matters: added knowledge about safe tool shapes
-  must not be mistaken for a simulation benefit. The simulation-gap control makes the
-  remaining dependency on a trustworthy effect model visible.
-- Overall hypothesis remains qualified. No single end-to-end, isolated, Pome-backed
-  adaptive deployment has been built or tested. Do not splice the local and Pome
-  experiments together into evidence that such a deployment exists.
+The prototype does not test compromise of the permitted egress service, host or
+kernel, arbitrary malicious tool code, production workflows or general covert
+channels. It cannot be claimed to have stopped the actual incident. The static
+Git result and selective-preview result measure different mechanisms. Neither
+should be relabeled to manufacture support for the other.
 
-**One-month continuation, proposed not measured:** independently reproduce the frozen
-suite first; move capability/policy validation into an execution endpoint; repeat the
-post-gate controls; then add a separately seeded isolated simulator and an observer on
-a separate trust boundary. Test a held-out tool family and adaptive multi-step attacks
-with the same utility/evidence-failure denominators. Success would be preservation of
-legitimate completion while reducing held-out unauthorized effects, not merely more
-tests passing. Keep H1–H11 unchanged; register new hypotheses before those runs.
+An outside reviewer can run the [offline procedure](README.md#offline-reviewer-procedure)
+without lab credentials. That verifies the supplied package under its source/host
+assumptions, not a lab's actual network or original evidence authenticity. A lab
+would still need route/credential inventory, retained evidence anchors, versioned
+policy and an owner for uncertain commits. Independent replication and adoption
+assessment remain pending. Further model work is deferred until usable outputs
+and a discriminating attack interface are demonstrated on separate development data.
 
 # 6. Conclusion planning
 
-Write one short paragraph in your own words using three claims: measured backend
-evidence advantage, conditional local enforcement/utility tradeoff, and the failure
-of upstream enforcement or unfaithful simulation to guarantee safe effects. Do not
-claim 100% safety, formal verification, state-of-the-art performance, or deployment.
+Write the final conclusion using the three checked findings above. State that the
+added-prevention hypothesis remains qualified: strong local execution enforcement,
+stronger downstream mismatch evidence, and a conditional preview benefit with a
+reproducible escape. Do not claim perfect containment, formal verification,
+production readiness, novel invention of capabilities or realistic AI resistance.
 
 # Code and Data
 
-No remote is configured in this checkout. Do not insert an invented repository URL.
-Provide a reviewer-accessible artifact location or arrange an appendix/package route
-before submission. No files have been publicly published by this preparation step.
+The [repository README](../README.md) supplies pinned dependencies and reproduction
+commands. Appendix C indexes the saved experiments; no evidence was regenerated or
+removed for this report. An accessible artifact location still needs author review.
+Local paths are not public links. Nothing has been committed, pushed or published
+as part of this consolidation.
 
-| Report material | Reproduction or evidence |
-|---|---|
-| Local matrix | `run_matrix.py`; `results/matrix_raw.json` |
-| Selective release | `run_selective.py`; `results/selective-release-v1/` |
-| Real-twin observation | `run_observers.py`; `results/observer-comparison-v1/` |
-| Workflow stress checks | `run_workflows.py`; `results/pome-workflows-v1/` |
-| Full receipt/summary check | `.venv/bin/python verify_results.py` |
-| Regression checks | `.venv/bin/python -m pytest -q` |
+# Author Contributions and LLM Usage
 
-From the repository root, use README.md's pinned setup. Do not rerun `run_matrix.py`
-over the frozen evidence merely to read results: its default overwrites its output.
-The Pome/selective/observer runners require a fresh output directory. Historical
-interrupted `pome-observed-v2` is not a completed experiment and is excluded.
-
-# Author Contributions and LLM Usage notes
-
-Facts to disclose accurately, not a ready-to-submit authorship declaration:
-
-- Aditya supplied the research direction, challenged claims and failure modes, and
-  requested the implementation and evaluation sequence.
-- AI coding assistance produced substantial implementation, tests, experiment
-  orchestration, analysis notes and this authoring pack.
-- Automated tests and source checks were run in the shared workspace. This is **not**
-  independent human verification. Do not state that all findings were independently
-  verified or the manuscript reviewed by the author until that has actually happened.
-- You must write/review the final narrative, confirm authorship and affiliation, and
-  describe the actual AI assistance. Do not claim that this pack is your own writing.
+Aditya directed the research, challenged claims and approved experiments. AI coding
+assistance contributed implementation, tests, execution and these authoring notes.
+Automated verification is **not independent human verification**. The author must
+review the facts, confirm affiliation and write/revise the final report and actual
+LLM-use disclosure. Do not claim external review or original human authorship of
+these preparation notes.
 
 \newpage
 
 # References
 
-1. Larcher, H., Carreira, A., raphael g., and Rannou, C. (2026). *Anatomy of a Frontier
-   Lab Agent Intrusion: A Technical Timeline of the July 2026 Incident*. Hugging Face,
-   27 July. [Primary account](https://huggingface.co/blog/agent-intrusion-technical-timeline).
-   Author display names as listed on the page. Used for motivation, not our experiment's outcome.
-2. Saltzer, J. H., and Schroeder, M. D. (1975). *The Protection of Information in
-   Computer Systems*. Proceedings of the IEEE, 63(9), 1278–1308.
-   [Paper](https://www.cs.virginia.edu/~evans/cs551/saltzer/).
-3. Hardy, N. (1988). *The Confused Deputy*. ACM SIGOPS Operating Systems Review.
-   [DOI](https://doi.org/10.1145/54289.871709). Bibliography checked against Crossref.
-4. Greenblatt, R., Shlegeris, B., Sachan, K., and Roger, F. (2023). *AI Control:
-   Improving Safety Despite Intentional Subversion*. arXiv:2312.06942.
-   [Paper](https://arxiv.org/abs/2312.06942).
-5. Debenedetti, E., Zhang, J., Balunović, M., Beurer-Kellner, L., Fischer, M., and
-   Tramèr, F. (2024). *AgentDojo: A Dynamic Environment to Evaluate Prompt Injection
-   Attacks and Defenses for LLM Agents*. arXiv:2406.13352.
-   [Paper](https://arxiv.org/abs/2406.13352).
-6. Debenedetti, E., et al. (2025). *Defeating Prompt Injections by Design*.
-   arXiv:2503.18813, v2. [Paper](https://arxiv.org/abs/2503.18813).
-7. Pome contributors (accessed 13 September 2026). *Pome Digital Twins*.
-   [Repository](https://github.com/pome-sh/digital-twins). Experiments pin npm
-   `@pome-sh/cli` 0.43.0; they do not run an unpinned current GitHub checkout.
-
-\newpage
+1. Saltzer, J. H., and Schroeder, M. D. (1975). *The Protection of Information in
+   Computer Systems*. [Paper](https://web.mit.edu/Saltzer/www/publications/protection/).
+2. Hardy, N. (1988). *The Confused Deputy*. ACM SIGOPS Operating Systems Review.
+   [DOI](https://doi.org/10.1145/54289.871709).
+3. Greenblatt, R., et al. (2023). *AI Control: Improving Safety Despite Intentional
+   Subversion*. [arXiv:2312.06942](https://arxiv.org/abs/2312.06942).
+4. Debenedetti, E., et al. (2024). *AgentDojo: A Dynamic Environment to Evaluate
+   Prompt Injection Attacks and Defenses of LLM Agents*.
+   [arXiv:2406.13352](https://arxiv.org/abs/2406.13352).
+5. Debenedetti, E., et al. (2025). *Defeating Prompt Injections by Design*.
+   [arXiv:2503.18813](https://arxiv.org/abs/2503.18813).
+6. Pome contributors. *Digital Twins*. [Repository](https://github.com/pome-sh/digital-twins).
+   Experiments pin CLI 0.43.0 and Node 24.21.0 rather than current upstream.
+7. Git project. *Git 2.43.0 hooks, pre-receive*.
+   [Documentation](https://git-scm.com/docs/githooks/2.43.0#_pre_receive).
 
 # Appendix A. Limitations and Dual-Use Considerations
 
-Required appendix planning notes. Expand or edit into the author's own analysis.
+**Trust and fidelity:** signed requests do not constrain a compromised backend.
+Early nonce storage is process-local; later gateway operation identities are durable,
+not a distributed revocation system. One host still controls observer, broker and
+service. A consistent fabricated source can pass receipt validation. The declared
+queue/state model does not cover arbitrary delayed effects. The original local
+suite also retains an authorized secret read followed by unlabelled output leakage.
+No production secret or live victim data was used.
 
-**Security limits:** process-memory nonce storage; trusted signing keys and policy;
-one-host observation; no network sole-egress enforcement; no arbitrary code isolation
-for the in-process clone; no independent backend-source attestation; no complete
-model-context taint tracking, covert-channel coverage or downstream-effects model.
-An authorized secret read followed by an unlabelled output is a known local leak.
-An initially fabricated, structurally consistent source record can pass validation.
-Receipts protect against later archive changes only with a trusted retained anchor.
+**Method:** constructed attacks, small scenario diversity, shared implementation
+assumptions and deterministic repetitions limit inference. Pome tape/state reads
+are separate quiescent requests, not an atomic global snapshot. Arga cloning is not
+full service-state fidelity. H27's unfinished comparison, H30's missing adversarial
+coverage and H31's reasoning-token exhaustion are retained, not replaced by later
+successes. Later fixes do not retroactively change earlier evidence.
 
-**Method limits:** deterministic constructed cases, small scenario diversity, shared
-implementation assumptions, no adaptive LLM attacker, no independent evaluator or
-external replication. Baseline utility sometimes measures acceptance rather than
-application output. Pome models selected GitHub routes; simulation fidelity cannot
-be inferred for arbitrary APIs, production dependencies or live infrastructure.
-Tape and state are separate requests at quiescent checkpoints, not an atomic global
-snapshot. Delayed effects are explicitly scheduled fixtures, not real webhooks.
+**Dual use:** mutation fixtures illustrate authorization and monitoring weaknesses.
+All tests stay in owned synthetic environments. Do not repurpose them against third
+parties. Real deployment logs may contain sensitive content; access controls and
+redaction must preserve enough information for effect verification. Disclosure and
+license decisions belong to the author before publication.
 
-**Dual use:** mutation hooks can illustrate monitoring blind spots. These experiments
-use loopback twins, dummy content, temporary credentials and synthetic state; they do
-not reproduce the July intrusion, include live victim secrets, or test third-party
-targets. Keep future red-team work in authorized environments. Review disclosure
-before publishing new exploit or installation mechanisms. Raw logs can contain
-sensitive arguments in real deployments; redaction, access control and retention
-must be designed without erasing the evidence needed for comparison. Current Pome
-Authorization headers in archived tape are redacted.
-
-**Publication decisions still needed:** author's factual review; confirmed affiliation;
-final narrative and AI-use statement; artifact accessibility; appropriate license and
-any disclosure review. A local commit is not publication or independent validation.
+\newpage
 
 # Appendix B. Proposed evidence-bound containment checklist
+
 
 Draft requirements for engineering review, **not an adopted or certified standard**.
 A third party can reproduce the benchmark checks without a lab network, but cannot
 infer a real lab's isolation, policy quality or compliance from those checks alone.
 
-| Proposed requirement | Evidence a reviewer should request | Current status |
+This mapping includes the later isolated/local studies without rewriting their
+frozen protocols. Proposed **core** controls apply to the declared tool boundary;
+**Q1** additionally applies whenever preview is offered as a containment guarantee.
+For each declared control, use PASS only when its checks and provenance evidence
+are present; FAIL for a demonstrated violation; NOT VERIFIED for missing evidence.
+A passing test runner can correctly demonstrate a FAIL control through a negative
+fixture. No overall deployment-compliance certificate is issued by this repository.
+
+The [reviewer procedure](README.md#offline-reviewer-procedure) checks retained
+artifacts and reruns local boundary fixtures without accounts. It is not independent
+human replication: that remains outstanding. A lab adopting these requirements
+would need to supply its route/credential inventory, versioned policy and software,
+independently retained evidence anchors and documented owner for uncertain commits.
+Local package verification cannot authenticate that deployment inventory by itself.
+
+For practical adoption, first use the harness with synthetic staging tasks and the
+deployment's actual approved policy; measure legitimate failures and operating
+overhead before rollout. Restrict any preview claim to demonstrated fidelity and
+require an execution-side control for effects that preview cannot constrain.
+No lab has evaluated this adoption procedure yet. The actual incident's permitted
+egress-service compromise is not reproduced here, so we cannot say this prototype
+would have stopped it.
+
+
+## Acceptance tests, measured outcomes and residual limits
+
+Each row links a runnable acceptance test to a measured result. The referenced
+negative controls are expected to demonstrate failure; green pytest output is not
+an overall compliance verdict. The controls apply only within their declared scope.
+
+| Control | Acceptance test | Measured result | Residual limit |
+|---|---|---|---|
+| **C1. Dispatch only exact authority.** | [Wire and authority tests](../tests/test_http_boundary.py) | HTTP exact gate: 0/12 attack successes, 5/5 benign completion (Table 2). | No endpoint/host compromise claim. |
+| **C2. Deny alternate actor routes.** | [OS/backend boundary test](../tests/test_http_boundary.py) | Endpoint-only restriction still permits 8/12; exact gateway permits 0/12 (Table 2). | Deployed route/credential inventory NOT VERIFIED. |
+| **C3. Keep one effect per operation across retries.** | [Process/restart tests](../tests/test_runtime_recovery.py), [reconciliation](../tests/test_local_sandbox.py) | H29 ordinary workflows: 12/12 per arm; malformed commit response loses completion in both. | Trusted reconciliation required; multi-host recovery untested. |
+| **C4. Retain independently acquired call/effect evidence.** | [Tamper/source tests](../tests/test_evidence.py), [observer controls](../tests/test_observers.py) | Backend tape detects 6/6 executed attacks; gate detects 2/6 (Table 5). | Original source forgery and compromised host remain. |
+| **C5. Hold missing previews; retain uncertain commits.** | [Observer timeout](../tests/test_runtime_recovery.py), [unsupported operations](../tests/test_broker_workflow.py) | Unsupported/timed-out preview holds; H29 uncertain response preserved without automatic redispatch. | Availability loss is explicit; operational escalation untested. |
+| **C6. Check useful outputs and preserve every trial.** | [Value/duplicate oracle](../tests/test_local_sandbox.py), [search gate](../tests/test_adaptive_pilot.py) | H30 9/9 completion per arm without meaningful attacks; H31 0/18 final cells. | No general agent-workload or realistic-resistance estimate. |
+| **Q1. Validate preview state and behavior before claiming safety.** | [Fault visibility tests](../tests/test_local_sandbox.py) | Visible/deferred writes blocked by selective; execution-only write escapes both (H29). | General fidelity claim FAILS. |
+
+# Appendix C. Evidence index and author handoff
+
+## Experiment index
+
+Do not combine counts across these suites. Source archives describe the implementation
+that actually ran; the current working implementation includes later repairs.
+
+| Evidence | Inventory and scope | Full methods/results |
 |---|---|---|
-| Bind execution to exact authority and policy | Mutated argument, scope, expiry, replay and revocation cases | Local server implemented; Pome endpoint lacks capability check. |
-| No path around the execution gate | Network/credential boundary evidence and bypass attempts | Network sole-route guarantee not implemented. |
-| Log received/executed requests, including reads | Correlated backend tape plus a read without state mutation | Implemented on tested Pome routes. |
-| Retain independently acquired evidence | Acquisition identity, durable receipts, missing/tampered-evidence checks | Separate process implemented; host/source trust remains. |
-| Treat missing evidence as unresolved | Coverage failures distinct from clean outcomes | Tested unknown state; no operational escalation service. |
-| Revalidate selective-release preconditions | Exact request/state/policy scope and replay tests | Local curated reads only; simulator-mismatch attack succeeds. |
-| Preserve useful work and honest outcomes | Benign tasks, failures, timeouts and false-quarantine counts | Tested narrowly; no general agent-task guarantee. |
+| Original local/Pome suites | 800 matrix cases; 720 selective cases; 20 earlier Pome cells; 16 observer cells; 11 workflow checkpoints. | [Hypothesis ledger](../hypotheses.md), [observer methods](../observer_comparison.md) |
+| Native Git | 16 evidence cells, then 44 enforcement cells; received ref effects, not quarantine. | [Evidence](../git_evidence.md), [enforcement](../git_enforcement.md) |
+| Boundary/HTTP | 21 boundary-audit records; 51 isolated HTTP cells. | [HTTP study](../isolated_http.md), [audit source](../run_boundary_audit.py) |
+| Integrated broker/Arga | Two local integrated workflows; three hosted guard conditions; twelve separate-twin quarantine cells. | [Arga comparison](../arga_comparison.md) |
+| H27/H28 | Hosted pilot 3/18 final cells; repairs 36 replay cells plus 12 fault controls. | [H27](openai-pilot.md), [H28](pilot-followup.md) |
+| H29/H30/H31 | 32 readiness cells; 18 completed H30 final cells; 12 H31 development cells, zero final cells. | [Complete follow-up](selfhosted-readiness.md) |
 
-# Appendix C. Final author checklist
+The [reviewer procedure](README.md#offline-reviewer-procedure) verifies historical
+records and checks later studies on temporary copies. It includes local synthetic
+acceptance tests. This consolidation adds no model calls, cloud provisioning or
+new performance trial. The implementation-review diagnostics retain historical
+failures separately in [the review](implementation-review.md); they are not claims
+that repaired defects still exist.
 
-- Write the narrative and an abstract of at most 150 words in the official template; remove its guidance.
-- Preserve the experiment distinctions, denominators and negative controls above.
-- Add Figure 1 from the specified trust boundaries; number figures and tables.
-- Confirm author name, affiliation, contribution and accurate LLM-use statement.
-- Supply an accessible code/evidence artifact; a path on this machine is not a public link.
-- Check actual final PDF pagination: at most eight main pages excluding references/appendices.
-- Include the required Limitations and Dual-Use Considerations appendix.
-- Verify cited primary sources, rerun checks, and review for sensitive material.
-- Submit through the official form yourself or explicitly authorize submission later.
+## Decisions for the author
+
+- Confirm the three findings, their denominators and the distinction between
+  execution-time static enforcement and preview-dependent quarantine.
+- Confirm author name and affiliation. Do not imply employer endorsement.
+- Write the final abstract in at most 150 words: problem, tested boundary, three
+  findings and the fidelity limitation. This pack deliberately provides evidence
+  and a structure rather than asserting a human-written final abstract.
+- Transfer the reviewed argument into the official template. Follow its section
+  order; keep Figure 1 and numbered tables, with scope in every caption.
+- State actual AI assistance and review performed. Independent reproduction and
+  adoption assessment are pending, not completed author contributions.
+- Choose an accessible evidence location and license; review sensitive material
+  before sharing. A local review URL is not a published artifact.
+- Check the final PDF's eight-page main-text limit separately from this review
+  copy. Include references and the required limitations/dual-use appendix.
+- Authorize submission explicitly when ready; nothing is submitted by these checks.
+
+## Final-template transfer map
+
+| Template section | Material to use | Author action |
+|---|---|---|
+| Title / author / abstract | Findings summary; confirmed identity | Write abstract last; confirm affiliation. |
+| Introduction / related work | Sections 1–2 | Explain practical contribution without novelty inflation. |
+| Methods / results | Sections 3–4 and Figure 1 | Preserve trust boundaries, denominators and failed pilots. |
+| Discussion / conclusion | Sections 5–6 | State conditional claims and unresolved fidelity. |
+| Code/data / contributions / LLM use | Corresponding sections | Supply approved artifact location and truthful disclosure. |
+| References / appendices | References and Appendices A–C | Check citations, required limitations and final pagination. |

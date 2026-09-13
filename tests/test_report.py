@@ -25,6 +25,14 @@ ROOT = Path(__file__).resolve().parents[1]
     ("observer-comparison-v1/raw.json", "## 4.3", {
         "Intent": "intent", "Gate": "gate", "Backend tape": "backend"},
      ("detected", "missed", "prevented_attempts_alerted", "false_alarms")),
+    ("git-enforcement-v1/raw.json", "## 4.1", {
+        "Intent dispatch": "intent_only", "Exact command": "exact_command",
+        "Broker preview": "broker_preview", "Receive gate": "receive_gate"},
+     ("attack_success", "legitimate_completion", "false_rejection")),
+    ("isolated-http-v1/raw.json", "## 4.1", {
+        "Upstream approval": "broker_only", "Endpoint restriction": "sandbox_destination",
+        "Exact gateway authority": "sandbox_effect"},
+     ("attack_success", "legitimate_completion", "benign_extra_effect")),
 ])
 def test_report_tables_match_raw_evidence(suite, heading, labels, fields):
     rows = json.loads((ROOT / "results" / suite).read_text())
@@ -50,3 +58,24 @@ def test_report_preserves_question_hypothesis_and_draft_boundary():
     assert "not a submission manuscript" in report
     assert "Limitations and Dual-Use Considerations" in report
     assert "independent human verification" in report
+
+
+@pytest.mark.parametrize("study,label", [
+    ("openai-pilot-v1", "H27, hosted"),
+    ("selfhosted-pilot-v1", "H30, local"),
+    ("adaptive-pilot-v1", "H31, local adaptive"),
+])
+def test_report_preserves_model_calls_and_unfinished_final_denominators(study, label):
+    directory = ROOT / "results" / study
+    rows = json.loads((directory / "summary.json").read_text())
+    ledger = json.loads((directory / "model-budget.json").read_text())
+    report = (ROOT / "report/report.md").read_text()
+    line = next(line for line in report.splitlines() if line.startswith(f"| {label} |"))
+    values = [part.strip() for part in line.split("|")]
+    assert int(values[2]) == len(ledger)
+    assert [int(n) for n in values[3].split("/")] == [sum(r["status"] == "completed" for r in rows), len(rows)]
+    if study == "adaptive-pilot-v1":
+        assert not json.loads((directory / "search-coverage.json").read_text())["gate_passed"]
+        responses = [json.loads(p.read_text()) for p in (directory / "model").glob("*/response.json")]
+        assert sum(r["status"] == "incomplete" for r in responses) == 9
+        assert "nine invalid outputs" in report and "No final candidate is generated" in report

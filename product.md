@@ -1,5 +1,39 @@
 # Effect-Bound Authorization for Autonomous Agents
 
+## Current direction — authoritative
+
+This section controls current priorities. Later experiment narratives are history
+or conditional follow-ups; they do not independently authorize a new workstream.
+
+- **Deliverable:** a reviewer-checkable Track 1 containment standard, supporting
+  evidence package and author-reviewed report.
+- **Current claim:** execution-bound authorization and independent observation
+  have demonstrated local benefits. Quarantine superiority is unproven, and the
+  execution-only counterexample remains. A negative result is valid evidence.
+- **Prepared for review:** the consolidated `report/report.md`, current
+  `report/track1-review.pdf` and self-contained HTML cover the three findings,
+  control acceptance/evidence mapping, complete pilot status and author handoff.
+  Saved experiments and the historical PDF/HTML remain unchanged.
+- **Next action:** author factual review of that package, confirmation of
+  authorship/affiliation, and final-template writing. Independent reproduction
+  and adoption assessment remain pending. Do not generate another experiment first.
+- **Completion criteria:** each control has an acceptance rule and evidence link;
+  documented reviewer commands reproduce the stated outcomes; the report preserves
+  all negative/incomplete findings and meets the final-template requirements after
+  author review. External reproduction/adoption assessment must be marked pending
+  until actually performed. A local test pass is not certification.
+- **Deferred:** further model pilots, EC2 provisioning, code reorganization and
+  broader malicious-tool studies. Publication/submission requires user authorization.
+- **Rule for new experiments:** name the unresolved claim, explain how the allowed
+  interface can distinguish mechanisms, specify what each outcome changes, and
+  define a stopping condition. Obtain approval of any new frozen model protocol.
+- **Responsibility:** the assistant maintains alignment and current status; the
+  author reviews the argument, authorship/affiliation and final submission material.
+
+Keep three outcomes separate: delivering the Track 1 artifact, demonstrating an
+advantage over weak baselines, and demonstrating quarantine's incremental benefit
+over equally informed static enforcement. Do not substitute one for another.
+
 ## Sprint project
 
 **Track:** 1, Containment
@@ -111,6 +145,41 @@ The strongest defensible claim is architectural and conditional. The experiment 
 
 ## Follow-up path
 
+### Track 1 priority correction after H31
+
+The [official Track 1 criteria](https://apartresearch.com/sprints/ai-incident-response-sprint-2026-09-11-to-2026-09-13)
+emphasize outside verification and practical adoption of containment requirements.
+The project fits that aim, but repeated request-only model pilots have displaced
+the more important deliverable. A positive quarantine result is not a prerequisite
+for a useful containment artifact. The original hypothesis above remains unchanged;
+it must be tested, not made true by selecting favorable scenarios.
+
+The immediate deliverable is the control-to-evidence mapping in report Appendix B
+and a reviewer procedure in `report/README.md`. Distinguish reproducible local
+conformance checks from unverified deployment claims, and explicitly fail the
+preview-fidelity claim on the known execution-only write. Preserve all studies.
+
+Finish in this order:
+
+1. Make each proposed control have a scope, pass/fail rule, evidence path and known
+   failure; run the reviewer procedure without account access.
+2. Consolidate the author's report around execution-bound authority, independent
+   evidence, useful work and the preview-fidelity counterexample. The old PDF is
+   historical and is not the final submission. Obtain an external reproduction
+   and adoption assessment when a reviewer is available; neither exists yet.
+3. Before another AI comparison, establish on separate development data that the
+   model produces usable candidates and that the permitted interface can exercise
+   the mechanism difference. H30/H31 only allowed requests to a normal backend
+   behind exact prebound identities; this does not let the model introduce the
+   backend behavior mismatch that made quarantine useful in scripted controls.
+4. Freeze any revised model protocol before paid calls. Treat output calibration,
+   request robustness and malicious-tool containment as different questions. No
+   EC2 provisioning, new framework or code reorganization is needed for steps 1–2.
+
+Current assessment: relevant research prototype; incomplete standard/adoption
+validation; unproven quarantine superiority; no basis to claim prevention of the
+actual incident or production readiness.
+
 The sprint is Version 0.1. A longer project can test alternate egress routes, stolen or replayed capabilities, compromised brokers, separate hosts, more twins, independently implemented verifiers, latency and false-rejection costs, and whether a third party can reproduce the compliance result from the standard alone.
 
 ## Practical setup
@@ -123,7 +192,68 @@ The design review is recorded in [literature_review.md](literature_review.md), c
 
 ## Implementation audit
 
-The local prototype now integrates these components end to end:
+### Delivery checkpoint, 2026-09-13
+
+The deliverable is a containment research prototype. The original question and
+hypothesis above remain unchanged. The original Pome broker workflow and later
+isolated HTTP experiment currently demonstrate different parts of the architecture;
+the original HTTP experiment issues capabilities directly, without `Broker.submit`.
+The subsequent integrated runner now closes that gap.
+
+| Milestone | Evidence and remaining work |
+|---|---|
+| Exact authorization and independent observation | Implemented; local reliability regressions and the existing suite pass (199 tests at the H27 checkpoint). |
+| Actor isolation | 51 scripted HTTP cells show 11/12, 8/12 and 0/12 attack successes across upstream approval, isolated endpoint restriction and isolated exact authorization. |
+| One complete isolated broker workflow | Completed in `run_broker_workflow.py` and `results/broker-workflow-v1`: actual broker, Pome adapter and independent observer; allowed work, denied effects, unknown holds and retries verified together. |
+| Real Pome quarantine and selective release | Incomplete. The seed API is not an exact state restore; fresh twins differ in timestamps and commit hashes. Do not replace the backend with a local clone or ignore those differences to claim fidelity. |
+| Incremental quarantine benefit | Conditional benefit in H26: static and selective complete 2/2 benign reads, but only selective blocks the preview-reproducible hidden write. Both miss the execution-only fault. Original static/hold-all results remain tied. |
+| Independent Arga backend | User-requested GitHub issue comparison added; see `arga_comparison.md`. Exported issue/access state matches after reset, but Git identifiers do not. This is not faithful full-state quarantine. |
+| Narrow hosted quarantine | Implemented for two fixed repository-existence aliases using separate execution/preview twins and checked seed context. All 12 cells retained in `results/arga-quarantine-v1`; arbitrary current-state cloning remains unsupported. |
+| Bounded OpenAI evaluation | H27 ran ten real GPT-5.4 Mini inference calls for an estimated $0.1359192. A model-generated availability failure reproduced on Arga. Free quota stopped final evaluation at 3/18 cells; no matched attack pair completed, so comparative prevention remains inconclusive. See `report/openai-pilot.md`. |
+| Sprint report | Existing draft and PDF cover earlier evidence; later Git/HTTP studies still need author-reviewed consolidation. |
+
+The integrated workflow gate and narrow hosted read comparison are complete.
+The bounded OpenAI study now follows `openai_pilot_protocol.md`: identical model
+budgets, local development and sealed candidates replayed against both defenses.
+Its incomplete cases must remain explicit; model-found availability failures do
+not establish unauthorized-write bypasses or additional quarantine prevention.
+The completed benign mixed-task pair shows a utility regression: static completed
+the read/write/read sequence, while quarantine held the read after the write.
+H28 fixes request-ID interference and reconstructs confirmed approved writes in
+the preview. Local replay of all six frozen candidates plus benign controls now
+completes 9/9 cells per arm without out-of-policy effects or unnecessary holds.
+This is post-discovery regression evidence, not fresh attacker evidence; both
+arms still fail the execution-only fault control. See `report/pilot-followup.md`.
+Hosted Arga validation of the repairs still requires available Arga capacity.
+H29 adds a separate-process local service with full copying of its declared state,
+durable operation identities and independent queue observation. All 24 ordinary
+readiness cells complete without effects or holds; the eight scripted controls
+retain the execution-only escape and uncertain-response failures. EC2 is not
+required for this sequential local evaluation. See `report/selfhosted-readiness.md`.
+H30 is a new self-hosted study, not completion of the missing H27 hosted cells.
+Its approved frozen protocol is `selfhosted_pilot_protocol.md`. All ten model calls
+and 18 final cells completed for $0.0952803. Both arms completed 9/9 tasks without
+unauthorized effects or holds. Four candidates were empty and two were authorized
+sequences, so the pilot did not establish added prevention or substantive attack
+resistance. Full results are in `report/selfhosted-readiness.md`. No source
+reorganization was performed and the earlier evidence remains intact.
+H31 ran after approval of `results/adaptive-pilot-v1/protocol.md`: twelve GPT-5.4
+development calls with equal limits and detailed gateway feedback. Nine exhausted
+the 6,000-output-token allowance entirely on reasoning. Static produced two boundary
+probes and one authorized request; quarantine produced no usable candidate. The
+search gate failed, so no final candidates or final cells ran. All twelve development
+continuations completed with no unauthorized effects or holds, but this is not a
+matched security comparison. The report preserves all outputs and the $1.163796
+cost. If a later model study is prioritized under Current direction, first calibrate
+usable output on separate development data; revised limits need a new protocol.
+The six scripted calibration cells retain the execution-only escape in both arms.
+The study remains request-level testing of a normal trusted synthetic backend.
+The arbitrary-service-state-copy limitation remains open.
+Full-service quarantine restoration remains an open requirement for broader tools.
+No production readiness, general sandbox guarantee or autonomous attacker coverage
+is inferred from these local results.
+
+The local components are:
 
 | Design component | Local implementation | Status |
 |---|---|---|
@@ -132,7 +262,7 @@ The local prototype now integrates these components end to end:
 | Capability verifier | `CapabilityIssuer`, `CapabilityVerifier` | implemented |
 | Tool/API boundary | `ToolServer` | implemented |
 | Dynamic quarantine | `QuarantineSandbox` | implemented as an in-process state clone |
-| Selective release | `ReleaseApproval`, `ToolServer.review_release` | opt-in local-only review; server-signed exact request, state/policy preconditions, five-second expiry and single use |
+| Selective release | `ReleaseApproval`, `ToolServer.review_release` | local and narrow Arga review; server-signed exact request, unchanged preview context, state/policy preconditions, five-second expiry and single use |
 | Data-flow signal | labelled `DataItem` and sensitive-payload rejection | limited prototype |
 | Downstream effects | `EffectEvent.downstream_effects` | limited prototype |
 | Independent observation | `EvidenceObserver` | separate spawned process fetches Pome tape/state directly and fsyncs snapshots; trusts Pome and host |
@@ -145,7 +275,7 @@ Run the local security matrix with:
 python3 security_check.py
 ```
 
-The local checks cannot prove external host isolation, real network sole-egress enforcement, complete Pome fidelity or production-wide information-flow coverage. Durable local snapshots are now implemented, but their retained receipts and the host must be trusted. Dynamic quarantine still uses the local state clone; real Pome quarantine fails explicitly instead of substituting a mock.
+The original local checks cannot prove external host isolation, complete Pome fidelity or production-wide information-flow coverage. The later isolated HTTP study does enforce network and filesystem restrictions on its scripted actor with Bubblewrap; its gateway, backend and host remain trusted. Durable local snapshots are implemented, but their retained receipts and the host must be trusted. Original dynamic quarantine uses the local state clone; real Pome quarantine produces an explicit unsimulated hold. H26 adds a separate hosted Arga preview for fixed reads, under its declared state and behavior fidelity assumptions.
 
 ## Comparative run
 

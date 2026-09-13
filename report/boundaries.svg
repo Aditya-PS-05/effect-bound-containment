@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="480" viewBox="0 0 1100 480" role="img" aria-labelledby="title desc">
+<title id="title">Three separately tested containment boundaries</title>
+<desc id="desc">Git receive-time enforcement checks effects after preview. A Pome observer reads backend evidence after mutation. Local quarantine can miss an effect present only during live execution. These are separate studies.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#555"/></marker></defs>
+<rect width="1100" height="480" fill="white"/>
+<g font-family="Arial, sans-serif" fill="#202124">
+<g font-size="22" font-weight="bold">
+<text x="20" y="30">A. Native Git — enforcement timing</text>
+<text x="20" y="190">B. Pome — independent observation</text>
+<text x="20" y="350">C. Local quarantine — preview fidelity</text>
+</g>
+<g fill="#f2f2f2" stroke="#777" stroke-width="1.5">
+<rect x="20" y="50" width="225" height="65" rx="5"/><rect x="295" y="50" width="225" height="65" rx="5"/>
+<rect x="570" y="50" width="225" height="65" rx="5" fill="#edf3fa" stroke="#124fa0"/><rect x="845" y="50" width="235" height="65" rx="5"/>
+<rect x="20" y="210" width="225" height="65" rx="5"/><rect x="295" y="210" width="225" height="65" rx="5"/>
+<rect x="570" y="210" width="225" height="65" rx="5"/><rect x="845" y="210" width="235" height="65" rx="5" fill="#edf3fa" stroke="#124fa0"/>
+<rect x="20" y="370" width="225" height="65" rx="5"/><rect x="295" y="370" width="225" height="65" rx="5"/>
+<rect x="570" y="370" width="225" height="65" rx="5"/><rect x="845" y="370" width="235" height="65" rx="5" fill="#faf0ed" stroke="#93412d"/>
+</g>
+<g stroke="#555" stroke-width="2" marker-end="url(#arrow)">
+<path d="M245 82 H285"/><path d="M520 82 H560"/><path d="M795 82 H835"/>
+<path d="M245 242 H285"/><path d="M520 242 H560"/><path d="M795 242 H835"/>
+<path d="M245 402 H285"/><path d="M520 402 H560"/><path d="M795 402 H835"/>
+</g>
+<g text-anchor="middle" font-size="21">
+<text x="132" y="77">Broker preview<tspan x="132" dy="25">allows request</tspan></text>
+<text x="407" y="77">Inputs change<tspan x="407" dy="25">after preview</tspan></text>
+<text x="682" y="77">Receive gate<tspan x="682" dy="25">checks actual refs</tspan></text>
+<text x="962" y="77">Forbidden update<tspan x="962" dy="25">rejected</tspan></text>
+<text x="132" y="237">Intent / gate<tspan x="132" dy="25">record approval</tspan></text>
+<text x="407" y="237">Post-gate<tspan x="407" dy="25">mutation</tspan></text>
+<text x="682" y="237">Backend executes<tspan x="682" dy="25">changed request</tspan></text>
+<text x="962" y="237">Observer reads<tspan x="962" dy="25">backend evidence</tspan></text>
+<text x="132" y="397">Preview appears<tspan x="132" dy="25">effect-free</tspan></text>
+<text x="407" y="397">Declared state<tspan x="407" dy="25">matches</tspan></text>
+<text x="682" y="397">Live behavior<tspan x="682" dy="25">differs</tspan></text>
+<text x="962" y="397">Unauthorized<tspan x="962" dy="25">effect escapes</tspan></text>
+</g>
+<g font-size="19">
+<text x="20" y="143">Same effect policy at preview and receive time; 3/6 versus 0/6 attack successes.</text>
+<text x="20" y="303">Detection is after execution. The observer does not prevent or roll back the effect.</text>
+<text x="20" y="463">Matching copied state does not guarantee matching future behavior. Host/backend trust remains.</text>
+</g></g></svg>

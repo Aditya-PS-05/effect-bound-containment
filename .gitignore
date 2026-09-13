@@ -5,3 +5,7 @@ apart/
 .runtime/
 .venv/
 node_modules/
+.arga-session.json
+.env
+.env.arga-backup
+.omc/

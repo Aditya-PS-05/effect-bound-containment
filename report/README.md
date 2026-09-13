@@ -1,34 +1,104 @@
-# Report materials
+# Track 1 report review package
 
-- `report.md` is the editable authoring pack, not a final manuscript.
-- `evidence-pack.pdf` is its review rendering: six pages of main notes, one reference
-  page and two appendix pages. The author's final-template PDF needs its own page check.
-- `review.html` is the same material in a browser, styled using the official template's
-  Arial/white-page convention. It is generated, not a second source to edit.
-- `official-template.docx` is an unmodified export of the official Google Docs template,
-  downloaded on 13 September 2026. It is not filled in and contains template instructions.
-- `build.sh` verifies frozen evidence and report-table consistency, then builds review
-  copies with installed Pandoc and pdfLaTeX. Run `sh report/build.sh` from the repo root.
+Start with [the consolidated review PDF](track1-review.pdf) or
+[browser copy](track1-review.html). Both render [report.md](report.md), the current
+AI-assisted authoring material through H31. It is not a submission manuscript.
+The document leads with execution-time enforcement, independent evidence and the
+preview-fidelity limitation. Section 4.4 retains incomplete and negative model
+results; Appendix B maps each control to tests, measured outcomes and limitations;
+Appendix C contains the evidence index and final-template handoff.
 
-Sources checked during preparation:
+## Current and historical files
 
-- [Event Guidelines](https://apartresearch.com/sprints/ai-incident-response-sprint-2026-09-11-to-2026-09-13)
-  specify an abstract of at most 150 words, eight main pages excluding references and
-  appendices, the required limitations/dual-use appendix, and author-written narrative.
-- [Official template](https://docs.google.com/document/d/1PQBlhI3tM5vb51x7jBWXBQMYg6hkiU_x8RaCws4kjl4/copy?usp=sharing)
-  gives the section order and AI-use disclosure. Its abstract guidance is looser than
-  the event cap; the pack follows the tighter cap.
-- [Hardy DOI metadata](https://api.crossref.org/works/10.1145/54289.871709)
-  corrects the literature notebook's prior author/date error.
+- `report.md` is the only editable source for the consolidated review narrative.
+- `track1-review.pdf` and `track1-review.html` are its current generated renderings.
+  The review PDF has six main-text pages and four reference/appendix pages. The
+  self-contained HTML embeds its image and stylesheet; evidence links still need
+  the repository. Check final-template pagination independently after author edits.
+- `boundaries.svg` is the diagram source; `boundaries.png` is its generated image.
+- `evidence-pack.pdf` and `review.html` retain the earlier historical review unchanged.
+  Their contents and page counts do not describe the latest consolidated evidence.
+- `official-template.docx` is the untouched template export. It has not been filled
+  in, and this review PDF is not a substitute for the author's final-template PDF.
+- The detailed addenda and every frozen experiment remain separate evidence sources;
+  consolidation changes presentation, not recorded findings or protocols.
 
-The report's source list is deliberately narrower than the exploratory literature
-notebook. This pack's evidence is frozen at commit `4d5121e`; no new performance
-experiment was run while preparing it. The later user-authorized
-[Git evidence](../git_evidence.md) and [enforcement](../git_enforcement.md) follow-ups
-are separate and are not incorporated into this
-pack/PDF/HTML yet. Do not describe this rendering as the latest complete evidence.
-There is no public repository URL, license decision or submission in this step.
+Rebuild the current review with `sh report/build.sh` from the repository root.
+The build verifies historical evidence and report tables, renders the SVG with
+`rsvg-convert`, and runs the existing Pandoc/pdfLaTeX tools. It writes only the
+current figure/renderings and does not overwrite the historical PDF/HTML.
+The HTML uses the project's existing Arial, white-page and blue-link review style.
 
-Finish in this order: write your narrative in the official template, confirm affiliation
-and AI-use disclosure, provide an accessible artifact, then check the final PDF and
-submit. Do not claim this authoring pack was written or independently verified by you.
+## Author handoff
+
+Review the three claims and their scope, confirm name/affiliation, then write the
+final abstract and narrative in the official template. The author should supply
+an approved artifact location and truthful AI-use statement. External reproduction
+and adoption assessment remain pending. The guidelines require the final report
+and its limitations/dual-use appendix; check the actual final PDF pagination.
+
+- [Event guidelines](https://apartresearch.com/sprints/ai-incident-response-sprint-2026-09-11-to-2026-09-13)
+- [Original online template](https://docs.google.com/document/d/1PQBlhI3tM5vb51x7jBWXBQMYg6hkiU_x8RaCws4kjl4/copy?usp=sharing)
+- [Author decisions and transfer map](report.md#appendix-c-evidence-index-and-author-handoff)
+
+Nothing has been published or submitted. A local review URL is not an accessible
+public evidence package, and automated checks are not independent human review.
+
+## Offline reviewer procedure
+
+Start at the repository root with the dependencies already installed as described
+in the root README. No account, API key, Arga session or EC2 instance is needed.
+The retained archives establish what this package records, not authentic lab
+deployment compliance. Request a manifest/hash through a separately trusted
+channel if evidence authenticity matters; hashes shipped alongside mutable data
+alone do not establish its original truth.
+
+First verify the historical archives and copy the later studies into a temporary
+directory for their derived summaries. This preserves the supplied result files.
+
+```sh
+.venv/bin/python verify_results.py
+.venv/bin/python - <<'PY'
+import json
+from pathlib import Path
+import shutil
+import tempfile
+from run_local_sandbox import verify as verify_trials
+from run_selfhosted_pilot import verify as verify_pilot
+from run_adaptive_pilot import report as verify_adaptive
+
+with tempfile.TemporaryDirectory(prefix="track1-review-") as temporary:
+    root = Path(temporary)
+    for name in ("local-readiness-v1", "selfhosted-pilot-v1", "adaptive-pilot-v1"):
+        shutil.copytree(Path("results") / name, root / name)
+    assert len(verify_trials(root / "local-readiness-v1")) == 32
+    rows = verify_pilot(root / "selfhosted-pilot-v1")
+    assert sum(r["status"] == "completed" for r in rows) == 18
+    study = root / "adaptive-pilot-v1"
+    verify_adaptive(study)
+    assert len(verify_trials(study / "development" / "trials")) == 12
+    assert not json.loads((study / "search-coverage.json").read_text())["gate_passed"]
+    assert all(r["status"] == "unrun" for r in json.loads((study / "summary.json").read_text()))
+print("Archives verified; H31 final evaluation remains unrun")
+PY
+```
+
+Then exercise the controls in Appendix B with local synthetic fixtures. These
+tests require unprivileged Linux Bubblewrap and the installed Pome runtime;
+they do not use hosted services. Temporary service credentials are generated
+inside the fixtures, and production credentials are not read.
+
+```sh
+.venv/bin/python -m pytest -q tests/test_http_boundary.py tests/test_broker_workflow.py tests/test_runtime_recovery.py tests/test_local_sandbox.py tests/test_adaptive_pilot.py tests/test_report.py
+.venv/bin/python -m pytest -q tests/test_evidence.py tests/test_observers.py
+```
+
+Expected interpretation: exact-authority/utility and recovery checks should pass;
+the `simulation_gap` test also passes **because it observes an unauthorized effect**.
+That is evidence against a general preview guarantee. Do not turn an all-green
+test summary into an all-controls-compliant claim. Keep infrastructure failures
+distinct from prevention, and report any failure rather than silently replacing it.
+
+The evaluator here is the project's own code. An independent reviewer has not yet
+reproduced the result or assessed adoption effort. Author-written final-template
+reporting, deployment attestation and independent replication remain separate work.
