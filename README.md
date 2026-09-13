@@ -24,9 +24,14 @@ section order. [Current PDF review copy](report/track1-review.pdf) and
 The original [official template](report/official-template.docx) is preserved separately.
 
 These are AI-assisted preparation notes, **not a submission-ready manuscript**.
-The sprint Guidelines require the final report to be the team's own writing.
-Author review, affiliation, a reviewer-accessible artifact location and final-template
-completion remain outstanding. Nothing has been published or submitted.
+
+**Submission draft:** [report/submission/final-report.pdf](report/submission/final-report.pdf)
+(source `final-report.md`, rebuilt with `sh report/submission/build.sh`) follows the
+official template's section order and typography: 211-word abstract, seven main-text
+pages, references, the required limitations/dual-use appendix, the control checklist
+and an LLM usage statement. It is AI-drafted. The template strongly encourages a
+primarily team-written final version, so the author should revise it and complete the
+bracketed LLM-usage confirmation before submitting. Nothing has been submitted to Apart.
 
 The subsequent [native Git study](git_evidence.md) adds H12–H14 and 16 recorded cells.
 It is included in the current consolidated review; the older historical PDF
@@ -179,3 +184,11 @@ that unavailability into an explicit unsimulated quarantine hold.
 The Arga extension adds a separate hosted preview for two fixed repository aliases.
 It checks the declared read context against a reproducible seed; it cannot clone
 arbitrary current service state or guarantee identical execution behavior.
+
+## License
+
+- Code (Python sources, runners, tests and build scripts): [MIT](LICENSE).
+- Documentation, reports, protocols, figures and result archives under `results/`:
+  [CC BY 4.0](LICENSE-CC-BY-4.0).
+- Excluded: `report/official-template.docx` is Apart Research's sprint template, and
+  third-party tools (Pome, Node, Git, Bubblewrap) keep their own licenses.
