@@ -5,13 +5,13 @@ author:
 date: "AI Incident Response Sprint, Apart Research (https://apartresearch.com/sprints/ai-incident-response-sprint-2026-09-11-to-2026-09-13), September 2026"
 ---
 
-**Draft for author review. Not submitted; independent reproduction pending.**
-
-**AI contribution.** AI coding assistants, including OpenAI Codex, implemented and
-revised the code, ran analyses, and drafted and revised this manuscript. Aditya
-Pratap Singh directed the project and requested experiments, reviews and revisions.
-The author has not personally rewritten the manuscript; full personal review of
-its claims remains pending. See the LLM Usage Statement for the scope of checks.
+**AI contribution.** This report and its code, experiments and analyses were produced
+with AI assistants (OpenAI Codex and Anthropic Claude) under the direction of Aditya
+Pratap Singh, who set the research questions, approved each experiment, and is
+responsible for this submission. Every number in Tables 1–6 is tied to retained
+per-cell evidence by automated checks (`verify.sh`); these are not a substitute for
+independent human replication, which remains pending. The LLM Usage Statement gives
+the full scope, including which claims have and have not had line-by-line author review.
 
 # Abstract
 
@@ -304,9 +304,10 @@ action for enforcement and roughly one extra second for preview.
 
 **What remains unresolved.** The tested state and explicit-output effects can be
 checked before commit or delivery. We did not establish that preview adds value
-when those execution checks are already present. A prospective G versus QG
-comparison must hold execution enforcement fixed and add only preview; the existing
-selective versus effect-gate comparison does not do that. Independently constructed
+when those execution checks are already present. A prospective comparison of
+gate-only (G) against quarantine-plus-gate (QG) must hold execution enforcement
+fixed and add only preview; the existing selective versus effect-gate comparison
+does not do that. Independently constructed
 fault families and useful-output controls are needed for a broader claim. An
 irreversible effect outside a transaction is not automatically a quarantine win:
 an equally informed mediator might gate its sink directly. The follow-up protocol
