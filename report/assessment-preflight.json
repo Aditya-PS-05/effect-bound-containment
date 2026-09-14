@@ -1,0 +1,15 @@
+{
+  "status": "author_side_packet_preflight_passed",
+  "independent_participants": 0,
+  "scope": "Receipt rescore and worked-example consistency only; no new experiment or external assessment.",
+  "checks": {
+    "A_preview_counterexample": true,
+    "B_state_gate_safe_completion": true,
+    "C_state_clean_but_output_leaks": true,
+    "D_output_gate_safe_completion": true
+  },
+  "source_manifests": {
+    "results/combined-gate-v1/sources.json": "ae83c8761adf912cc52cd5132094db89766d8655cd6c23209493aa1879887062",
+    "results/dataflow-gate-v1/sources.json": "2e38fb286585eaa7fb219fef04bfdae40566c8b197a502eda533f00c516c022b"
+  }
+}

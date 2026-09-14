@@ -1,29 +1,52 @@
 # Effect-bound agent containment experiments
 
-## Start here (for reviewers)
+Track 1 (Containment) submission for the Apart Research AI Incident Response Sprint.
+
+## Start here
+
+**Central finding:** a successful preview does not establish execution safety. Our
+designed execution-only faults pass preview; enforcement at the state and output
+boundary prevents the specified effects under a trusted-backend assumption.
+
+- **Read the submission:** [`report/submission/final-report.pdf`](report/submission/final-report.pdf).
+- **The proposed standard:** [`report/containment-standard.md`](report/containment-standard.md) —
+  nine controls with acceptance rules; both reports summarize it.
+- **Verify offline** (no accounts, API keys or hosted services): `./verify.sh` runs
+  the test suite, checks the canonical study inventory and recomputes receipt-backed
+  scores, then prints PASS. Setup is under [Reproduce](#reproduce).
+
+*Running the reviewer exercise?* See [participant instructions](report/independent-review.md)
+(open only those and their permitted files until you submit your decisions);
+administrators use the [setup and scoring page](report/review-administration.md). A
+[worked assessment](report/worked-assessment.md) explains the packets open-book. Two
+AI review walkthroughs are recorded — one answer-exposed, one
+[answer-key-withheld](report/reviews/withheld-agent-v1/review.md) that reached all six
+scoped decisions without implementation guidance. Neither is human validation,
+experimental replication or a lab adoption assessment.
 
 - **The claim.** Check authority for the *exact effect* at the component that
-  executes it; keep effect evidence the actor and broker cannot forge; treat a
+  executes it; acquire backend evidence independently of actor and broker, with the host still trusted; treat a
   pre-execution preview as advisory, not proof. The full argument is
   [`report/submission/final-report.pdf`](report/submission/final-report.pdf).
 - **Verify it offline** (no accounts, API keys or hosted services): `./verify.sh`
-  runs the test suite and recomputes every archived result from its receipts, then
+  runs the test suite and checks the canonical study inventory and recomputes receipt-backed scores, then
   prints PASS. Environment setup is under [Reproduce](#reproduce).
-- **The load-bearing core** is three components — everything else is evidence or
+- **The load-bearing core** includes these components — everything else is evidence or
   history, preserved on purpose:
   - `src/effect_bound.py` — capability broker, policy and records.
   - `src/local_service.py` — execution-time effect gate (state **and** data-flow).
+  - `src/http_boundary.py`, `src/http_actor.py`, `src/local_sandbox.py` — isolated actor, gateway and local service boundary.
   - `src/process_observer.py` — independent effect observer.
 
 ### Repository map
 
 | Tier | What | Where |
 |---|---|---|
-| **Core** (read first) | The report; the three components above; the reviewer check. | `report/submission/`, `src/effect_bound.py`, `src/local_service.py`, `src/process_observer.py`, `verify.sh` |
-| **Evidence** (dig deeper) | Every run with hashed receipts; the experiment runners; the H1–H33 ledger; the consolidated review. | `results/`, `run_*.py`, `hypotheses.md`, `report/report.md` |
+| **Core** (read first) | The report; the components above; the reviewer check. | `report/submission/`, `src/effect_bound.py`, `src/local_service.py`, `src/process_observer.py`, `verify.sh` |
+| **Evidence** (dig deeper) | Every run with hashed receipts; the experiment runners; the H1–H34 ledger; the consolidated review. | `results/`, `run_*.py`, `hypotheses.md`, `report/report.md` |
 | **History** (preserved, not current) | Earlier report renderings kept unchanged for provenance. | `report/evidence-pack.pdf`, `report/review.html` |
 
-The narrative below walks the studies in order; the [Layout](#layout) section lists
+The narrative below is the historical evidence index; the [Layout](#layout) section lists
 every file. Nothing is hidden or curated away — the negative and incomplete results
 (quarantine ties, unfinished model pilots) are part of the record.
 
@@ -41,7 +64,7 @@ latency and quarantines.
 ## Report preparation
 
 Current priority: a reviewer-checkable containment standard and evidence package.
-See the [control acceptance rules](report/report.md#appendix-b-proposed-evidence-bound-containment-checklist)
+See the [authoritative control rules](report/containment-standard.md)
 and [offline reviewer procedure](report/README.md#offline-reviewer-procedure).
 Quarantine superiority remains unproven; another model pilot is secondary to
 making the existing results and their deployment limits independently reviewable.
@@ -56,7 +79,7 @@ These are AI-assisted preparation notes, **not a submission-ready manuscript**.
 
 **Submission draft:** [report/submission/final-report.pdf](report/submission/final-report.pdf)
 (source `final-report.md`, rebuilt with `sh report/submission/build.sh`) follows the
-official template's section order and typography: 244-word abstract, eight main-text
+official template's section order and typography: 150-word abstract, eight main-text
 pages, references, the required limitations/dual-use appendix, the control checklist
 and an LLM usage statement. It is AI-drafted. The template strongly encourages a
 primarily team-written final version, so the author should revise it and complete the
@@ -121,6 +144,8 @@ produced two boundary probes and quarantine produced none. The search gate faile
 so all 18 final cells remain unrun. This is a search failure, not a comparative
 security result. The known execution-only escape remains unresolved.
 
+The [H34 interrupted pilot](report/effect-gate-pilot.md) has ten completed development trials and no final evaluation. The [verification repairs](report/verification-repairs.md) bind candidate, task and accounting evidence without changing archived results.
+
 ## Reproduce
 
 Linux, Python 3.12+, npm and native Git (tested with 2.43.0) are required. The Python environment and pinned Node
@@ -132,8 +157,8 @@ uv pip install --python .venv/bin/python -r requirements-dev.txt
 npm ci --no-audit --no-fund
 .venv/bin/python -m pytest -q
 .venv/bin/python security_check.py
-.venv/bin/python run_matrix.py
-.venv/bin/python measure_resources.py
+.venv/bin/python run_matrix.py --output .runtime/matrix-reproduction
+.venv/bin/python measure_resources.py --output .runtime/resource-reproduction
 .venv/bin/python verify_results.py
 .venv/bin/python run_pome.py --output .runtime/pome-reproduction
 .venv/bin/python run_workflows.py --output .runtime/workflow-reproduction

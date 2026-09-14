@@ -9,3 +9,5 @@ node_modules/
 .env
 .env.arga-backup
 .omc/
+report/submission/*.tar.gz
+report/submission/*.tar.gz.sha256

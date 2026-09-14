@@ -1,0 +1,31 @@
+{
+  "stale_review_entrypoint": "broker_gateway() missing 1 required keyword-only argument: 'ledger_path'",
+  "reproduction_overwrites_existing_files": [
+    "matrix_raw.json",
+    "matrix_summary.json",
+    "resource_summary.json"
+  ],
+  "top_level_verifier_accepts_missing_studies": [
+    "adaptive-pilot-v1",
+    "effect-gate-pilot-v1",
+    "local-readiness-v1",
+    "selfhosted-pilot-v1"
+  ],
+  "h30_verifier_ignores_broken_candidate_seal": {
+    "verified_cells": 18
+  },
+  "h33_verifier_uses_unbound_leak_sentinel": {
+    "claimed_prevented_by": [
+      "static",
+      "selective",
+      "effect_gate",
+      "dataflow_gate"
+    ]
+  },
+  "committed_type_error_marked_unforwarded_input_error": {
+    "first_status": 400,
+    "retry_status": 503,
+    "first_forwarded": false,
+    "actual_new_issues": 1
+  }
+}

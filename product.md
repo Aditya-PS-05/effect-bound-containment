@@ -11,12 +11,23 @@ or conditional follow-ups; they do not independently authorize a new workstream.
   have demonstrated local benefits. Quarantine superiority is unproven, and the
   execution-only counterexample remains. A negative result is valid evidence.
 - **Prepared for review:** the consolidated `report/report.md`, current
-  `report/track1-review.pdf` and self-contained HTML cover the three findings,
+  `report/track1-review.pdf` and self-contained HTML cover the four findings,
   control acceptance/evidence mapping, complete pilot status and author handoff.
   Saved experiments and the historical PDF/HTML remain unchanged.
-- **Next action:** author factual review of that package, confirmation of
-  authorship/affiliation, and final-template writing. Independent reproduction
-  and adoption assessment remain pending. Do not generate another experiment first.
+- **Central finding:** successful preview does not establish execution safety;
+  execution-bound state/output checks prevent the specified faults under a trusted
+  backend. The combined original hypothesis does not identify quarantine's increment.
+- **Review handoff:** `report/worked-assessment.md` gives scoped decisions and missing
+  lab evidence; `report/independent-review.md` fixes the external exercise and scoring;
+  `report/reviewer-assessment.json` is blank. One independent-context AI walkthrough found handoff defects and saw the answers.
+  A second fresh agent using an answer-key-withheld packet reached all six scoped
+  decisions without implementation guidance. No independent human participant or
+  lab adoption result exists. See `report/reviews/withheld-agent-v1/`. Do not substitute author-side verification for either.
+- **Next action:** author review and administration of the prepared external exercise.
+  The repaired effect-gate pilot is closed as interrupted: five completed model
+  calls, one unresolved reservation, and 0/16 final cells. The frozen protocol
+  forbids retrying the uncertain call. See `results/effect-gate-pilot-v1/closeout.json`.
+  No additional model study is needed to finish the containment evidence package.
 - **Completion criteria:** each control has an acceptance rule and evidence link;
   documented reviewer commands reproduce the stated outcomes; the report preserves
   all negative/incomplete findings and meets the final-template requirements after
@@ -263,7 +274,7 @@ repair the transport fault, does not defend a compromised service or host, and i
 static effect policy at the effect boundary, not an adaptive-quarantine advantage. It
 generalizes the native Git receive-gate result (H15–H17) to a second backend and
 unifies the project's two halves under one harness. See `combined_gate_protocol.md`.
-The full suite is 270 tests; `verify_results.py` recomputes the 48 + 68 gate cells.
+At the original H33 checkpoint the full suite was 270 tests; `verify_results.py` recomputes the 48 + 68 gate cells.
 
 H33 broadens the H32 gate to confine outbound data flow, tested against a read that
 returns a secret with no state change (`results/dataflow-gate-v1`, 68 cells). The

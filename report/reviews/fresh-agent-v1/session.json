@@ -1,0 +1,21 @@
+{
+  "review_kind": "independent-context AI review",
+  "reviewer": "fresh_reviewer",
+  "conversation_history": "none",
+  "environment": "Shared existing checkout and installed dependencies; read-only review requested. Not a clean installation or an independent host.",
+  "human_participants": 0,
+  "input_manifest_sha256": "e5551b8e4993290eebd30a20dd352693a72173b30b482601dc5b9ff93e8e2345",
+  "input_manifest": "input-manifest.json",
+  "prior_implementation_guidance": "No project conversation was supplied. Reviewer received track, judging questions, repository path and read-only review instructions.",
+  "limitation": "Repository itself exposes worked examples and answer keys. This review does not establish blinded usability, independent human reproduction or lab adoption.",
+  "commit_authorized": false,
+  "manifest_supplied_to_reviewer": false,
+  "input_files_unchanged_during_review": true,
+  "answer_key_exposed": true,
+  "no_hints_exercise_pass": false,
+  "elapsed_seconds_self_reported": 33,
+  "started_utc_self_reported": "2026-09-13T13:56:51Z",
+  "inspection_ended_utc_self_reported": "2026-09-13T13:57:24Z",
+  "elapsed_excludes": "Final writeup time",
+  "result": "Bounded evidence understood and verified; handoff defects identified; real-lab compliance and adoption not demonstrated."
+}

@@ -32,6 +32,36 @@ with zipfile.ZipFile(default) as zin, zipfile.ZipFile(dst, "w", zipfile.ZIP_DEFL
 PY
 (cd "$out" && pandoc final-report.md --columns=40 -o final-report.docx \
   --reference-doc="$tmp/reference.docx" --resource-path=.:..)
+.venv/bin/python - "$out/final-report.docx" <<'DOCX'
+import sys, zipfile
+from pathlib import Path
+from xml.etree import ElementTree as ET
+path = Path(sys.argv[1])
+ns = {"w": "http://schemas.openxmlformats.org/wordprocessingml/2006/main"}
+w = "{" + ns["w"] + "}"
+with zipfile.ZipFile(path) as source:
+    entries = [(info, source.read(info.filename)) for info in source.infolist()]
+with zipfile.ZipFile(path, "w", zipfile.ZIP_DEFLATED) as target:
+    for info, data in entries:
+        if info.filename == "word/document.xml":
+            root = ET.fromstring(data)
+            for row in root.findall(".//w:tr", ns):
+                props = row.find("w:trPr", ns)
+                if props is None:
+                    props = ET.Element(w + "trPr")
+                    row.insert(0, props)
+                ET.SubElement(props, w + "cantSplit")
+            for paragraph in root.findall(".//w:body/w:p", ns):
+                text = "".join(paragraph.itertext())
+                if text.startswith("Table "):
+                    props = paragraph.find("w:pPr", ns)
+                    if props is None:
+                        props = ET.Element(w + "pPr")
+                        paragraph.insert(0, props)
+                    ET.SubElement(props, w + "keepNext")
+            data = ET.tostring(root, encoding="utf-8", xml_declaration=True)
+        target.writestr(info, data)
+DOCX
 cp "$out/final-report.docx" "$tmp/"
 soffice --headless --norestore -env:UserInstallation="file://$tmp/profile" \
   --convert-to pdf --outdir "$tmp" "$tmp/final-report.docx" >/dev/null 2>&1

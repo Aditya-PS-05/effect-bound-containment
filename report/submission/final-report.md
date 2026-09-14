@@ -1,34 +1,35 @@
 ---
 title: "Where Authorization Stops: Effect-Bound Containment, Independent Evidence and the Limits of Preview"
 author:
-  - "Aditya Pratap Singh — Independent researcher — With Apart Research"
-date: "Research conducted at the AI Incident Response Sprint (https://apartresearch.com/sprints/ai-incident-response-sprint-2026-09-11-to-2026-09-13), September 2026"
+  - "Aditya Pratap Singh"
+date: "AI Incident Response Sprint, Apart Research (https://apartresearch.com/sprints/ai-incident-response-sprint-2026-09-11-to-2026-09-13), September 2026"
 ---
+
+**Draft for author review. Not submitted; independent reproduction pending.**
+
+**AI contribution.** AI coding assistants, including OpenAI Codex, implemented and
+revised the code, ran analyses, and drafted and revised this manuscript. Aditya
+Pratap Singh directed the project and requested experiments, reviews and revisions.
+The author has not personally rewritten the manuscript; full personal review of
+its claims remains pending. See the LLM Usage Statement for the scope of checks.
 
 # Abstract
 
-In the incident motivating this sprint, evaluated models escaped through the one
-network egress their sandbox permitted. A containment standard therefore has to
-state what a permitted route may *do*, and a third party has to be able to check
-that claim without the lab's network. We test three candidate controls on
-synthetic backends: authorize the exact effect at the boundary where it executes;
-retain backend evidence acquired independently of the actor and broker; and treat
-a pre-execution preview as evidence only where its fidelity has been shown. Across
-native Git, a Bubblewrap-isolated HTTP gateway, local Pome API twins and hosted
-Arga twins, execution-time checks prevented tested violations that upstream
-approval missed. A Git receive-time gate allowed 0/6 forbidden ref updates versus
-3/6 for an equally informed broker preview, and an exact-authority gateway allowed
-0/12 HTTP attacks versus 8/12 for endpoint restriction, without losing benign
-completion. Independent backend tape detected 6/6 executed attacks; intent logs
-detected 0/6. Our original hypothesis, that adaptive quarantine adds prevention,
-was only partly supported: selective preview blocked write faults the preview
-could observe, but every execution-only fault escaped, and three small
-model-attacker pilots were inconclusive. Adding an execution-time effect gate on
-the same service path then prevented the execution-only fault that both static and
-preview missed, while completing the legitimate work — execution-side enforcement,
-not a quarantine advantage. We release a nine-control checklist with offline
-acceptance tests, every run including failures, and a reviewer procedure that needs
-no credentials.
+Containment requires controlling effects through permitted routes and evidence that
+outside reviewers can inspect. We evaluate exact authorization, independent backend
+observation and preview-based quarantine on synthetic Git, HTTP and API-twin
+workflows. Git receive-time enforcement allowed 0/6 forbidden ref updates versus
+3/6 for broker preview; an exact-authority HTTP gateway allowed 0/12 attacks versus
+8/12 for endpoint restriction. Both preserved benign completion. Backend evidence
+detected 6/6 executed attacks, while intent logs detected none. Preview blocked
+reproducible faults but missed execution-only writes. Transactional state and output
+gates prevented specified write and read-leak fixtures; subsequent correctness
+review found and repaired additional defects. Four model pilots remain insufficient
+to establish realistic attack resistance, including an interrupted repaired-gate
+study with no final evaluation. We provide a nine-control checklist, offline checks
+and retained negative results. Quarantine superiority, production safety and
+independent reproduction remain unestablished.
+All results concern designed fixtures on trusted hosts, not independently assessed production deployments.
 
 # 1. Introduction
 
@@ -39,19 +40,20 @@ sandbox's only permitted egress [8]. Restricting *which endpoint* an agent may r
 does not constrain *what effect* a request to that endpoint produces. An accurate
 log of what the agent intended can also disagree with what the backend executed.
 
-We ask a practical containment question: **where should authority be checked, and
-what evidence lets an outside reviewer confirm that only authorized effects
-occurred?** Our fixed research question was whether an *adaptive*
-effect-bound broker (server-side capability enforcement plus dynamic quarantine
-with selective release) prevents more unauthorized effects than intent logging or
-static authorization while keeping legitimate work usable. We kept that question
-fixed, tracked 33 intermediate hypotheses (H1–H7 reconstructed from early runs; H8
-onward recorded before their runs), and retained every failed or incomplete result.
-The answer split cleanly: server-side enforcement was confirmed, the *quarantine*
-increment was not — and while testing that gap we designed an execution-time effect
-gate that delivers the prevention quarantine was reaching for by a different route.
-That gate is an engineering finding of this work, not a claim we set out to make;
-we report it as such (contributions 3–4).
+**Central finding. A successful preview does not establish execution safety.**
+In the tested fixtures, faults introduced only during execution pass preview;
+checks at the component committing state or returning data prevent those specified
+effects. Independent backend evidence distinguishes approved requests from actual
+effects. This is a bounded mechanism result, not general attack resistance.
+
+Our original hypothesis compared server-side capability enforcement plus dynamic
+quarantine against intent logging or broker-only authorization. Its weak-baseline
+comparison is supported, but bundles two mechanisms and cannot identify quarantine's
+increment. We preserve its exact wording and all H1–H34 outcomes in `hypotheses.md`.
+H1–H7 were reconstructed; H8 onward were recorded before their runs. Comparisons
+of preview and execution gates characterize their failures, not the causal effect
+of adding preview to an otherwise identical execution gate. Model pilots have not
+resolved that separate question.
 
 Threat model. The actor (a scripted or model-generated client) can alter its
 requests, client configuration, local files, retries and timing, and can try any
@@ -59,26 +61,20 @@ route its sandbox allows. It cannot edit server-side policy, hooks or backend st
 directly. The broker, gateway, backend and host are trusted. A compromised egress
 service or kernel is out of scope (Section 5).
 
-**Our main contributions are:**
+**The evidence chain is:**
 
-1. **Execution-time authority beats upstream approval at matched utility.** On
-   native Git and an isolated HTTP path, the same policy enforced where the effect
-   executes blocked every tested substitution that passed an equally informed
-   upstream check, with no reduction in benign completion (Tables 1–2).
-2. **Independent backend evidence detects what upstream records cannot.** Backend
-   tape exposed all executed post-gate mutations. Intent logs and gate records
-   still matched the approved request (Table 3).
-3. **A negative result on preview-based quarantine, and its execution-side fix.**
-   Selective release helps only when the preview reproduces execution behavior; a
-   fault present only at execution escaped in every local, hosted and
-   separate-process preview study (Table 4). Adding an execution-time effect gate on
-   the same service path prevented that fault while completing the legitimate work,
-   generalizing the Git receive-gate result to a second backend (Table 5). Broadening
-   that gate to confine outbound *data flow* also stopped a read exfiltration that a
-   state-only gate, static authorization and preview all miss (Table 6).
-4. **An offline-checkable control checklist.** Nine controls, each with a
-   pass/fail rule, a runnable acceptance test, a measured outcome and a known
-   residual limit, plus a credential-free reviewer procedure (Appendix B).
+1. **Authority at execution.** Native Git and isolated HTTP checks prevent the
+   tested effects that upstream checks admit, preserving benign completion
+   (Tables 1–2). Backend observations expose effects omitted by upstream records
+   (Table 3).
+2. **The counterexample and its scope.** Preview misses execution-only writes
+   (Table 4); transactional state enforcement prevents the specified write, and
+   response enforcement prevents an explicit read leak (Tables 5–6). These are
+   designed faults on trusted backends, not discovered model exploits.
+3. **A usable assessment.** Nine bounded acceptance rules, evidence requirements
+   and a worked assessment separate local PASS, demonstrated FAIL and deployment
+   NOT VERIFIED. One answer-key-withheld AI exercise reached all six scoped
+   decisions; no independent human assessment or adoption result exists (Appendix B).
 
 # 2. Related Work
 
@@ -89,16 +85,10 @@ is a standard object-capability pattern rather than a new primitive. AI Control 
 argues for evaluating safety measures against intentionally subversive models. Our
 scripted suites follow that red-team framing at small scale but are not
 frontier-agent evaluations. AgentDojo [4] benchmarks prompt-injection attacks
-against tool-using agents, and CaMeL [5] enforces information-flow policies over an
-agent's plan. Both reason about what the agent *intends* to do. We complement them
-by measuring what the *backend* executed and where a check must sit to constrain it.
-
-The gap we address is verifiability. Existing sandbox guidance says what to
-restrict, but rarely specifies evidence that lets a third party confirm the
-restriction held. We contribute acceptance tests that separate *prevented*,
-*detected after execution* and *missed*, and we demonstrate on real,
-independently implemented backends (native Git hooks [7], Pome twins [6], hosted
-Arga twins [9]) where plausible designs fail.
+against tool-using agents using execution-based outcomes. CaMeL [5] separates
+control and data flow and enforces capability policies at tool invocation. Our
+narrow contribution tests backend deviations from authorized calls and compares
+preview checks with enforcement at the component that executes the effect.
 
 # 3. Methods
 
@@ -157,9 +147,9 @@ claims.
 **What did not work.** Exact state restore was unavailable for both twin
 providers. Pome seeds do not reproduce timestamps or commit hashes, and Arga resets
 regenerate Git identifiers. Real-backend quarantine therefore returns an explicit
-"unsimulated hold" instead of a fabricated clone. Three small model-attacker pilots
-(GPT-5.4 mini / GPT-5.4, $1.39 in total) failed to produce substantive attacks
-(Appendix C).
+"unsimulated hold" instead of a fabricated clone. Four small model-attacker pilots remain insufficient to establish realistic
+resistance. H27 stopped early, H30 lacked substantive attacks, H31 failed its
+search gate, and H34 stopped with 0/16 final cells (Appendix C).
 
 ![**Figure 1.** Three tested boundaries. Each row is a separate experiment, not one combined deployment. (A) The same effect policy checked at broker preview versus Git receive time. (B) Post-gate mutations are visible only in independently acquired backend evidence; detection happens after execution. (C) A preview can match declared state yet diverge in live behavior.](../boundaries.png){width=100%}
 
@@ -176,6 +166,8 @@ per condition; identical effect policy in the last two rows. Source:
 | Broker native preview | 3 | 5 | 0 |
 | **Receive-time effect gate** | **0** | **5** | **0** |
 
+A successful preview establishes that the planned update passed the policy checks;
+it does not bind the later push to the target and commit that were checked.
 The three attacks that passed the preview each changed client state *after*
 admission (push redirect, extra target, wrong commit). The receive gate rejected
 them because it evaluates the update Git actually receives. Mixed allowed/forbidden
@@ -292,8 +284,11 @@ payloads only; covert and implicit channels are out of scope for every arm here.
 deterministic under unchanged cases and reproduced in regression tests. They are
 not rate estimates. The attack sets are purpose-built, which shows that each
 failure mode *can* occur and that the control stops it, not how often it occurs.
-All 270 tests pass; `verify_results.py` and the report consistency tests check
-every table against the raw per-cell archives.
+The test suite and `verify_results.py` check the local implementation and
+canonical evidence. Passing them does not establish population-level security.
+Later correctness review repaired existing-row preservation, rollback on rejected
+output and schema-valid unapproved output. These repairs do not retroactively
+strengthen the frozen experiments; their separate regressions remain in the repo.
 
 # 5. Discussion and Limitations
 
@@ -307,18 +302,16 @@ execution-side check also constrains the effect. Appendix B turns these into
 acceptance tests. The cost in our testbeds was tens of milliseconds per
 action for enforcement and roughly one extra second for preview.
 
-**Where the gate ends and quarantine begins.** The gate and a preview run the same
-effect predicate at two different times: the gate on the real effect at execution, the
-preview on a copy beforehand. So the gate dominates for any effect it can *observe and
-withhold at its boundary* — state changes (Table 5) and outbound data (Table 6) both
-qualify, and each was better placed in the gate than predicted on a copy. Quarantine's
-irreducible residue is the effect a gate structurally cannot reach: one that is
-irreversible the instant it executes and routes through a boundary the gate does not
-mediate — an external side effect, resource consumption, or code whose execution is
-itself the harm. There the only prevention is to run a disposable copy first, and only
-as faithfully as that copy reproduces the danger without causing it. In short,
-quarantine is the fallback for a boundary you cannot gate; the better fix is always to
-gate the boundary. We did not build that residual case here; it is the next study.
+**What remains unresolved.** The tested state and explicit-output effects can be
+checked before commit or delivery. We did not establish that preview adds value
+when those execution checks are already present. A prospective G versus QG
+comparison must hold execution enforcement fixed and add only preview; the existing
+selective versus effect-gate comparison does not do that. Independently constructed
+fault families and useful-output controls are needed for a broader claim. An
+irreversible effect outside a transaction is not automatically a quarantine win:
+an equally informed mediator might gate its sink directly. The follow-up protocol
+records this competing explanation and stops if no discriminating route exists.
+No additional model search or combined-arm evaluation is reported here.
 
 **Relation to the incident.** We did not reproduce the incident. The incident
 route was compromised through a zero-day in the egress proxy itself. Our gateway is
@@ -339,21 +332,14 @@ effect. We did not test that placement against a compromised proxy or backend.
 - **Fidelity.** Neither twin provider supports exact state restore. Arga
   equivalence was checked only for issue and access state.
 - **Sample.** Constructed, deterministic, small scenario sets. Model-attacker
-  pilots produced no substantive attacks, so realistic AI-attacker resistance is
-  untested.
+  pilots were incomplete or had inadequate coverage. H27 found an availability
+  failure; the repaired-gate study stopped before final evaluation. Realistic
+  AI-attacker resistance remains unestablished.
 - **Hypothesis status.** The weak-baseline part is supported. The claim that
   *quarantine* adds prevention over equally informed static enforcement is
   conditional and unestablished. Our integrated real-backend workflow ran with an
   explicit hold instead of a real preview.
 
-### Future Work
-
-The combined-architecture study (Table 5) constrains execution-only faults on one
-service path; the next steps are to test that execution-side enforcement against a
-*compromised* egress service or backend, not just a trusted one, and to extend the
-effect predicate beyond a single declared effect class. Run model attackers through
-an interface where they can influence backend behavior, not only request text.
-Obtain independent reproduction and a lab's adoption-cost assessment of Appendix B.
 
 # 6. Conclusion
 
@@ -364,23 +350,23 @@ equally informed upstream check missed, without costing benign completion. Evide
 taken from the backend exposed every executed mismatch that intent and gate logs
 concealed.
 
-Our adaptive hypothesis fared worse, and the way it failed is the useful part. It
-pointed at the right problem — catch what upstream approval misses — but the wrong
-mechanism: preview-based quarantine prevented only the faults its preview could see,
-and a fault that appears only at execution escaped every preview mechanism we tested.
-The execution-time effect gate we then designed catches those faults, for both state
-changes and outbound data, while completing the legitimate work. Right problem, wrong
-mechanism, better mechanism found. We therefore recommend that containment standards
-require execution-side enforcement and independent evidence, and that they not accept
-a clean preview as proof of a safe action.
+Preview-based quarantine prevented only faults its preview reproduced. The
+execution-time state and output gates prevented the specified execution-only
+fixtures, with later correctness repairs retained separately. These results support
+execution-side checks and independent evidence; they do not establish general gate
+superiority or justify treating a clean preview as proof of safety. Independent
+reproduction and an adoption-cost assessment remain necessary.
 
 # Code and Data
 
-- **Code repository:** <https://github.com/Aditya-PS-05/effect-bound-containment>
-  (code MIT; report, protocols and result archives CC BY 4.0).
+- **Artifact snapshot:** `effect-bound-containment-submission.tar.gz` contains
+  the current code, reports and evidence, with a SHA-256 file manifest. Supply it
+  alongside this PDF. The public [repository](https://github.com/Aditya-PS-05/effect-bound-containment)
+  is an earlier revision and does not contain all repairs in this report.
+  Code is MIT; reports, protocols and results are CC BY 4.0.
 - **Data:** every run, including failed prerequisites and unrun cells, with hashed
   receipts under `results/` (the combined-architecture study is
-  `results/combined-gate-v1`, the data-flow study `results/dataflow-gate-v1`). Hypotheses H1–H33 and their predeclared protocols are
+  `results/combined-gate-v1`, the data-flow study `results/dataflow-gate-v1`). Hypotheses H1–H34 and their predeclared protocols are
   in `hypotheses.md`.
 - **Reviewer procedure:** `report/README.md#offline-reviewer-procedure`. No
   accounts, API keys or hosted services are required.
@@ -390,10 +376,9 @@ a clean preview as proof of a safe action.
 
 # Author Contributions
 
-Aditya Pratap Singh conceived the project, set and challenged the hypotheses, and
-approved every experiment protocol and model budget. Implementation, test
-execution and drafting were carried out with AI coding assistants under that
-direction (see LLM Usage Statement).
+Aditya Pratap Singh directed the project and requested experiments, reviews and
+revisions. AI coding assistants implemented the harness, ran checks and drafted
+the report. The extent of personal claim review is recorded in the LLM Usage Statement.
 
 # References
 
@@ -436,7 +421,9 @@ test their own boundaries; it should not be pointed at third-party systems.
 
 # Appendix B. Evidence-Bound Containment Checklist
 
-Proposed requirements, not an adopted or certified standard. **PASS** requires
+The authoritative rules are `report/containment-standard.md`; this table and the
+consolidated report summarize the same nine controls. These are proposed
+requirements, not an adopted or certified standard. **PASS** requires
 the acceptance test plus provenance evidence; **FAIL** means a demonstrated
 violation; **NOT VERIFIED** means missing evidence. A passing test runner can
 correctly demonstrate a FAIL through a negative fixture.
@@ -447,21 +434,34 @@ correctly demonstrate a FAIL through a negative fixture.
 | **C2** Deny alternate actor routes | `test_http_boundary.py` | Endpoint-only 8/12 vs exact gateway 0/12 | Deployment route/credential inventory NOT VERIFIED |
 | **C3** One effect per operation across retries | `test_runtime_recovery.py`, `test_local_sandbox.py` | 12/12 ordinary workflows per arm; malformed commit response loses completion | Needs trusted reconciliation; multi-host untested |
 | **C4** Independently acquired call/effect evidence | `test_evidence.py`, `test_observers.py` | Backend 6/6 vs gate 2/6 vs intent 0/6 | First-record forgery; compromised host |
-| **C5** Hold missing previews; retain uncertain commits | `test_runtime_recovery.py`, `test_broker_workflow.py` | Unsupported or timed-out previews hold; no automatic re-dispatch | Availability loss; escalation untested |
+| **C5** Hold required missing previews; retain uncertain commits | `test_runtime_recovery.py`, `test_broker_workflow.py` | Unsupported or timed-out previews hold; no automatic re-dispatch | Availability loss; escalation untested |
 | **C6** Check useful output; preserve every trial | `test_local_sandbox.py`, `test_adaptive_pilot.py` | Duplicates counted as failures; unrun cells retained | No general workload estimate |
 | **Q1** Validate preview behavior before claiming safety | `test_local_sandbox.py` (`simulation_gap`) | Execution-only write escapes static and preview arms | **General preview-safety claim: FAIL** |
 | **C7** Confine the committed effect at the execution boundary | `test_combined_gate.py` | Effect gate prevents the execution-only write and all preview-visible faults, completes 12/12 normal cells (Table 5) | Static effect policy; no compromised-service or transport-fault coverage |
 | **C8** Confine outbound data flow to the declared output class | `test_dataflow_gate.py` | Data-flow gate prevents the read exfiltration that the state gate, static and preview all leak, and returns the authorized value (Table 6) | Explicit payloads only; covert/implicit channels out of scope |
+
+C5 requires a preview hold only when release policy requires preview; uncertain
+commits must always be reconciled. Q1 is not applicable without a preview safety
+claim. The deployment evidence template records missing evidence, not compliance.
 
 **Adopting lab must supply:** route and credential inventory for the actor
 environment, versioned policy and enforcement software, evidence anchors stored
 outside the actor's host, and an owner for uncertain commits. Local package
 verification cannot authenticate those.
 
-**Reviewer procedure (summary).** On Linux with the pinned environment, run
-`verify_results.py` and then the two pytest commands in `report/README.md`. Expected:
-all pass, *including* negative fixtures that pass because they observe the
-violation.
+**Worked decision and external exercise.** `report/worked-assessment.md` traces
+four exact archived cases to decisions. An execution gate passes the state fixture
+while its state-only variant fails output confinement; production route completeness
+and off-host authenticity remain NOT VERIFIED. `report/independent-review.md` and
+`report/reviewer-assessment.json` provide a timed external exercise with fixed
+scoring, missing-evidence questions and an adoption-burden form. An initial AI
+walkthrough saw the answers. A separate fresh agent, given a packet excluding
+reports, answers and prior reviews, reached all six scoped decisions without
+implementation guidance. Both verifiers passed; its reported 73-second inspection
+excludes initial setup and is not human effort. Raw outcomes and protocols remained
+visible. Records are in `report/reviews/withheld-agent-v1/`; this is one AI usability
+check, not human validation, new experimental replication or adoption evidence. On Linux, `./verify.sh` checks the package; a green test suite
+includes negative fixtures and is not a blanket compliance decision.
 
 # Appendix C. Additional Results and Model Pilots
 
@@ -471,31 +471,56 @@ violation.
 hold-all 0 / 40 (20 false quarantines). Server enforcement beats weaker baselines;
 hold-all quarantine ties static denial.
 
-**Model-attacker pilots** (never pooled; cells run = final cells completed / planned; estimated cost):
+**Model-attacker pilots** (never pooled; cells run = final cells completed / planned; estimated cost; calls include unresolved reservations):
 
 | Study | Calls | Cost | Cells run | Outcome |
 |--------------------|--------:|---------:|------------:|----------------------------------------------|
 | H27 hosted (GPT-5.4 mini) | 10 | $0.14 | 3 / 18 | Hosted quota exhausted; no matched attack pair. Found a request-ID poisoning availability bug, later fixed (H28). |
 | H30 local (GPT-5.4 mini) | 10 | $0.10 | 18 / 18 | 9/9 tasks per arm; 4 empty and 2 authorized-only candidates, so no substantive attacks. |
 | H31 adaptive (GPT-5.4) | 12 | $1.16 | 0 / 18 | 9/12 outputs exhausted token budget on reasoning; search gate failed. |
+| H34 repaired gate (GPT-5.4) | 5 + 1* | See note* | 0 / 16 | Interrupted before coverage assessment; no sealed final candidates. |
+
+*H34: five completed calls cost $0.370944; one unresolved call retains a $0.32 reservation.*
+
+H34 retained ten development cells, five per arm, with all tasks completed and
+no observed forbidden state effect, successful-output violation or hold. Call
+`dev-5` has no retained response or usage; the interruption cause is unknown.
+The frozen protocol forbids retrying uncertain calls, so the full $0.32 reservation
+remains. No final resistance estimate follows. See `report/effect-gate-pilot.md`.
 
 The pilots show that request-only attack interfaces behind prebound identities give
 a model little room to create the backend behavior mismatch that separates
 quarantine from static enforcement. Future model evaluations should first
 demonstrate usable candidates on separate development data.
 
-**Hypothesis ledger.** H1–H33 with evidence paths and outcomes, including refuted
+**Hypothesis ledger.** H1–H34 with evidence paths and outcomes, including refuted
 (H7, H12) and unsupported (H2) propositions, are in `hypotheses.md`.
 
 # LLM Usage Statement
 
-This project was developed with AI coding assistants, including Claude (Anthropic)
-through Claude Code. They implemented the harness and tests, ran experiments under
-protocols the author approved, and drafted this report from the project's evidence
-files. OpenAI GPT-5.4 mini and GPT-5.4 were used as *experimental subjects* in the
-attacker pilots (Appendix C), not as writing aids. The same results appear in the project's
-consolidated review report, whose tables automated checks tie to the raw archives
-(`verify_results.py`, `tests/test_report.py`); the numbers in this report were
-also cross-checked against raw per-cell records before submission. **[AUTHOR: before submitting, confirm which
-sections you rewrote and that you reviewed every claim, state that here, and
-delete this bracketed note.]**
+AI coding assistants, including OpenAI Codex, implemented and revised the harness
+and tests, ran experiments and analyses, reconciled evidence, and drafted and
+revised this report. Aditya Pratap Singh directed the project and requested
+experiments, reviews and revisions. The author has not personally rewritten the
+manuscript. In a guided review, the author explained the conceptual gap between
+preview approval and the update that actually executes. This was a conceptual
+review of the first claim, not an independent check of its numerical results;
+For the remaining three central claims, the assistant drafted explanations in
+the author's voice at his request; these are not author-supplied answers or
+evidence of completed personal review. Review of those claims remains pending.
+We do not attribute the assistants' statistical checks or code reviews to the author.
+
+OpenAI GPT-5.4 mini and GPT-5.4 were experimental subjects in the attacker pilots
+(Appendix C); that usage is separate from the assistants used to develop the
+project. Automated checks tie the consolidated report's tables to retained
+archives (`verify_results.py`, `tests/test_report.py`), and the assistants checked
+this report's numbers locally against retained records. These checks do not
+constitute independent replication or completed personal verification by the
+author.
+
+One fresh-context Codex reviewer saw the worked answers. A second received a
+packet with those answers and prior reviews withheld. Both exercises were AI
+reviews, not independent human validation. Before submission, the author must
+review the retained claims and confirm the assistant/tool inventory; this
+statement should then describe the review actually completed. Human rewriting
+is not asserted or required as a condition of this disclosure.

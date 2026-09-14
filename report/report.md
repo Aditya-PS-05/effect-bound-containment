@@ -7,17 +7,36 @@ colorlinks: true
 ---
 
 **Authoring material, not a submission manuscript.** This is the consolidated,
-AI-assisted evidence package through H33. The author must review the facts and
-write the final narrative in the [official template](official-template.docx).
+AI-assisted evidence package through H34. The author must review the facts and
+approve or revise the AI-drafted narrative in the [official template](official-template.docx).
 The original `evidence-pack.pdf` and `review.html` are historical renderings;
 `track1-review.pdf` and `track1-review.html` render this current source.
-Nothing in this package has been submitted or independently reproduced by a reviewer.
+Nothing has been submitted. Independent human reproduction remains pending;
+a fresh-context AI walkthrough is recorded separately under `reviews/fresh-agent-v1/`.
 
-**Author review needed:** Aditya Pratap Singh; affiliation unconfirmed. Working
+**Author review needed:** Aditya Pratap Singh; affiliation omitted at the author's direction. Working
 report title: *Where authorization stops: auditable containment and its limits*.
 The [event guidelines](https://apartresearch.com/sprints/ai-incident-response-sprint-2026-09-11-to-2026-09-13)
-and template govern the final submission. Use at most 150 words for the abstract,
+and template govern the final submission. The supplied template requests 150–250 words for the abstract,
 at most eight main pages, and include the limitations/dual-use appendix.
+
+## Central finding and reading order
+
+A successful preview does not establish execution safety. The execution-only
+counterexample is the central result; state and response gates show what prevents
+the specified effects under trusted-backend assumptions. The following four
+findings are supporting evidence, not four claims of general security.
+
+Read the [worked compliance assessment](worked-assessment.md) for one concrete
+PASS / FAIL / NOT VERIFIED decision sequence, then the
+[independent-review exercise](independent-review.md). Both are prepared artifacts;
+no independent human assessment or lab adoption test has been completed.
+After an answer-exposed AI walkthrough, a separate fresh agent using a restricted
+packet reached all six scoped decisions without the answer key or implementation
+guidance. This is one formative AI usability check, not experimental replication.
+See [the original response and scoring](reviews/withheld-agent-v1/review.md). The historical hypothesis
+below remains unchanged. Its combined-system comparison cannot isolate the
+increment from quarantine. H34 remains an interrupted pilot with no final comparison.
 
 ## Findings to review
 
@@ -52,7 +71,7 @@ backed by reproducible examples of prevention, detection and failure.
 The intended reader is an agent-platform or evaluation engineer deciding where to
 place enforcement and what evidence to retain. Track 1 fit rests on inspectable
 requirements and practical review, not on obtaining a positive quarantine result.
-No lab has assessed adoption, and no external reviewer has reproduced this package.
+No lab has assessed adoption, and no independent human has reproduced this package.
 
 **Preserved research question**
 
@@ -70,7 +89,7 @@ No lab has assessed adoption, and no external reviewer has reproduced this packa
 The weaker-baseline hypothesis and incremental benefit over equally informed static
 authorization are different claims. Evidence supports narrow parts of the former;
 the latter remains conditional on modeled behavior and unestablished against
-realistic attacks. [The hypothesis ledger](../hypotheses.md) retains H1–H33.
+realistic attacks. [The hypothesis ledger](../hypotheses.md) retains H1–H34.
 
 # 2. Related Work
 
@@ -231,6 +250,7 @@ Evidence: [raw cells](../results/observer-comparison-v1/raw.json),
 | H27, hosted | 10 | 3 / 18 | Arga quota stopped the run; no completed matched attack pair. |
 | H30, local | 10 | 18 / 18 | Four empty and two authorized-only candidates; no substantive attack coverage. |
 | H31, local adaptive | 12 | 0 / 18 | Nine outputs exhausted their token limit; coverage gate failed. |
+| H34, repaired gate | 6 | 0 / 16 | Five completed calls and one unresolved reservation; interrupted before coverage assessment. |
 
 H27 found request-ID poisoning that disrupted a legitimate report. A benign mixed
 quarantine workflow also failed after the write because preview state could not be
@@ -251,6 +271,22 @@ $1.3949955, not an account invoice. H30 median final-cell latency is 0.554 secon
 static versus 1.325 selective. H31 development medians are 0.662 versus 2.789 seconds,
 but different request sequences make that an unmatched comparison. No model calls
 or performance experiments were added during this report consolidation.
+
+**H34 interrupted closeout.** The repaired-gate request-boundary pilot completed
+five development calls, replayed against both arms. Each arm completed 5/5
+continuations with no observed forbidden state effect, successful-output violation,
+or hold. The sixth call (`dev-5`) has a $0.32 reservation but no retained response
+or usage; its outcome and the interruption cause are unknown. The approved frozen
+protocol requires stopping without retry. Coverage assessment was not reached,
+no final candidates were sealed, and all 16 final cells remain unrun. Development
+results do not establish final attack resistance or an effect-gate advantage.
+
+Recorded H34 usage implies $0.370944, with $0.32 retained for the uncertain call;
+the charge-plus-reservation total is $0.690944, not an invoice. Together with the
+three earlier pilots this is $1.7659395 recorded plus $0.32 unresolved. No new model
+calls were made during closeout. The [pilot closeout](effect-gate-pilot.md) links
+raw evidence and offline verification. The Model calls column counts reservations
+as well as calls with retained responses.
 
 ## 4.5 Combined architecture: execution-time effect gate
 
@@ -276,6 +312,17 @@ static effect policy at the effect boundary, **not** a quarantine advantage, and
 does not defend a compromised service or host. See [H32](../hypotheses.md) and
 [the predeclared protocol](../combined_gate_protocol.md).
 
+**Post-study correctness review (2026-09-13).** The archived H32/H33 counts below
+and above describe the original implementation and remain unchanged. Additional
+synthetic regressions found that the state gate missed edits to existing rows,
+output rejection could commit unauthorized state, and a schema-correct issue
+response could contain unapproved content. The current checkout compares complete
+rows across repositories, issues, jobs and operations, rolls back rejected
+transactions, and binds report responses to the stored issue and request operation.
+The eight new regression cases failed before these repairs. They are local
+correctness checks, not new final evaluation cells or AI-discovered attacks.
+See `tests/test_combined_gate.py` and `tests/test_dataflow_gate.py`.
+
 ## 4.6 Data-flow effect gate
 
 **Table 8. Data-flow gate, 68 cells.** The H32 gate confines only state changes, so it
@@ -291,11 +338,11 @@ state gate on every H32 fault. Source: `results/dataflow-gate-v1`.
 
 Only the data-flow gate stops the exfiltration, and it still returns the authorized
 value. The state oracle reports no effect for every arm on this fault, which is exactly
-why the data-flow dimension is needed. The gates layer: data-flow covers state. This makes
-concrete the principle that any effect observable and withholdable at the execution
-boundary belongs in the gate, not in a preview that only predicts it; quarantine's
-residue shrinks to irreversible, out-of-band effects and to covert/implicit channels,
-which are out of scope for every arm here. See [H33](../hypotheses.md) and
+why the data-flow dimension is needed. The combined arm enables both state and response checks. This supports checking
+observable effects at the execution boundary for these fixtures. It does not
+establish complete state or data-flow confinement, as the post-study defects above
+demonstrate. Out-of-band effects, covert channels, a compromised gate or host, and
+general preview fidelity remain outside the validated scope. See [H33](../hypotheses.md) and
 [the protocol](../dataflow_gate_protocol.md).
 
 # 5. Discussion and Limitations
@@ -341,7 +388,7 @@ as part of this consolidation.
 Aditya directed the research, challenged claims and approved experiments. AI coding
 assistance contributed implementation, tests, execution and these authoring notes.
 Automated verification is **not independent human verification**. The author must
-review the facts, confirm affiliation and write/revise the final report and actual
+review the facts and write/revise the final report and actual
 LLM-use disclosure. Do not claim external review or original human authorship of
 these preparation notes.
 
@@ -393,7 +440,9 @@ license decisions belong to the author before publication.
 # Appendix B. Proposed evidence-bound containment checklist
 
 
-Draft requirements for engineering review, **not an adopted or certified standard**.
+The [authoritative control definitions](containment-standard.md) govern this
+summary and the submission report. These are draft requirements for engineering
+review, **not an adopted or certified standard**.
 A third party can reproduce the benchmark checks without a lab network, but cannot
 infer a real lab's isolation, policy quality or compliance from those checks alone.
 
@@ -433,9 +482,16 @@ an overall compliance verdict. The controls apply only within their declared sco
 | **C2. Deny alternate actor routes.** | [OS/backend boundary test](../tests/test_http_boundary.py) | Endpoint-only restriction still permits 8/12; exact gateway permits 0/12 (Table 2). | Deployed route/credential inventory NOT VERIFIED. |
 | **C3. Keep one effect per operation across retries.** | [Process/restart tests](../tests/test_runtime_recovery.py), [reconciliation](../tests/test_local_sandbox.py) | H29 ordinary workflows: 12/12 per arm; malformed commit response loses completion in both. | Trusted reconciliation required; multi-host recovery untested. |
 | **C4. Retain independently acquired call/effect evidence.** | [Tamper/source tests](../tests/test_evidence.py), [observer controls](../tests/test_observers.py) | Backend tape detects 6/6 executed attacks; gate detects 2/6 (Table 5). | Original source forgery and compromised host remain. |
-| **C5. Hold missing previews; retain uncertain commits.** | [Observer timeout](../tests/test_runtime_recovery.py), [unsupported operations](../tests/test_broker_workflow.py) | Unsupported/timed-out preview holds; H29 uncertain response preserved without automatic redispatch. | Availability loss is explicit; operational escalation untested. |
+| **C5. Hold required missing previews; retain uncertain commits.** | [Observer timeout](../tests/test_runtime_recovery.py), [unsupported operations](../tests/test_broker_workflow.py) | Unsupported/timed-out preview holds; H29 uncertain response preserved without automatic redispatch. | Availability loss is explicit; operational escalation untested. |
 | **C6. Check useful outputs and preserve every trial.** | [Value/duplicate oracle](../tests/test_local_sandbox.py), [search gate](../tests/test_adaptive_pilot.py) | H30 9/9 completion per arm without meaningful attacks; H31 0/18 final cells. | No general agent-workload or realistic-resistance estimate. |
 | **Q1. Validate preview state and behavior before claiming safety.** | [Fault visibility tests](../tests/test_local_sandbox.py) | Visible/deferred writes blocked by selective; execution-only write escapes both (H29). | General fidelity claim FAILS. |
+| **C7. Confine committed effects at execution.** | [State gate tests](../tests/test_combined_gate.py) | Prevents the specified execution-only write; 12/12 normal cells complete (Table 7). | Static effect policy; compromised services and transport faults untested. |
+| **C8. Confine outbound data to the declared class.** | [Output gate tests](../tests/test_dataflow_gate.py) | Prevents the explicit read leak while returning the authorized value (Table 8). | Covert/implicit channels and alternate sinks untested. |
+
+C5 requires a preview hold only when the release policy requires preview; its
+uncertain-commit rule always applies to state-changing operations. Q1 is not
+applicable when no preview safety claim is made. Deployment acceptance needs the
+additional evidence in the authoritative rules, not just these local tests.
 
 # Appendix C. Evidence index and author handoff
 
@@ -451,6 +507,7 @@ that actually ran; the current working implementation includes later repairs.
 | Boundary/HTTP | 21 boundary-audit records; 51 isolated HTTP cells. | [HTTP study](../isolated_http.md), [audit source](../run_boundary_audit.py) |
 | Integrated broker/Arga | Two local integrated workflows; three hosted guard conditions; twelve separate-twin quarantine cells. | [Arga comparison](../arga_comparison.md) |
 | H27/H28 | Hosted pilot 3/18 final cells; repairs 36 replay cells plus 12 fault controls. | [H27](openai-pilot.md), [H28](pilot-followup.md) |
+| H34 | Five completed development calls, one unresolved; 0/16 final cells. | [Interrupted closeout](effect-gate-pilot.md) |
 | H29/H30/H31 | 32 readiness cells; 18 completed H30 final cells; 12 H31 development cells, zero final cells. | [Complete follow-up](selfhosted-readiness.md) |
 
 The [reviewer procedure](README.md#offline-reviewer-procedure) verifies historical
@@ -464,10 +521,9 @@ that repaired defects still exist.
 
 - Confirm the three findings, their denominators and the distinction between
   execution-time static enforcement and preview-dependent quarantine.
-- Confirm author name and affiliation. Do not imply employer endorsement.
-- Write the final abstract in at most 150 words: problem, tested boundary, three
-  findings and the fidelity limitation. This pack deliberately provides evidence
-  and a structure rather than asserting a human-written final abstract.
+- Confirm the author name. Affiliation is omitted; do not imply employer endorsement.
+- Review the AI-drafted 150-word abstract: problem, tested boundary, findings
+  and fidelity limitations. Revise as needed; disclose AI drafting truthfully.
 - Transfer the reviewed argument into the official template. Follow its section
   order; keep Figure 1 and numbered tables, with scope in every caption.
 - State actual AI assistance and review performed. Independent reproduction and
@@ -482,7 +538,7 @@ that repaired defects still exist.
 
 | Template section | Material to use | Author action |
 |---|---|---|
-| Title / author / abstract | Findings summary; confirmed identity | Write abstract last; confirm affiliation. |
+| Title / author / abstract | Findings summary; confirmed identity | Write abstract last; affiliation omitted. |
 | Introduction / related work | Sections 1–2 | Explain practical contribution without novelty inflation. |
 | Methods / results | Sections 3–4 and Figure 1 | Preserve trust boundaries, denominators and failed pilots. |
 | Discussion / conclusion | Sections 5–6 | State conditional claims and unresolved fidelity. |

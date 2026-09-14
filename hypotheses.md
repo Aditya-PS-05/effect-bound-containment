@@ -715,13 +715,44 @@ implicit flows, which no gate or preview here solves.
 | H33b | The data-flow gate prevents the exfiltration and completes the read. | Supported. `dataflow_gate` is the only arm with `data_leaked` false, and it completes the read (redacts the response to the declared `{exists}` class). |
 | H33c | The data-flow gate keeps every H32 state prevention and normal completion. | Supported. `dataflow_gate` prevents the four H32 state faults exactly as `effect_gate` (including the execution-only `simulation_gap`) and completes all 12 normal cells with no unnecessary holds. |
 
-The gates layer cleanly: data-flow ⊇ state ⊇ nothing. This makes concrete the design
-principle that any effect observable and withholdable at the execution boundary
-belongs in the gate, not in a preview that only predicts it — the exfiltrating read
-is invisible to a clean preview (execution-only) and to a state-only gate, and is
-caught only by confining the outbound data flow at execution. It shrinks quarantine's
-irreducible residue to effects the gate structurally cannot reach: those irreversible
-the instant they execute and routed through an unmediated boundary (external side
-effects, resource use), plus covert/implicit channels, which remain out of scope. No
-quarantine-superiority, compromised-host defense or model claim follows. See
+The combined arm enables state and response checks. The extra-field read leak
+is invisible to the tested clean preview and state oracle, but is blocked by
+response projection. This supports the design for that fixture, not a general
+containment ordering or a bound on all effects quarantine might address. The
+post-study defects below further limit that inference. Unmediated effects,
+covert channels and compromised hosts remain outside the validated scope. No
+quarantine-superiority or realistic model-resistance claim follows. See
 `dataflow_gate_protocol.md` and `results/dataflow-gate-v1`.
+
+
+### Post-study H32/H33 correctness qualification, 2026-09-13
+
+The original H32/H33 evidence is preserved. A subsequent local review reproduced
+three implementation defects: existing-row edits escaped the state predicate;
+output rejection skipped state validation and allowed commit; and an issue response
+could carry unapproved content in an allowed field. Eight synthetic regression
+cases failed on the original implementation. Repairs compare complete state rows,
+roll back rejected transactions, and bind issue output to the stored issue and
+request operation. These are correctness regressions outside the frozen studies,
+not additional measured cells, new model attacks, or proof of general containment.
+H32/H33 support prevention of their specific scripted faults. Quarantine superiority
+and realistic AI attack resistance remain unproven. See report/report.md section 4.5.
+
+
+## H34 repaired effect-gate attacker pilot, interrupted closeout
+
+The prospective protocol is `effect_gate_pilot_protocol.md`, frozen before calls
+in `results/effect-gate-pilot-v1/protocol.md`. The question was whether a request-only
+adaptive attacker could violate the repaired gate or disrupt legitimate work, and
+whether identical candidates behaved differently under request-only authorization.
+
+Five of eight development calls completed, producing ten matched-arm development
+cells. Each arm completed 5/5 tasks without observed forbidden state effects,
+successful-output violations, holds or infrastructure failures. Call dev-5 retained
+an unresolved $0.32 reservation with no response or usage. No generation process
+remained at closeout; the interruption cause is unknown. Recorded usage cost is
+$0.370944. The frozen unknown-outcome stopping rule applies; no uncertain call was
+retried. The coverage gate was not reached, no final candidates were sealed, and
+0/16 final cells ran. This is an interrupted study, not a passed or failed search
+gate and not evidence of general attack resistance or quarantine superiority.
+See `report/effect-gate-pilot.md` and `results/effect-gate-pilot-v1/closeout.json`.

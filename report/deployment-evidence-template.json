@@ -1,0 +1,133 @@
+{
+  "status": "unfilled_template_not_deployment_evidence",
+  "deployment": null,
+  "version": null,
+  "assessment_interval": {
+    "start": null,
+    "end": null
+  },
+  "actor_scope": null,
+  "authorized_tasks": null,
+  "effect_sinks": [],
+  "output_sinks": [],
+  "trusted_parties_and_assumptions": [],
+  "preview_required_for_release": null,
+  "component_manifest": null,
+  "route_credential_inventory": null,
+  "independent_inventory_attestation": null,
+  "evidence_custodian": null,
+  "external_integrity_anchor": null,
+  "issuer_verification_method": null,
+  "gap_and_redaction_declarations": [],
+  "reconciliation_owner": null,
+  "escalation_deadline": null,
+  "controls": {
+    "C1": {
+      "applicable": null,
+      "applicability_reason": null,
+      "policy_reference": null,
+      "deployment_evidence": [],
+      "acceptance_check": null,
+      "observed_result": null,
+      "provenance_check": null,
+      "decision": "NOT VERIFIED",
+      "decision_scope": null
+    },
+    "C2": {
+      "applicable": null,
+      "applicability_reason": null,
+      "policy_reference": null,
+      "deployment_evidence": [],
+      "acceptance_check": null,
+      "observed_result": null,
+      "provenance_check": null,
+      "decision": "NOT VERIFIED",
+      "decision_scope": null
+    },
+    "C3": {
+      "applicable": null,
+      "applicability_reason": null,
+      "policy_reference": null,
+      "deployment_evidence": [],
+      "acceptance_check": null,
+      "observed_result": null,
+      "provenance_check": null,
+      "decision": "NOT VERIFIED",
+      "decision_scope": null
+    },
+    "C4": {
+      "applicable": null,
+      "applicability_reason": null,
+      "policy_reference": null,
+      "deployment_evidence": [],
+      "acceptance_check": null,
+      "observed_result": null,
+      "provenance_check": null,
+      "decision": "NOT VERIFIED",
+      "decision_scope": null
+    },
+    "C5": {
+      "applicable": null,
+      "applicability_reason": null,
+      "policy_reference": null,
+      "deployment_evidence": [],
+      "acceptance_check": null,
+      "observed_result": null,
+      "provenance_check": null,
+      "decision": "NOT VERIFIED",
+      "decision_scope": null
+    },
+    "C6": {
+      "applicable": null,
+      "applicability_reason": null,
+      "policy_reference": null,
+      "deployment_evidence": [],
+      "acceptance_check": null,
+      "observed_result": null,
+      "provenance_check": null,
+      "decision": "NOT VERIFIED",
+      "decision_scope": null
+    },
+    "Q1": {
+      "applicable": null,
+      "applicability_reason": null,
+      "policy_reference": null,
+      "deployment_evidence": [],
+      "acceptance_check": null,
+      "observed_result": null,
+      "provenance_check": null,
+      "decision": "NOT VERIFIED",
+      "decision_scope": null
+    },
+    "C7": {
+      "applicable": null,
+      "applicability_reason": null,
+      "policy_reference": null,
+      "deployment_evidence": [],
+      "acceptance_check": null,
+      "observed_result": null,
+      "provenance_check": null,
+      "decision": "NOT VERIFIED",
+      "decision_scope": null
+    },
+    "C8": {
+      "applicable": null,
+      "applicability_reason": null,
+      "policy_reference": null,
+      "deployment_evidence": [],
+      "acceptance_check": null,
+      "observed_result": null,
+      "provenance_check": null,
+      "decision": "NOT VERIFIED",
+      "decision_scope": null
+    }
+  },
+  "adoption_measurements": {
+    "integration_hours": null,
+    "setup_minutes": null,
+    "review_minutes": null,
+    "legitimate_failures": null,
+    "latency_overhead": null,
+    "maintenance_owner": null
+  }
+}

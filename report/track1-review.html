@@ -91,19 +91,41 @@ Evidence index and author handoff</a></li>
 </ul>
 </nav>
 <p><strong>Authoring material, not a submission manuscript.</strong>
-This is the consolidated, AI-assisted evidence package through H33. The
-author must review the facts and write the final narrative in the <a href="official-template.docx">official template</a>. The original
-<code>evidence-pack.pdf</code> and <code>review.html</code> are
-historical renderings; <code>track1-review.pdf</code> and
-<code>track1-review.html</code> render this current source. Nothing in
-this package has been submitted or independently reproduced by a
-reviewer.</p>
+This is the consolidated, AI-assisted evidence package through H34. The
+author must review the facts and approve or revise the AI-drafted
+narrative in the <a href="official-template.docx">official template</a>.
+The original <code>evidence-pack.pdf</code> and <code>review.html</code>
+are historical renderings; <code>track1-review.pdf</code> and
+<code>track1-review.html</code> render this current source. Nothing has
+been submitted. Independent human reproduction remains pending; a
+fresh-context AI walkthrough is recorded separately under
+<code>reviews/fresh-agent-v1/</code>.</p>
 <p><strong>Author review needed:</strong> Aditya Pratap Singh;
-affiliation unconfirmed. Working report title: <em>Where authorization
-stops: auditable containment and its limits</em>. The <a href="https://apartresearch.com/sprints/ai-incident-response-sprint-2026-09-11-to-2026-09-13">event
-guidelines</a> and template govern the final submission. Use at most 150
-words for the abstract, at most eight main pages, and include the
-limitations/dual-use appendix.</p>
+affiliation omitted at the author’s direction. Working report title:
+<em>Where authorization stops: auditable containment and its
+limits</em>. The <a href="https://apartresearch.com/sprints/ai-incident-response-sprint-2026-09-11-to-2026-09-13">event
+guidelines</a> and template govern the final submission. The supplied
+template requests 150–250 words for the abstract, at most eight main
+pages, and include the limitations/dual-use appendix.</p>
+<h2 id="central-finding-and-reading-order">Central finding and reading
+order</h2>
+<p>A successful preview does not establish execution safety. The
+execution-only counterexample is the central result; state and response
+gates show what prevents the specified effects under trusted-backend
+assumptions. The following four findings are supporting evidence, not
+four claims of general security.</p>
+<p>Read the <a href="worked-assessment.md">worked compliance
+assessment</a> for one concrete PASS / FAIL / NOT VERIFIED decision
+sequence, then the <a href="independent-review.md">independent-review
+exercise</a>. Both are prepared artifacts; no independent human
+assessment or lab adoption test has been completed. After an
+answer-exposed AI walkthrough, a separate fresh agent using a restricted
+packet reached all six scoped decisions without the answer key or
+implementation guidance. This is one formative AI usability check, not
+experimental replication. See <a href="reviews/withheld-agent-v1/review.md">the original response and
+scoring</a>. The historical hypothesis below remains unchanged. Its
+combined-system comparison cannot isolate the increment from quarantine.
+H34 remains an interrupted pilot with no final comparison.</p>
 <h2 id="findings-to-review">Findings to review</h2>
 <ol type="1">
 <li><strong>Execution-time authorization helps in the tested
@@ -143,7 +165,7 @@ reproducible examples of prevention, detection and failure.</p>
 deciding where to place enforcement and what evidence to retain. Track 1
 fit rests on inspectable requirements and practical review, not on
 obtaining a positive quarantine result. No lab has assessed adoption,
-and no external reviewer has reproduced this package.</p>
+and no independent human has reproduced this package.</p>
 <p><strong>Preserved research question</strong></p>
 <blockquote>
 <p>Can an adaptive effect-bound broker reduce unauthorized agent effects
@@ -160,7 +182,7 @@ at the cost of some additional latency and quarantines.</p>
 <p>The weaker-baseline hypothesis and incremental benefit over equally
 informed static authorization are different claims. Evidence supports
 narrow parts of the former; the latter remains conditional on modeled
-behavior and unestablished against realistic attacks. <a href="../hypotheses.md">The hypothesis ledger</a> retains H1–H33.</p>
+behavior and unestablished against realistic attacks. <a href="../hypotheses.md">The hypothesis ledger</a> retains H1–H34.</p>
 <h1 id="related-work">2. Related Work</h1>
 <p>The contribution is a control-to-evidence mapping and measured
 boundary failures, not the invention of capabilities, complete mediation
@@ -508,6 +530,13 @@ coverage.</td>
 <td style="text-align: right;">0 / 18</td>
 <td>Nine outputs exhausted their token limit; coverage gate failed.</td>
 </tr>
+<tr class="even">
+<td>H34, repaired gate</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0 / 16</td>
+<td>Five completed calls and one unresolved reservation; interrupted
+before coverage assessment.</td>
+</tr>
 </tbody>
 </table>
 <p>H27 found request-ID poisoning that disrupted a legitimate report. A
@@ -530,6 +559,23 @@ final-cell latency is 0.554 seconds static versus 1.325 selective. H31
 development medians are 0.662 versus 2.789 seconds, but different
 request sequences make that an unmatched comparison. No model calls or
 performance experiments were added during this report consolidation.</p>
+<p><strong>H34 interrupted closeout.</strong> The repaired-gate
+request-boundary pilot completed five development calls, replayed
+against both arms. Each arm completed 5/5 continuations with no observed
+forbidden state effect, successful-output violation, or hold. The sixth
+call (<code>dev-5</code>) has a $0.32 reservation but no retained
+response or usage; its outcome and the interruption cause are unknown.
+The approved frozen protocol requires stopping without retry. Coverage
+assessment was not reached, no final candidates were sealed, and all 16
+final cells remain unrun. Development results do not establish final
+attack resistance or an effect-gate advantage.</p>
+<p>Recorded H34 usage implies $0.370944, with $0.32 retained for the
+uncertain call; the charge-plus-reservation total is $0.690944, not an
+invoice. Together with the three earlier pilots this is $1.7659395
+recorded plus $0.32 unresolved. No new model calls were made during
+closeout. The <a href="effect-gate-pilot.md">pilot closeout</a> links
+raw evidence and offline verification. The Model calls column counts
+reservations as well as calls with retained responses.</p>
 <h2 id="combined-architecture-execution-time-effect-gate">4.5 Combined
 architecture: execution-time effect gate</h2>
 <p><strong>Table 7. Combined architecture, 48 cells.</strong> Three arms
@@ -590,6 +636,19 @@ the native Git receive gate (§4.1) applied to a second backend; it is a
 static effect policy at the effect boundary, <strong>not</strong> a
 quarantine advantage, and it does not defend a compromised service or
 host. See <a href="../hypotheses.md">H32</a> and <a href="../combined_gate_protocol.md">the predeclared protocol</a>.</p>
+<p><strong>Post-study correctness review (2026-09-13).</strong> The
+archived H32/H33 counts below and above describe the original
+implementation and remain unchanged. Additional synthetic regressions
+found that the state gate missed edits to existing rows, output
+rejection could commit unauthorized state, and a schema-correct issue
+response could contain unapproved content. The current checkout compares
+complete rows across repositories, issues, jobs and operations, rolls
+back rejected transactions, and binds report responses to the stored
+issue and request operation. The eight new regression cases failed
+before these repairs. They are local correctness checks, not new final
+evaluation cells or AI-discovered attacks. See
+<code>tests/test_combined_gate.py</code> and
+<code>tests/test_dataflow_gate.py</code>.</p>
 <h2 id="data-flow-effect-gate">4.6 Data-flow effect gate</h2>
 <p><strong>Table 8. Data-flow gate, 68 cells.</strong> The H32 gate
 confines only state changes, so it is blind to a read that changes no
@@ -635,12 +694,12 @@ gate matches the state gate on every H32 fault. Source:
 <p>Only the data-flow gate stops the exfiltration, and it still returns
 the authorized value. The state oracle reports no effect for every arm
 on this fault, which is exactly why the data-flow dimension is needed.
-The gates layer: data-flow covers state. This makes concrete the
-principle that any effect observable and withholdable at the execution
-boundary belongs in the gate, not in a preview that only predicts it;
-quarantine’s residue shrinks to irreversible, out-of-band effects and to
-covert/implicit channels, which are out of scope for every arm here. See
-<a href="../hypotheses.md">H33</a> and <a href="../dataflow_gate_protocol.md">the protocol</a>.</p>
+The combined arm enables both state and response checks. This supports
+checking observable effects at the execution boundary for these
+fixtures. It does not establish complete state or data-flow confinement,
+as the post-study defects above demonstrate. Out-of-band effects, covert
+channels, a compromised gate or host, and general preview fidelity
+remain outside the validated scope. See <a href="../hypotheses.md">H33</a> and <a href="../dataflow_gate_protocol.md">the protocol</a>.</p>
 <h1 id="discussion-and-limitations">5. Discussion and Limitations</h1>
 <p><strong>Defensible implication:</strong> evaluate authority at the
 effect-producing boundary, retain evidence independent of actor claims,
@@ -682,9 +741,9 @@ Usage</h1>
 experiments. AI coding assistance contributed implementation, tests,
 execution and these authoring notes. Automated verification is
 <strong>not independent human verification</strong>. The author must
-review the facts, confirm affiliation and write/revise the final report
-and actual LLM-use disclosure. Do not claim external review or original
-human authorship of these preparation notes.</p>
+review the facts and write/revise the final report and actual LLM-use
+disclosure. Do not claim external review or original human authorship of
+these preparation notes.</p>
 <h1 id="references">References</h1>
 <ol type="1">
 <li>Saltzer, J. H., and Schroeder, M. D. (1975). <em>The Protection of
@@ -730,7 +789,9 @@ Disclosure and license decisions belong to the author before
 publication.</p>
 <h1 id="appendix-b.-proposed-evidence-bound-containment-checklist">Appendix
 B. Proposed evidence-bound containment checklist</h1>
-<p>Draft requirements for engineering review, <strong>not an adopted or
+<p>The <a href="containment-standard.md">authoritative control
+definitions</a> govern this summary and the submission report. These are
+draft requirements for engineering review, <strong>not an adopted or
 certified standard</strong>. A third party can reproduce the benchmark
 checks without a lab network, but cannot infer a real lab’s isolation,
 policy quality or compliance from those checks alone.</p>
@@ -815,7 +876,7 @@ evidence.</strong></td>
 <td>Original source forgery and compromised host remain.</td>
 </tr>
 <tr class="odd">
-<td><strong>C5. Hold missing previews; retain uncertain
+<td><strong>C5. Hold required missing previews; retain uncertain
 commits.</strong></td>
 <td><a href="../tests/test_runtime_recovery.py">Observer timeout</a>, <a href="../tests/test_broker_workflow.py">unsupported operations</a></td>
 <td>Unsupported/timed-out preview holds; H29 uncertain response
@@ -840,8 +901,29 @@ tests</a></td>
 escapes both (H29).</td>
 <td>General fidelity claim FAILS.</td>
 </tr>
+<tr class="even">
+<td><strong>C7. Confine committed effects at execution.</strong></td>
+<td><a href="../tests/test_combined_gate.py">State gate tests</a></td>
+<td>Prevents the specified execution-only write; 12/12 normal cells
+complete (Table 7).</td>
+<td>Static effect policy; compromised services and transport faults
+untested.</td>
+</tr>
+<tr class="odd">
+<td><strong>C8. Confine outbound data to the declared
+class.</strong></td>
+<td><a href="../tests/test_dataflow_gate.py">Output gate tests</a></td>
+<td>Prevents the explicit read leak while returning the authorized value
+(Table 8).</td>
+<td>Covert/implicit channels and alternate sinks untested.</td>
+</tr>
 </tbody>
 </table>
+<p>C5 requires a preview hold only when the release policy requires
+preview; its uncertain-commit rule always applies to state-changing
+operations. Q1 is not applicable when no preview safety claim is made.
+Deployment acceptance needs the additional evidence in the authoritative
+rules, not just these local tests.</p>
 <h1 id="appendix-c.-evidence-index-and-author-handoff">Appendix C.
 Evidence index and author handoff</h1>
 <h2 id="experiment-index">Experiment index</h2>
@@ -892,6 +974,12 @@ controls.</td>
 <td><a href="openai-pilot.md">H27</a>, <a href="pilot-followup.md">H28</a></td>
 </tr>
 <tr class="even">
+<td>H34</td>
+<td>Five completed development calls, one unresolved; 0/16 final
+cells.</td>
+<td><a href="effect-gate-pilot.md">Interrupted closeout</a></td>
+</tr>
+<tr class="odd">
 <td>H29/H30/H31</td>
 <td>32 readiness cells; 18 completed H30 final cells; 12 H31 development
 cells, zero final cells.</td>
@@ -911,12 +999,11 @@ are not claims that repaired defects still exist.</p>
 <li>Confirm the three findings, their denominators and the distinction
 between execution-time static enforcement and preview-dependent
 quarantine.</li>
-<li>Confirm author name and affiliation. Do not imply employer
-endorsement.</li>
-<li>Write the final abstract in at most 150 words: problem, tested
-boundary, three findings and the fidelity limitation. This pack
-deliberately provides evidence and a structure rather than asserting a
-human-written final abstract.</li>
+<li>Confirm the author name. Affiliation is omitted; do not imply
+employer endorsement.</li>
+<li>Review the AI-drafted 150-word abstract: problem, tested boundary,
+findings and fidelity limitations. Revise as needed; disclose AI
+drafting truthfully.</li>
 <li>Transfer the reviewed argument into the official template. Follow
 its section order; keep Figure 1 and numbered tables, with scope in
 every caption.</li>
@@ -950,7 +1037,7 @@ these checks.</li>
 <tr class="odd">
 <td>Title / author / abstract</td>
 <td>Findings summary; confirmed identity</td>
-<td>Write abstract last; confirm affiliation.</td>
+<td>Write abstract last; affiliation omitted.</td>
 </tr>
 <tr class="even">
 <td>Introduction / related work</td>

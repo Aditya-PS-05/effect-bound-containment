@@ -1,3 +1,7 @@
+# Current verification repairs
+
+See [verification repairs](report/verification-repairs.md) for the September 13 repairs and current checks. Counts and artifact page numbers below describe earlier dated runs.
+
 # Verified experiment status
 
 ## H32 combined-architecture study, 2026-09-13

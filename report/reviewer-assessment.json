@@ -1,0 +1,71 @@
+{
+  "status": "not_started",
+  "reviewer_id": null,
+  "independent_of_implementation": null,
+  "prior_familiarity": null,
+  "packet_revision": null,
+  "packet_manifest_sha256": null,
+  "started_at": null,
+  "ended_at": null,
+  "setup_minutes": null,
+  "assessment_minutes": null,
+  "commands_and_outcomes": [],
+  "packets": {
+    "A": {
+      "authorized_task": null,
+      "control": null,
+      "decision": null,
+      "evidence_paths": [],
+      "scope_limit": null,
+      "control_decisions": [],
+      "utility_assessment": null
+    },
+    "B": {
+      "authorized_task": null,
+      "control": null,
+      "decision": null,
+      "evidence_paths": [],
+      "scope_limit": null,
+      "control_decisions": [],
+      "utility_assessment": null
+    },
+    "C": {
+      "authorized_task": null,
+      "control": null,
+      "decision": null,
+      "evidence_paths": [],
+      "scope_limit": null,
+      "control_decisions": [],
+      "utility_assessment": null
+    },
+    "D": {
+      "authorized_task": null,
+      "control": null,
+      "decision": null,
+      "evidence_paths": [],
+      "scope_limit": null,
+      "control_decisions": [],
+      "utility_assessment": null
+    }
+  },
+  "production_route_completeness": {
+    "decision": null,
+    "reason": null,
+    "missing_evidence": []
+  },
+  "original_capture_authenticity": {
+    "decision": null,
+    "reason": null,
+    "missing_evidence": []
+  },
+  "unclear_requirements": [],
+  "missing_files": [],
+  "administrator_interventions": [],
+  "answer_key_exposure": null,
+  "unfinished_work": [],
+  "adoption_obstacles": [],
+  "initial_assessment_submitted_at": null,
+  "assessment_level": "fixture_mechanism",
+  "total_session_seconds": null,
+  "timing_method": null
+}

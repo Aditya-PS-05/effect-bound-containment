@@ -1,0 +1,23 @@
+{
+  "assessor": "parent assistant; scoring after initial assessment submission",
+  "rubric": "scoring-rule.md, unchanged before session",
+  "supported_decisions": {
+    "A_Q1_FAIL": true,
+    "B_bounded_C7_PASS": true,
+    "C_C8_FAIL": true,
+    "D_bounded_C8_PASS": true,
+    "production_routes_NOT_VERIFIED": true,
+    "original_capture_NOT_VERIFIED": true
+  },
+  "supported_decision_count": 6,
+  "unsupported_broad_PASS_claims": 0,
+  "substantive_hints": 0,
+  "prohibited_answer_key_exposure_reported": false,
+  "elapsed_seconds_reported": 73.011927,
+  "within_60_minute_budget": true,
+  "timing_limit": "Reviewer clock excludes initial few seconds; setup and assessment interleaved. Not a human-time measure.",
+  "formative_ai_exercise_pass": true,
+  "human_validation": false,
+  "outcome_blinded": false,
+  "limitation": "One AI on one packet; descriptive paths, protocols and raw outcomes visible. Shared host and instruction-based access boundary. No new experimental replication or lab adoption test."
+}

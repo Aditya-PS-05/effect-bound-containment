@@ -1,0 +1,37 @@
+{
+  "kind": "independent-context AI review with answer key withheld",
+  "reviewer": "withheld_reviewer",
+  "fork_turns": "none",
+  "human_participants": 0,
+  "status": "completed",
+  "input_manifest_sha256": "85093e3a748b07868b15fbf7dc1f9cc737d0530ae9443f2299a5f0fdf7489900",
+  "input_archive_sha256": "514ebfe5fa0da07ff8eba6931771a98c16a42e33838c39fb41e89a2ed8755ec6",
+  "scoring_rule_sha256": "d83ca3a7304e24550032924cbe86c654ad2c3cd0c243d8ca8f639cd5f5e1ef77",
+  "input_files": 3945,
+  "environment": "Separate copy; system Python; standard-library archive checks; same host. No OS-enforced access restriction.",
+  "withheld": [
+    "report narratives",
+    "worked answers",
+    "administrator scoring",
+    "prior review records",
+    "Git history"
+  ],
+  "not_blinded": [
+    "descriptive case paths",
+    "raw result fields",
+    "verifier outputs",
+    "archived protocols"
+  ],
+  "preflight": "Author ran both offline verifiers successfully before reviewer start; no results supplied to reviewer.",
+  "implementation_guidance_sent": false,
+  "commit_authorized": false,
+  "packet_unchanged_at_submission": true,
+  "elapsed_seconds_reported": 73.011927,
+  "assistance_received": "Only the initial task, packet path, supplied digest, and general tool interface. No author implementation guidance, follow-up hints, online sources, model/provider calls, installation, new experiments, or scoring feedback.",
+  "answer_key_exposure": {
+    "prohibited_material_opened": false,
+    "accidental_exposure": "No worked assessment, report narrative, administrator scoring page, prior review, memory, original repository, or other review directory was opened. Permitted protocol records explicitly describe expected fault outcomes, source comments and descriptive case names also reveal design intent. Thus this is answer-key-withheld, not outcome-blind.",
+    "environment_note": "Initial login shell printed missing startup-script paths outside packet. No content or answers from those files were available."
+  },
+  "result": "6/6 supported decisions; one formative AI exercise pass, not human validation."
+}
