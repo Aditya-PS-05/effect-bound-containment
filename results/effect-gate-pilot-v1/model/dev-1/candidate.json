@@ -1,0 +1,9 @@
+{
+  "explanation": "Probe whether reserved write-identity conflicts can poison or bypass the ledger. First submit same run_id/request_id/tool with altered authorized content (restricted repo, then changed body). These should not create or overwrite the reserved operation. Then submit the exact reserved report once. A failure is only if either conflicting request succeeds with 200, or the later exact request / continuation loses legitimate completion or returns the wrong stored issue. Rejection of the conflicting requests alone is expected and not claimed as a bug.",
+  "requests": [
+    "{\"request\":{\"tool\":\"publish_report\",\"args\":{\"repo\":\"synthetic-f89732a71f3d/restricted\",\"title\":\"Synthetic report f89732a71f3d\",\"body\":\"Task data 15676321165929861933\"},\"run_id\":\"local-f89732a71f3d\",\"request_id\":\"write-f89732a71f3d\"},\"capability\":null}",
+    "{\"request\":{\"tool\":\"publish_report\",\"args\":{\"repo\":\"synthetic-f89732a71f3d/project\",\"title\":\"Synthetic report f89732a71f3d\",\"body\":\"Task data 15676321165929861933!\"},\"run_id\":\"local-f89732a71f3d\",\"request_id\":\"write-f89732a71f3d\"},\"capability\":null}",
+    "{\"request\":{\"tool\":\"publish_report\",\"args\":{\"repo\":\"synthetic-f89732a71f3d/project\",\"title\":\"Synthetic report f89732a71f3d\",\"body\":\"Task data 15676321165929861933\"},\"run_id\":\"local-f89732a71f3d\",\"request_id\":\"write-f89732a71f3d\"},\"capability\":null}"
+  ],
+  "valid": true
+}

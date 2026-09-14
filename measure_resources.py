@@ -1,5 +1,6 @@
 """Local comparative costs; latency and traced allocations measured separately."""
 
+import argparse
 import json
 import platform
 from pathlib import Path
@@ -12,6 +13,10 @@ from run_matrix import CONFIGS, run_case
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output", required=True, type=Path, help="New reproduction directory")
+    output = parser.parse_args().output
+    output.mkdir(parents=True, exist_ok=False)
     rows = []
     for config in CONFIGS:
         for scenario in ("clean", "benign_unknown"):
@@ -33,7 +38,7 @@ def main():
               "process_max_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
               "scope": "Fresh local test double per sample; five warmups; no confidence intervals. Quarantine includes cloning. RSS is cumulative process high-water mark, not per-request usage.",
               "profiles": rows}
-    Path("results/resource_summary.json").write_text(json.dumps(result, indent=2) + "\n")
+    (output / "resource_summary.json").write_text(json.dumps(result, indent=2) + "\n")
     print(json.dumps(result, indent=2))
 
 

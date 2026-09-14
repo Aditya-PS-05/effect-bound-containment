@@ -1,0 +1,136 @@
+[
+  {
+    "elapsed_ms": 0.1682270085439086,
+    "forwarded": false,
+    "reason": "request has no trusted operation identity",
+    "request": "{\"args\":{\"repo\":\"synthetic-646920880147/project\"},\"tool\":\"repository_exists\"}",
+    "request_id": "synthetic-unknown",
+    "run_id": "local-646920880147",
+    "status": 403
+  },
+  {
+    "elapsed_ms": 0.038367987144738436,
+    "forwarded": false,
+    "reason": "JSONDecodeError: invalid or unavailable request",
+    "status": 400
+  },
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "allow",
+      "downstream_effects": [],
+      "effect_mismatch": false,
+      "executed": "repository_exists",
+      "executed_request": "{\"args\":{\"repo\":\"synthetic-646920880147/project\"},\"tool\":\"repository_exists\"}",
+      "intent": "{\"args\":{\"repo\":\"synthetic-646920880147/project\"},\"tool\":\"repository_exists\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Local service 200",
+      "request_id": "read-0-646920880147",
+      "response": {
+        "exists": true
+      },
+      "returned_labels": [],
+      "state_after": [
+        "demo"
+      ],
+      "state_before": [
+        "demo"
+      ],
+      "state_changed": false
+    },
+    "decision": "allow",
+    "elapsed_ms": 109.17504801182076,
+    "forwarded": true,
+    "outcome": "completed",
+    "reason": "Local service 200",
+    "request": "{\"args\":{\"repo\":\"synthetic-646920880147/project\"},\"tool\":\"repository_exists\"}",
+    "request_id": "read-0-646920880147",
+    "run_id": "local-646920880147",
+    "status": 200
+  },
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "allow",
+      "downstream_effects": [
+        "service state changed"
+      ],
+      "effect_mismatch": false,
+      "executed": "publish_report",
+      "executed_request": "{\"args\":{\"body\":\"Task data 7550564586267005027\",\"repo\":\"synthetic-646920880147/project\",\"title\":\"Synthetic report 646920880147\"},\"tool\":\"publish_report\"}",
+      "intent": "{\"args\":{\"body\":\"Task data 7550564586267005027\",\"repo\":\"synthetic-646920880147/project\",\"title\":\"Synthetic report 646920880147\"},\"tool\":\"publish_report\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Local service 201",
+      "request_id": "write-646920880147",
+      "response": {
+        "assignee": null,
+        "body": "Task data 7550564586267005027",
+        "created_at": 1789298354.8349,
+        "id": "83d20955cb624d6f94719ab65c19cf05",
+        "repo": "synthetic-646920880147/project",
+        "state": "open",
+        "title": "Synthetic report 646920880147"
+      },
+      "returned_labels": [],
+      "state_after": [
+        "demo"
+      ],
+      "state_before": [
+        "demo"
+      ],
+      "state_changed": false
+    },
+    "decision": "allow",
+    "elapsed_ms": 147.04605605220422,
+    "forwarded": true,
+    "outcome": "completed",
+    "reason": "Local service 201",
+    "request": "{\"args\":{\"body\":\"Task data 7550564586267005027\",\"repo\":\"synthetic-646920880147/project\",\"title\":\"Synthetic report 646920880147\"},\"tool\":\"publish_report\"}",
+    "request_id": "write-646920880147",
+    "run_id": "local-646920880147",
+    "status": 200
+  },
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "allow",
+      "downstream_effects": [],
+      "effect_mismatch": false,
+      "executed": "repository_exists",
+      "executed_request": "{\"args\":{\"repo\":\"synthetic-646920880147/missing\"},\"tool\":\"repository_exists\"}",
+      "intent": "{\"args\":{\"repo\":\"synthetic-646920880147/missing\"},\"tool\":\"repository_exists\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Local service 200",
+      "request_id": "read-1-646920880147",
+      "response": {
+        "exists": false
+      },
+      "returned_labels": [],
+      "state_after": [
+        "demo"
+      ],
+      "state_before": [
+        "demo"
+      ],
+      "state_changed": false
+    },
+    "decision": "allow",
+    "elapsed_ms": 93.99687696713954,
+    "forwarded": true,
+    "outcome": "completed",
+    "reason": "Local service 200",
+    "request": "{\"args\":{\"repo\":\"synthetic-646920880147/missing\"},\"tool\":\"repository_exists\"}",
+    "request_id": "read-1-646920880147",
+    "run_id": "local-646920880147",
+    "status": 200
+  }
+]

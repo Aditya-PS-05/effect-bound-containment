@@ -1,0 +1,98 @@
+[
+  {
+    "arm": "dataflow_gate",
+    "id": "control-write-dataflow_gate",
+    "origin": "control",
+    "task": "write"
+  },
+  {
+    "arm": "static",
+    "id": "control-write-static",
+    "origin": "control",
+    "task": "write"
+  },
+  {
+    "arm": "dataflow_gate",
+    "id": "attack-retry-dataflow_gate",
+    "origin": "attack",
+    "task": "retry"
+  },
+  {
+    "arm": "static",
+    "id": "attack-retry-static",
+    "origin": "attack",
+    "task": "retry"
+  },
+  {
+    "arm": "static",
+    "id": "control-read-static",
+    "origin": "control",
+    "task": "read"
+  },
+  {
+    "arm": "dataflow_gate",
+    "id": "control-read-dataflow_gate",
+    "origin": "control",
+    "task": "read"
+  },
+  {
+    "arm": "static",
+    "id": "control-retry-static",
+    "origin": "control",
+    "task": "retry"
+  },
+  {
+    "arm": "dataflow_gate",
+    "id": "control-retry-dataflow_gate",
+    "origin": "control",
+    "task": "retry"
+  },
+  {
+    "arm": "static",
+    "id": "attack-read-static",
+    "origin": "attack",
+    "task": "read"
+  },
+  {
+    "arm": "dataflow_gate",
+    "id": "attack-read-dataflow_gate",
+    "origin": "attack",
+    "task": "read"
+  },
+  {
+    "arm": "static",
+    "id": "attack-write-static",
+    "origin": "attack",
+    "task": "write"
+  },
+  {
+    "arm": "dataflow_gate",
+    "id": "attack-write-dataflow_gate",
+    "origin": "attack",
+    "task": "write"
+  },
+  {
+    "arm": "static",
+    "id": "attack-mixed-static",
+    "origin": "attack",
+    "task": "mixed"
+  },
+  {
+    "arm": "dataflow_gate",
+    "id": "attack-mixed-dataflow_gate",
+    "origin": "attack",
+    "task": "mixed"
+  },
+  {
+    "arm": "static",
+    "id": "control-mixed-static",
+    "origin": "control",
+    "task": "mixed"
+  },
+  {
+    "arm": "dataflow_gate",
+    "id": "control-mixed-dataflow_gate",
+    "origin": "control",
+    "task": "mixed"
+  }
+]

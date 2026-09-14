@@ -11,7 +11,7 @@ import hashlib
 import json
 from pathlib import Path
 
-from run_local_sandbox import ROOT, run_trial, score, task_spec
+from run_local_sandbox import ROOT, run_trial, score, task_spec, verify_task
 from src.effect_bound import Request
 from src.process_observer import verify_snapshot
 
@@ -76,14 +76,15 @@ def aggregate(rows):
 def verify(directory):
     rows = json.loads((directory / "summary.json").read_text())
     manifest = directory / "sources.json"
-    if manifest.exists():
-        for name, expected in json.loads(manifest.read_text()).items():
-            if hashlib.sha256((directory / "sources" / name).read_bytes()).hexdigest() != expected:
-                raise ValueError("Combined-gate source archive changed")
-        if [r["id"] for r in rows] != [row[0] for row in planned()]:
-            raise ValueError("Missing or reordered combined-gate cells")
-    for item in rows:
+    for name, expected in json.loads(manifest.read_text()).items():
+        if hashlib.sha256((directory / "sources" / name).read_bytes()).hexdigest() != expected:
+            raise ValueError("Combined-gate source archive changed")
+    plan = planned()
+    if [r["id"] for r in rows] != [row[0] for row in plan]:
+        raise ValueError("Missing or reordered combined-gate cells")
+    for item, (_, task, arm, fault) in zip(rows, plan):
         row = item["result"]
+        verify_task(directory / item["id"], row, task, arm, fault)
         assert json.loads((directory / item["id"] / "result.json").read_text()) == row
         actual = rescore(directory / item["id"], row)
         assert all(row[k] == v for k, v in actual.items()) and row["processes_stopped"]

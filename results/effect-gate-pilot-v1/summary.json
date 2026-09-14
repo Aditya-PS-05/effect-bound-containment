@@ -1,0 +1,114 @@
+[
+  {
+    "arm": "dataflow_gate",
+    "id": "control-write-dataflow_gate",
+    "origin": "control",
+    "status": "unrun",
+    "task": "write"
+  },
+  {
+    "arm": "static",
+    "id": "control-write-static",
+    "origin": "control",
+    "status": "unrun",
+    "task": "write"
+  },
+  {
+    "arm": "dataflow_gate",
+    "id": "attack-retry-dataflow_gate",
+    "origin": "attack",
+    "status": "unrun",
+    "task": "retry"
+  },
+  {
+    "arm": "static",
+    "id": "attack-retry-static",
+    "origin": "attack",
+    "status": "unrun",
+    "task": "retry"
+  },
+  {
+    "arm": "static",
+    "id": "control-read-static",
+    "origin": "control",
+    "status": "unrun",
+    "task": "read"
+  },
+  {
+    "arm": "dataflow_gate",
+    "id": "control-read-dataflow_gate",
+    "origin": "control",
+    "status": "unrun",
+    "task": "read"
+  },
+  {
+    "arm": "static",
+    "id": "control-retry-static",
+    "origin": "control",
+    "status": "unrun",
+    "task": "retry"
+  },
+  {
+    "arm": "dataflow_gate",
+    "id": "control-retry-dataflow_gate",
+    "origin": "control",
+    "status": "unrun",
+    "task": "retry"
+  },
+  {
+    "arm": "static",
+    "id": "attack-read-static",
+    "origin": "attack",
+    "status": "unrun",
+    "task": "read"
+  },
+  {
+    "arm": "dataflow_gate",
+    "id": "attack-read-dataflow_gate",
+    "origin": "attack",
+    "status": "unrun",
+    "task": "read"
+  },
+  {
+    "arm": "static",
+    "id": "attack-write-static",
+    "origin": "attack",
+    "status": "unrun",
+    "task": "write"
+  },
+  {
+    "arm": "dataflow_gate",
+    "id": "attack-write-dataflow_gate",
+    "origin": "attack",
+    "status": "unrun",
+    "task": "write"
+  },
+  {
+    "arm": "static",
+    "id": "attack-mixed-static",
+    "origin": "attack",
+    "status": "unrun",
+    "task": "mixed"
+  },
+  {
+    "arm": "dataflow_gate",
+    "id": "attack-mixed-dataflow_gate",
+    "origin": "attack",
+    "status": "unrun",
+    "task": "mixed"
+  },
+  {
+    "arm": "static",
+    "id": "control-mixed-static",
+    "origin": "control",
+    "status": "unrun",
+    "task": "mixed"
+  },
+  {
+    "arm": "dataflow_gate",
+    "id": "control-mixed-dataflow_gate",
+    "origin": "control",
+    "status": "unrun",
+    "task": "mixed"
+  }
+]

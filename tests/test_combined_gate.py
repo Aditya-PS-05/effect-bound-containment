@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pytest
 
-from run_combined_gate import ARMS, aggregate, planned, verify
+from run_combined_gate import ARMS, aggregate, planned
 from run_local_sandbox import run_trial, task_spec
 from src.effect_bound import Request
 from src.local_sandbox import LocalService
@@ -74,3 +74,26 @@ def test_planned_matrix_and_aggregate_shape():
     agg = aggregate(rows)
     assert set(agg["normal"]) == set(ARMS) and set(agg["faults"]) == {
         "visible_write", "deferred_write", "simulation_gap", "malformed_after_commit"}
+
+
+@pytest.mark.parametrize("mutation", [
+    "UPDATE issues SET body='changed'",
+    "UPDATE jobs SET repo='other'",
+    "UPDATE operations SET response='changed'",
+    "UPDATE repositories SET writable=0",
+])
+def test_gate_rejects_existing_state_edits(mutation):
+    import sqlite3
+    from src.local_service import SCHEMA, append_issue, effect_snapshot, within_authorized_effect
+    with sqlite3.connect(':memory:') as db:
+        db.row_factory = sqlite3.Row
+        db.executescript(SCHEMA)
+        db.execute("INSERT INTO repositories VALUES('r',1,1)")
+        append_issue(db, 'r', 't', 'b')
+        db.execute("INSERT INTO jobs VALUES('j','r',9999999999)")
+        db.execute("INSERT INTO operations VALUES('run','old','{}','{}')")
+        before = effect_snapshot(db)
+        db.execute(mutation)
+        for tool, args in [('repository_exists', {'repo': 'r'}),
+                           ('publish_report', {'repo': 'r', 'title': 't', 'body': 'b'})]:
+            assert not within_authorized_effect(tool, args, 'run', 'new', before, db)

@@ -1,0 +1,228 @@
+[
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "allow",
+      "downstream_effects": [],
+      "effect_mismatch": false,
+      "executed": "repository_exists",
+      "executed_request": "{\"args\":{\"repo\":\"synthetic-8aea6723a66c/project\"},\"tool\":\"repository_exists\"}",
+      "intent": "{\"args\":{\"repo\":\"synthetic-8aea6723a66c/project\"},\"tool\":\"repository_exists\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Local service 200",
+      "request_id": "read-0-8aea6723a66c",
+      "response": {
+        "exists": true
+      },
+      "returned_labels": [],
+      "state_after": [
+        "demo"
+      ],
+      "state_before": [
+        "demo"
+      ],
+      "state_changed": false
+    },
+    "decision": "allow",
+    "elapsed_ms": 106.46833898499608,
+    "forwarded": true,
+    "outcome": "completed",
+    "reason": "Local service 200",
+    "request": "{\"args\":{\"repo\":\"synthetic-8aea6723a66c/project\"},\"tool\":\"repository_exists\"}",
+    "request_id": "read-0-8aea6723a66c",
+    "run_id": "local-8aea6723a66c",
+    "status": 200
+  },
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "allow",
+      "downstream_effects": [],
+      "effect_mismatch": false,
+      "executed": "repository_exists",
+      "executed_request": "{\"args\":{\"repo\":\"synthetic-8aea6723a66c/project\"},\"tool\":\"repository_exists\"}",
+      "intent": "{\"args\":{\"repo\":\"synthetic-8aea6723a66c/project\"},\"tool\":\"repository_exists\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Local service 200",
+      "request_id": "read-0-8aea6723a66c",
+      "response": {
+        "exists": true
+      },
+      "returned_labels": [],
+      "state_after": [
+        "demo"
+      ],
+      "state_before": [
+        "demo"
+      ],
+      "state_changed": false
+    },
+    "decision": "allow",
+    "elapsed_ms": 0.15406397869810462,
+    "forwarded": false,
+    "outcome": "completed",
+    "reason": "Local service 200",
+    "replayed_response": true,
+    "request": "{\"args\":{\"repo\":\"synthetic-8aea6723a66c/project\"},\"tool\":\"repository_exists\"}",
+    "request_id": "read-0-8aea6723a66c",
+    "run_id": "local-8aea6723a66c",
+    "status": 200
+  },
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "allow",
+      "downstream_effects": [],
+      "effect_mismatch": false,
+      "executed": "repository_exists",
+      "executed_request": "{\"args\":{\"repo\":\"synthetic-8aea6723a66c/missing\"},\"tool\":\"repository_exists\"}",
+      "intent": "{\"args\":{\"repo\":\"synthetic-8aea6723a66c/missing\"},\"tool\":\"repository_exists\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Local service 200",
+      "request_id": "read-1-8aea6723a66c",
+      "response": {
+        "exists": false
+      },
+      "returned_labels": [],
+      "state_after": [
+        "demo"
+      ],
+      "state_before": [
+        "demo"
+      ],
+      "state_changed": false
+    },
+    "decision": "allow",
+    "elapsed_ms": 94.03131296858191,
+    "forwarded": true,
+    "outcome": "completed",
+    "reason": "Local service 200",
+    "request": "{\"args\":{\"repo\":\"synthetic-8aea6723a66c/missing\"},\"tool\":\"repository_exists\"}",
+    "request_id": "read-1-8aea6723a66c",
+    "run_id": "local-8aea6723a66c",
+    "status": 200
+  },
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "allow",
+      "downstream_effects": [],
+      "effect_mismatch": false,
+      "executed": "repository_exists",
+      "executed_request": "{\"args\":{\"repo\":\"synthetic-8aea6723a66c/missing\"},\"tool\":\"repository_exists\"}",
+      "intent": "{\"args\":{\"repo\":\"synthetic-8aea6723a66c/missing\"},\"tool\":\"repository_exists\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Local service 200",
+      "request_id": "read-1-8aea6723a66c",
+      "response": {
+        "exists": false
+      },
+      "returned_labels": [],
+      "state_after": [
+        "demo"
+      ],
+      "state_before": [
+        "demo"
+      ],
+      "state_changed": false
+    },
+    "decision": "allow",
+    "elapsed_ms": 0.13720901915803552,
+    "forwarded": false,
+    "outcome": "completed",
+    "reason": "Local service 200",
+    "replayed_response": true,
+    "request": "{\"args\":{\"repo\":\"synthetic-8aea6723a66c/missing\"},\"tool\":\"repository_exists\"}",
+    "request_id": "read-1-8aea6723a66c",
+    "run_id": "local-8aea6723a66c",
+    "status": 200
+  },
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "allow",
+      "downstream_effects": [],
+      "effect_mismatch": false,
+      "executed": "repository_exists",
+      "executed_request": "{\"args\":{\"repo\":\"synthetic-8aea6723a66c/project\"},\"tool\":\"repository_exists\"}",
+      "intent": "{\"args\":{\"repo\":\"synthetic-8aea6723a66c/project\"},\"tool\":\"repository_exists\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Local service 200",
+      "request_id": "read-0-8aea6723a66c",
+      "response": {
+        "exists": true
+      },
+      "returned_labels": [],
+      "state_after": [
+        "demo"
+      ],
+      "state_before": [
+        "demo"
+      ],
+      "state_changed": false
+    },
+    "decision": "allow",
+    "elapsed_ms": 0.2612639800645411,
+    "forwarded": false,
+    "outcome": "completed",
+    "reason": "Local service 200",
+    "replayed_response": true,
+    "request": "{\"args\":{\"repo\":\"synthetic-8aea6723a66c/project\"},\"tool\":\"repository_exists\"}",
+    "request_id": "read-0-8aea6723a66c",
+    "run_id": "local-8aea6723a66c",
+    "status": 200
+  },
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "allow",
+      "downstream_effects": [],
+      "effect_mismatch": false,
+      "executed": "repository_exists",
+      "executed_request": "{\"args\":{\"repo\":\"synthetic-8aea6723a66c/missing\"},\"tool\":\"repository_exists\"}",
+      "intent": "{\"args\":{\"repo\":\"synthetic-8aea6723a66c/missing\"},\"tool\":\"repository_exists\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Local service 200",
+      "request_id": "read-1-8aea6723a66c",
+      "response": {
+        "exists": false
+      },
+      "returned_labels": [],
+      "state_after": [
+        "demo"
+      ],
+      "state_before": [
+        "demo"
+      ],
+      "state_changed": false
+    },
+    "decision": "allow",
+    "elapsed_ms": 0.12834096560254693,
+    "forwarded": false,
+    "outcome": "completed",
+    "reason": "Local service 200",
+    "replayed_response": true,
+    "request": "{\"args\":{\"repo\":\"synthetic-8aea6723a66c/missing\"},\"tool\":\"repository_exists\"}",
+    "request_id": "read-1-8aea6723a66c",
+    "run_id": "local-8aea6723a66c",
+    "status": 200
+  }
+]

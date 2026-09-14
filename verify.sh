@@ -20,16 +20,15 @@ echo "== 1/3  Test suite (unit, integration, evidence, report consistency) =="
 "$PY" -m pytest -q
 
 echo
-echo "== 2/3  Evidence verifier (recomputes every archived result from its receipts) =="
+echo "== 2/3  Evidence verifier (checks the canonical study inventory) =="
 "$PY" verify_results.py
 
 echo
-echo "== 3/3  Execution-gate studies re-scored independently from receipts =="
-"$PY" run_combined_gate.py results/combined-gate-v1 --verify
-"$PY" run_dataflow_gate.py results/dataflow-gate-v1 --verify
+echo "== 3/3  Repository security checks =="
+"$PY" security_check.py
 
 echo
-echo "PASS - all tests and archived evidence verified offline."
+echo "PASS - tests and listed canonical evidence checks passed offline."
 echo "Note: some tests use negative fixtures that pass BECAUSE they observe a"
 echo "violation. An all-green run is not an all-controls-satisfied claim; see"
 echo "report/README.md and Appendix B of the report for each control's scope."

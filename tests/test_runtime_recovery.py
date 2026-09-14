@@ -48,7 +48,7 @@ def test_actual_observer_timeout_becomes_unsimulated_hold(monkeypatch):
     assert result["decision"] == "quarantine" and not result["sandbox"].simulated
 
 
-@pytest.mark.parametrize("uncertain", [False, True])
+@pytest.mark.parametrize("uncertain", [None, ValueError, TypeError, KeyError])
 def test_restart_preserves_committed_or_uncertain_operation(tmp_path, uncertain):
     class Backend(LocalTwin):
         calls = 0
@@ -56,7 +56,7 @@ def test_restart_preserves_committed_or_uncertain_operation(tmp_path, uncertain)
             self.calls += 1
             result = super().request(*args)
             if uncertain:
-                raise json.JSONDecodeError("synthetic response after commit", "", 0)
+                raise uncertain("synthetic response after commit")
             return result
     live, spec = Backend(), task_spec("W")
     request = Request(**spec["report"])

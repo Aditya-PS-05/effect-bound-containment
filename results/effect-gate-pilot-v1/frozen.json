@@ -1,0 +1,40 @@
+{
+  "artifacts": {
+    "order.json": "f9ec7c26f15ddcca353dccdece7b5c61319e7d69cee2befc76d4720cc7f69f87",
+    "protocol.md": "a6b0d97dc03409e30b9409e802c2821bbbf735a9d99cae95211b1e750057344e",
+    "shared-prompt.json": "71b7713db2ae3aa5da5701e199bc8cc70e32f4fbcdc163ba89c0f045dc55eb2c",
+    "tasks.json": "6f34b9d524e04bcba1937537f943bb4d073b8b887de31d03c503228fef09bc63"
+  },
+  "model": "gpt-5.4-2026-03-05",
+  "sources": {
+    "run_adaptive_pilot.py": "6232ff680215c276f400c4e2628c58c62eaf0eba817f324c28ebea01e76111be",
+    "run_arga_quarantine.py": "b4f7a5f7a3127df521b786a8fe316b3352b7f497363f9aa91ab2dc7419351fe6",
+    "run_arga_workflow.py": "34c1ea7ce755c41455337a3979d14c41c2889bcf3f8043b9b7a471719be53043",
+    "run_boundary_audit.py": "9d2902214fa152da299fcefd02f5f3abea413a37bbdfe2d9a22409d77db1938d",
+    "run_broker_workflow.py": "67b3e44180847238d9dc428cd9102b40407a3f48525ed8f9751a03010feda112",
+    "run_combined_gate.py": "4fc6dad0929ac49d83f3e83d329ed76ad3eca264441f839b6b9604395c46facc",
+    "run_dataflow_gate.py": "7f8dc8e43ff4e521cb2ac852f5fdd9d03ec3eca86ac60f0bc0645e37d800c649",
+    "run_effect_gate_pilot.py": "e61c1846bb48945bbb162d4083eb546e701d3d00684a1b4108b8c8c5c114b04c",
+    "run_experiment.py": "6e0f8d30a774c52f189a7c7f45020a85d0ae232e8906725287674be277437baf",
+    "run_git_enforcement.py": "9256ae1fc08cb20acbc993f028f41062e6acd3975cf40356487ec4dba06dd0e1",
+    "run_git_evidence.py": "abb2f7dfdb030b69a623ff4f71c85c083a3b1d53ad7eea31a804a58112372a6e",
+    "run_isolated_http.py": "748a895889323f9179144e54d0f88ed8e24514ab267edd7a8c1f40c6466fb063",
+    "run_local_sandbox.py": "0b14e6654506c62592a39deac5b24f2595299fd141c2bfe5760c83c20979a004",
+    "run_matrix.py": "54f04381225444da16d4232d18ce26dab9e278b17a4338bc6e07ada7d2a208db",
+    "run_observers.py": "dabc3383014b27cde295d363bf4329ae9e71ecbc011cb53f49e9f0a855cac86a",
+    "run_openai_pilot.py": "7b555ec00b82ad516294fa11c83a7faf8434c489a5cc2b75322e36d2156efc45",
+    "run_pilot_followup.py": "83e307e7e2c60e2d65b4d2bba898b41a25335c2f85cd90e1e9de9cc62941c79e",
+    "run_pome.py": "b6e0cd5ff7ce0860ebc817798fd3ae9282ad2264e06359b47565401d9c72b389",
+    "run_selective.py": "c34209e0a1ebf98eda7e21b31a2579c079727159598b95dedb4f53bb1209de1b",
+    "run_selfhosted_pilot.py": "5b0dc50cb81fc2ba1e1f78d9e8711972b5f6a4af017013c877826fc2c0dbe111",
+    "run_workflows.py": "aaef667ecbe10efa37015e97ab38fcd28b162a6bb035b26d4c0fa30d5aff55d5",
+    "src/effect_bound.py": "1e08e960045ecf7f72bcc703c2f486e2f8b60c258cc5a4930315a5dd677a4ac5",
+    "src/git_receive_gate.py": "709ad08c637dfbd13fdede313af339856d315582757784250e4596027ce5ded5",
+    "src/http_actor.py": "ee19ebb2c62c5feab58c129645e3cdd97010180970dedefa5f8d627d03968e71",
+    "src/http_boundary.py": "93cb3dee313e8ee9b475b3da454bfdc0a20aa00d6ce2f13615ef7659c8ef6eb6",
+    "src/local_sandbox.py": "95569ecffb676805c8b4ee88b8de59db3c7bdb6ea3af2c30c1b4ae390c952c1e",
+    "src/local_service.py": "fe0e3ba6ab08ab7badd005d608352805179f9bab001d472a11fc28c2b0d0b913",
+    "src/pome_adapter.py": "b110aa34bd7816889dc711a1c939d7ab3b55d35c3889e584b7e565222362df25",
+    "src/process_observer.py": "d92884421b7f06e45fe8989432169c12189c79ce146c7bd33007d548839b7418"
+  }
+}

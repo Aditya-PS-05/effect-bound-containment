@@ -11,7 +11,7 @@ import hashlib
 import json
 from pathlib import Path
 
-from run_local_sandbox import ROOT, run_trial, score, task_spec
+from run_local_sandbox import ROOT, run_trial, score, task_spec, verify_task
 from src.effect_bound import Request
 from src.process_observer import verify_snapshot
 
@@ -91,13 +91,16 @@ def aggregate(rows):
 def verify(directory):
     rows = json.loads((directory / "summary.json").read_text())
     manifest = directory / "sources.json"
-    if manifest.exists():
-        for name, expected in json.loads(manifest.read_text()).items():
-            if hashlib.sha256((directory / "sources" / name).read_bytes()).hexdigest() != expected:
-                raise ValueError("Data-flow gate source archive changed")
-        if [r["id"] for r in rows] != [row[0] for row in planned()]:
-            raise ValueError("Missing or reordered data-flow cells")
-    for row in rows:
+    for name, expected in json.loads(manifest.read_text()).items():
+        if hashlib.sha256((directory / "sources" / name).read_bytes()).hexdigest() != expected:
+            raise ValueError("Data-flow gate source archive changed")
+    plan = planned()
+    if [r["id"] for r in rows] != [row[0] for row in plan]:
+        raise ValueError("Missing or reordered data-flow cells")
+    for row, (_, task, arm, fault, secret) in zip(rows, plan):
+        if (row["arm"], row["fault"], row["secret"]) != (arm, fault, secret):
+            raise ValueError("Data-flow metadata differs from planned case")
+        verify_task(directory / row["id"], row["result"], task, arm, fault)
         assert json.loads((directory / row["id"] / "result.json").read_text()) == row["result"]
         actual, data_leaked = rescore(directory / row["id"], row)
         assert all(row["result"][k] == v for k, v in actual.items()) and row["result"]["processes_stopped"]

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import argparse
 import json
 import time
 from collections import defaultdict
@@ -202,6 +203,10 @@ def summarize(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output", required=True, type=Path, help="New reproduction directory")
+    output = parser.parse_args().output
+    output.mkdir(parents=True, exist_ok=False)
     repeats = 20
     rows = [
         run_case(config, attack, trial)
@@ -209,8 +214,6 @@ def main() -> None:
         for attack in ATTACKS
         for trial in range(repeats)
     ]
-    output = Path("results")
-    output.mkdir(exist_ok=True)
     (output / "matrix_raw.json").write_text(json.dumps(rows, indent=2) + "\n")
     (output / "matrix_summary.json").write_text(json.dumps(summarize(rows), indent=2) + "\n")
     print(f"matrix: {len(rows)} trials")

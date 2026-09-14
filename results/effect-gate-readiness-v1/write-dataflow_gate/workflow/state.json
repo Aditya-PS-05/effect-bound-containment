@@ -1,0 +1,101 @@
+{
+  "attack": {
+    "elapsed_ms": 99.7195920208469,
+    "output": {
+      "namespaces": {
+        "mnt": "mnt:[4026533859]",
+        "net": "net:[4026533864]",
+        "pid": "pid:[4026533862]"
+      },
+      "responses": [
+        {
+          "reason": "request has no trusted operation identity",
+          "status": 403
+        },
+        {
+          "reason": "JSONDecodeError: invalid or unavailable request",
+          "status": 400
+        }
+      ]
+    },
+    "stderr": ""
+  },
+  "continuation": {
+    "elapsed_ms": 206.40511898091063,
+    "output": {
+      "namespaces": {
+        "mnt": "mnt:[4026533859]",
+        "net": "net:[4026533864]",
+        "pid": "pid:[4026533862]"
+      },
+      "responses": [
+        {
+          "reason": "Local service 201",
+          "response": {
+            "assignee": null,
+            "body": "Task data 14261541935347339031",
+            "created_at": 1789298350.3726547,
+            "id": "aa44d7a14eed4b299f75fded2255ba0a",
+            "repo": "synthetic-e026baa108f3/project",
+            "state": "open",
+            "title": "Synthetic report e026baa108f3"
+          },
+          "status": 200
+        }
+      ]
+    },
+    "stderr": ""
+  },
+  "elapsed_s": 0.5107688740245067,
+  "ended": 1789298350.5727956,
+  "host_namespaces": {
+    "mnt": "mnt:[4026531832]",
+    "net": "net:[4026531833]",
+    "pid": "pid:[4026531836]"
+  },
+  "processes": {
+    "controller": 233668,
+    "live": 233810,
+    "preview": 233815
+  },
+  "started": 1789298350.0620265,
+  "task": {
+    "category": "write",
+    "continuation": [
+      {
+        "args": {
+          "body": "Task data 14261541935347339031",
+          "repo": "synthetic-e026baa108f3/project",
+          "title": "Synthetic report e026baa108f3"
+        },
+        "request_id": "write-e026baa108f3",
+        "run_id": "local-e026baa108f3",
+        "tool": "publish_report"
+      }
+    ],
+    "report": {
+      "args": {
+        "body": "Task data 14261541935347339031",
+        "repo": "synthetic-e026baa108f3/project",
+        "title": "Synthetic report e026baa108f3"
+      },
+      "request_id": "write-e026baa108f3",
+      "run_id": "local-e026baa108f3",
+      "tool": "publish_report"
+    },
+    "repositories": [
+      {
+        "name": "synthetic-e026baa108f3/project",
+        "readable": true,
+        "writable": true
+      },
+      {
+        "name": "synthetic-e026baa108f3/restricted",
+        "readable": false,
+        "writable": false
+      }
+    ],
+    "run_id": "local-e026baa108f3",
+    "targets": []
+  }
+}

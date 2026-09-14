@@ -1,0 +1,28 @@
+{
+  "first_full_suite": {
+    "passed": 286,
+    "failed": 1,
+    "elapsed_s": 113.99,
+    "failure": "tests/test_dataflow_gate.py::test_rejected_output_rolls_back_all_state[True-substituted_body]",
+    "exception": "TimeoutError during LocalService.call, socket timeout 3 seconds",
+    "archive_verification": "not reached due to pytest exit 1"
+  },
+  "focused_retry": {
+    "passed": 1,
+    "elapsed_s": 0.25,
+    "timeouts_changed": false
+  },
+  "new_harness_focused_suite": {
+    "passed": 9,
+    "elapsed_s": 17.44
+  },
+  "full_repeat": {
+    "passed": 287,
+    "elapsed_s": 113.37,
+    "exit_code": 0,
+    "log": "verification-repeat.log",
+    "archive_verification": "passed",
+    "timeouts_changed": false
+  },
+  "model_calls": 0
+}

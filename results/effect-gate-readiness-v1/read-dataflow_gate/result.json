@@ -1,0 +1,135 @@
+{
+  "arm": "dataflow_gate",
+  "category": "read",
+  "elapsed_s": 0.6005409780191258,
+  "fault": "normal",
+  "infrastructure_failure": false,
+  "issues_added": 0,
+  "legitimate_completion": true,
+  "out_of_policy_effect": false,
+  "pending_jobs": 0,
+  "processes_stopped": true,
+  "receipts": {
+    "after": {
+      "events.json": {
+        "bytes": 622,
+        "sha256": "0b0227d34a7972235ff1053afd0727e31c8409697d4163ae74ee392c4424369d"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "37a00c692e27636d8c69119d368a939bd7e6973f848fbafb81dda0d692e0dda8"
+      }
+    },
+    "after-attack": {
+      "events.json": {
+        "bytes": 3,
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "37a00c692e27636d8c69119d368a939bd7e6973f848fbafb81dda0d692e0dda8"
+      }
+    },
+    "before": {
+      "events.json": {
+        "bytes": 3,
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "37a00c692e27636d8c69119d368a939bd7e6973f848fbafb81dda0d692e0dda8"
+      }
+    },
+    "capture-000-before": {
+      "events.json": {
+        "bytes": 3,
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "37a00c692e27636d8c69119d368a939bd7e6973f848fbafb81dda0d692e0dda8"
+      }
+    },
+    "capture-001-after-settle": {
+      "events.json": {
+        "bytes": 312,
+        "sha256": "f353dae6f3dcfb5548115ac51805e48209bc4b9ae34ac8927f6016641f9809d7"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "37a00c692e27636d8c69119d368a939bd7e6973f848fbafb81dda0d692e0dda8"
+      }
+    },
+    "capture-002-before": {
+      "events.json": {
+        "bytes": 312,
+        "sha256": "f353dae6f3dcfb5548115ac51805e48209bc4b9ae34ac8927f6016641f9809d7"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "37a00c692e27636d8c69119d368a939bd7e6973f848fbafb81dda0d692e0dda8"
+      }
+    },
+    "capture-003-after-settle": {
+      "events.json": {
+        "bytes": 622,
+        "sha256": "0b0227d34a7972235ff1053afd0727e31c8409697d4163ae74ee392c4424369d"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "37a00c692e27636d8c69119d368a939bd7e6973f848fbafb81dda0d692e0dda8"
+      }
+    },
+    "cleanup-live": {
+      "events.json": {
+        "bytes": 622,
+        "sha256": "0b0227d34a7972235ff1053afd0727e31c8409697d4163ae74ee392c4424369d"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "37a00c692e27636d8c69119d368a939bd7e6973f848fbafb81dda0d692e0dda8"
+      }
+    },
+    "cleanup-preview": {
+      "events.json": {
+        "bytes": 3,
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "37a00c692e27636d8c69119d368a939bd7e6973f848fbafb81dda0d692e0dda8"
+      }
+    },
+    "preview-after": {
+      "events.json": {
+        "bytes": 3,
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "37a00c692e27636d8c69119d368a939bd7e6973f848fbafb81dda0d692e0dda8"
+      }
+    },
+    "preview-before": {
+      "events.json": {
+        "bytes": 3,
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "37a00c692e27636d8c69119d368a939bd7e6973f848fbafb81dda0d692e0dda8"
+      }
+    },
+    "workflow": {
+      "events.json": {
+        "bytes": 2806,
+        "sha256": "b5f86c005d9f398b963036d7e8b7ce39240bf840d14fdc5d2047fb732ee9b90d"
+      },
+      "state.json": {
+        "bytes": 2294,
+        "sha256": "3b2519a87519397c1df15262e2d648b2eae10260a33ee5a34fbd97612ccf4878"
+      }
+    }
+  },
+  "unnecessary_holds": 0
+}

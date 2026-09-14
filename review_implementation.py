@@ -1,13 +1,21 @@
 """Bounded local counterexamples for the production-readiness review.
 
-These assertions confirm limitations of the current implementation. They are
+These assertions confirm limitations of the historical H28 implementation. They are
 diagnostics, not passing security acceptance tests. No provider calls are made.
 """
+
+# Historical dependencies must precede project imports.
+# ruff: noqa: E402
+import sys
+from pathlib import Path
+
+HISTORICAL = Path(__file__).resolve().parent / "results/pilot-followup-v1/after-sources"
+if __name__ == "__main__":
+    sys.path.insert(0, str(HISTORICAL))
 
 from dataclasses import asdict
 import hashlib
 import json
-from pathlib import Path
 import subprocess
 import tempfile
 from unittest.mock import patch
@@ -196,8 +204,7 @@ def main():
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=False)
-    paths = [*Path("src").glob("*.py"), *Path(".").glob("run_*.py"), Path(__file__),
-             *Path("tests").glob("*.py"), Path("verify_results.py")]
+    paths = [*HISTORICAL.rglob("*.py"), Path(__file__)]
     hashes = {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}
     (args.output / "source-hashes.json").write_text(json.dumps(hashes, indent=2, sort_keys=True) + "\n")
     rows = []

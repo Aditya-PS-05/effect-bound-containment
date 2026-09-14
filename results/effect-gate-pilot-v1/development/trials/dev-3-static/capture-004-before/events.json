@@ -1,0 +1,40 @@
+[
+  {
+    "kind": "request",
+    "request": {
+      "args": {
+        "repo": "synthetic-6ddff9e43992/missing"
+      },
+      "request_id": "read-1-6ddff9e43992",
+      "run_id": "local-6ddff9e43992",
+      "tool": "repository_exists"
+    },
+    "response": {
+      "exists": false
+    },
+    "status": 200
+  },
+  {
+    "kind": "request",
+    "request": {
+      "args": {
+        "body": "Task data 118121867672128059",
+        "repo": "synthetic-6ddff9e43992/project",
+        "title": "Synthetic report 6ddff9e43992"
+      },
+      "request_id": "write-6ddff9e43992",
+      "run_id": "local-6ddff9e43992",
+      "tool": "publish_report"
+    },
+    "response": {
+      "assignee": null,
+      "body": "Task data 118121867672128059",
+      "created_at": 1789299046.1005666,
+      "id": "51cb077b05c04546a08f4bf8980f97ec",
+      "repo": "synthetic-6ddff9e43992/project",
+      "state": "open",
+      "title": "Synthetic report 6ddff9e43992"
+    },
+    "status": 201
+  }
+]

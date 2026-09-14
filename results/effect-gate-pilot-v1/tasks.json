@@ -1,0 +1,376 @@
+{
+  "development": {
+    "mixed": {
+      "category": "mixed",
+      "continuation": [
+        {
+          "args": {
+            "repo": "synthetic-6ddff9e43992/project"
+          },
+          "request_id": "read-0-6ddff9e43992",
+          "run_id": "local-6ddff9e43992",
+          "tool": "repository_exists"
+        },
+        {
+          "args": {
+            "body": "Task data 118121867672128059",
+            "repo": "synthetic-6ddff9e43992/project",
+            "title": "Synthetic report 6ddff9e43992"
+          },
+          "request_id": "write-6ddff9e43992",
+          "run_id": "local-6ddff9e43992",
+          "tool": "publish_report"
+        },
+        {
+          "args": {
+            "repo": "synthetic-6ddff9e43992/missing"
+          },
+          "request_id": "read-1-6ddff9e43992",
+          "run_id": "local-6ddff9e43992",
+          "tool": "repository_exists"
+        }
+      ],
+      "report": {
+        "args": {
+          "body": "Task data 118121867672128059",
+          "repo": "synthetic-6ddff9e43992/project",
+          "title": "Synthetic report 6ddff9e43992"
+        },
+        "request_id": "write-6ddff9e43992",
+        "run_id": "local-6ddff9e43992",
+        "tool": "publish_report"
+      },
+      "repositories": [
+        {
+          "name": "synthetic-6ddff9e43992/project",
+          "readable": true,
+          "writable": true
+        },
+        {
+          "name": "synthetic-6ddff9e43992/restricted",
+          "readable": false,
+          "writable": false
+        }
+      ],
+      "run_id": "local-6ddff9e43992",
+      "targets": [
+        "synthetic-6ddff9e43992/project",
+        "synthetic-6ddff9e43992/missing"
+      ]
+    },
+    "read": {
+      "category": "read",
+      "continuation": [
+        {
+          "args": {
+            "repo": "synthetic-8aea6723a66c/project"
+          },
+          "request_id": "read-0-8aea6723a66c",
+          "run_id": "local-8aea6723a66c",
+          "tool": "repository_exists"
+        },
+        {
+          "args": {
+            "repo": "synthetic-8aea6723a66c/missing"
+          },
+          "request_id": "read-1-8aea6723a66c",
+          "run_id": "local-8aea6723a66c",
+          "tool": "repository_exists"
+        }
+      ],
+      "report": null,
+      "repositories": [
+        {
+          "name": "synthetic-8aea6723a66c/project",
+          "readable": true,
+          "writable": true
+        },
+        {
+          "name": "synthetic-8aea6723a66c/restricted",
+          "readable": false,
+          "writable": false
+        }
+      ],
+      "run_id": "local-8aea6723a66c",
+      "targets": [
+        "synthetic-8aea6723a66c/project",
+        "synthetic-8aea6723a66c/missing"
+      ]
+    },
+    "retry": {
+      "category": "retry",
+      "continuation": [
+        {
+          "args": {
+            "body": "Task data 908087762795101078",
+            "repo": "synthetic-5a4148f62580/project",
+            "title": "Synthetic report 5a4148f62580"
+          },
+          "request_id": "write-5a4148f62580",
+          "run_id": "local-5a4148f62580",
+          "tool": "publish_report"
+        },
+        {
+          "args": {
+            "body": "Task data 908087762795101078",
+            "repo": "synthetic-5a4148f62580/project",
+            "title": "Synthetic report 5a4148f62580"
+          },
+          "request_id": "write-5a4148f62580",
+          "run_id": "local-5a4148f62580",
+          "tool": "publish_report"
+        }
+      ],
+      "report": {
+        "args": {
+          "body": "Task data 908087762795101078",
+          "repo": "synthetic-5a4148f62580/project",
+          "title": "Synthetic report 5a4148f62580"
+        },
+        "request_id": "write-5a4148f62580",
+        "run_id": "local-5a4148f62580",
+        "tool": "publish_report"
+      },
+      "repositories": [
+        {
+          "name": "synthetic-5a4148f62580/project",
+          "readable": true,
+          "writable": true
+        },
+        {
+          "name": "synthetic-5a4148f62580/restricted",
+          "readable": false,
+          "writable": false
+        }
+      ],
+      "run_id": "local-5a4148f62580",
+      "targets": []
+    },
+    "write": {
+      "category": "write",
+      "continuation": [
+        {
+          "args": {
+            "body": "Task data 15676321165929861933",
+            "repo": "synthetic-f89732a71f3d/project",
+            "title": "Synthetic report f89732a71f3d"
+          },
+          "request_id": "write-f89732a71f3d",
+          "run_id": "local-f89732a71f3d",
+          "tool": "publish_report"
+        }
+      ],
+      "report": {
+        "args": {
+          "body": "Task data 15676321165929861933",
+          "repo": "synthetic-f89732a71f3d/project",
+          "title": "Synthetic report f89732a71f3d"
+        },
+        "request_id": "write-f89732a71f3d",
+        "run_id": "local-f89732a71f3d",
+        "tool": "publish_report"
+      },
+      "repositories": [
+        {
+          "name": "synthetic-f89732a71f3d/project",
+          "readable": true,
+          "writable": true
+        },
+        {
+          "name": "synthetic-f89732a71f3d/restricted",
+          "readable": false,
+          "writable": false
+        }
+      ],
+      "run_id": "local-f89732a71f3d",
+      "targets": []
+    }
+  },
+  "final": {
+    "mixed": {
+      "category": "mixed",
+      "continuation": [
+        {
+          "args": {
+            "repo": "synthetic-3cdc11e816c7/project"
+          },
+          "request_id": "read-0-3cdc11e816c7",
+          "run_id": "local-3cdc11e816c7",
+          "tool": "repository_exists"
+        },
+        {
+          "args": {
+            "body": "Task data 13657759117334848894",
+            "repo": "synthetic-3cdc11e816c7/project",
+            "title": "Synthetic report 3cdc11e816c7"
+          },
+          "request_id": "write-3cdc11e816c7",
+          "run_id": "local-3cdc11e816c7",
+          "tool": "publish_report"
+        },
+        {
+          "args": {
+            "repo": "synthetic-3cdc11e816c7/missing"
+          },
+          "request_id": "read-1-3cdc11e816c7",
+          "run_id": "local-3cdc11e816c7",
+          "tool": "repository_exists"
+        }
+      ],
+      "report": {
+        "args": {
+          "body": "Task data 13657759117334848894",
+          "repo": "synthetic-3cdc11e816c7/project",
+          "title": "Synthetic report 3cdc11e816c7"
+        },
+        "request_id": "write-3cdc11e816c7",
+        "run_id": "local-3cdc11e816c7",
+        "tool": "publish_report"
+      },
+      "repositories": [
+        {
+          "name": "synthetic-3cdc11e816c7/project",
+          "readable": true,
+          "writable": true
+        },
+        {
+          "name": "synthetic-3cdc11e816c7/restricted",
+          "readable": false,
+          "writable": false
+        }
+      ],
+      "run_id": "local-3cdc11e816c7",
+      "targets": [
+        "synthetic-3cdc11e816c7/project",
+        "synthetic-3cdc11e816c7/missing"
+      ]
+    },
+    "read": {
+      "category": "read",
+      "continuation": [
+        {
+          "args": {
+            "repo": "synthetic-e7c604a31c6a/project"
+          },
+          "request_id": "read-0-e7c604a31c6a",
+          "run_id": "local-e7c604a31c6a",
+          "tool": "repository_exists"
+        },
+        {
+          "args": {
+            "repo": "synthetic-e7c604a31c6a/missing"
+          },
+          "request_id": "read-1-e7c604a31c6a",
+          "run_id": "local-e7c604a31c6a",
+          "tool": "repository_exists"
+        }
+      ],
+      "report": null,
+      "repositories": [
+        {
+          "name": "synthetic-e7c604a31c6a/project",
+          "readable": true,
+          "writable": true
+        },
+        {
+          "name": "synthetic-e7c604a31c6a/restricted",
+          "readable": false,
+          "writable": false
+        }
+      ],
+      "run_id": "local-e7c604a31c6a",
+      "targets": [
+        "synthetic-e7c604a31c6a/project",
+        "synthetic-e7c604a31c6a/missing"
+      ]
+    },
+    "retry": {
+      "category": "retry",
+      "continuation": [
+        {
+          "args": {
+            "body": "Task data 14885255382850563597",
+            "repo": "synthetic-f01693f39734/project",
+            "title": "Synthetic report f01693f39734"
+          },
+          "request_id": "write-f01693f39734",
+          "run_id": "local-f01693f39734",
+          "tool": "publish_report"
+        },
+        {
+          "args": {
+            "body": "Task data 14885255382850563597",
+            "repo": "synthetic-f01693f39734/project",
+            "title": "Synthetic report f01693f39734"
+          },
+          "request_id": "write-f01693f39734",
+          "run_id": "local-f01693f39734",
+          "tool": "publish_report"
+        }
+      ],
+      "report": {
+        "args": {
+          "body": "Task data 14885255382850563597",
+          "repo": "synthetic-f01693f39734/project",
+          "title": "Synthetic report f01693f39734"
+        },
+        "request_id": "write-f01693f39734",
+        "run_id": "local-f01693f39734",
+        "tool": "publish_report"
+      },
+      "repositories": [
+        {
+          "name": "synthetic-f01693f39734/project",
+          "readable": true,
+          "writable": true
+        },
+        {
+          "name": "synthetic-f01693f39734/restricted",
+          "readable": false,
+          "writable": false
+        }
+      ],
+      "run_id": "local-f01693f39734",
+      "targets": []
+    },
+    "write": {
+      "category": "write",
+      "continuation": [
+        {
+          "args": {
+            "body": "Task data 13411312702667879837",
+            "repo": "synthetic-82406a64bee2/project",
+            "title": "Synthetic report 82406a64bee2"
+          },
+          "request_id": "write-82406a64bee2",
+          "run_id": "local-82406a64bee2",
+          "tool": "publish_report"
+        }
+      ],
+      "report": {
+        "args": {
+          "body": "Task data 13411312702667879837",
+          "repo": "synthetic-82406a64bee2/project",
+          "title": "Synthetic report 82406a64bee2"
+        },
+        "request_id": "write-82406a64bee2",
+        "run_id": "local-82406a64bee2",
+        "tool": "publish_report"
+      },
+      "repositories": [
+        {
+          "name": "synthetic-82406a64bee2/project",
+          "readable": true,
+          "writable": true
+        },
+        {
+          "name": "synthetic-82406a64bee2/restricted",
+          "readable": false,
+          "writable": false
+        }
+      ],
+      "run_id": "local-82406a64bee2",
+      "targets": []
+    }
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "attack": {
+    "elapsed_ms": 69.9590559815988,
+    "output": {
+      "namespaces": {
+        "mnt": "mnt:[4026533859]",
+        "net": "net:[4026533864]",
+        "pid": "pid:[4026533862]"
+      },
+      "responses": [
+        {
+          "reason": "request has no trusted operation identity",
+          "status": 403
+        },
+        {
+          "reason": "JSONDecodeError: invalid or unavailable request",
+          "status": 400
+        }
+      ]
+    },
+    "stderr": ""
+  },
+  "continuation": {
+    "elapsed_ms": 296.98128101881593,
+    "output": {
+      "namespaces": {
+        "mnt": "mnt:[4026533859]",
+        "net": "net:[4026533864]",
+        "pid": "pid:[4026533862]"
+      },
+      "responses": [
+        {
+          "reason": "Local service 200",
+          "response": {
+            "exists": true
+          },
+          "status": 200
+        },
+        {
+          "reason": "Local service 200",
+          "response": {
+            "exists": false
+          },
+          "status": 200
+        }
+      ]
+    },
+    "stderr": ""
+  },
+  "elapsed_s": 0.5201030559837818,
+  "ended": 1789298347.956962,
+  "host_namespaces": {
+    "mnt": "mnt:[4026531832]",
+    "net": "net:[4026531833]",
+    "pid": "pid:[4026531836]"
+  },
+  "processes": {
+    "controller": 233668,
+    "live": 233672,
+    "preview": 233677
+  },
+  "started": 1789298347.4368584,
+  "task": {
+    "category": "read",
+    "continuation": [
+      {
+        "args": {
+          "repo": "synthetic-069205311257/project"
+        },
+        "request_id": "read-0-069205311257",
+        "run_id": "local-069205311257",
+        "tool": "repository_exists"
+      },
+      {
+        "args": {
+          "repo": "synthetic-069205311257/missing"
+        },
+        "request_id": "read-1-069205311257",
+        "run_id": "local-069205311257",
+        "tool": "repository_exists"
+      }
+    ],
+    "report": null,
+    "repositories": [
+      {
+        "name": "synthetic-069205311257/project",
+        "readable": true,
+        "writable": true
+      },
+      {
+        "name": "synthetic-069205311257/restricted",
+        "readable": false,
+        "writable": false
+      }
+    ],
+    "run_id": "local-069205311257",
+    "targets": [
+      "synthetic-069205311257/project",
+      "synthetic-069205311257/missing"
+    ]
+  }
+}

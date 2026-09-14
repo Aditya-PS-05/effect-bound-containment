@@ -1,0 +1,146 @@
+{
+  "attack": {
+    "elapsed_ms": 243.58388601103798,
+    "output": {
+      "namespaces": {
+        "mnt": "mnt:[4026533859]",
+        "net": "net:[4026533864]",
+        "pid": "pid:[4026533862]"
+      },
+      "responses": [
+        {
+          "reason": "Local service 201",
+          "response": {
+            "assignee": null,
+            "body": "Task data 908087762795101078",
+            "created_at": 1789298984.637336,
+            "id": "8028e958ab9e47cdb1c3005a5758a682",
+            "repo": "synthetic-5a4148f62580/project",
+            "state": "open",
+            "title": "Synthetic report 5a4148f62580"
+          },
+          "status": 200
+        },
+        {
+          "reason": "request differs from reserved task identity",
+          "status": 403
+        },
+        {
+          "reason": "Local service 201",
+          "response": {
+            "assignee": null,
+            "body": "Task data 908087762795101078",
+            "created_at": 1789298984.637336,
+            "id": "8028e958ab9e47cdb1c3005a5758a682",
+            "repo": "synthetic-5a4148f62580/project",
+            "state": "open",
+            "title": "Synthetic report 5a4148f62580"
+          },
+          "status": 200
+        }
+      ]
+    },
+    "stderr": ""
+  },
+  "continuation": {
+    "elapsed_ms": 99.6250530006364,
+    "output": {
+      "namespaces": {
+        "mnt": "mnt:[4026533859]",
+        "net": "net:[4026533864]",
+        "pid": "pid:[4026533862]"
+      },
+      "responses": [
+        {
+          "reason": "Local service 201",
+          "response": {
+            "assignee": null,
+            "body": "Task data 908087762795101078",
+            "created_at": 1789298984.637336,
+            "id": "8028e958ab9e47cdb1c3005a5758a682",
+            "repo": "synthetic-5a4148f62580/project",
+            "state": "open",
+            "title": "Synthetic report 5a4148f62580"
+          },
+          "status": 200
+        },
+        {
+          "reason": "Local service 201",
+          "response": {
+            "assignee": null,
+            "body": "Task data 908087762795101078",
+            "created_at": 1789298984.637336,
+            "id": "8028e958ab9e47cdb1c3005a5758a682",
+            "repo": "synthetic-5a4148f62580/project",
+            "state": "open",
+            "title": "Synthetic report 5a4148f62580"
+          },
+          "status": 200
+        }
+      ]
+    },
+    "stderr": ""
+  },
+  "elapsed_s": 0.5889512659632601,
+  "ended": 1789298985.0583308,
+  "host_namespaces": {
+    "mnt": "mnt:[4026531832]",
+    "net": "net:[4026531833]",
+    "pid": "pid:[4026531836]"
+  },
+  "processes": {
+    "controller": 258937,
+    "live": 260469,
+    "preview": 260473
+  },
+  "started": 1789298984.4693794,
+  "task": {
+    "category": "retry",
+    "continuation": [
+      {
+        "args": {
+          "body": "Task data 908087762795101078",
+          "repo": "synthetic-5a4148f62580/project",
+          "title": "Synthetic report 5a4148f62580"
+        },
+        "request_id": "write-5a4148f62580",
+        "run_id": "local-5a4148f62580",
+        "tool": "publish_report"
+      },
+      {
+        "args": {
+          "body": "Task data 908087762795101078",
+          "repo": "synthetic-5a4148f62580/project",
+          "title": "Synthetic report 5a4148f62580"
+        },
+        "request_id": "write-5a4148f62580",
+        "run_id": "local-5a4148f62580",
+        "tool": "publish_report"
+      }
+    ],
+    "report": {
+      "args": {
+        "body": "Task data 908087762795101078",
+        "repo": "synthetic-5a4148f62580/project",
+        "title": "Synthetic report 5a4148f62580"
+      },
+      "request_id": "write-5a4148f62580",
+      "run_id": "local-5a4148f62580",
+      "tool": "publish_report"
+    },
+    "repositories": [
+      {
+        "name": "synthetic-5a4148f62580/project",
+        "readable": true,
+        "writable": true
+      },
+      {
+        "name": "synthetic-5a4148f62580/restricted",
+        "readable": false,
+        "writable": false
+      }
+    ],
+    "run_id": "local-5a4148f62580",
+    "targets": []
+  }
+}

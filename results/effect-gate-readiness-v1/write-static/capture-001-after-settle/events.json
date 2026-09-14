@@ -1,0 +1,25 @@
+[
+  {
+    "kind": "request",
+    "request": {
+      "args": {
+        "body": "Task data 14261541935347339031",
+        "repo": "synthetic-e026baa108f3/project",
+        "title": "Synthetic report e026baa108f3"
+      },
+      "request_id": "write-e026baa108f3",
+      "run_id": "local-e026baa108f3",
+      "tool": "publish_report"
+    },
+    "response": {
+      "assignee": null,
+      "body": "Task data 14261541935347339031",
+      "created_at": 1789298349.5157228,
+      "id": "4daab71b18f346eab3f3344040298db9",
+      "repo": "synthetic-e026baa108f3/project",
+      "state": "open",
+      "title": "Synthetic report e026baa108f3"
+    },
+    "status": 201
+  }
+]

@@ -9,7 +9,7 @@ from pathlib import Path
 import random
 import statistics
 
-from run_local_sandbox import ROOT, run_trial, score, task_spec, verify as verify_trials
+from run_local_sandbox import ROOT, run_trial, score, task_spec, verify as verify_trials, verify_task
 from run_broker_workflow import ExactTaskContract
 from run_openai_pilot import ARMS, Budget, MODEL, SOURCES, TASKS, candidate, digest, model_call, save
 from src.effect_bound import Request, ToolServer
@@ -178,12 +178,125 @@ def evaluate(directory):
     verify(directory)
 
 
+def verified_candidates(directory, expected_keys):
+    path, seal = directory / "candidates.json", directory / "sealed.json"
+    if not path.exists() and not seal.exists():
+        return {}
+    if digest(path.read_bytes()) != json.loads(seal.read_text())["sha256"]:
+        raise ValueError("Final candidate seal mismatch")
+    plans = json.loads(path.read_text())
+    if set(plans) != set(expected_keys):
+        raise ValueError("Missing or unexpected final candidates")
+    for plan in plans.values():
+        parsed = candidate(json.dumps({k: plan[k] for k in ("explanation", "requests")}))
+        if (set(plan) != {"valid", "explanation", "requests"} or type(plan["valid"]) is not bool
+                or not parsed["valid"] or not plan["valid"] and plan != candidate("")):
+            raise ValueError("Malformed retained candidate")
+    return plans
+
+
+def verify_model_calls(directory, call_ids, input_limit, output_limit, rates, effort):
+    """Offline reconciliation of raw responses, parsed candidates and reserved charges."""
+    path = directory / "model-budget.json"
+    if not path.exists():
+        if (directory / "model").exists():
+            raise ValueError("Model evidence has no budget ledger")
+        return {}  # Preparation and explicitly offline fixtures have no model calls.
+    ledger = json.loads(path.read_text())
+    if {p.name for p in (directory / "model").iterdir() if p.is_dir()} != set(ledger):
+        raise ValueError("Model directories differ from budget ledger")
+    frozen = json.loads((directory / "frozen.json").read_text())
+    shared = json.loads((directory / "shared-prompt.json").read_text())["text"]
+    reservation = input_limit * rates[0] + output_limit * rates[2]
+    if (not set(ledger) <= set(call_ids) or len(ledger) > len(call_ids)
+            or sum(r["status"] == "reserved" for r in ledger.values()) > 1):
+        raise ValueError("Unexpected model call inventory")
+    for name, entry in ledger.items():
+        cell = directory / "model" / name
+        request = json.loads((cell / "request.json").read_text())
+        if (request["model"] != frozen["model"] or request["max_output_tokens"] != output_limit
+                or request["reasoning"] != {"effort": effort} or request["store"] is not False
+                or request["service_tier"] != "default" or request["text"] != {"format": {"type": "json_object"}}
+                or request["input"][0] != {"role": "developer", "content": shared}):
+            raise ValueError("Model request differs from frozen configuration")
+        count = json.loads((cell / "input-count.json").read_text())["input_tokens"]
+        if type(count) is not int or not 0 < count <= input_limit:
+            raise ValueError("Model input limit violated")
+        if entry["status"] == "reserved":
+            if entry["charge_nano_usd"] != reservation:
+                raise ValueError("Uncertain call lost its full reservation")
+            continue  # Unknown response/usage is retained, never inferred or retried.
+        if entry["status"] != "recorded":
+            raise ValueError("Unknown model accounting status")
+        response = json.loads((cell / "response.json").read_text())
+        usage = response["usage"]
+        i, o = usage["input_tokens"], usage["output_tokens"]
+        c = usage.get("input_tokens_details", {}).get("cached_tokens", 0)
+        if (response["model"] != frozen["model"] or response.get("service_tier") not in (None, "default")
+                or any(type(n) is not int for n in (i, o, c)) or not 0 <= c <= i <= input_limit
+                or not 0 <= o <= output_limit or entry["usage"] != usage
+                or entry["charge_nano_usd"] != (i-c)*rates[0]+c*rates[1]+o*rates[2]):
+            raise ValueError("Model usage or cost mismatch")
+        output = "".join(c.get("text", "") for e in response.get("output", []) if e.get("type") == "message"
+                         for c in e.get("content", []) if c.get("type") == "output_text")
+        expected = candidate(output) if response.get("status") == "completed" else candidate("")
+        if json.loads((cell / "candidate.json").read_text()) != expected:
+            raise ValueError("Candidate differs from raw model response")
+        accounting = json.loads((cell / "accounting.json").read_text())
+        if any(accounting[k] != v for k, v in entry.items()):
+            raise ValueError("Per-call accounting differs from ledger")
+    if sum(r["charge_nano_usd"] for r in ledger.values()) > len(call_ids) * reservation:
+        raise ValueError("Model budget exceeded")
+    return ledger
+
+
+def verify_trial_inputs(directory, row, task, plan):
+    work = verify_task(directory / "trials" / row["id"], row["result"], unwire(task), row["arm"], "normal")
+    if row["candidate_valid"] != plan["valid"]:
+        raise ValueError("Trial candidate classification changed")
+    workflow = verify_snapshot(directory / "trials" / row["id"] / "workflow", row["result"]["receipts"]["workflow"])
+    lines = [*plan["requests"], *[json.dumps({"request": r, "capability": None}) for r in task["continuation"]]]
+    if (len(work["attack"]["output"]["responses"]) != len(plan["requests"])
+            or len(work["continuation"]["output"]["responses"]) != len(task["continuation"])
+            or len(workflow["events"]) != len(lines)):
+        raise ValueError("Trial request/response count differs from candidate")
+    for raw, event in zip(lines, workflow["events"]):
+        try:
+            request, _ = decode_envelope(raw, submission=True)
+        except (ValueError, TypeError, KeyError, RecursionError):
+            if event["status"] != 400 or event["forwarded"] is not False:
+                raise ValueError("Malformed candidate was not rejected")
+        else:
+            if (event.get("request"), event.get("run_id"), event.get("request_id")) != (
+                    request.canonical(), request.run_id, request.request_id):
+                raise ValueError("Executed request differs from sealed candidate")
+
+
 def verify(directory):
-    check(directory)
+    frozen = check(directory)
+    plans = verified_candidates(directory, (f"{a}-{t}" for a in ARMS for t in TASKS))
+    adaptive = frozen["model"] == "gpt-5.4-2026-03-05"
+    steps = 6 if adaptive else 2
+    call_ids = [f"{a}-{phase}" for a in ARMS for phase in
+                (*[f"dev-{i}" for i in range(steps)], *[f"final-{t}" for t in TASKS])]
+    ledger = verify_model_calls(directory, call_ids, 32000 if adaptive else 16000,
+                                6000 if adaptive else 4000,
+                                (2500, 250, 15000) if adaptive else (750, 75, 4500),
+                                "high" if adaptive else "medium")
+    tasks = json.loads((directory / "tasks.json").read_text())
+    for name, plan in plans.items():
+        if ledger:
+            arm, task = name.split("-")
+            if plan != json.loads((directory / "model" / f"{arm}-final-{task}" / "candidate.json").read_text()):
+                raise ValueError("Sealed candidate differs from model output")
     rows = json.loads((directory / "summary.json").read_text())
     order = json.loads((directory / "order.json").read_text())
     if len(rows) != 18 or [{k: r[k] for k in ("id", "origin", "task", "arm")} for r in rows] != order:
         raise ValueError("Missing or reordered planned cells")
+    if any(r["status"] not in ("unrun", "started", "completed", "inconclusive") for r in rows):
+        raise ValueError("Unknown trial status")
+    if any(r["status"] != "unrun" for r in rows) and not plans:
+        raise ValueError("Final evaluation has no sealed candidates")
     complete = [r for r in rows if r["status"] == "completed"]
     # Existing verifier checks every complete cell's snapshots, oracle and actor namespaces.
     if complete:
@@ -191,6 +304,8 @@ def verify(directory):
         verify_trials(directory / "trials")
     for row in rows:
         if row["status"] == "completed":
+            plan = plans[f"{row['origin']}-{row['task']}"] if row['origin'] else candidate('{"explanation":"benign control","requests":[]}')
+            verify_trial_inputs(directory, row, tasks["final"][row["task"]], plan)
             work = verify_snapshot(directory / "trials" / row["id"] / "workflow", row["result"]["receipts"]["workflow"])
             count = sum(e.get("decision") == "release" and e.get("broker", {}).get("effect_mismatch", False)
                         for e in work["events"] if not e.get("replayed_response"))
@@ -199,6 +314,38 @@ def verify(directory):
         if row["status"] == "inconclusive":
             if json.loads((directory / "trials" / row["id"] / "failure.json").read_text()) != row:
                 raise ValueError("Failure evidence changed")
+    development = []
+    for name, entry in ledger.items():
+        if "-dev-" not in name or entry["status"] != "recorded":
+            continue
+        row = json.loads((directory / "development" / (name + ".json")).read_text())
+        if row["id"] != name or row["arm"] != name.split("-")[0] or row["task"] != "development":
+            raise ValueError("Development identity changed")
+        if row["status"] == "completed":
+            plan = json.loads((directory / "model" / name / "candidate.json").read_text())
+            verify_trial_inputs(directory / "development", row, tasks["development"], plan)
+            development.append(row)
+        elif row["status"] != "inconclusive" or row != json.loads((directory / "development/trials" / name / "failure.json").read_text()):
+            raise ValueError("Invalid development failure record")
+    if adaptive and ledger:
+        from run_adaptive_pilot import feedback, qualified
+        signatures = {arm: set() for arm in ARMS}
+        for row in development:
+            plan = json.loads((directory / "model" / row["id"] / "candidate.json").read_text())
+            observed = feedback(directory / "development", row, plan, tasks["development"])
+            if observed != json.loads((directory / "development" / (row["id"] + "-feedback.json")).read_text()):
+                raise ValueError("Development feedback changed")
+            if qualified(observed["classification"]):
+                signatures[row["arm"]].add(digest(json.dumps(plan["requests"]).encode()))
+        coverage_path = directory / "search-coverage.json"
+        if coverage_path.exists():
+            counts = {arm: len(values) for arm, values in signatures.items()}
+            if json.loads(coverage_path.read_text()) != {"distinct_development_probes": counts,
+                                                       "gate_passed": all(n >= 2 for n in counts.values())}:
+                raise ValueError("Search coverage differs from development evidence")
+    if development:
+        save(directory / "development/trials/summary.json", development)
+        verify_trials(directory / "development/trials")
     aggregate = {"planned": len(rows), "statuses": {status: sum(r["status"] == status for r in rows)
                  for status in ("unrun", "started", "completed", "inconclusive")}, "arms": {}}
     for arm in ARMS:

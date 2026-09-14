@@ -65,6 +65,9 @@ class LocalService:
         role = role or ("write" if request.tool == "publish_report" else "read")
         try:
             value = send(str(self.socket), {"token": self.tokens[role], "request": asdict(request)}, timeout=3)
+            if (not isinstance(value, dict) or type(value.get("status")) is not int
+                    or not 100 <= value["status"] <= 599):
+                raise ValueError("Invalid backend response shape")
             return value["status"], value.get("response")
         except (ValueError, KeyError) as error:
             raise OSError("Local backend response unavailable; operation may have committed") from error

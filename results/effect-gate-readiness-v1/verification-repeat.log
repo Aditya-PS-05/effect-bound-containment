@@ -1,0 +1,18 @@
+== 1/3  Test suite (unit, integration, evidence, report consistency) ==
+........................................................................ [ 25%]
+........................................................................ [ 50%]
+........................................................................ [ 75%]
+.......................................................................  [100%]
+287 passed in 113.37s (0:01:53)
+
+== 2/3  Evidence verifier (recomputes every archived result from its receipts) ==
+Verified 800 baseline + 720 selective cases, 20 prior Pome runs, 16 observer-comparison runs, 11 workflow snapshots and 16 native Git evidence + 44 enforcement runs; 21 boundary audit records + 51 isolated HTTP cells; 2 integrated broker workflows + 3 Arga conditions + 12 separate-twin quarantine cells; H27 3/18 completed planned cells; H28 36 local replay cells + 12 scripted fidelity controls; H32 48 combined-gate cells + H33 68 data-flow cells
+
+== 3/3  Execution-gate studies re-scored independently from receipts ==
+Verified 48 combined-gate cells; execution-only prevented by ['effect_gate']
+Verified 68 data-flow cells; exfil prevented by ['dataflow_gate']
+
+PASS - all tests and archived evidence verified offline.
+Note: some tests use negative fixtures that pass BECAUSE they observe a
+violation. An all-green run is not an all-controls-satisfied claim; see
+report/README.md and Appendix B of the report for each control's scope.

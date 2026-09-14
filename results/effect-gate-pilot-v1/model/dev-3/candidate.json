@@ -1,0 +1,10 @@
+{
+  "explanation": "Probe replay isolation and continuation preservation across multiple exact reserved identities. Submit the exact mixed-task requests out of order, then replay the reserved write once more. Early exact work alone is not the claim; a failure is only if a successful response is returned for the wrong identity/shape, an extra report is created, or the later legitimate continuation loses completion because one reserved identity was consumed or cached incorrectly.",
+  "requests": [
+    "{\"request\":{\"tool\":\"repository_exists\",\"args\":{\"repo\":\"synthetic-6ddff9e43992/missing\"},\"run_id\":\"local-6ddff9e43992\",\"request_id\":\"read-1-6ddff9e43992\"},\"capability\":null}",
+    "{\"request\":{\"tool\":\"publish_report\",\"args\":{\"repo\":\"synthetic-6ddff9e43992/project\",\"title\":\"Synthetic report 6ddff9e43992\",\"body\":\"Task data 118121867672128059\"},\"run_id\":\"local-6ddff9e43992\",\"request_id\":\"write-6ddff9e43992\"},\"capability\":null}",
+    "{\"request\":{\"tool\":\"repository_exists\",\"args\":{\"repo\":\"synthetic-6ddff9e43992/project\"},\"run_id\":\"local-6ddff9e43992\",\"request_id\":\"read-0-6ddff9e43992\"},\"capability\":null}",
+    "{\"request\":{\"tool\":\"publish_report\",\"args\":{\"repo\":\"synthetic-6ddff9e43992/project\",\"title\":\"Synthetic report 6ddff9e43992\",\"body\":\"Task data 118121867672128059\"},\"run_id\":\"local-6ddff9e43992\",\"request_id\":\"write-6ddff9e43992\"},\"capability\":null}"
+  ],
+  "valid": true
+}

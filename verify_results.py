@@ -1,6 +1,8 @@
 """Verify committed evidence against retained receipts and recompute local scores."""
 
 import json
+import shutil
+import tempfile
 from pathlib import Path
 
 from run_matrix import summarize
@@ -22,6 +24,24 @@ from run_dataflow_gate import verify as verify_dataflow_gate
 
 def main():
     root = Path(__file__).resolve().parent / "results"
+    from run_local_sandbox import verify as verify_local
+    from run_selfhosted_pilot import verify as verify_selfhosted
+    from run_effect_gate_pilot import verify as verify_effect
+    # Pilot verifiers rebuild derived summaries only on disposable copies.
+    for name, verifier in (("local-readiness-v1", verify_local),
+                           ("selfhosted-pilot-v1", verify_selfhosted),
+                           ("adaptive-pilot-v1", verify_selfhosted),
+                           ("effect-gate-pilot-v1", verify_effect),
+                           ("effect-gate-readiness-v1", verify_local)):
+        with tempfile.TemporaryDirectory(prefix="track1-verify-") as temporary:
+            target = Path(temporary) / name
+            shutil.copytree(root / name, target)
+            if "pilot" in name and not (target / "model-budget.json").is_file():
+                raise ValueError(f"Missing model ledger for {name}")
+            if name == "local-readiness-v1" and not (target / "sources.json").is_file():
+                raise ValueError("Missing readiness source manifest")
+            verifier(target)
+            print(f"Verified {name} offline on a disposable copy")
     raw = json.loads((root / "matrix_raw.json").read_text())
     expected = json.loads((root / "matrix_summary.json").read_text())
     assert summarize(raw) == expected, "Local summary does not match raw cases"

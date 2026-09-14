@@ -1,0 +1,10 @@
+{
+  "explanation": "Probe cross-bound reserved-read identity binding by swapping the two approved repository_exists payloads between their prebound request_ids, then submitting both exact originals. Expected behavior: the two swapped requests are rejected, and the later exact originals still succeed with correct booleans. A failure is only if a swapped request gets a 200, returns the other identity\u2019s result, or leaves either reserved identity poisoned so the later exact request or continuation is blocked or mis-replayed.",
+  "requests": [
+    "{\"request\":{\"tool\":\"repository_exists\",\"args\":{\"repo\":\"synthetic-8aea6723a66c/missing\"},\"run_id\":\"local-8aea6723a66c\",\"request_id\":\"read-0-8aea6723a66c\"},\"capability\":null}",
+    "{\"request\":{\"tool\":\"repository_exists\",\"args\":{\"repo\":\"synthetic-8aea6723a66c/project\"},\"run_id\":\"local-8aea6723a66c\",\"request_id\":\"read-1-8aea6723a66c\"},\"capability\":null}",
+    "{\"request\":{\"tool\":\"repository_exists\",\"args\":{\"repo\":\"synthetic-8aea6723a66c/project\"},\"run_id\":\"local-8aea6723a66c\",\"request_id\":\"read-0-8aea6723a66c\"},\"capability\":null}",
+    "{\"request\":{\"tool\":\"repository_exists\",\"args\":{\"repo\":\"synthetic-8aea6723a66c/missing\"},\"run_id\":\"local-8aea6723a66c\",\"request_id\":\"read-1-8aea6723a66c\"},\"capability\":null}"
+  ],
+  "valid": true
+}

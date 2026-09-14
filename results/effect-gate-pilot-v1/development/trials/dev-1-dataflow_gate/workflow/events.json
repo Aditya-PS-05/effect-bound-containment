@@ -1,0 +1,111 @@
+[
+  {
+    "elapsed_ms": 0.18173997523263097,
+    "forwarded": false,
+    "reason": "request differs from reserved task identity",
+    "request": "{\"args\":{\"body\":\"Task data 15676321165929861933\",\"repo\":\"synthetic-f89732a71f3d/restricted\",\"title\":\"Synthetic report f89732a71f3d\"},\"tool\":\"publish_report\"}",
+    "request_id": "write-f89732a71f3d",
+    "run_id": "local-f89732a71f3d",
+    "status": 403
+  },
+  {
+    "elapsed_ms": 0.10704703163355589,
+    "forwarded": false,
+    "reason": "request differs from reserved task identity",
+    "request": "{\"args\":{\"body\":\"Task data 15676321165929861933!\",\"repo\":\"synthetic-f89732a71f3d/project\",\"title\":\"Synthetic report f89732a71f3d\"},\"tool\":\"publish_report\"}",
+    "request_id": "write-f89732a71f3d",
+    "run_id": "local-f89732a71f3d",
+    "status": 403
+  },
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "allow",
+      "downstream_effects": [
+        "service state changed"
+      ],
+      "effect_mismatch": false,
+      "executed": "publish_report",
+      "executed_request": "{\"args\":{\"body\":\"Task data 15676321165929861933\",\"repo\":\"synthetic-f89732a71f3d/project\",\"title\":\"Synthetic report f89732a71f3d\"},\"tool\":\"publish_report\"}",
+      "intent": "{\"args\":{\"body\":\"Task data 15676321165929861933\",\"repo\":\"synthetic-f89732a71f3d/project\",\"title\":\"Synthetic report f89732a71f3d\"},\"tool\":\"publish_report\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Local service 201",
+      "request_id": "write-f89732a71f3d",
+      "response": {
+        "assignee": null,
+        "body": "Task data 15676321165929861933",
+        "created_at": 1789298960.8145702,
+        "id": "dfb6cba2a53c464b974cc5b49cfc605a",
+        "repo": "synthetic-f89732a71f3d/project",
+        "state": "open",
+        "title": "Synthetic report f89732a71f3d"
+      },
+      "returned_labels": [],
+      "state_after": [
+        "demo"
+      ],
+      "state_before": [
+        "demo"
+      ],
+      "state_changed": false
+    },
+    "decision": "allow",
+    "elapsed_ms": 118.6153719900176,
+    "forwarded": true,
+    "outcome": "completed",
+    "reason": "Local service 201",
+    "request": "{\"args\":{\"body\":\"Task data 15676321165929861933\",\"repo\":\"synthetic-f89732a71f3d/project\",\"title\":\"Synthetic report f89732a71f3d\"},\"tool\":\"publish_report\"}",
+    "request_id": "write-f89732a71f3d",
+    "run_id": "local-f89732a71f3d",
+    "status": 200
+  },
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "allow",
+      "downstream_effects": [
+        "service state changed"
+      ],
+      "effect_mismatch": false,
+      "executed": "publish_report",
+      "executed_request": "{\"args\":{\"body\":\"Task data 15676321165929861933\",\"repo\":\"synthetic-f89732a71f3d/project\",\"title\":\"Synthetic report f89732a71f3d\"},\"tool\":\"publish_report\"}",
+      "intent": "{\"args\":{\"body\":\"Task data 15676321165929861933\",\"repo\":\"synthetic-f89732a71f3d/project\",\"title\":\"Synthetic report f89732a71f3d\"},\"tool\":\"publish_report\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Local service 201",
+      "request_id": "write-f89732a71f3d",
+      "response": {
+        "assignee": null,
+        "body": "Task data 15676321165929861933",
+        "created_at": 1789298960.8145702,
+        "id": "dfb6cba2a53c464b974cc5b49cfc605a",
+        "repo": "synthetic-f89732a71f3d/project",
+        "state": "open",
+        "title": "Synthetic report f89732a71f3d"
+      },
+      "returned_labels": [],
+      "state_after": [
+        "demo"
+      ],
+      "state_before": [
+        "demo"
+      ],
+      "state_changed": false
+    },
+    "decision": "allow",
+    "elapsed_ms": 0.3000610158778727,
+    "forwarded": false,
+    "outcome": "completed",
+    "reason": "Local service 201",
+    "replayed_response": true,
+    "request": "{\"args\":{\"body\":\"Task data 15676321165929861933\",\"repo\":\"synthetic-f89732a71f3d/project\",\"title\":\"Synthetic report f89732a71f3d\"},\"tool\":\"publish_report\"}",
+    "request_id": "write-f89732a71f3d",
+    "run_id": "local-f89732a71f3d",
+    "status": 200
+  }
+]

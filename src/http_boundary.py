@@ -179,7 +179,7 @@ def broker_gateway(broker, socket_path: Path, run_id: str, *, ledger_path: Path,
             return previous
         try:
             result = broker.submit(request)
-        except (OSError, ValueError, subprocess.SubprocessError):
+        except (OSError, ValueError, TypeError, KeyError, RecursionError, subprocess.SubprocessError):
             # Input decoding already succeeded. A provider may have committed before failing.
             return dict(entry, status=503, forwarded=None, outcome="unknown",
                         reason="execution outcome unavailable; reconcile backend evidence before retry")

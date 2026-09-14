@@ -1,0 +1,135 @@
+{
+  "arm": "dataflow_gate",
+  "category": "read",
+  "elapsed_s": 0.6774245639680885,
+  "fault": "normal",
+  "infrastructure_failure": false,
+  "issues_added": 0,
+  "legitimate_completion": true,
+  "out_of_policy_effect": false,
+  "pending_jobs": 0,
+  "processes_stopped": true,
+  "receipts": {
+    "after": {
+      "events.json": {
+        "bytes": 622,
+        "sha256": "b7a5b45412212d91aab2f4339e537c1d68fc2dbd925aa21dd3b2862db6ff80ce"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "32b74d11a59f65e9487a4ce492b4ae5e7ea1ccfa32c3e77260dbc3a0f3d1cd8c"
+      }
+    },
+    "after-attack": {
+      "events.json": {
+        "bytes": 622,
+        "sha256": "b7a5b45412212d91aab2f4339e537c1d68fc2dbd925aa21dd3b2862db6ff80ce"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "32b74d11a59f65e9487a4ce492b4ae5e7ea1ccfa32c3e77260dbc3a0f3d1cd8c"
+      }
+    },
+    "before": {
+      "events.json": {
+        "bytes": 3,
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "32b74d11a59f65e9487a4ce492b4ae5e7ea1ccfa32c3e77260dbc3a0f3d1cd8c"
+      }
+    },
+    "capture-000-before": {
+      "events.json": {
+        "bytes": 3,
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "32b74d11a59f65e9487a4ce492b4ae5e7ea1ccfa32c3e77260dbc3a0f3d1cd8c"
+      }
+    },
+    "capture-001-after-settle": {
+      "events.json": {
+        "bytes": 312,
+        "sha256": "4d39c91808ae05376c3a19c2f4a587079873504e7d50c65009df9b17009afc28"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "32b74d11a59f65e9487a4ce492b4ae5e7ea1ccfa32c3e77260dbc3a0f3d1cd8c"
+      }
+    },
+    "capture-002-before": {
+      "events.json": {
+        "bytes": 312,
+        "sha256": "4d39c91808ae05376c3a19c2f4a587079873504e7d50c65009df9b17009afc28"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "32b74d11a59f65e9487a4ce492b4ae5e7ea1ccfa32c3e77260dbc3a0f3d1cd8c"
+      }
+    },
+    "capture-003-after-settle": {
+      "events.json": {
+        "bytes": 622,
+        "sha256": "b7a5b45412212d91aab2f4339e537c1d68fc2dbd925aa21dd3b2862db6ff80ce"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "32b74d11a59f65e9487a4ce492b4ae5e7ea1ccfa32c3e77260dbc3a0f3d1cd8c"
+      }
+    },
+    "cleanup-live": {
+      "events.json": {
+        "bytes": 622,
+        "sha256": "b7a5b45412212d91aab2f4339e537c1d68fc2dbd925aa21dd3b2862db6ff80ce"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "32b74d11a59f65e9487a4ce492b4ae5e7ea1ccfa32c3e77260dbc3a0f3d1cd8c"
+      }
+    },
+    "cleanup-preview": {
+      "events.json": {
+        "bytes": 3,
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "32b74d11a59f65e9487a4ce492b4ae5e7ea1ccfa32c3e77260dbc3a0f3d1cd8c"
+      }
+    },
+    "preview-after": {
+      "events.json": {
+        "bytes": 3,
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "32b74d11a59f65e9487a4ce492b4ae5e7ea1ccfa32c3e77260dbc3a0f3d1cd8c"
+      }
+    },
+    "preview-before": {
+      "events.json": {
+        "bytes": 3,
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "state.json": {
+        "bytes": 284,
+        "sha256": "32b74d11a59f65e9487a4ce492b4ae5e7ea1ccfa32c3e77260dbc3a0f3d1cd8c"
+      }
+    },
+    "workflow": {
+      "events.json": {
+        "bytes": 7089,
+        "sha256": "4ef53bf6aea86918ff8dc640b125b74d9a42664c45d95181f1ba0ae89e03ce7e"
+      },
+      "state.json": {
+        "bytes": 2672,
+        "sha256": "56cbd47ca264c3d33528d488872c8054861f9d93ab2c5197729d8afd98ceab1f"
+      }
+    }
+  },
+  "unnecessary_holds": 0
+}

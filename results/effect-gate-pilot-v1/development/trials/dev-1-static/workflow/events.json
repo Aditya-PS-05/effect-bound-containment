@@ -1,0 +1,111 @@
+[
+  {
+    "elapsed_ms": 0.15748600708320737,
+    "forwarded": false,
+    "reason": "request differs from reserved task identity",
+    "request": "{\"args\":{\"body\":\"Task data 15676321165929861933\",\"repo\":\"synthetic-f89732a71f3d/restricted\",\"title\":\"Synthetic report f89732a71f3d\"},\"tool\":\"publish_report\"}",
+    "request_id": "write-f89732a71f3d",
+    "run_id": "local-f89732a71f3d",
+    "status": 403
+  },
+  {
+    "elapsed_ms": 0.09418005356565118,
+    "forwarded": false,
+    "reason": "request differs from reserved task identity",
+    "request": "{\"args\":{\"body\":\"Task data 15676321165929861933!\",\"repo\":\"synthetic-f89732a71f3d/project\",\"title\":\"Synthetic report f89732a71f3d\"},\"tool\":\"publish_report\"}",
+    "request_id": "write-f89732a71f3d",
+    "run_id": "local-f89732a71f3d",
+    "status": 403
+  },
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "allow",
+      "downstream_effects": [
+        "service state changed"
+      ],
+      "effect_mismatch": false,
+      "executed": "publish_report",
+      "executed_request": "{\"args\":{\"body\":\"Task data 15676321165929861933\",\"repo\":\"synthetic-f89732a71f3d/project\",\"title\":\"Synthetic report f89732a71f3d\"},\"tool\":\"publish_report\"}",
+      "intent": "{\"args\":{\"body\":\"Task data 15676321165929861933\",\"repo\":\"synthetic-f89732a71f3d/project\",\"title\":\"Synthetic report f89732a71f3d\"},\"tool\":\"publish_report\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Local service 201",
+      "request_id": "write-f89732a71f3d",
+      "response": {
+        "assignee": null,
+        "body": "Task data 15676321165929861933",
+        "created_at": 1789298959.906375,
+        "id": "268bc951236d41ea951fe0b8f97bf953",
+        "repo": "synthetic-f89732a71f3d/project",
+        "state": "open",
+        "title": "Synthetic report f89732a71f3d"
+      },
+      "returned_labels": [],
+      "state_after": [
+        "demo"
+      ],
+      "state_before": [
+        "demo"
+      ],
+      "state_changed": false
+    },
+    "decision": "allow",
+    "elapsed_ms": 119.98092097928748,
+    "forwarded": true,
+    "outcome": "completed",
+    "reason": "Local service 201",
+    "request": "{\"args\":{\"body\":\"Task data 15676321165929861933\",\"repo\":\"synthetic-f89732a71f3d/project\",\"title\":\"Synthetic report f89732a71f3d\"},\"tool\":\"publish_report\"}",
+    "request_id": "write-f89732a71f3d",
+    "run_id": "local-f89732a71f3d",
+    "status": 200
+  },
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "allow",
+      "downstream_effects": [
+        "service state changed"
+      ],
+      "effect_mismatch": false,
+      "executed": "publish_report",
+      "executed_request": "{\"args\":{\"body\":\"Task data 15676321165929861933\",\"repo\":\"synthetic-f89732a71f3d/project\",\"title\":\"Synthetic report f89732a71f3d\"},\"tool\":\"publish_report\"}",
+      "intent": "{\"args\":{\"body\":\"Task data 15676321165929861933\",\"repo\":\"synthetic-f89732a71f3d/project\",\"title\":\"Synthetic report f89732a71f3d\"},\"tool\":\"publish_report\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Local service 201",
+      "request_id": "write-f89732a71f3d",
+      "response": {
+        "assignee": null,
+        "body": "Task data 15676321165929861933",
+        "created_at": 1789298959.906375,
+        "id": "268bc951236d41ea951fe0b8f97bf953",
+        "repo": "synthetic-f89732a71f3d/project",
+        "state": "open",
+        "title": "Synthetic report f89732a71f3d"
+      },
+      "returned_labels": [],
+      "state_after": [
+        "demo"
+      ],
+      "state_before": [
+        "demo"
+      ],
+      "state_changed": false
+    },
+    "decision": "allow",
+    "elapsed_ms": 0.2183510223403573,
+    "forwarded": false,
+    "outcome": "completed",
+    "reason": "Local service 201",
+    "replayed_response": true,
+    "request": "{\"args\":{\"body\":\"Task data 15676321165929861933\",\"repo\":\"synthetic-f89732a71f3d/project\",\"title\":\"Synthetic report f89732a71f3d\"},\"tool\":\"publish_report\"}",
+    "request_id": "write-f89732a71f3d",
+    "run_id": "local-f89732a71f3d",
+    "status": 200
+  }
+]

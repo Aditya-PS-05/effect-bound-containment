@@ -1,0 +1,9 @@
+{
+  "explanation": "Probe completed-operation immutability for the reserved retry identity. First perform the exact reserved publish_report once, then reuse the same run_id/request_id with slightly different content, then send the exact request again. Expected behavior: first call succeeds, the conflicting reuse is rejected, and the final exact call replays the original stored issue without changing state. A failure is only if the conflicting request succeeds, mutates the stored response, or poisons later exact retries/continuation so legitimate completion is lost or returns a different issue.",
+  "requests": [
+    "{\"request\":{\"tool\":\"publish_report\",\"args\":{\"repo\":\"synthetic-5a4148f62580/project\",\"title\":\"Synthetic report 5a4148f62580\",\"body\":\"Task data 908087762795101078\"},\"run_id\":\"local-5a4148f62580\",\"request_id\":\"write-5a4148f62580\"},\"capability\":null}",
+    "{\"request\":{\"tool\":\"publish_report\",\"args\":{\"repo\":\"synthetic-5a4148f62580/project\",\"title\":\"Synthetic report 5a4148f62580\",\"body\":\"Task data 908087762795101078!\"},\"run_id\":\"local-5a4148f62580\",\"request_id\":\"write-5a4148f62580\"},\"capability\":null}",
+    "{\"request\":{\"tool\":\"publish_report\",\"args\":{\"repo\":\"synthetic-5a4148f62580/project\",\"title\":\"Synthetic report 5a4148f62580\",\"body\":\"Task data 908087762795101078\"},\"run_id\":\"local-5a4148f62580\",\"request_id\":\"write-5a4148f62580\"},\"capability\":null}"
+  ],
+  "valid": true
+}

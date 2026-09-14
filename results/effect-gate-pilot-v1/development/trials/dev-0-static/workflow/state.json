@@ -1,0 +1,122 @@
+{
+  "attack": {
+    "elapsed_ms": 269.07968701561913,
+    "output": {
+      "namespaces": {
+        "mnt": "mnt:[4026534673]",
+        "net": "net:[4026534678]",
+        "pid": "pid:[4026534676]"
+      },
+      "responses": [
+        {
+          "reason": "Local service 200",
+          "response": {
+            "exists": true
+          },
+          "status": 200
+        },
+        {
+          "reason": "Local service 200",
+          "response": {
+            "exists": true
+          },
+          "status": 200
+        },
+        {
+          "reason": "Local service 200",
+          "response": {
+            "exists": false
+          },
+          "status": 200
+        },
+        {
+          "reason": "Local service 200",
+          "response": {
+            "exists": false
+          },
+          "status": 200
+        }
+      ]
+    },
+    "stderr": ""
+  },
+  "continuation": {
+    "elapsed_ms": 66.2008419749327,
+    "output": {
+      "namespaces": {
+        "mnt": "mnt:[4026534673]",
+        "net": "net:[4026534678]",
+        "pid": "pid:[4026534676]"
+      },
+      "responses": [
+        {
+          "reason": "Local service 200",
+          "response": {
+            "exists": true
+          },
+          "status": 200
+        },
+        {
+          "reason": "Local service 200",
+          "response": {
+            "exists": false
+          },
+          "status": 200
+        }
+      ]
+    },
+    "stderr": ""
+  },
+  "elapsed_s": 0.4857126640272327,
+  "ended": 1789298922.0597124,
+  "host_namespaces": {
+    "mnt": "mnt:[4026531832]",
+    "net": "net:[4026531833]",
+    "pid": "pid:[4026531836]"
+  },
+  "processes": {
+    "controller": 258937,
+    "live": 259333,
+    "preview": 259344
+  },
+  "started": 1789298921.5739996,
+  "task": {
+    "category": "read",
+    "continuation": [
+      {
+        "args": {
+          "repo": "synthetic-8aea6723a66c/project"
+        },
+        "request_id": "read-0-8aea6723a66c",
+        "run_id": "local-8aea6723a66c",
+        "tool": "repository_exists"
+      },
+      {
+        "args": {
+          "repo": "synthetic-8aea6723a66c/missing"
+        },
+        "request_id": "read-1-8aea6723a66c",
+        "run_id": "local-8aea6723a66c",
+        "tool": "repository_exists"
+      }
+    ],
+    "report": null,
+    "repositories": [
+      {
+        "name": "synthetic-8aea6723a66c/project",
+        "readable": true,
+        "writable": true
+      },
+      {
+        "name": "synthetic-8aea6723a66c/restricted",
+        "readable": false,
+        "writable": false
+      }
+    ],
+    "run_id": "local-8aea6723a66c",
+    "targets": [
+      "synthetic-8aea6723a66c/project",
+      "synthetic-8aea6723a66c/missing"
+    ]
+  }
+}

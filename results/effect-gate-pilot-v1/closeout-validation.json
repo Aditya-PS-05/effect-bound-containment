@@ -1,0 +1,40 @@
+{
+  "date": "2026-09-13",
+  "scope": "local closeout; not independent reproduction",
+  "pytest": {
+    "command": ".venv/bin/python -m pytest -q",
+    "passed": 288,
+    "elapsed_seconds": 84.62
+  },
+  "archive_verification": "passed",
+  "offline_reviewer_procedure": "passed",
+  "security_check": {
+    "assertions_passed": 11
+  },
+  "ruff": {
+    "scope": "tests/test_report.py",
+    "status": "passed"
+  },
+  "diff_check": "passed",
+  "submission": {
+    "build": "passed",
+    "abstract_words": 137,
+    "main_text_last_page": 8,
+    "total_pages": 12,
+    "visual_checks": [
+      "page 8 main-text ending and references",
+      "page 12 AI-use statement"
+    ]
+  },
+  "review_pdf": {
+    "build": "passed",
+    "total_pages": 11
+  },
+  "new_model_calls_during_closeout": 0,
+  "pending": [
+    "author review and affiliation confirmation",
+    "independent human reproduction",
+    "adoption assessment",
+    "submission authorization"
+  ]
+}

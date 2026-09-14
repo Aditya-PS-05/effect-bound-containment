@@ -1,0 +1,62 @@
+[
+  {
+    "elapsed_ms": 0.24498096900060773,
+    "forwarded": false,
+    "reason": "request has no trusted operation identity",
+    "request": "{\"args\":{\"body\":\"Task data 14261541935347339031\",\"repo\":\"synthetic-e026baa108f3/project\",\"title\":\"Synthetic report e026baa108f3\"},\"tool\":\"publish_report\"}",
+    "request_id": "synthetic-unknown",
+    "run_id": "local-e026baa108f3",
+    "status": 403
+  },
+  {
+    "elapsed_ms": 0.03345397999510169,
+    "forwarded": false,
+    "reason": "JSONDecodeError: invalid or unavailable request",
+    "status": 400
+  },
+  {
+    "broker": {
+      "accepted": true,
+      "data_reads": [],
+      "decision": "allow",
+      "downstream_effects": [
+        "service state changed"
+      ],
+      "effect_mismatch": false,
+      "executed": "publish_report",
+      "executed_request": "{\"args\":{\"body\":\"Task data 14261541935347339031\",\"repo\":\"synthetic-e026baa108f3/project\",\"title\":\"Synthetic report e026baa108f3\"},\"tool\":\"publish_report\"}",
+      "intent": "{\"args\":{\"body\":\"Task data 14261541935347339031\",\"repo\":\"synthetic-e026baa108f3/project\",\"title\":\"Synthetic report e026baa108f3\"},\"tool\":\"publish_report\"}",
+      "mismatch": false,
+      "observer_chain_valid": true,
+      "pending_effects": [],
+      "reason": "Local service 201",
+      "request_id": "write-e026baa108f3",
+      "response": {
+        "assignee": null,
+        "body": "Task data 14261541935347339031",
+        "created_at": 1789298349.5157228,
+        "id": "4daab71b18f346eab3f3344040298db9",
+        "repo": "synthetic-e026baa108f3/project",
+        "state": "open",
+        "title": "Synthetic report e026baa108f3"
+      },
+      "returned_labels": [],
+      "state_after": [
+        "demo"
+      ],
+      "state_before": [
+        "demo"
+      ],
+      "state_changed": false
+    },
+    "decision": "allow",
+    "elapsed_ms": 135.2812320110388,
+    "forwarded": true,
+    "outcome": "completed",
+    "reason": "Local service 201",
+    "request": "{\"args\":{\"body\":\"Task data 14261541935347339031\",\"repo\":\"synthetic-e026baa108f3/project\",\"title\":\"Synthetic report e026baa108f3\"},\"tool\":\"publish_report\"}",
+    "request_id": "write-e026baa108f3",
+    "run_id": "local-e026baa108f3",
+    "status": 200
+  }
+]

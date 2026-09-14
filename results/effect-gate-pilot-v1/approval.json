@@ -1,0 +1,7 @@
+{
+  "protocol_sha256": "a6b0d97dc03409e30b9409e802c2821bbbf735a9d99cae95211b1e750057344e",
+  "authorization": "User explicitly approved the frozen 12-call, $3.84, 16-cell protocol.",
+  "recorded_at": "2026-09-13T11:27:48.166471+00:00",
+  "preflight_status": "blocked_missing_controller_OPENAI_API_KEY",
+  "model_calls": 0
+}

@@ -156,6 +156,17 @@ def run_trial(task, arm, directory, requests=(), fault="normal", secret=None):
     return result
 
 
+def verify_task(directory, result, task, arm, fault):
+    """Bind receipt-backed task data to the planned case, not summary labels."""
+    work = verify_snapshot(directory / "workflow", result["receipts"]["workflow"])["state"]
+    expected = {**task, "report": asdict(task["report"]) if task["report"] else None,
+                "continuation": [asdict(r) for r in task["continuation"]]}
+    if (work["task"] != expected or result["arm"] != arm
+            or result["category"] != task["category"] or result["fault"] != fault):
+        raise ValueError("Trial differs from planned task, arm or fault")
+    return work
+
+
 def verify(directory):
     rows = json.loads((directory / "summary.json").read_text())
     manifest = directory / "sources.json"
@@ -170,6 +181,13 @@ def verify(directory):
                     for arm in ("static", "selective")]
         if [row["id"] for row in rows] != planned:
             raise ValueError("Missing or reordered readiness cells")
+        cases = [(task_spec(seed, category), arm, "normal") for seed in (2901, 2902, 2903)
+                 for category in ("read", "write", "retry", "mixed") for arm in ("static", "selective")]
+        cases += [(task_spec(2999, "mixed"), arm, fault) for fault in
+                  ("visible_write", "deferred_write", "simulation_gap", "malformed_after_commit")
+                  for arm in ("static", "selective")]
+        for item, (task, arm, fault) in zip(rows, cases):
+            verify_task(directory / item["id"], item["result"], task, arm, fault)
     for item in rows:
         cell, row = directory / item["id"], item["result"]
         assert json.loads((cell / "result.json").read_text()) == row
