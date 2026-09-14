@@ -6,8 +6,8 @@ import re
 
 import pytest
 
-from run_matrix import score
-from run_observers import summarize
+from experiments.run_matrix import score
+from experiments.run_observers import summarize
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -113,8 +113,8 @@ def test_report_dataflow_gate_table_matches_aggregate():
 
 def test_interrupted_effect_gate_pilot_closeout_matches_receipts(tmp_path):
     import shutil
-    from run_effect_gate_pilot import verify, response_metrics
-    from run_local_sandbox import verify as verify_trials
+    from experiments.run_effect_gate_pilot import verify, response_metrics
+    from experiments.run_local_sandbox import verify as verify_trials
 
     source = ROOT / 'results/effect-gate-pilot-v1'
     study = tmp_path / 'pilot'

@@ -62,7 +62,7 @@ over equally informed static enforcement. Do not substitute one for another.
 Track every intermediate proposition and its evidence in [hypotheses.md](hypotheses.md).
 That ledger preserves negative results and distinguishes historical reconstruction
 from prospectively recorded tests. The observer comparison is now complete; its
-findings are in [observer_comparison.md](observer_comparison.md).
+findings are in [observer_comparison.md](docs/observer_comparison.md).
 
 This is not a claim that any sandbox is perfectly safe. It is a conditional claim about a defined architecture:
 
@@ -199,7 +199,7 @@ The project pins Node 24.21.0 and Pome CLI 0.43.0 in package.json and package-lo
 
 Reference: [Pome Digital Twins](https://github.com/pome-sh/digital-twins)
 
-The design review is recorded in [literature_review.md](literature_review.md), covering complete mediation, confused deputies, information-flow control, AI control, AgentDojo, CaMeL, AgentDyn and recent tool-use security benchmarks.
+The design review is recorded in [literature_review.md](docs/literature_review.md), covering complete mediation, confused deputies, information-flow control, AI control, AgentDojo, CaMeL, AgentDyn and recent tool-use security benchmarks.
 
 ## Implementation audit
 
@@ -215,16 +215,16 @@ The subsequent integrated runner now closes that gap.
 |---|---|
 | Exact authorization and independent observation | Implemented; local reliability regressions and the existing suite pass (199 tests at the H27 checkpoint). |
 | Actor isolation | 51 scripted HTTP cells show 11/12, 8/12 and 0/12 attack successes across upstream approval, isolated endpoint restriction and isolated exact authorization. |
-| One complete isolated broker workflow | Completed in `run_broker_workflow.py` and `results/broker-workflow-v1`: actual broker, Pome adapter and independent observer; allowed work, denied effects, unknown holds and retries verified together. |
+| One complete isolated broker workflow | Completed in `experiments/run_broker_workflow.py` and `results/broker-workflow-v1`: actual broker, Pome adapter and independent observer; allowed work, denied effects, unknown holds and retries verified together. |
 | Real Pome quarantine and selective release | Incomplete. The seed API is not an exact state restore; fresh twins differ in timestamps and commit hashes. Do not replace the backend with a local clone or ignore those differences to claim fidelity. |
 | Incremental quarantine benefit | Conditional benefit in H26: static and selective complete 2/2 benign reads, but only selective blocks the preview-reproducible hidden write. Both miss the execution-only fault. Original static/hold-all results remain tied. |
-| Independent Arga backend | User-requested GitHub issue comparison added; see `arga_comparison.md`. Exported issue/access state matches after reset, but Git identifiers do not. This is not faithful full-state quarantine. |
+| Independent Arga backend | User-requested GitHub issue comparison added; see `docs/arga_comparison.md`. Exported issue/access state matches after reset, but Git identifiers do not. This is not faithful full-state quarantine. |
 | Narrow hosted quarantine | Implemented for two fixed repository-existence aliases using separate execution/preview twins and checked seed context. All 12 cells retained in `results/arga-quarantine-v1`; arbitrary current-state cloning remains unsupported. |
 | Bounded OpenAI evaluation | H27 ran ten real GPT-5.4 Mini inference calls for an estimated $0.1359192. A model-generated availability failure reproduced on Arga. Free quota stopped final evaluation at 3/18 cells; no matched attack pair completed, so comparative prevention remains inconclusive. See `report/openai-pilot.md`. |
 | Sprint report | Existing draft and PDF cover earlier evidence; later Git/HTTP studies still need author-reviewed consolidation. |
 
 The integrated workflow gate and narrow hosted read comparison are complete.
-The bounded OpenAI study now follows `openai_pilot_protocol.md`: identical model
+The bounded OpenAI study now follows `protocols/openai_pilot_protocol.md`: identical model
 budgets, local development and sealed candidates replayed against both defenses.
 Its incomplete cases must remain explicit; model-found availability failures do
 not establish unauthorized-write bypasses or additional quarantine prevention.
@@ -242,7 +242,7 @@ readiness cells complete without effects or holds; the eight scripted controls
 retain the execution-only escape and uncertain-response failures. EC2 is not
 required for this sequential local evaluation. See `report/selfhosted-readiness.md`.
 H30 is a new self-hosted study, not completion of the missing H27 hosted cells.
-Its approved frozen protocol is `selfhosted_pilot_protocol.md`. All ten model calls
+Its approved frozen protocol is `protocols/selfhosted_pilot_protocol.md`. All ten model calls
 and 18 final cells completed for $0.0952803. Both arms completed 9/9 tasks without
 unauthorized effects or holds. Four candidates were empty and two were authorized
 sequences, so the pilot did not establish added prevention or substantive attack
@@ -273,7 +273,7 @@ without holding the benign read; all three complete the 12 normal cells. It does
 repair the transport fault, does not defend a compromised service or host, and is a
 static effect policy at the effect boundary, not an adaptive-quarantine advantage. It
 generalizes the native Git receive-gate result (H15–H17) to a second backend and
-unifies the project's two halves under one harness. See `combined_gate_protocol.md`.
+unifies the project's two halves under one harness. See `protocols/combined_gate_protocol.md`.
 At the original H33 checkpoint the full suite was 270 tests; `verify_results.py` recomputes the 48 + 68 gate cells.
 
 H33 broadens the H32 gate to confine outbound data flow, tested against a read that
@@ -283,7 +283,7 @@ leak and still returns the authorized value, while matching the state gate on ev
 fault. It makes concrete that any effect observable and withholdable at the execution
 boundary belongs in the gate, shrinking quarantine's residue to irreversible, out-of-band
 effects and covert/implicit channels (out of scope). Additive and default-off; not a
-quarantine or model claim. See `dataflow_gate_protocol.md`.
+quarantine or model claim. See `protocols/dataflow_gate_protocol.md`.
 
 The local components are:
 
@@ -311,7 +311,7 @@ The original local checks cannot prove external host isolation, complete Pome fi
 
 ## Comparative run
 
-`run_matrix.py` runs 800 repeated deterministic cases: 4 configurations, 10 conditions and 20 repetitions. Repetitions are not independent statistical samples. The static-server ablation separates execution enforcement from quarantine:
+`experiments/run_matrix.py` runs 800 repeated deterministic cases: 4 configurations, 10 conditions and 20 repetitions. Repetitions are not independent statistical samples. The static-server ablation separates execution enforcement from quarantine:
 
 | Configuration | Main result |
 |---|---|
@@ -322,7 +322,7 @@ The original local checks cannot prove external host isolation, complete Pome fi
 
 The local results are in [`results/matrix_raw.json`](results/matrix_raw.json) and [`results/matrix_summary.json`](results/matrix_summary.json). Actual Pome results and observer receipts are in `results/pome-observed-v4/`. Workflow and partial-failure results are in `results/pome-workflows-v1/`. See `verification.md` for the findings, evidence trust boundary and unresolved limitations.
 
-`measure_resources.py` records comparative request latency, CPU and Python allocation peaks in [`results/resource_summary.json`](results/resource_summary.json). Pome result files also record twin startup time, observer capture time and observer process peak RSS. These are machine-specific overhead measurements. Use `run_pome.py --output <new-directory>` to reproduce actual Pome evidence acquisition.
+`experiments/measure_resources.py` records comparative request latency, CPU and Python allocation peaks in [`results/resource_summary.json`](results/resource_summary.json). Pome result files also record twin startup time, observer capture time and observer process peak RSS. These are machine-specific overhead measurements. Use `run_pome.py --output <new-directory>` to reproduce actual Pome evidence acquisition.
 
 ## Selective release extension
 

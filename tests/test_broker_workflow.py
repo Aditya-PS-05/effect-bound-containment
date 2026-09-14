@@ -4,7 +4,7 @@ import json
 
 import pytest
 
-from run_broker_workflow import run_case, score, task
+from experiments.run_broker_workflow import run_case, score, task
 from src.effect_bound import Broker, CapabilityIssuer, CapabilityVerifier, PolicyRegistry
 from src.effect_bound import Request
 from src.http_actor import send

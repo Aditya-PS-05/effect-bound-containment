@@ -4,7 +4,7 @@ import threading
 
 import pytest
 
-from run_selective import BENIGN, CONFIGS, SCENARIOS, build, run_case, summarize
+from experiments.run_selective import BENIGN, CONFIGS, SCENARIOS, build, run_case, summarize
 from src.effect_bound import EffectContract, Request, ToolServer
 
 

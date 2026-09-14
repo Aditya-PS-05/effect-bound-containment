@@ -41,8 +41,8 @@ Run the two commands below. They verify the archives; they do not certify the
 controls. Record failures as observed, without repairing or rerunning experiments.
 
 ```sh
-.venv/bin/python run_combined_gate.py results/combined-gate-v1 --verify
-.venv/bin/python run_dataflow_gate.py results/dataflow-gate-v1 --verify
+.venv/bin/python -m experiments.run_combined_gate results/combined-gate-v1 --verify
+.venv/bin/python -m experiments.run_dataflow_gate results/dataflow-gate-v1 --verify
 ```
 
 Inspect these four packets:

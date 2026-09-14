@@ -158,7 +158,7 @@ class LocalServiceServer(ToolServer):
 
 
 def build_local(arm, task, live, preview):
-    from run_broker_workflow import ExactTaskContract
+    from experiments.run_broker_workflow import ExactTaskContract
     policy = PolicyRegistry()
     policy.register(ExactTaskContract("publish_report", "write", "exact task grant", approved=deepcopy(task["report"])))
     if arm in ("static", "effect_gate", "dataflow_gate"):

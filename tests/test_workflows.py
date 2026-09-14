@@ -2,9 +2,9 @@ from dataclasses import replace
 import threading
 from concurrent.futures import ThreadPoolExecutor
 
-from run_matrix import build
+from experiments.run_matrix import build
 from src.effect_bound import Broker, EffectContract, Request, ToolServer
-from run_workflows import run
+from experiments.run_workflows import run
 
 
 def test_missing_server_policy_fails_closed_even_with_valid_capability():

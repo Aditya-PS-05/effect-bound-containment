@@ -2,7 +2,7 @@ from copy import deepcopy
 
 import pytest
 
-from run_observers import backend_view, compare, run_case, summarize
+from experiments.run_observers import backend_view, compare, run_case, summarize
 from src.process_observer import persist_snapshot
 from tests.test_evidence import captured_event
 

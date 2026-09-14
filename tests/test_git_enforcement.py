@@ -6,8 +6,8 @@ import subprocess
 
 import pytest
 
-from run_git_enforcement import CONFIGS, HOOK, SCENARIOS, install_gate, preview, run_case, summarize, verify_run
-from run_git_evidence import COMMAND, ENV, REVIEW, git_fixture
+from experiments.run_git_enforcement import CONFIGS, HOOK, SCENARIOS, install_gate, preview, run_case, summarize, verify_run
+from experiments.run_git_evidence import COMMAND, ENV, REVIEW, git_fixture
 from src.git_receive_gate import permitted
 
 
@@ -100,7 +100,7 @@ def test_bad_policy_does_not_authorize_even_empty_batch(policy):
 def test_enforcement_table_matches_verified_evidence():
     root = Path(__file__).resolve().parents[1]
     summary = summarize(verify_run(root / "results/git-enforcement-v1"))
-    report = (root / "git_enforcement.md").read_text()
+    report = (root / "docs/git_enforcement.md").read_text()
     for config, label in zip(CONFIGS, ("Intent only", "Exact command", "Broker preview", "Receive gate")):
         line = next(line for line in report.splitlines() if line.startswith(f"| {label} |"))
         actual = [int(cell.strip()) for cell in line.split("|")[2:-1]]

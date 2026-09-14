@@ -3,8 +3,8 @@ from pathlib import Path
 
 import pytest
 
-from run_combined_gate import ARMS, aggregate, planned
-from run_local_sandbox import run_trial, task_spec
+from experiments.run_combined_gate import ARMS, aggregate, planned
+from experiments.run_local_sandbox import run_trial, task_spec
 from src.effect_bound import Request
 from src.local_sandbox import LocalService
 

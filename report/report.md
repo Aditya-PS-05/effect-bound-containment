@@ -9,7 +9,7 @@ colorlinks: true
 **Authoring material, not a submission manuscript.** This is the consolidated,
 AI-assisted evidence package through H34. The author must review the facts and
 approve or revise the AI-drafted narrative in the [official template](official-template.docx).
-The original `evidence-pack.pdf` and `review.html` are historical renderings;
+The original `history/evidence-pack.pdf` and `history/review.html` are historical renderings;
 `track1-review.pdf` and `track1-review.html` render this current source.
 Nothing has been submitted. Independent human reproduction remains pending;
 a fresh-context AI walkthrough is recorded separately under `reviews/fresh-agent-v1/`.
@@ -158,7 +158,7 @@ The three changes after preview were blocked only at receive time. Exact command
 matching is a weak baseline that rejects harmless variations. The receive gate is
 itself a static effect policy; this result is **not a quarantine advantage**.
 Evidence: [raw cells](../results/git-enforcement-v1/raw.json),
-[summary](../results/git-enforcement-v1/summary.json), [methods](../git_enforcement.md).
+[summary](../results/git-enforcement-v1/summary.json), [methods](../docs/git_enforcement.md).
 
 **Table 2. Isolated HTTP, 51 scripted cells.** Twelve adversarial and five benign
 workflows per condition, including identity changes, bypass and retry controls.
@@ -172,7 +172,7 @@ workflows per condition, including identity changes, bypass and retry controls.
 Endpoint restriction alone did not bind the action. The weak conditions duplicated
 an approved report on retry. These are ordinary-user sandbox fixtures, not kernel
 escape tests. Evidence: [raw cells](../results/isolated-http-v1/raw.json),
-[summary](../results/isolated-http-v1/summary.json), [methods](../isolated_http.md).
+[summary](../results/isolated-http-v1/summary.json), [methods](../docs/isolated_http.md).
 
 **Table 3. Earlier local matrix, 800 cases.** Seven attack and three benign scenarios
 per configuration, each repeated twenty times. AS = attack successes; LC = accepted
@@ -205,7 +205,7 @@ Selective release blocked four modeled fault classes. All twenty simulation-gap
 repetitions escaped, with mismatch flags only after execution. This is a conditional
 benefit over equally informed permissions, not superiority over denying everything.
 Evidence: [raw cells](../results/selective-release-v1/raw.json),
-[summary](../results/selective-release-v1/summary.json), [methods](../selective_release.md).
+[summary](../results/selective-release-v1/summary.json), [methods](../docs/selective_release.md).
 
 **Later fidelity checks.** H26 has twelve hosted Arga cells across hold-all, static
 and selective conditions. Static and selective complete both benign reads;
@@ -237,7 +237,7 @@ Broker-only allowed 4/4 attacks; full gate allowed 2/4, both after the gate. Bot
 completed 4/4 benign tasks. Expected 404 and lost-response controls produced no
 mismatch alarms. Zero alarms on eight controls is not a population estimate.
 Evidence: [raw cells](../results/observer-comparison-v1/raw.json),
-[summary](../results/observer-comparison-v1/summary.json), [methods](../observer_comparison.md).
+[summary](../results/observer-comparison-v1/summary.json), [methods](../docs/observer_comparison.md).
 
 \newpage
 
@@ -310,7 +310,7 @@ read. It does not repair the transport fault. This is the same execution-side
 mechanism as the native Git receive gate (§4.1) applied to a second backend; it is a
 static effect policy at the effect boundary, **not** a quarantine advantage, and it
 does not defend a compromised service or host. See [H32](../hypotheses.md) and
-[the predeclared protocol](../combined_gate_protocol.md).
+[the predeclared protocol](../protocols/combined_gate_protocol.md).
 
 **Post-study correctness review (2026-09-13).** The archived H32/H33 counts below
 and above describe the original implementation and remain unchanged. Additional
@@ -343,7 +343,7 @@ observable effects at the execution boundary for these fixtures. It does not
 establish complete state or data-flow confinement, as the post-study defects above
 demonstrate. Out-of-band effects, covert channels, a compromised gate or host, and
 general preview fidelity remain outside the validated scope. See [H33](../hypotheses.md) and
-[the protocol](../dataflow_gate_protocol.md).
+[the protocol](../protocols/dataflow_gate_protocol.md).
 
 # 5. Discussion and Limitations
 
@@ -502,10 +502,10 @@ that actually ran; the current working implementation includes later repairs.
 
 | Evidence | Inventory and scope | Full methods/results |
 |---|---|---|
-| Original local/Pome suites | 800 matrix cases; 720 selective cases; 20 earlier Pome cells; 16 observer cells; 11 workflow checkpoints. | [Hypothesis ledger](../hypotheses.md), [observer methods](../observer_comparison.md) |
-| Native Git | 16 evidence cells, then 44 enforcement cells; received ref effects, not quarantine. | [Evidence](../git_evidence.md), [enforcement](../git_enforcement.md) |
-| Boundary/HTTP | 21 boundary-audit records; 51 isolated HTTP cells. | [HTTP study](../isolated_http.md), [audit source](../run_boundary_audit.py) |
-| Integrated broker/Arga | Two local integrated workflows; three hosted guard conditions; twelve separate-twin quarantine cells. | [Arga comparison](../arga_comparison.md) |
+| Original local/Pome suites | 800 matrix cases; 720 selective cases; 20 earlier Pome cells; 16 observer cells; 11 workflow checkpoints. | [Hypothesis ledger](../hypotheses.md), [observer methods](../docs/observer_comparison.md) |
+| Native Git | 16 evidence cells, then 44 enforcement cells; received ref effects, not quarantine. | [Evidence](../docs/git_evidence.md), [enforcement](../docs/git_enforcement.md) |
+| Boundary/HTTP | 21 boundary-audit records; 51 isolated HTTP cells. | [HTTP study](../docs/isolated_http.md), [audit source](../experiments/run_boundary_audit.py) |
+| Integrated broker/Arga | Two local integrated workflows; three hosted guard conditions; twelve separate-twin quarantine cells. | [Arga comparison](../docs/arga_comparison.md) |
 | H27/H28 | Hosted pilot 3/18 final cells; repairs 36 replay cells plus 12 fault controls. | [H27](openai-pilot.md), [H28](pilot-followup.md) |
 | H34 | Five completed development calls, one unresolved; 0/16 final cells. | [Interrupted closeout](effect-gate-pilot.md) |
 | H29/H30/H31 | 32 readiness cells; 18 completed H30 final cells; 12 H31 development cells, zero final cells. | [Complete follow-up](selfhosted-readiness.md) |

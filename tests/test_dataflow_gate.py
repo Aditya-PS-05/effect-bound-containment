@@ -3,8 +3,8 @@ from pathlib import Path
 
 import pytest
 
-from run_dataflow_gate import ARMS, aggregate, leaked, planned
-from run_local_sandbox import run_trial, task_spec
+from experiments.run_dataflow_gate import ARMS, aggregate, leaked, planned
+from experiments.run_local_sandbox import run_trial, task_spec
 from src.effect_bound import Request
 from src.local_sandbox import LocalService
 from src.local_service import declared_output

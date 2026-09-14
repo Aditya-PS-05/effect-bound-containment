@@ -203,7 +203,7 @@ limitation, not a repaired hostile-observer boundary.
 Main hypothesis status does not improve to full support. The new result strengthens
 the evidence-sufficiency question using an independently implemented backend; it
 does not rescue the negative quarantine comparison or establish production containment.
-See `git_evidence.md` for per-condition counts, requirements and scope limits.
+See `docs/git_evidence.md` for per-condition counts, requirements and scope limits.
 
 ### Execution-time Git enforcement protocol, before implementation/runs
 
@@ -414,7 +414,7 @@ with higher strict completion rather than equality on the retry case.
 
 145 tests pass; security smoke checks, lint and all earlier/new evidence verify.
 Final repaired Pome audit is `boundary-audit-after-v2`; the first after-repair
-archive remains as an intermediate checkpoint. See `isolated_http.md` for the
+archive remains as an intermediate checkpoint. See `docs/isolated_http.md` for the
 boundary between request binding, native effects and production containment.
 No LLM attacker, cross-host deployment or added quarantine advantage is claimed.
 
@@ -517,7 +517,7 @@ enforcement, not incremental adaptation or exact quarantine snapshot fidelity.
 
 The intermediate `arga-workflow-v1` archive is preserved; v2 corrects the adapter's
 repository-name log from a default test-double name to the names in the actual
-independent starting snapshot. Outcomes are unchanged. See `arga_comparison.md`
+independent starting snapshot. Outcomes are unchanged. See `docs/arga_comparison.md`
 for the reset prerequisite failures, amendments and reproduction commands.
 
 ## H26 prospective narrow Arga quarantine, 2026-09-13
@@ -575,12 +575,12 @@ A local regression first failed for a source-context change during preview.
 The shared release code now signs only the pre-preview context after checking
 that it remained unchanged. All 185 local tests pass. The full evidence verifier
 recomputes the 12 hosted outcomes and verifies restoration of both twins.
-No OpenAI attacker or other model inference was run. See `arga_comparison.md`
+No OpenAI attacker or other model inference was run. See `docs/arga_comparison.md`
 for run IDs, actual invocation method, latency and remaining copy limitations.
 
 ## H27 approved bounded OpenAI pilot, 2026-09-13
 
-The user explicitly approved `openai_pilot_protocol.md` v1 before inference.
+The user explicitly approved `protocols/openai_pilot_protocol.md` v1 before inference.
 `results/openai-pilot-v1/approval.json` anchors its unchanged bytes, and
 `frozen.json` records source, task, prompt and order hashes before the first model
 call. This is a small interface pilot comparing equally informed static and
@@ -642,7 +642,7 @@ therefore tie on prevention/completion without testing substantive new attacks.
 Selective median trial time was 1.325 seconds versus 0.554 for static. This is not
 evidence of incremental attack resistance. The broad hypothesis remains
 unestablished, and the scripted execution-only escape remains a counterexample.
-See `selfhosted_pilot_protocol.md` and `report/selfhosted-readiness.md` for every
+See `protocols/selfhosted_pilot_protocol.md` and `report/selfhosted-readiness.md` for every
 candidate, aggregate, cost and fidelity limitation. Earlier evidence is unchanged.
 
 H31 ran its twelve approved development calls under the frozen protocol in
@@ -690,7 +690,7 @@ path and closes the execution-only escape that preview-based mechanisms cannot. 
 does not establish adaptive quarantine superiority, does not defend a compromised
 service or host, and does not cover object transfer, resource use or arbitrary later
 failures. The negative quarantine comparison (H2, H7) and transport-fault limitation
-are preserved. See `combined_gate_protocol.md` and `results/combined-gate-v1`.
+are preserved. See `protocols/combined_gate_protocol.md` and `results/combined-gate-v1`.
 
 ## H33 data-flow effect gate study, 2026-09-13
 
@@ -722,7 +722,7 @@ containment ordering or a bound on all effects quarantine might address. The
 post-study defects below further limit that inference. Unmediated effects,
 covert channels and compromised hosts remain outside the validated scope. No
 quarantine-superiority or realistic model-resistance claim follows. See
-`dataflow_gate_protocol.md` and `results/dataflow-gate-v1`.
+`protocols/dataflow_gate_protocol.md` and `results/dataflow-gate-v1`.
 
 
 ### Post-study H32/H33 correctness qualification, 2026-09-13
@@ -741,7 +741,7 @@ and realistic AI attack resistance remain unproven. See report/report.md section
 
 ## H34 repaired effect-gate attacker pilot, interrupted closeout
 
-The prospective protocol is `effect_gate_pilot_protocol.md`, frozen before calls
+The prospective protocol is `protocols/effect_gate_pilot_protocol.md`, frozen before calls
 in `results/effect-gate-pilot-v1/protocol.md`. The question was whether a request-only
 adaptive attacker could violate the repaired gate or disrupt legitimate work, and
 whether identical candidates behaved differently under request-only authorization.

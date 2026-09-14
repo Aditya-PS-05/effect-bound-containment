@@ -4,8 +4,8 @@ from io import BytesIO
 
 import pytest
 
-from run_arga_workflow import ArgaClient, issue_state, score
-from run_broker_workflow import task
+from experiments.run_arga_workflow import ArgaClient, issue_state, score
+from experiments.run_broker_workflow import task
 
 
 def session():

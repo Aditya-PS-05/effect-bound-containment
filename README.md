@@ -43,8 +43,8 @@ experimental replication or a lab adoption assessment.
 | Tier | What | Where |
 |---|---|---|
 | **Core** (read first) | The report; the components above; the reviewer check. | `report/submission/`, `src/effect_bound.py`, `src/local_service.py`, `src/process_observer.py`, `verify.sh` |
-| **Evidence** (dig deeper) | Every run with hashed receipts; the experiment runners; the H1–H34 ledger; the consolidated review. | `results/`, `run_*.py`, `hypotheses.md`, `report/report.md` |
-| **History** (preserved, not current) | Earlier report renderings kept unchanged for provenance. | `report/evidence-pack.pdf`, `report/review.html` |
+| **Evidence** (dig deeper) | Every run with hashed receipts; the experiment runners; the H1–H34 ledger; the consolidated review. | `results/`, `experiments/run_*.py`, `protocols/`, `docs/`, `hypotheses.md`, `report/report.md` |
+| **History** (preserved, not current) | Earlier report renderings kept unchanged for provenance. | `report/history/evidence-pack.pdf`, `report/history/review.html` |
 
 The narrative below is the historical evidence index; the [Layout](#layout) section lists
 every file. Nothing is hidden or curated away — the negative and incomplete results
@@ -85,16 +85,16 @@ and an LLM usage statement. It is AI-drafted. The template strongly encourages a
 primarily team-written final version, so the author should revise it and complete the
 bracketed LLM-usage confirmation before submitting. Nothing has been submitted to Apart.
 
-The subsequent [native Git study](git_evidence.md) adds H12–H14 and 16 recorded cells.
+The subsequent [native Git study](docs/git_evidence.md) adds H12–H14 and 16 recorded cells.
 It is included in the current consolidated review; the older historical PDF
 remains unchanged. Request equality fails as a semantic detector on real Git
 configuration changes and harmless command variations.
 
-The [Git enforcement follow-up](git_enforcement.md) then tests prevention using a
+The [Git enforcement follow-up](docs/git_enforcement.md) then tests prevention using a
 native receive-time effect gate, against equally informed broker preview. It adds
 H15–H17 and 44 cells; this is ref-level execution enforcement, not dynamic quarantine.
 
-The latest [isolated HTTP study](isolated_http.md) repairs capability identity/replay
+The latest [isolated HTTP study](docs/isolated_http.md) repairs capability identity/replay
 rebinding and controlled quarantine failure, then adds 51 cells using real Bubblewrap
 isolation around a file-to-Pome-HTTP workflow. Tested attack successes are 11/12 with
 upstream approval alone, 8/12 with endpoint-restricted sandboxing and 0/12 with exact
@@ -103,15 +103,15 @@ capability checks at the isolated gateway. Correct benign completion is 4/5, 4/5
 local experiment, not a production deployment or autonomous LLM attack evaluation.
 The current consolidated review includes these results; the older PDF remains historical.
 
-The [integrated workflow](run_broker_workflow.py) now connects the isolated actor
+The [integrated workflow](experiments/run_broker_workflow.py) now connects the isolated actor
 to the actual broker, Pome adapter and independent observer. Both static denial
 and dynamic holds produce one approved report without duplicate writes on retry.
-The user-requested [Arga comparison](arga_comparison.md) then tests the same report
+The user-requested [Arga comparison](docs/arga_comparison.md) then tests the same report
 guard on a hosted synthetic GitHub twin: six issues without the guard, one with
 static enforcement, and one with adaptive holds. Neither experiment demonstrates
 an incremental quarantine benefit. These results are indexed in the current review and remain outside the historical PDF.
 
-The [separate-twin quarantine extension](arga_comparison.md#h26-separate-twin-quarantine-extension)
+The [separate-twin quarantine extension](docs/arga_comparison.md#h26-separate-twin-quarantine-extension)
 tests a narrower question: can previewing a reviewed repository-existence read
 block a hidden write while preserving correct read responses? It uses two real
 Arga twins, an equally informed static guard, and an execution-only fault control.
@@ -157,20 +157,20 @@ uv pip install --python .venv/bin/python -r requirements-dev.txt
 npm ci --no-audit --no-fund
 .venv/bin/python -m pytest -q
 .venv/bin/python security_check.py
-.venv/bin/python run_matrix.py --output .runtime/matrix-reproduction
-.venv/bin/python measure_resources.py --output .runtime/resource-reproduction
+.venv/bin/python -m experiments.run_matrix --output .runtime/matrix-reproduction
+.venv/bin/python -m experiments.measure_resources --output .runtime/resource-reproduction
 .venv/bin/python verify_results.py
-.venv/bin/python run_pome.py --output .runtime/pome-reproduction
-.venv/bin/python run_workflows.py --output .runtime/workflow-reproduction
-.venv/bin/python run_selective.py --output .runtime/selective-reproduction
-.venv/bin/python run_observers.py --output .runtime/observer-reproduction
-.venv/bin/python run_git_evidence.py --output .runtime/git-reproduction
-.venv/bin/python run_git_enforcement.py --output .runtime/git-enforcement-reproduction
-.venv/bin/python run_boundary_audit.py --output .runtime/boundary-audit-reproduction
-.venv/bin/python run_isolated_http.py --output .runtime/isolated-http-reproduction
-.venv/bin/python run_broker_workflow.py --output .runtime/broker-workflow-reproduction
-.venv/bin/python run_combined_gate.py .runtime/combined-gate-reproduction
-.venv/bin/python run_dataflow_gate.py .runtime/dataflow-gate-reproduction
+.venv/bin/python -m experiments.run_pome --output .runtime/pome-reproduction
+.venv/bin/python -m experiments.run_workflows --output .runtime/workflow-reproduction
+.venv/bin/python -m experiments.run_selective --output .runtime/selective-reproduction
+.venv/bin/python -m experiments.run_observers --output .runtime/observer-reproduction
+.venv/bin/python -m experiments.run_git_evidence --output .runtime/git-reproduction
+.venv/bin/python -m experiments.run_git_enforcement --output .runtime/git-enforcement-reproduction
+.venv/bin/python -m experiments.run_boundary_audit --output .runtime/boundary-audit-reproduction
+.venv/bin/python -m experiments.run_isolated_http --output .runtime/isolated-http-reproduction
+.venv/bin/python -m experiments.run_broker_workflow --output .runtime/broker-workflow-reproduction
+.venv/bin/python -m experiments.run_combined_gate .runtime/combined-gate-reproduction
+.venv/bin/python -m experiments.run_dataflow_gate .runtime/dataflow-gate-reproduction
 ```
 
 The isolated HTTP runner additionally requires working Linux Bubblewrap (`bwrap`)
@@ -187,9 +187,9 @@ loopback. Child processes are joined or terminated, with bounded startup and RPC
 
 The optional Arga runner is separate from the local test suite. It requires an
 explicitly provisioned synthetic GitHub session and makes hosted requests:
-`.venv/bin/python run_arga_workflow.py --output .runtime/arga-reproduction`.
+`.venv/bin/python -m experiments.run_arga_workflow --output .runtime/arga-reproduction`.
 It resets that session to its saved scenario before each condition and afterward;
-use only the dedicated Track 1 fixture. See `arga_comparison.md` for the reset
+use only the dedicated Track 1 fixture. See `docs/arga_comparison.md` for the reset
 limitations. Session credentials and wizard environment files are gitignored.
 
 ## Layout
@@ -197,27 +197,27 @@ limitations. Session credentials and wizard environment files are gitignored.
 - `src/effect_bound.py`: local broker, policy, capability checks, quarantine and records.
 - `src/pome_adapter.py`: real foreground Pome lifecycle, route mapping and capability gate.
 - `src/process_observer.py`: separate process acquiring Pome evidence, durable snapshots and receipts.
-- `run_matrix.py`: local comparative matrix including the static-server ablation.
-- `run_pome.py`: real Pome comparison with independent tape acquisition.
-- `run_workflows.py`: multi-step, deferred, concurrent and partial-failure experiments.
-- `run_selective.py`: bounded selective release, equally informed static baseline and simulation-fidelity controls.
-- `run_observers.py`: passive intent/gate/backend comparison, with outcome scoring independent of detector alerts.
-- `run_git_evidence.py`: native Git command/response/ref/reflog comparison, no mock push backend.
-- `git_evidence.md`: prospective follow-up results and concrete evidence requirements.
-- `run_git_enforcement.py`, `src/git_receive_gate.py`: native execution-time ref enforcement and comparison.
-- `git_enforcement.md`: matched-utility prevention results and trust-boundary limitations.
-- `run_boundary_audit.py`: before/after Pome identity, replay, quarantine and credential-bypass audit.
-- `run_isolated_http.py`, `src/http_boundary.py`, `src/http_actor.py`: isolated report-publishing experiment.
-- `run_arga_workflow.py`, `run_arga_quarantine.py`: hosted synthetic issue and separate-twin read comparisons.
-- `run_combined_gate.py`, `combined_gate_protocol.md`: H32 execution-time effect gate versus static and selective release on one service path.
-- `run_dataflow_gate.py`, `dataflow_gate_protocol.md`: H33 data-flow effect gate versus a state-only gate on a read-exfiltration fault.
-- `run_openai_pilot.py`, `openai_pilot_protocol.md`: bounded model-generated interface evaluation, opt-in provider calls and offline evidence verification.
-- `isolated_http.md`: new results, production-design sources and exact remaining limitations.
+- `experiments/run_matrix.py`: local comparative matrix including the static-server ablation.
+- `experiments/run_pome.py`: real Pome comparison with independent tape acquisition.
+- `experiments/run_workflows.py`: multi-step, deferred, concurrent and partial-failure experiments.
+- `experiments/run_selective.py`: bounded selective release, equally informed static baseline and simulation-fidelity controls.
+- `experiments/run_observers.py`: passive intent/gate/backend comparison, with outcome scoring independent of detector alerts.
+- `experiments/run_git_evidence.py`: native Git command/response/ref/reflog comparison, no mock push backend.
+- `docs/git_evidence.md`: prospective follow-up results and concrete evidence requirements.
+- `experiments/run_git_enforcement.py`, `src/git_receive_gate.py`: native execution-time ref enforcement and comparison.
+- `docs/git_enforcement.md`: matched-utility prevention results and trust-boundary limitations.
+- `experiments/run_boundary_audit.py`: before/after Pome identity, replay, quarantine and credential-bypass audit.
+- `experiments/run_isolated_http.py`, `src/http_boundary.py`, `src/http_actor.py`: isolated report-publishing experiment.
+- `experiments/run_arga_workflow.py`, `experiments/run_arga_quarantine.py`: hosted synthetic issue and separate-twin read comparisons.
+- `experiments/run_combined_gate.py`, `protocols/combined_gate_protocol.md`: H32 execution-time effect gate versus static and selective release on one service path.
+- `experiments/run_dataflow_gate.py`, `protocols/dataflow_gate_protocol.md`: H33 data-flow effect gate versus a state-only gate on a read-exfiltration fault.
+- `experiments/run_openai_pilot.py`, `protocols/openai_pilot_protocol.md`: bounded model-generated interface evaluation, opt-in provider calls and offline evidence verification.
+- `docs/isolated_http.md`: new results, production-design sources and exact remaining limitations.
 - `hypotheses.md`: fixed question, intermediate hypotheses, prospective protocol and evidence-linked outcomes.
-- `observer_comparison.md`: detector results, timing bounds and limitations.
+- `docs/observer_comparison.md`: detector results, timing bounds and limitations.
 - `tests/`: scoring, security, evidence integrity, deadline and workflow regression tests.
 - `verification.md`: measured findings and explicit boundaries of the claims.
-- `product.md`, `literature_review.md`, `secret_loyalties.md`: design and research background.
+- `product.md`, `docs/literature_review.md`, `docs/secret_loyalties.md`: design and research background.
 - `verify.sh`: one-command offline reviewer check (test suite + evidence verifier).
 
 ## Evidence boundary

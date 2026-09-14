@@ -48,7 +48,7 @@ findings; they are not security acceptance passes. The captured output is
 
 ### R1 — High: H30 verification accepts a broken final-candidate seal
 
-Location: [run_selfhosted_pilot.py](../run_selfhosted_pilot.py), lines 181–233.
+Location: [run_selfhosted_pilot.py](../experiments/run_selfhosted_pilot.py), lines 181–233.
 
 `evaluate()` checks `candidates.json` against `sealed.json`, but `verify()` does
 not. It verifies retained trial scores without establishing that the candidate
@@ -69,7 +69,7 @@ without regenerating the archived experiment.
 
 ### R2 — High: H33 leak scoring trusts editable metadata over the planned fixture
 
-Locations: [run_dataflow_gate.py](../run_dataflow_gate.py), lines 40–60 and 91–107.
+Locations: [run_dataflow_gate.py](../experiments/run_dataflow_gate.py), lines 40–60 and 91–107.
 
 `rescore()` scans responses using `row['secret']`; `verify()` checks the ordered
 IDs but does not bind the secret, arm, fault and task to `planned()`. `None`
@@ -90,8 +90,8 @@ plan-to-receipt check to H29/H32 and the model-pilot verifiers where appropriate
 ### R3 — High: the advertised reproduction commands overwrite archived evidence
 
 Locations: [README.md](../README.md), lines 129–137;
-[run_matrix.py](../run_matrix.py), lines 204–215;
-[measure_resources.py](../measure_resources.py), line 36.
+[run_matrix.py](../experiments/run_matrix.py), lines 204–215;
+[measure_resources.py](../experiments/measure_resources.py), line 36.
 
 Most runners require a new output directory. These two still write directly into
 `results/` using `write_text()`. The README instructs reviewers to execute both
@@ -160,7 +160,7 @@ case beside the existing malformed-JSON recovery test.
 
 ### R6 — Medium: the root implementation-review entrypoint is stale
 
-Location: [review_implementation.py](../review_implementation.py), lines 30–55.
+Location: [review_implementation.py](../experiments/review_implementation.py), lines 30–55.
 
 The first probe calls `broker_gateway()` without its now-required `ledger_path`
 and crashes before producing a counterexample. Other probes assert failures that
@@ -172,7 +172,7 @@ testing the current implementation.
 `TypeError: broker_gateway() missing 1 required keyword-only argument: 'ledger_path'`.
 
 **Fix:** make historical execution explicitly load the archived H28 source in an
-isolated subprocess, following the existing `run_pilot_followup.py` pattern, or
+isolated subprocess, following the existing `experiments/run_pilot_followup.py` pattern, or
 remove the live entrypoint and point readers to the archived diagnostic. Do not
 simply add a ledger argument while retaining assertions of bugs already fixed.
 
@@ -223,7 +223,7 @@ unresolved; an assistant review cannot supply the author's confirmation.
 | Area | Classification | Action |
 |---|---|---|
 | `review_implementation.py` | Broken live entrypoint for a historical review | Archive-route or remove the root entrypoint; retain the original evidence |
-| `run_experiment.py` | Unreferenced 73-line early demonstration | Optional deletion from the live tree; no current code/test/document caller found |
+| `experiments/run_experiment.py` | Unreferenced 73-line early demonstration | Optional deletion from the live tree; no current code/test/document caller found |
 | `run_effect_gate_pilot.py:14` | Unused `unwire` import | Remove unused symbol after the review; retain frozen source copies |
 | `tests/test_combined_gate.py:6` | Unused `verify` import | Remove unused symbol; consider whether a real verifier corruption test is needed |
 | `run_combined_gate.rescore`, `run_dataflow_gate.rescore`, `run_local_sandbox.verify` | Repeated receipt/score/namespace logic | Reuse one checked rescoring function when repairing plan binding; keep study-specific leak scoring separate |
@@ -235,7 +235,7 @@ unresolved; an assistant review cannot supply the author's confirmation.
 
 Ponytail audit shortlist, ranked by concrete removable source size:
 
-- `delete:` optional `run_experiment.py` demo; current tests and matrix already cover its role, and no live caller was found. 73 lines.
+- `delete:` optional `experiments/run_experiment.py` demo; current tests and matrix already cover its role, and no live caller was found. 73 lines.
 - `shrink:` repeated rescoring only as part of the integrity fix, not a speculative framework rewrite. Savings not estimated.
 - `delete:` the two unused import symbols identified by Ruff. These share lines with used imports, so no whole-line savings are claimed.
 

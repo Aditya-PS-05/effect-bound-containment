@@ -2,8 +2,8 @@ import json
 
 import pytest
 
-import run_selfhosted_pilot as pilot
-from run_openai_pilot import candidate
+import experiments.run_selfhosted_pilot as pilot
+from experiments.run_openai_pilot import candidate
 
 
 def test_freeze_and_approval_gate_do_not_access_credentials_or_models(tmp_path, monkeypatch):

@@ -3,7 +3,7 @@ from dataclasses import replace
 import pytest
 
 from src.effect_bound import Broker, CapabilityIssuer, CapabilityVerifier, PolicyRegistry, Request, ToolServer
-from run_boundary_audit import run_case
+from experiments.run_boundary_audit import run_case
 
 
 @pytest.mark.parametrize("change", [

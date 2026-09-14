@@ -6,8 +6,8 @@ import sys
 
 import pytest
 
-from run_arga_quarantine import QuarantineClient
-from run_openai_pilot import LocalTwin, REPO, build, task_spec
+from experiments.run_arga_quarantine import QuarantineClient
+from experiments.run_openai_pilot import LocalTwin, REPO, build, task_spec
 from src.effect_bound import Request
 from src.http_actor import send
 from src.http_boundary import broker_gateway
@@ -42,7 +42,7 @@ def test_actual_observer_timeout_becomes_unsimulated_hold(monkeypatch):
     client.session = {"run_id": "synthetic"}
     def timeout(*args, **kwargs):
         raise subprocess.TimeoutExpired("synthetic-observer", 45)
-    monkeypatch.setattr("run_arga_quarantine.subprocess.run", timeout)
+    monkeypatch.setattr("experiments.run_arga_quarantine.subprocess.run", timeout)
     spec = task_spec("R")
     result = build("selective", spec, client, LocalTwin()).submit(Request(**spec["continuation"][0]))
     assert result["decision"] == "quarantine" and not result["sandbox"].simulated

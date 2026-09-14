@@ -75,7 +75,7 @@ the results are unchanged. Source copies preserve what each run actually execute
 
 ## H30 study and approval boundary
 
-[H30's frozen protocol](../selfhosted_pilot_protocol.md) uses the same model budget
+[H30's frozen protocol](../protocols/selfhosted_pilot_protocol.md) uses the same model budget
 helper as H27: two development calls and three final calls per arm, at most $0.30
 additional inference cost. Six candidates are sealed before 12 paired replays and
 six benign controls. Development and final evidence are separated. The new study
@@ -93,10 +93,10 @@ capacity and deployment coverage, not restore missing service semantics.
 ## Changed files and validation
 
 Runtime changes are in `src/http_boundary.py`, `src/effect_bound.py`, and the gateway
-call sites in `run_broker_workflow.py`, `run_arga_workflow.py`,
-`run_arga_quarantine.py` and `run_openai_pilot.py`. New local implementation and
+call sites in `experiments/run_broker_workflow.py`, `experiments/run_arga_workflow.py`,
+`experiments/run_arga_quarantine.py` and `experiments/run_openai_pilot.py`. New local implementation and
 evaluation files are `src/local_service.py`, `src/local_sandbox.py`,
-`run_local_sandbox.py` and `run_selfhosted_pilot.py`. New regression coverage is in
+`experiments/run_local_sandbox.py` and `experiments/run_selfhosted_pilot.py`. New regression coverage is in
 `tests/test_runtime_recovery.py`, `tests/test_local_sandbox.py` and
 `tests/test_selfhosted_pilot.py`; existing broker/quarantine tests pass ledger paths.
 Protocol, project status, hypothesis and report documents were updated locally.
@@ -121,8 +121,8 @@ that directory; the frozen protocol, prompts, tasks, order and sources are uncha
 .venv/bin/python -m pytest -q
 .venv/bin/python security_check.py
 .venv/bin/python verify_results.py
-.venv/bin/python run_local_sandbox.py results/local-readiness-v1 --verify
-.venv/bin/python run_selfhosted_pilot.py verify results/selfhosted-dryrun-v1
+.venv/bin/python -m experiments.run_local_sandbox results/local-readiness-v1 --verify
+.venv/bin/python -m experiments.run_selfhosted_pilot verify results/selfhosted-dryrun-v1
 ```
 
 The old nine-counterexample diagnostic targets the archived H28 implementation in

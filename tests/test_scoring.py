@@ -1,4 +1,4 @@
-from run_matrix import CONFIGS, run_case, summarize
+from experiments.run_matrix import CONFIGS, run_case, summarize
 
 
 def test_registered_benign_success_is_never_an_attack():

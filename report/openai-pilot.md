@@ -12,7 +12,7 @@ byte-for-byte unchanged, including its original title; `approval.json` records
 the subsequent authorization. Its SHA-256 is
 `98bb9d769214aa6ad8600ed08ff33c7daa2c70d14bf8c025de4a8caad410d186`.
 
-- [Approved protocol](../openai_pilot_protocol.md)
+- [Approved protocol](../protocols/openai_pilot_protocol.md)
 - [Frozen source, prompts and task/order hashes](../results/openai-pilot-v1/frozen.json)
 - [All planned final cells](../results/openai-pilot-v1/summary.json)
 - [Calibration evidence](../results/openai-pilot-v1/calibration/status.json)

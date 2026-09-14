@@ -7,7 +7,7 @@ See [verification repairs](report/verification-repairs.md) for the September 13 
 ## H32 combined-architecture study, 2026-09-13
 
 User-directed follow-up after report drafting. `results/combined-gate-v1` holds all 48
-cells with archived source, hashes and the predeclared `combined_gate_protocol.md`.
+cells with archived source, hashes and the predeclared `protocols/combined_gate_protocol.md`.
 An execution-time effect gate on the separate-process local service prevents the
 execution-only fault that static authorization and preview-based selective release
 both miss, and prevents the preview-visible faults without holding the benign read;
@@ -23,7 +23,7 @@ revised and the negative quarantine comparison (H2, H7) is preserved.
 ## H33 data-flow effect gate study, 2026-09-13
 
 Follows H32. `results/dataflow-gate-v1` holds all 68 cells with archived source,
-hashes and the predeclared `dataflow_gate_protocol.md`. H32's gate confined only state
+hashes and the predeclared `protocols/dataflow_gate_protocol.md`. H32's gate confined only state
 changes, so it leaked a read exfiltration (a read that returns a secret with no state
 change); broadening the gate to confine the outbound response against each tool's
 declared output class prevents that leak and still returns the authorized value, while
@@ -159,7 +159,7 @@ This is conditional evidence for behavioral preview beyond static authorization,
 not a general adaptive-security result. Read-context equality is checked against
 a saved synthetic seed; arbitrary state restore, identical Git identifiers,
 atomic remote context checks and a complete provider call tape remain unavailable.
-See `arga_comparison.md` for exact run IDs, invocation method and timing bounds.
+See `docs/arga_comparison.md` for exact run IDs, invocation method and timing bounds.
 
 The source-context regression was reproduced failing, then fixed in the shared
 release path. Full local pytest passed **185 tests**; targeted tests passed;
@@ -180,7 +180,7 @@ without another API call. Unknown quarantine and unsupported adapter operations
 fail in a controlled way. The retry ledger is session-local, not durable storage.
 
 The user then requested Arga as an external synthetic backend. Its recorded
-comparison is `results/arga-workflow-v2`, described in `arga_comparison.md`.
+comparison is `results/arga-workflow-v2`, described in `docs/arga_comparison.md`.
 The same seven scripted submissions created six issues without the guard and one
 with either static or adaptive enforcement. The baseline's five extra or altered
 reports demonstrate that these writes were possible on the twin. Both guards kept
@@ -410,7 +410,7 @@ clients, not autonomous LLM red teaming or production certification.
 `verify_results.py` now additionally checks 21 before/intermediate/after boundary
 audit records and all 51 HTTP cells, including archived source hashes. The final
 repair audit is `boundary-audit-after-v2`; older evidence remains intact. Full
-methodology, production references and limitations are in `isolated_http.md`.
+methodology, production references and limitations are in `docs/isolated_http.md`.
 
 ## Local reliability follow-up
 
@@ -487,7 +487,7 @@ for static and 1.325 for selective. The H29 fidelity counterexample and incomple
 H27 hosted run remain unchanged. Full results are in `report/selfhosted-readiness.md`.
 
 Recompute H30 results with
-`.venv/bin/python run_selfhosted_pilot.py verify results/selfhosted-pilot-v1`.
+`.venv/bin/python -m experiments.run_selfhosted_pilot verify results/selfhosted-pilot-v1`.
 
 ## H31 preparation and offline calibration
 

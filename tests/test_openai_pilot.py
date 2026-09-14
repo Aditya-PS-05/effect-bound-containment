@@ -3,7 +3,7 @@ import json
 
 import pytest
 
-from run_openai_pilot import (ARMS, Budget, LocalTwin, build, candidate, model_call, run_trial,
+from experiments.run_openai_pilot import (ARMS, Budget, LocalTwin, build, candidate, model_call, run_trial,
                              schedule, state_score, task_spec)
 from src.effect_bound import Request
 
@@ -153,7 +153,7 @@ def test_budget_reserves_before_network_and_never_retries_uncertain_calls(tmp_pa
         assert ledger["static-dev-0"] == {"status": "reserved", "charge_nano_usd": 30_000_000}
         raise TimeoutError("synthetic only")
 
-    monkeypatch.setattr("run_openai_pilot.api_post", unavailable)
+    monkeypatch.setattr("experiments.run_openai_pilot.api_post", unavailable)
     with pytest.raises(RuntimeError):
         model_call("static-dev-0", [], "synthetic-not-a-real-key", tmp_path / "model", budget)
     assert calls == ["responses/input_tokens", "responses"]
@@ -164,7 +164,7 @@ def test_budget_reserves_before_network_and_never_retries_uncertain_calls(tmp_pa
 
 
 def test_token_count_limit_stops_before_model_request(tmp_path, monkeypatch):
-    monkeypatch.setattr("run_openai_pilot.api_post", lambda *a: {"input_tokens": 16001})
+    monkeypatch.setattr("experiments.run_openai_pilot.api_post", lambda *a: {"input_tokens": 16001})
     budget = Budget(tmp_path / "budget.json")
     with pytest.raises(RuntimeError):
         model_call("static-dev-0", [], "synthetic", tmp_path / "model", budget)

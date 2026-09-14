@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pytest
 
-from run_local_sandbox import run_trial, score, task_spec
+from experiments.run_local_sandbox import run_trial, score, task_spec
 from src.effect_bound import Request
 from src.http_actor import send
 from src.http_boundary import broker_gateway

@@ -5,28 +5,28 @@ import shutil
 import tempfile
 from pathlib import Path
 
-from run_matrix import summarize
+from experiments.run_matrix import summarize
 from src.process_observer import validate_tape, verify_snapshot
-from run_selective import summarize as summarize_selective
-from run_observers import verify_run
-from run_git_evidence import verify_run as verify_git_run
-from run_git_enforcement import verify_run as verify_git_enforcement
-from run_boundary_audit import verify_run as verify_boundary_audit
-from run_isolated_http import verify_run as verify_isolated_http
-from run_broker_workflow import verify_run as verify_broker_workflow
-from run_arga_workflow import verify_run as verify_arga_workflow
-from run_arga_quarantine import verify_run as verify_arga_quarantine
-from run_openai_pilot import verify_run as verify_openai_pilot
-from run_pilot_followup import verify_run as verify_pilot_followup
-from run_combined_gate import verify as verify_combined_gate
-from run_dataflow_gate import verify as verify_dataflow_gate
+from experiments.run_selective import summarize as summarize_selective
+from experiments.run_observers import verify_run
+from experiments.run_git_evidence import verify_run as verify_git_run
+from experiments.run_git_enforcement import verify_run as verify_git_enforcement
+from experiments.run_boundary_audit import verify_run as verify_boundary_audit
+from experiments.run_isolated_http import verify_run as verify_isolated_http
+from experiments.run_broker_workflow import verify_run as verify_broker_workflow
+from experiments.run_arga_workflow import verify_run as verify_arga_workflow
+from experiments.run_arga_quarantine import verify_run as verify_arga_quarantine
+from experiments.run_openai_pilot import verify_run as verify_openai_pilot
+from experiments.run_pilot_followup import verify_run as verify_pilot_followup
+from experiments.run_combined_gate import verify as verify_combined_gate
+from experiments.run_dataflow_gate import verify as verify_dataflow_gate
 
 
 def main():
     root = Path(__file__).resolve().parent / "results"
-    from run_local_sandbox import verify as verify_local
-    from run_selfhosted_pilot import verify as verify_selfhosted
-    from run_effect_gate_pilot import verify as verify_effect
+    from experiments.run_local_sandbox import verify as verify_local
+    from experiments.run_selfhosted_pilot import verify as verify_selfhosted
+    from experiments.run_effect_gate_pilot import verify as verify_effect
     # Pilot verifiers rebuild derived summaries only on disposable copies.
     for name, verifier in (("local-readiness-v1", verify_local),
                            ("selfhosted-pilot-v1", verify_selfhosted),

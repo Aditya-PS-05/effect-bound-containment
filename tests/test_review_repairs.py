@@ -7,8 +7,8 @@ import sys
 
 import pytest
 
-from run_selfhosted_pilot import verify
-from run_dataflow_gate import verify as verify_dataflow
+from experiments.run_selfhosted_pilot import verify
+from experiments.run_dataflow_gate import verify as verify_dataflow
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -44,7 +44,7 @@ def test_dataflow_sentinel_tampering(tmp_path):
         verify_dataflow(target)
 
 
-@pytest.mark.parametrize('runner', ['run_matrix.py', 'measure_resources.py'])
+@pytest.mark.parametrize('runner', ['experiments.run_matrix.py', 'measure_resources.py'])
 def test_reproduction_rejects_existing_output(tmp_path, runner):
     marker = tmp_path / 'keep'
     marker.write_text('unchanged')
@@ -58,7 +58,7 @@ def test_reproduction_rejects_existing_output(tmp_path, runner):
 @pytest.mark.parametrize('reply', [None, [], {'status': True}, {'status': '200'}])
 def test_invalid_backend_shape_is_an_uncertain_operation(tmp_path, monkeypatch, reply):
     from src.local_sandbox import LocalService
-    from run_local_sandbox import task_spec
+    from experiments.run_local_sandbox import task_spec
     service = LocalService(tmp_path, [])
     service.socket = tmp_path / 'unused.sock'
     service.tokens = {'write': 'synthetic'}

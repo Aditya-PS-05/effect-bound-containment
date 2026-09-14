@@ -14,10 +14,10 @@ The fixes have **not** been retested on fresh hosted Arga twins.
 ## Changes and regression proof
 
 Changed implementation files are `src/http_boundary.py`,
-`run_arga_quarantine.py`, `run_arga_workflow.py`, `run_broker_workflow.py` and
-`run_openai_pilot.py`. Regression coverage is in `tests/test_openai_pilot.py`,
+`experiments/run_arga_quarantine.py`, `experiments/run_arga_workflow.py`, `experiments/run_broker_workflow.py` and
+`experiments/run_openai_pilot.py`. Regression coverage is in `tests/test_openai_pilot.py`,
 `tests/test_arga_quarantine.py` and `tests/test_broker_workflow.py`.
-`run_pilot_followup.py` adds reproducible local replay, and `verify_results.py`
+`experiments/run_pilot_followup.py` adds reproducible local replay, and `verify_results.py`
 includes its evidence checks. The Track 1 status documents and report link this
 addendum; new evidence is confined to `results/pilot-followup-v1/`.
 
@@ -134,5 +134,5 @@ it must not be folded into the original H27 run.
 
 Run `.venv/bin/python verify_results.py` to verify the retained archives and
 recompute all H28 aggregates. Run
-`.venv/bin/python run_pilot_followup.py results/<new-local-run>` to repeat the
+`.venv/bin/python -m experiments.run_pilot_followup results/<new-local-run>` to repeat the
 local replay without spending model or Arga budget.

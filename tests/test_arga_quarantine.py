@@ -3,7 +3,7 @@ from dataclasses import asdict, replace
 
 import pytest
 
-from run_arga_quarantine import REPO, build
+from experiments.run_arga_quarantine import REPO, build
 from src.effect_bound import Request
 from src.http_actor import send
 from src.http_boundary import broker_gateway

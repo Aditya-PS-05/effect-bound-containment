@@ -2,7 +2,7 @@ import json
 
 import pytest
 
-import run_effect_gate_pilot as pilot
+import experiments.run_effect_gate_pilot as pilot
 
 
 def prepared(tmp_path):

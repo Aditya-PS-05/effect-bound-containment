@@ -3,8 +3,8 @@ import json
 
 import pytest
 
-import run_adaptive_pilot as pilot
-from run_local_sandbox import run_trial, task_spec
+import experiments.run_adaptive_pilot as pilot
+from experiments.run_local_sandbox import run_trial, task_spec
 
 
 def plan(lines):

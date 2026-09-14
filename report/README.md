@@ -39,7 +39,7 @@ check, not independent human validation. Local tests do not close those gaps.
   draft has a 150-word abstract, main text ending on page 8, and 12 total pages
   including references and appendices. Recheck pagination after author edits.
 - `boundaries.svg` is the diagram source; `boundaries.png` is its generated image.
-- `evidence-pack.pdf` and `review.html` retain the earlier historical review unchanged.
+- `history/evidence-pack.pdf` and `history/review.html` retain the earlier historical review unchanged.
   Their contents and page counts do not describe the latest consolidated evidence.
 - `official-template.docx` is the untouched template export. It has not been filled
   in, and this review PDF is not a substitute for the author's final-template PDF.

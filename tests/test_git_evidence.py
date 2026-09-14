@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pytest
 
-from run_git_evidence import (SCENARIOS, assess, journal_view, response_view,
+from experiments.run_git_evidence import (SCENARIOS, assess, journal_view, response_view,
                               run_case, state_view, summarize, verify_run)
 from src.process_observer import verify_snapshot
 
@@ -110,7 +110,7 @@ def test_consistent_first_source_forgery_remains_outside_guarantee(study):
 def test_published_table_matches_verified_archive():
     root = Path(__file__).resolve().parents[1]
     summary = summarize(verify_run(root / "results/git-evidence-v1"))
-    report = (root / "git_evidence.md").read_text()
+    report = (root / "docs/git_evidence.md").read_text()
     for enabled, condition in (("false", "Disabled"), ("true", "Enabled")):
         for view, label in (("request", "Request"), ("response", "Response"),
                             ("final_state", "Final state"), ("journal_state", "Journal + state")):

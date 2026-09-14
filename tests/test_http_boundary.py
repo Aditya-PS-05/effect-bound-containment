@@ -4,7 +4,7 @@ import socket
 
 import pytest
 
-from run_isolated_http import run_case
+from experiments.run_isolated_http import run_case
 from src.effect_bound import CapabilityIssuer, Request
 from src.http_boundary import decode_envelope, gateway
 from src.http_actor import send
