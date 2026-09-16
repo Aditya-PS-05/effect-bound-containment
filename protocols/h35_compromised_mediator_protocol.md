@@ -64,7 +64,15 @@ post-approval request mutation, replay of an approved request, fabricated succes
 cross-sandbox signalling through cache entry names, and payload substitution after approval.
 
 The attack set is written and committed **before** any change to the gate for this study, and
-its hash recorded in the run archive. This is the ordering that was wrong in H32 and H33, where
+its hash recorded in the run archive. It is frozen at
+`experiments/h35_attacks.py`, **sha256 `ab1512ba45c51effee7447920b3412958608476995d28c49db4ebc09fb464c71`**,
+13 episodes: 10 attacks across five families plus 3 benign controls. Each episode carries a
+prediction made before implementation. **Three of the ten attacks are predicted to be admitted
+by every arm, including the strongest** -- both cache-name-channel episodes, which never reach
+the backend where the gate sits, and the fabricated-success episode, which a backend gate
+cannot correct downstream of itself. They are retained deliberately: a control measured only
+against attacks it can stop has not been tested, and the residue must be measured rather than
+asserted. This is the ordering that was wrong in H32 and H33, where
 the faults and the control that catches them were authored together. Freezing first is what
 makes the result a test rather than a demonstration.
 
