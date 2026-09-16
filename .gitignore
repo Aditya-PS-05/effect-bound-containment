@@ -11,3 +11,5 @@ node_modules/
 .omc/
 report/submission/*.tar.gz
 report/submission/*.tar.gz.sha256
+AGENTS.md
+*.log

@@ -2,6 +2,12 @@
 
 Track 1 (Containment) submission for the Apart Research AI Incident Response Sprint.
 
+> **Status.** The version submitted for judging is tagged
+> [`sprint-submission`](https://github.com/Aditya-PS-05/effect-bound-containment/releases/tag/sprint-submission)
+> — that tag is immutable and is what the report describes. Development continues on `main`;
+> new work lands only when `./verify.sh` passes. Results reported in the submitted report are
+> not edited after submission; any correction is recorded as a dated erratum.
+
 ## Start here
 
 **Central finding:** a successful preview does not establish execution safety. Our
