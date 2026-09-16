@@ -88,8 +88,8 @@ These are AI-assisted preparation notes, **not a submission-ready manuscript**.
 official template's section order and typography: 150-word abstract, eight main-text
 pages, references, the required limitations/dual-use appendix, the control checklist
 and an LLM usage statement. It is AI-drafted. The template strongly encourages a
-primarily team-written final version, so the author should revise it and complete the
-bracketed LLM-usage confirmation before submitting. Nothing has been submitted to Apart.
+primarily team-written final version. Submitted to the sprint on 14 September 2026; the
+judged state is the [`sprint-submission`](https://github.com/Aditya-PS-05/effect-bound-containment/releases/tag/sprint-submission) tag.
 
 The subsequent [native Git study](docs/git_evidence.md) adds H12–H14 and 16 recorded cells.
 It is included in the current consolidated review; the older historical PDF
